@@ -779,7 +779,7 @@ document.addEventListener('mousemove',e=>{
 
 // EMAILJS - Send form to alforquefelixmarco@gmail.com
 (function(){
-  emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // <-- replace with your EmailJS public key
+  emailjs.init('clYt3hnTwhHOCCeVq'); // <-- replace with your EmailJS public key
 })();
 
 document.getElementById('formSubmit').addEventListener('click', function() {
@@ -800,7 +800,7 @@ document.getElementById('formSubmit').addEventListener('click', function() {
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+  emailjs.send('service_iefhjij', 'template_t7eh7pk', {
     from_name:  firstName + ' ' + lastName,
     from_email: email,
     subject:    subject || 'Portfolio Inquiry',
