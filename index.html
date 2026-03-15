@@ -785,55 +785,94 @@ const submittedTime = new Date().toLocaleString('en-US', {
   minute: '2-digit'
 });
   
-// EMAILJS - Send form to alforquefelixmarco@gmail.com
-(function(){
-  emailjs.init('clYt3hnTwhHOCCeVq'); // <-- replace with your EmailJS public key
+```javascript
+// EMAILJS - Portfolio Contact Form
+
+(function () {
+  emailjs.init('clYt3hnTwhHOCCeVq'); 
 })();
 
-document.getElementById('formSubmit').addEventListener('click', function() {
+document.getElementById('formSubmit').addEventListener('click', function () {
+
   const btn = document.getElementById('formSubmit');
+
   const firstName = document.getElementById('firstName').value.trim();
   const lastName  = document.getElementById('lastName').value.trim();
   const email     = document.getElementById('emailAddr').value.trim();
   const subject   = document.getElementById('subject').value.trim();
   const message   = document.getElementById('message').value.trim();
 
+  // Create submitted time
+  const submittedTime = new Date().toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
   if (!firstName || !email || !message) {
     btn.textContent = '⚠ Please fill required fields';
     btn.style.background = '#ff453a';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+    }, 3000);
+
     return;
   }
 
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
-  emailjs.send('service_iefhjij', 'template_t7eh7pk', {
-    from_name:  firstName + ' ' + lastName,
+  const templateParams = {
+    from_name: firstName + ' ' + lastName,
     from_email: email,
-    subject:    subject || 'Portfolio Inquiry',
-    message:    message,
-    time:       submittedTime,
-    to_email:   'alforquefelixmarco@gmail.com'
-  })
-  .then(() => {
-    btn.textContent = '✓ Message Sent!';
-    btn.style.background = '#30d158';
-    btn.disabled = false;
-    document.getElementById('firstName').value = '';
-    document.getElementById('lastName').value  = '';
-    document.getElementById('emailAddr').value = '';
-    document.getElementById('subject').value   = '';
-    document.getElementById('message').value   = '';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 4000);
-  })
-  .catch((err) => {
-    console.error('EmailJS error:', err);
-    btn.textContent = '✗ Failed — try emailing directly';
-    btn.style.background = '#ff453a';
-    btn.disabled = false;
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 4000);
-  });
+    subject: subject || 'Portfolio Inquiry',
+    message: message,
+    time: submittedTime,
+    to_email: 'alforquefelixmarco@gmail.com'
+  };
+
+  // Send email to YOU
+  emailjs.send('service_iefhjij', 'template_t7eh7pk', templateParams)
+
+    .then(() => {
+
+      // Send auto-reply to the sender
+      emailjs.send('service_iefhjij', 'template_vnf3qxp', templateParams);
+
+      btn.textContent = '✓ Message Sent!';
+      btn.style.background = '#30d158';
+      btn.disabled = false;
+
+      document.getElementById('firstName').value = '';
+      document.getElementById('lastName').value = '';
+      document.getElementById('emailAddr').value = '';
+      document.getElementById('subject').value = '';
+      document.getElementById('message').value = '';
+
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+      }, 4000);
+
+    })
+
+    .catch((err) => {
+
+      console.error('EmailJS error:', err);
+
+      btn.textContent = '✗ Failed — try emailing directly';
+      btn.style.background = '#ff453a';
+      btn.disabled = false;
+
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+      }, 4000);
+    });
 });
 </script>
 </body>
