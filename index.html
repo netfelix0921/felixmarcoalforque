@@ -736,144 +736,168 @@ footer{
   </div>
 </footer>
 
+
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup" style="
+position:fixed;top:0;left:0;right:0;bottom:0;
+background:rgba(0,0,0,.45);
+display:none;align-items:center;justify-content:center;
+z-index:9999;">
+  <div style="background:#fff;padding:30px 40px;border-radius:16px;text-align:center;max-width:320px;
+  box-shadow:0 20px 50px rgba(0,0,0,.2);font-family:Outfit, sans-serif;">
+    <h3 style="margin-bottom:10px;">✅ Message Sent</h3>
+    <p style="font-size:.9rem;color:#666;margin-bottom:20px;">
+      Thank you for contacting me. I will reply soon.
+    </p>
+    <button onclick="closePopup()" style="padding:10px 20px;border:none;background:#0071e3;color:#fff;border-radius:8px;cursor:pointer;">
+      Close
+    </button>
+  </div>
+</div>
+
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup" style="display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.5);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;">
+  <div style="background:var(--surface);border-radius:24px;padding:48px 40px;
+    max-width:400px;width:90%;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.3);">
+    <div style="font-size:3rem;margin-bottom:16px;">&#x2705;</div>
+    <h3 style="font-family:Syne,sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:10px;">Message Sent!</h3>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:28px;line-height:1.6;">
+      Thanks for reaching out! Felix will get back to you at <strong>alforquefelixmarco@gmail.com</strong> soon.
+    </p>
+    <button onclick="closePopup()" style="background:var(--accent);color:#fff;
+      border:none;padding:12px 32px;border-radius:999px;font-family:Syne,sans-serif;
+      font-size:.88rem;font-weight:700;cursor:pointer;">Close</button>
+  </div>
+</div>
+
 <script>
-// THEME
-const html=document.documentElement,btn=document.getElementById('themeToggle');
-const stored=localStorage.getItem('theme')||'light';
-html.setAttribute('data-theme',stored);
-btn.textContent=stored==='dark'?'☀️':'🌙';
-btn.addEventListener('click',()=>{
-  const next=html.getAttribute('data-theme')==='dark'?'light':'dark';
-  html.setAttribute('data-theme',next);
-  btn.textContent=next==='dark'?'☀️':'🌙';
-  localStorage.setItem('theme',next);
-});
+function showPopup(){ document.getElementById("successPopup").style.display="flex"; }
+function closePopup(){ document.getElementById("successPopup").style.display="none"; }
 
-// MOBILE MENU
-const ham=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
-let open=false;
-ham.addEventListener('click',()=>{open=!open;menu.classList.toggle('open',open);document.body.style.overflow=open?'hidden':''});
-document.querySelectorAll('.mobile-link').forEach(a=>a.addEventListener('click',()=>{open=false;menu.classList.remove('open');document.body.style.overflow=''}));
+(function(){ emailjs.init("clYt3hnTwhHOCCeVq"); })();
 
-// SCROLL REVEAL
-const revels=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-,{threshold:0.12,rootMargin:'0px 0px -48px 0px'});
-revels.forEach(el=>obs.observe(el));
+document.addEventListener("DOMContentLoaded", function(){
 
-// ACTIVE NAV
-const secs=document.querySelectorAll('section[id]'),links=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
-  links.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--text)':''});
-},{passive:true});
-
-// MOUSE PARALLAX
-document.addEventListener('mousemove',e=>{
-  const x=(e.clientX/window.innerWidth-.5)*20,y=(e.clientY/window.innerHeight-.5)*20;
-  document.querySelectorAll('.orb').forEach((o,i)=>{
-    const f=(i+1)*.4;o.style.transform=`translate(${x*f}px,${y*f}px)`;
-  });
-});
-
-const submittedTime = new Date().toLocaleString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit'
-});
-  
-```javascript
-// EMAILJS - Portfolio Contact Form
-
-(function () {
-  emailjs.init('clYt3hnTwhHOCCeVq'); 
-})();
-
-document.getElementById('formSubmit').addEventListener('click', function () {
-
-  const btn = document.getElementById('formSubmit');
-
-  const firstName = document.getElementById('firstName').value.trim();
-  const lastName  = document.getElementById('lastName').value.trim();
-  const email     = document.getElementById('emailAddr').value.trim();
-  const subject   = document.getElementById('subject').value.trim();
-  const message   = document.getElementById('message').value.trim();
-
-  // Create submitted time
-  const submittedTime = new Date().toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-
-  if (!firstName || !email || !message) {
-    btn.textContent = '⚠ Please fill required fields';
-    btn.style.background = '#ff453a';
-
-    setTimeout(() => {
-      btn.textContent = 'Send Message →';
-      btn.style.background = '';
-    }, 3000);
-
-    return;
+  // THEME
+  var themeBtn = document.getElementById("themeToggle");
+  var htmlEl = document.documentElement;
+  var storedTheme = localStorage.getItem("theme") || "light";
+  htmlEl.setAttribute("data-theme", storedTheme);
+  if(themeBtn){ themeBtn.textContent = storedTheme==="dark" ? "&#x2600;&#xFE0F;" : "&#x1F319;"; }
+  if(themeBtn){
+    themeBtn.addEventListener("click", function(){
+      var next = htmlEl.getAttribute("data-theme")==="dark" ? "light" : "dark";
+      htmlEl.setAttribute("data-theme", next);
+      themeBtn.textContent = next==="dark" ? "&#x2600;&#xFE0F;" : "&#x1F319;";
+      localStorage.setItem("theme", next);
+    });
   }
 
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  const templateParams = {
-    from_name: firstName + ' ' + lastName,
-    from_email: email,
-    subject: subject || 'Portfolio Inquiry',
-    message: message,
-    time: submittedTime,
-    to_email: 'alforquefelixmarco@gmail.com'
-  };
-
-  // Send email to YOU
-  emailjs.send('service_iefhjij', 'template_t7eh7pk', templateParams)
-
-    .then(() => {
-
-      // Send auto-reply to the sender
-      emailjs.send('service_iefhjij', 'template_vnf3qxp', templateParams);
-
-      btn.textContent = '✓ Message Sent!';
-      btn.style.background = '#30d158';
-      btn.disabled = false;
-
-      document.getElementById('firstName').value = '';
-      document.getElementById('lastName').value = '';
-      document.getElementById('emailAddr').value = '';
-      document.getElementById('subject').value = '';
-      document.getElementById('message').value = '';
-
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-      }, 4000);
-
-    })
-
-    .catch((err) => {
-
-      console.error('EmailJS error:', err);
-
-      btn.textContent = '✗ Failed — try emailing directly';
-      btn.style.background = '#ff453a';
-      btn.disabled = false;
-
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-      }, 4000);
+  // MOBILE MENU
+  var ham = document.getElementById("hamburger");
+  var mobileMenu = document.getElementById("mobileMenu");
+  var menuOpen = false;
+  if(ham && mobileMenu){
+    ham.addEventListener("click", function(){
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle("open", menuOpen);
+      document.body.style.overflow = menuOpen ? "hidden" : "";
     });
-});
+    document.querySelectorAll(".mobile-link").forEach(function(a){
+      a.addEventListener("click", function(){
+        menuOpen = false;
+        mobileMenu.classList.remove("open");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  // SCROLL REVEAL
+  var revealEls = document.querySelectorAll(".reveal,.reveal-left,.reveal-right");
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("visible"); revealObs.unobserve(e.target); }
+    });
+  }, {threshold:0.1, rootMargin:"0px 0px -40px 0px"});
+  revealEls.forEach(function(el){ revealObs.observe(el); });
+
+  // ACTIVE NAV LINKS
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav-links a");
+  window.addEventListener("scroll", function(){
+    var cur = "";
+    sections.forEach(function(s){ if(window.scrollY >= s.offsetTop - 100) cur = s.id; });
+    navLinks.forEach(function(a){ a.style.color = a.getAttribute("href")==="#"+cur ? "var(--text)" : ""; });
+  }, {passive:true});
+
+  // MOUSE PARALLAX
+  document.addEventListener("mousemove", function(e){
+    var x = (e.clientX/window.innerWidth - 0.5) * 20;
+    var y = (e.clientY/window.innerHeight - 0.5) * 20;
+    document.querySelectorAll(".orb").forEach(function(o, i){
+      var f = (i+1) * 0.4;
+      o.style.transform = "translate("+x*f+"px,"+y*f+"px)";
+    });
+  });
+
+  // CONTACT FORM
+  var submitBtn = document.getElementById("formSubmit");
+  if(submitBtn){
+    submitBtn.addEventListener("click", function(){
+      var btn = this;
+      var firstName = (document.getElementById("firstName")||{value:""}).value.trim();
+      var lastName  = (document.getElementById("lastName")||{value:""}).value.trim();
+      var email     = (document.getElementById("emailAddr")||{value:""}).value.trim();
+      var subject   = (document.getElementById("subject")||{value:""}).value.trim();
+      var message   = (document.getElementById("message")||{value:""}).value.trim();
+
+      if(!firstName || !email || !message){
+        btn.textContent = "Please fill required fields";
+        btn.style.background = "#ff453a";
+        setTimeout(function(){ btn.textContent="Send Message"; btn.style.background=""; }, 3000);
+        return;
+      }
+
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      var now = new Date().toLocaleString("en-US",{
+        year:"numeric", month:"long", day:"numeric", hour:"2-digit", minute:"2-digit"
+      });
+
+      emailjs.send("service_iefhjij", "template_t7eh7pk", {
+        from_name:  firstName + " " + lastName,
+        from_email: email,
+        subject:    subject || "Portfolio Inquiry",
+        message:    message,
+        time:       now,
+        to_email:   "alforquefelixmarco@gmail.com"
+      })
+      .then(function(){
+        btn.textContent = "Message Sent!";
+        btn.style.background = "#30d158";
+        btn.disabled = false;
+        ["firstName","lastName","emailAddr","subject","message"].forEach(function(id){
+          var el = document.getElementById(id);
+          if(el) el.value = "";
+        });
+        showPopup();
+        setTimeout(function(){ btn.textContent="Send Message"; btn.style.background=""; }, 4000);
+      })
+      .catch(function(err){
+        console.error("EmailJS error:", err);
+        btn.textContent = "Failed - email me directly";
+        btn.style.background = "#ff453a";
+        btn.disabled = false;
+        setTimeout(function(){ btn.textContent="Send Message"; btn.style.background=""; }, 4000);
+      });
+    });
+  }
+
 });
 </script>
 </body>
