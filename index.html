@@ -418,6 +418,13 @@ nav{
   transition:transform .2s,box-shadow .2s;font-family:'Syne',sans-serif;letter-spacing:.02em;
 }
 .contact-link:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+}
+.contact-link img{
+  width:18px;
+  height:18px;
+  margin-right:8px;
+  vertical-align:middle;
+}
 
 /* FOOTER */
 footer{
@@ -721,10 +728,22 @@ footer{
         <div class="form-group"><label>Message</label><textarea rows="5" id="message" placeholder="Tell me about your project or challenge..."></textarea></div>
         <button class="form-submit" id="formSubmit">Send Message →</button>
       </div>
-      <div class="contact-links reveal">
-        <a href="mailto:alforquefelixmarco@gmail.com" class="contact-link">📧 Email Me</a>
-        <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" rel="noopener" class="contact-link">💼 LinkedIn</a>
-      </div>
+<div class="contact-links reveal">
+
+  <a href="mailto:alforquefelixmarco@gmail.com" class="contact-link">
+    <img src="email.png" alt="Email">
+    Email Me
+  </a>
+
+  <a href="https://www.linkedin.com/in/felixmarcoalforque/"
+     target="_blank"
+     rel="noopener"
+     class="contact-link">
+    <img src="linkedin.png" alt="LinkedIn">
+    LinkedIn
+  </a>
+
+</div>
     </div>
   </div>
 </section>
