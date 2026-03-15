@@ -777,6 +777,8 @@ document.addEventListener('mousemove',e=>{
   });
 });
 
+const submittedTime = new Date().toLocaleString();
+  
 // EMAILJS - Send form to alforquefelixmarco@gmail.com
 (function(){
   emailjs.init('clYt3hnTwhHOCCeVq'); // <-- replace with your EmailJS public key
@@ -805,6 +807,7 @@ document.getElementById('formSubmit').addEventListener('click', function() {
     from_email: email,
     subject:    subject || 'Portfolio Inquiry',
     message:    message,
+    time:       submittedTime,
     to_email:   'alforquefelixmarco@gmail.com'
   })
   .then(() => {
