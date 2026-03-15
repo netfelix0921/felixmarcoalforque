@@ -782,20 +782,30 @@ function closePopup(){ document.getElementById("successPopup").style.display="no
 
 document.addEventListener("DOMContentLoaded", function(){
 
-  // THEME
-  var themeBtn = document.getElementById("themeToggle");
-  var htmlEl = document.documentElement;
-  var storedTheme = localStorage.getItem("theme") || "light";
-  htmlEl.setAttribute("data-theme", storedTheme);
-  if(themeBtn){ themeBtn.textContent = storedTheme==="dark" ? "&#x2600;&#xFE0F;" : "&#x1F319;"; }
-  if(themeBtn){
-    themeBtn.addEventListener("click", function(){
-      var next = htmlEl.getAttribute("data-theme")==="dark" ? "light" : "dark";
-      htmlEl.setAttribute("data-theme", next);
-      themeBtn.textContent = next==="dark" ? "&#x2600;&#xFE0F;" : "&#x1F319;";
-      localStorage.setItem("theme", next);
-    });
-  }
+// THEME
+var themeBtn = document.getElementById("themeToggle");
+var htmlEl = document.documentElement;
+var storedTheme = localStorage.getItem("theme") || "light";
+
+htmlEl.setAttribute("data-theme", storedTheme);
+
+if (themeBtn) {
+  themeBtn.textContent = storedTheme === "dark" ? "☀️" : "🌙";
+}
+
+if (themeBtn) {
+  themeBtn.addEventListener("click", function () {
+
+    var next = htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+
+    htmlEl.setAttribute("data-theme", next);
+
+    themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
+
+    localStorage.setItem("theme", next);
+
+  });
+}
 
   // MOBILE MENU
   var ham = document.getElementById("hamburger");
