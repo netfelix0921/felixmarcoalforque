@@ -878,6 +878,15 @@ document.addEventListener("DOMContentLoaded", function(){
         to_email:   "alforquefelixmarco@gmail.com"
       })
       .then(function(){
+        // Auto-reply to the sender
+        emailjs.send("service_iefhjij", "template_vnf3qxp", {
+          from_name:  firstName + " " + lastName,
+          from_email: email,
+          subject:    subject || "Portfolio Inquiry",
+          message:    message,
+          time:       now,
+          to_email:   "alforquefelixmarco@gmail.com"
+        });
         btn.textContent = "Message Sent!";
         btn.style.background = "#30d158";
         btn.disabled = false;
