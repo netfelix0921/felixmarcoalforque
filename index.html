@@ -643,53 +643,98 @@ ul{list-style:none}
 .erp-auto-name{color:rgba(255,255,255,.35)}
 .erp-auto-on{color:#4ade80;font-weight:600;font-size:.65rem;letter-spacing:.06em}
 
-/* ── QR mockup ── */
+/* ── Convention Event System mockup ── */
 .mock-qr{
   background:linear-gradient(160deg,#080c10 0%,#0c1218 50%,#101820 100%);
 }
 .qr-ui{
-  width:calc(100% - 40px);max-width:320px;
-  display:flex;flex-direction:column;align-items:center;gap:12px;
-  padding:20px;
+  width:calc(100% - 40px);max-width:340px;
+  display:flex;flex-direction:column;gap:10px;
+  padding:24px;
 }
-.qr-header{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);align-self:flex-start}
-.qr-frame{
-  width:148px;height:148px;
-  border-radius:16px;
-  background:rgba(255,255,255,.03);border:1.5px solid rgba(100,220,100,.25);
-  display:grid;grid-template-columns:repeat(7,1fr);
-  gap:3px;padding:14px;
-  position:relative;box-shadow:0 0 24px rgba(100,220,100,.08);
+
+/* Flow steps */
+.qr-flow{display:flex;flex-direction:column;gap:4px}
+.qr-flow-step{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:10px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  transition:background .3s;
 }
-.qr-frame::after{
-  content:'';position:absolute;inset:-2px;border-radius:18px;
-  border:1.5px solid rgba(100,220,100,.2);
-  box-shadow:0 0 20px rgba(100,220,100,.12);
-  animation:qrPulse 2.5s ease infinite;
+.qr-flow-done{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.04)}
+.qr-flow-active{border-color:rgba(99,102,241,.35);background:rgba(99,102,241,.08)}
+.qr-flow-pending{opacity:.4}
+.qr-flow-icon{font-size:.9rem;flex-shrink:0}
+.qr-flow-body{flex:1}
+.qr-flow-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.65)}
+.qr-flow-sub{font-size:.62rem;color:rgba(255,255,255,.3);margin-top:1px}
+.qr-flow-check{font-size:.7rem;color:#4ade80;font-weight:700;margin-left:auto}
+.qr-flow-pulse{
+  width:8px;height:8px;border-radius:50%;
+  background:#818cf8;margin-left:auto;flex-shrink:0;
+  box-shadow:0 0 8px rgba(129,140,248,.8);
+  animation:breathe 1.5s ease infinite;
 }
-@keyframes qrPulse{0%,100%{opacity:.3}50%{opacity:1}}
-.qc{border-radius:2px}
-.qr-ready{
-  font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(100,220,100,.6);
+
+/* Score card */
+.qr-score-card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:14px;
 }
-.qr-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
-.qr-stat{
+.qr-score-header{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;
+}
+.qr-score-title{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.qr-score-badge{
+  font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 8px;border-radius:999px;
+  background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.25);
+  color:rgba(255,150,150,.8);
+}
+.qr-score-bar-wrap{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.qr-score-bar-track{
+  flex:1;height:6px;border-radius:999px;
+  background:rgba(255,255,255,.06);overflow:hidden;
+}
+.qr-score-bar-fill{
+  height:100%;border-radius:999px;
+  background:linear-gradient(90deg,#f87171,#fb923c);
+  animation:growBar 1.5s .3s ease both;
+}
+.qr-score-pct{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.5)}
+.qr-score-meta{font-size:.62rem;color:rgba(255,255,255,.25);margin-bottom:10px}
+.qr-score-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.qr-score-btn{
+  padding:8px;border-radius:8px;text-align:center;
+  font-size:.65rem;font-weight:700;letter-spacing:.04em;
+}
+.qr-score-retry{
+  background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);
+  color:rgba(180,185,255,.8);
+}
+.qr-score-cert{
+  background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);
+  color:rgba(100,255,180,.8);
+}
+.qr-score-cert-dim{
   background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:12px;text-align:center;
+  color:rgba(255,255,255,.2);
 }
-.qr-stat-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;color:#f8fafc;line-height:1;margin-bottom:3px}
-.qr-stat-lbl{font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase}
-.qr-log{width:100%}
-.qr-log-title{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.qr-log-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:8px 12px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);
-  border-radius:8px;margin-bottom:4px;font-size:.7rem;
+
+/* Dashboard row */
+.qr-dash-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
 }
-.qr-log-name{color:rgba(255,255,255,.45)}
-.qr-log-time{color:rgba(100,220,100,.65);font-weight:500;font-size:.65rem}
+.qr-dash-stat{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;padding:12px 8px;text-align:center;
+}
+.qr-dash-val{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;
+}
+.qr-dash-lbl{font-size:.58rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase}
 
 /* System info pane */
 .sys-info{
@@ -1407,65 +1452,104 @@ footer{
     </div>
   </div>
 
-  <!--── QR Attendance ──-->
+  <!--── Convention Event System ──-->
   <div class="sys-block">
     <div class="sys-card flip reveal">
       <div class="sys-info">
         <div class="sys-num">System 04 — Events</div>
-        <h3 class="sys-title">QR Attendance System</h3>
-        <p class="sys-tagline">Check-in. Track. Done.</p>
+        <h3 class="sys-title">Convention Event System</h3>
+        <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
         <div class="sys-features">
           <div class="feat">
-            <div class="feat-icon">📱</div>
+            <div class="feat-icon">🎟️</div>
             <div class="feat-body">
-              <div class="feat-title">QR-based attendance tracking</div>
-              <div class="feat-desc">Any smartphone becomes a check-in terminal — no hardware needed.</div>
+              <div class="feat-title">Guest Registration & QR Stub</div>
+              <div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div>
             </div>
           </div>
           <div class="feat">
-            <div class="feat-icon">📡</div>
+            <div class="feat-icon">📲</div>
             <div class="feat-body">
-              <div class="feat-title">Real-time logging</div>
-              <div class="feat-desc">Attendance records update live as participants scan in and out.</div>
+              <div class="feat-title">QR Scan — Check-in & Check-out</div>
+              <div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div>
             </div>
           </div>
           <div class="feat">
-            <div class="feat-icon">📋</div>
+            <div class="feat-icon">📝</div>
             <div class="feat-body">
-              <div class="feat-title">Automated reporting</div>
-              <div class="feat-desc">Instant attendance summaries and exports — no manual collation.</div>
+              <div class="feat-title">In-event Assessment & Certification</div>
+              <div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div>
             </div>
           </div>
         </div>
       </div>
       <div class="sys-mock mock-qr">
         <div class="qr-ui">
-          <div class="qr-header">QR Attendance</div>
-          <div class="qr-frame" id="qrGrid"></div>
-          <div class="qr-ready">Ready to Scan</div>
-          <div class="qr-stats">
-            <div class="qr-stat">
-              <div class="qr-stat-val">248</div>
-              <div class="qr-stat-lbl">Checked in</div>
+          <!-- Flow steps -->
+          <div class="qr-flow">
+            <div class="qr-flow-step qr-flow-done">
+              <div class="qr-flow-icon">✉️</div>
+              <div class="qr-flow-body">
+                <div class="qr-flow-label">Registration</div>
+                <div class="qr-flow-sub">Email + QR stub sent</div>
+              </div>
+              <div class="qr-flow-check">✓</div>
             </div>
-            <div class="qr-stat">
-              <div class="qr-stat-val">12</div>
-              <div class="qr-stat-lbl">Pending</div>
+            <div class="qr-flow-step qr-flow-done">
+              <div class="qr-flow-icon">📲</div>
+              <div class="qr-flow-body">
+                <div class="qr-flow-label">Check-in Scan</div>
+                <div class="qr-flow-sub">9:02 AM logged</div>
+              </div>
+              <div class="qr-flow-check">✓</div>
+            </div>
+            <div class="qr-flow-step qr-flow-active">
+              <div class="qr-flow-icon">📝</div>
+              <div class="qr-flow-body">
+                <div class="qr-flow-label">Assessment</div>
+                <div class="qr-flow-sub">In progress…</div>
+              </div>
+              <div class="qr-flow-pulse"></div>
+            </div>
+            <div class="qr-flow-step qr-flow-pending">
+              <div class="qr-flow-icon">🏅</div>
+              <div class="qr-flow-body">
+                <div class="qr-flow-label">Certificate</div>
+                <div class="qr-flow-sub">Awaiting pass</div>
+              </div>
             </div>
           </div>
-          <div class="qr-log">
-            <div class="qr-log-title">Recent Check-ins</div>
-            <div class="qr-log-row">
-              <span class="qr-log-name">J. Santos</span>
-              <span class="qr-log-time">9:02 AM ✓</span>
+          <!-- Score card -->
+          <div class="qr-score-card">
+            <div class="qr-score-header">
+              <span class="qr-score-title">TechCon 2025 — Assessment</span>
+              <span class="qr-score-badge">Live</span>
             </div>
-            <div class="qr-log-row">
-              <span class="qr-log-name">M. Reyes</span>
-              <span class="qr-log-time">9:04 AM ✓</span>
+            <div class="qr-score-bar-wrap">
+              <div class="qr-score-bar-track">
+                <div class="qr-score-bar-fill" style="width:72%"></div>
+              </div>
+              <span class="qr-score-pct">72%</span>
             </div>
-            <div class="qr-log-row">
-              <span class="qr-log-name">A. Cruz</span>
-              <span class="qr-log-time">9:07 AM ✓</span>
+            <div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div>
+            <div class="qr-score-actions">
+              <div class="qr-score-btn qr-score-retry">Retake</div>
+              <div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div>
+            </div>
+          </div>
+          <!-- Dashboard row -->
+          <div class="qr-dash-row">
+            <div class="qr-dash-stat">
+              <div class="qr-dash-val">248</div>
+              <div class="qr-dash-lbl">Checked In</div>
+            </div>
+            <div class="qr-dash-stat">
+              <div class="qr-dash-val">186</div>
+              <div class="qr-dash-lbl">Tested</div>
+            </div>
+            <div class="qr-dash-stat">
+              <div class="qr-dash-val" style="color:#4ade80">142</div>
+              <div class="qr-dash-lbl">Certified</div>
             </div>
           </div>
         </div>
@@ -1530,13 +1614,13 @@ footer{
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
         </a>
 
-        <a href="mailto:alforquefelixmarco@gmail.com" class="contact-link-row">
+        <a href="/cdn-cgi/l/email-protection#42232e242d3033372724272e2b3a2f2330212d02252f232b2e6c212d2f" class="contact-link-row">
           <div class="contact-link-icon">
             <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color:var(--gray-5)"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <div>
             <div class="contact-link-name">Email</div>
-            <div class="contact-link-val">alforquefelixmarco@gmail.com</div>
+            <div class="contact-link-val"><span class="__cf_email__" data-cfemail="2f4e4349405d5e5a4a494a434657424e5d4c406f48424e4643014c4042">[email&#160;protected]</span></div>
           </div>
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
         </a>
@@ -1596,7 +1680,7 @@ footer{
     <div class="foot-logo">Felix Marco Alforque</div>
     <div class="foot-copy">© 2025 · ERP System Analyst · Manila, PH</div>
     <div class="foot-links">
-      <a href="mailto:alforquefelixmarco@gmail.com" class="foot-link">
+      <a href="/cdn-cgi/l/email-protection#a6c7cac0c9d4d7d3c3c0c3cacfdecbc7d4c5c9e6c1cbc7cfca88c5c9cb" class="foot-link">
         <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         Email
       </a>
@@ -1612,7 +1696,7 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // EMAILJS INIT
 (function(){ emailjs.init("clYt3hnTwhHOCCeVq"); })();
 
@@ -1640,19 +1724,6 @@ var revealObs=new IntersectionObserver(function(entries){
   });
 },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 reveals.forEach(function(el){ revealObs.observe(el); });
-
-// QR grid
-(function(){
-  var g=document.getElementById('qrGrid');
-  if(!g)return;
-  var p=[1,1,1,0,1,1,1,1,0,1,0,1,0,1,1,1,1,0,0,1,1,0,0,1,1,0,0,0,1,1,1,1,0,1,0,0,0,1,1,1,0,1,0,1,0,1,1,1,0,0,0];
-  p.forEach(function(v){
-    var d=document.createElement('div');
-    d.className='qc';
-    d.style.background=v?'rgba(100,220,100,0.5)':'transparent';
-    g.appendChild(d);
-  });
-})();
 
 // Popup helpers
 function showPopup(){
@@ -1726,7 +1797,6 @@ if(submitBtn){
     });
   });
 }
-
-  </script>
+</script>
 </body>
 </html>
