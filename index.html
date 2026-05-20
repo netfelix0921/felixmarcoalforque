@@ -342,6 +342,67 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   .metric-lbl{font-size:.55rem}
   .metric{padding:14px 8px}
 }
+
+/* ═══ TRUST STRIP ════════════════════════════════════════════════ */
+.trust-strip{padding:20px 0;background:var(--white);border-bottom:1px solid var(--gray-2);}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:0 40px;max-width:var(--max-w);margin:0 auto;}
+.trust-item{display:flex;align-items:center;gap:9px;}
+.trust-icon{font-size:.95rem;flex-shrink:0;opacity:.7;}
+.trust-text{font-size:.76rem;font-weight:500;color:var(--gray-5);letter-spacing:.01em;}
+.trust-divider{width:1px;height:20px;background:var(--gray-2);flex-shrink:0;}
+
+/* ═══ ERP BACKGROUND ══════════════════════════════════════════════ */
+.erp-bg{padding:120px 0;background:var(--gray-0);border-top:1px solid var(--gray-2);border-bottom:1px solid var(--gray-2);}
+.erp-bg-head{text-align:center;padding:0 40px;margin-bottom:72px;}
+.erp-bg-intro{font-size:.97rem;font-weight:300;color:var(--gray-5);max-width:580px;margin:18px auto 0;line-height:1.8;}
+.erp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.erp-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:30px 26px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
+.erp-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--gray-3);}
+.erp-card-icon{width:42px;height:42px;border-radius:var(--r-md);background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:16px;flex-shrink:0;}
+.erp-card-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em;}
+.erp-card-desc{font-size:.8rem;font-weight:300;color:var(--gray-5);line-height:1.75;flex:1;}
+.erp-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+.erp-tag{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--gray-1);color:var(--gray-4);border:1px solid var(--gray-2);}
+.conf-notice{max-width:var(--max-w);margin:48px auto 0;padding:0 40px;}
+.conf-box{background:rgba(217,119,6,.04);border:1px solid rgba(217,119,6,.18);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:14px;align-items:flex-start;}
+.conf-box-icon{font-size:1rem;flex-shrink:0;padding-top:1px;opacity:.8;}
+.conf-box-title{font-size:.8rem;font-weight:700;color:#92400e;margin-bottom:5px;letter-spacing:.01em;}
+.conf-box-text{font-size:.78rem;color:#92400e;opacity:.8;line-height:1.7;font-weight:300;}
+
+/* ═══ SERVICES ════════════════════════════════════════════════════ */
+.services{padding:120px 0;background:var(--white);}
+.services-head{text-align:center;padding:0 40px;margin-bottom:72px;}
+.services-sub{font-size:.97rem;font-weight:300;color:var(--gray-5);max-width:560px;margin:16px auto 0;line-height:1.8;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.svc-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:30px 26px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
+.svc-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--gray-4);}
+.svc-icon{width:46px;height:46px;border-radius:var(--r-md);border:1px solid var(--gray-2);background:var(--gray-1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:18px;flex-shrink:0;}
+.svc-title{font-size:.97rem;font-weight:700;color:var(--ink);margin-bottom:9px;letter-spacing:-.015em;}
+.svc-desc{font-size:.8rem;font-weight:300;color:var(--gray-5);line-height:1.75;}
+.svc-list{margin-top:16px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.svc-li{display:flex;align-items:flex-start;gap:8px;font-size:.77rem;color:var(--gray-5);line-height:1.5;}
+.svc-arrow{color:var(--gray-3);font-size:.72rem;padding-top:2px;flex-shrink:0;}
+.svc-ideal-wrap{margin-top:18px;padding-top:14px;border-top:1px solid var(--gray-1);}
+.svc-ideal-lbl{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-3);margin-bottom:3px;}
+.svc-ideal-val{font-size:.76rem;font-weight:400;color:var(--gray-4);line-height:1.5;}
+.services-cta-wrap{text-align:center;margin-top:56px;padding:0 40px;}
+.services-cta-wrap p{font-size:.92rem;color:var(--gray-4);font-weight:300;margin-bottom:22px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
+
+/* ═══ RESPONSIVE ADDITIONS ════════════════════════════════════════ */
+@media(max-width:960px){
+  .erp-grid{grid-template-columns:1fr 1fr;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .trust-divider{display:none;}
+  .trust-inner{gap:20px;}
+}
+@media(max-width:640px){
+  .erp-grid,.services-grid{grid-template-columns:1fr;padding:0 16px;}
+  .conf-notice{padding:0 16px;}
+  .erp-bg-head,.services-head{padding-left:16px;padding-right:16px;}
+  .services-cta-wrap{padding:0 16px;}
+  .trust-inner{gap:14px;padding:0 16px;}
+  .trust-item{font-size:.7rem;}
+}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--gray-1)}
 ::-webkit-scrollbar-thumb{background:var(--gray-3);border-radius:999px}
@@ -355,6 +416,8 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#systems">Systems</a></li>
+      <li><a href="#erp-experience">ERP Work</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -373,6 +436,8 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
 <div class="mob-menu" id="mobMenu">
   <a href="#about" class="mob-link">About</a>
   <a href="#systems" class="mob-link">Systems</a>
+  <a href="#erp-experience" class="mob-link">ERP Work</a>
+  <a href="#services" class="mob-link">Services</a>
   <a href="#process" class="mob-link">Process</a>
   <a href="#contact" class="mob-link">Contact</a>
   <a href="#contact" class="btn-ink" style="width:fit-content">Hire Me</a>
@@ -420,6 +485,20 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
 </section>
 
 <div class="section-sep"></div>
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">🏢</span><span class="trust-text">Corporate ERP Experience</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-text">NDA-Compliant Work</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">📐</span><span class="trust-text">Architecture Before Code</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">⚙️</span><span class="trust-text">End-to-End Implementation</span></div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="trust-icon">🇵🇭</span><span class="trust-text">Manila-based · Remote-ready</span></div>
+  </div>
+</div>
+
 
 <section class="about" id="about">
   <div class="wrap">
@@ -463,6 +542,63 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   </div>
 </section>
 
+
+<div class="section-sep"></div>
+
+<section class="erp-bg" id="erp-experience">
+  <div class="erp-bg-head reveal">
+    <p class="label">ERP Track Record</p>
+    <h2 class="section-title">Behind the builds,<br><em>real enterprise work</em></h2>
+    <p class="erp-bg-intro">Before building systems for clients, I spent years inside corporate ERP environments — implementing, customizing, and optimizing the exact type of software your business depends on. This is the depth I bring to every project.</p>
+  </div>
+  <div class="erp-grid">
+    <div class="erp-card reveal">
+      <div class="erp-card-icon">💰</div>
+      <h3 class="erp-card-title">Finance Module Implementation</h3>
+      <p class="erp-card-desc">Worked directly on ERP finance modules — general ledger configuration, accounts payable/receivable workflows, cost center mapping, and period-end closing procedures aligned to business reporting cycles.</p>
+      <div class="erp-card-tags"><span class="erp-tag">GL Config</span><span class="erp-tag">AP/AR</span><span class="erp-tag">Cost Centers</span></div>
+    </div>
+    <div class="erp-card reveal reveal-d1">
+      <div class="erp-card-icon">👥</div>
+      <h3 class="erp-card-title">HR & Payroll Systems</h3>
+      <p class="erp-card-desc">Supported full HR module setups including employee master data, leave and attendance management, payroll calculation workflows, and government contribution integrations (SSS, PhilHealth, Pag-IBIG).</p>
+      <div class="erp-card-tags"><span class="erp-tag">Payroll</span><span class="erp-tag">Leave Mgmt</span><span class="erp-tag">Gov Compliance</span></div>
+    </div>
+    <div class="erp-card reveal reveal-d2">
+      <div class="erp-card-icon">📦</div>
+      <h3 class="erp-card-title">Inventory & Procurement</h3>
+      <p class="erp-card-desc">Handled inventory management setups, purchase order approval workflows, multi-warehouse location structures, and auto-reorder threshold automation within enterprise environments.</p>
+      <div class="erp-card-tags"><span class="erp-tag">PO Workflow</span><span class="erp-tag">Warehousing</span><span class="erp-tag">Auto-reorder</span></div>
+    </div>
+    <div class="erp-card reveal">
+      <div class="erp-card-icon">⚙️</div>
+      <h3 class="erp-card-title">Business Workflow Automation</h3>
+      <p class="erp-card-desc">Mapped and automated approval chains, inter-department data flows, and high-frequency recurring tasks — reducing manual effort and error rates across multiple business units simultaneously.</p>
+      <div class="erp-card-tags"><span class="erp-tag">Approvals</span><span class="erp-tag">Automation</span><span class="erp-tag">Data Flow</span></div>
+    </div>
+    <div class="erp-card reveal reveal-d1">
+      <div class="erp-card-icon">📊</div>
+      <h3 class="erp-card-title">Reporting & Dashboard Builds</h3>
+      <p class="erp-card-desc">Designed and built management reporting modules — daily operations dashboards, month-end financial summaries, and KPI trackers that gave leadership teams real-time visibility into business performance.</p>
+      <div class="erp-card-tags"><span class="erp-tag">KPI Dashboards</span><span class="erp-tag">Month-end Reports</span><span class="erp-tag">Mgmt Views</span></div>
+    </div>
+    <div class="erp-card reveal reveal-d2">
+      <div class="erp-card-icon">🖥️</div>
+      <h3 class="erp-card-title">UI Improvements & User Training</h3>
+      <p class="erp-card-desc">Redesigned internal ERP screens for usability — streamlined navigation, simplified data entry forms, role-specific views — then trained end-users and department leads to drive actual system adoption.</p>
+      <div class="erp-card-tags"><span class="erp-tag">UX Redesign</span><span class="erp-tag">Training</span><span class="erp-tag">Adoption</span></div>
+    </div>
+  </div>
+  <div class="conf-notice reveal">
+    <div class="conf-box">
+      <span class="conf-box-icon">🔒</span>
+      <div>
+        <div class="conf-box-title">A note on confidentiality</div>
+        <p class="conf-box-text">All ERP implementation work above was performed on internal corporate systems under non-disclosure agreements. Client names, system screenshots, and proprietary data cannot be shared publicly. I am happy to discuss scope, technical challenges, and my specific contributions in detail during a private consultation.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="systems" id="systems">
   <div class="systems-head reveal">
     <p class="label">Featured Systems</p>
@@ -630,6 +766,114 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   </div>
 </section>
 
+
+<div class="section-sep"></div>
+
+<section class="services" id="services">
+  <div class="services-head reveal">
+    <p class="label">What I Can Build For You</p>
+    <h2 class="section-title">Engagements I <em>take on</em></h2>
+    <p class="services-sub">Whether you need a full ERP from the ground up, targeted improvements to an existing system, or a clearer picture of why your current setup isn't working — here's how I can help.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon">🏗️</div>
+      <h3 class="svc-title">Custom ERP Development</h3>
+      <p class="svc-desc">Built for how your business actually operates — not a generic template forced into your workflow.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>Full module architecture planning</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Finance, HR, Inventory &amp; Sales integration</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Role-based access &amp; approval flows</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Dashboard &amp; reporting layer included</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">SMBs ready to replace spreadsheets with a real, scalable system</div>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-icon">🧩</div>
+      <h3 class="svc-title">ERP Module Add-On</h3>
+      <p class="svc-desc">Your existing system is missing something critical. I build what's needed and integrate it cleanly into what you already have.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>Payroll &amp; government compliance module</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Inventory &amp; auto-reorder module</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Customer or supplier portals</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>3rd-party API integrations</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">Growing businesses that need specific extensions to their current setup</div>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-icon">📊</div>
+      <h3 class="svc-title">Reporting &amp; Business Intelligence</h3>
+      <p class="svc-desc">Turn raw ERP data into dashboards your leadership team actually reads — and acts on.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>KPI &amp; operations dashboards</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Automated month-end report generation</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Financial summaries &amp; P&amp;L views</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Exportable report templates</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">Management teams making decisions without clear visibility into their data</div>
+      </div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">⚙️</div>
+      <h3 class="svc-title">Business Process Automation</h3>
+      <p class="svc-desc">Find the manual, repetitive tasks draining your team's time — and eliminate them with smart workflow automation.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>Approval chain automation</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Automated notifications &amp; alerts</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Scheduled data jobs &amp; batch processing</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Cross-department data sync</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">Teams losing hours every week to avoidable manual processes</div>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-icon">🔍</div>
+      <h3 class="svc-title">ERP Audit &amp; Process Review</h3>
+      <p class="svc-desc">Not sure why your system isn't working the way it should? I audit your setup, find the gaps, and deliver a clear path forward.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>Current system gap analysis</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Process bottleneck identification</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Actionable improvement roadmap</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Optional implementation support</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">Businesses with ERP frustrations but no clear diagnosis of the problem</div>
+      </div>
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-icon">🖥️</div>
+      <h3 class="svc-title">ERP UI/UX Redesign</h3>
+      <p class="svc-desc">Your system works technically but your team resists using it. I redesign the interface to cut friction and drive real adoption.</p>
+      <ul class="svc-list">
+        <li class="svc-li"><span class="svc-arrow">→</span>User flow analysis &amp; redesign</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Form simplification &amp; data entry UX</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Navigation restructuring</li>
+        <li class="svc-li"><span class="svc-arrow">→</span>Role-based interface customization</li>
+      </ul>
+      <div class="svc-ideal-wrap">
+        <div class="svc-ideal-lbl">Best for</div>
+        <div class="svc-ideal-val">Teams avoiding the ERP because it's too confusing or slow to use</div>
+      </div>
+    </div>
+  </div>
+  <div class="services-cta-wrap reveal">
+    <p>Not sure which engagement fits your situation? Let's talk — it usually becomes clear within the first 15 minutes.</p>
+    <a href="#contact" class="btn-ink">Start a Conversation
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
 <section class="process" id="process">
   <div class="process-head wrap reveal">
     <p class="label">How I Work</p>
