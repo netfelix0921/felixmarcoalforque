@@ -9,9 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
-/*──────────────────────────────────────────────────────
-  TOKENS
-──────────────────────────────────────────────────────*/
 :root {
   --white:   #ffffff;
   --gray-0:  #fafafa;
@@ -25,643 +22,179 @@
   --gray-8:  #27272a;
   --gray-9:  #18181b;
   --ink:     #0a0a0b;
-
   --accent:      #1a1a2e;
   --accent-soft: rgba(26,26,46,0.06);
-
   --green:   #16a34a;
   --red:     #dc2626;
   --blue:    #2563eb;
   --amber:   #d97706;
   --violet:  #7c3aed;
-
   --r-sm:  8px;
   --r-md:  14px;
   --r-lg:  20px;
   --r-xl:  28px;
   --r-2xl: 36px;
-
   --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
   --shadow-lg: 0 24px 64px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.06);
   --shadow-xl: 0 40px 100px rgba(0,0,0,0.13), 0 16px 40px rgba(0,0,0,0.08);
-
   --nav-h: 56px;
   --max-w: 1120px;
   --prose: 680px;
 }
-
-/*──────────────────────────────────────────────────────
-  RESET
-──────────────────────────────────────────────────────*/
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{
-  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
-  background:var(--white);
-  color:var(--ink);
-  line-height:1.6;
-  overflow-x:hidden;
-}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 img{display:block;max-width:100%}
 ul{list-style:none}
-
-/*──────────────────────────────────────────────────────
-  UTILITIES
-──────────────────────────────────────────────────────*/
 .wrap{max-width:var(--max-w);margin:0 auto;padding:0 40px}
 .prose-wrap{max-width:var(--prose);margin:0 auto;padding:0 40px}
-
-.label {
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--gray-4);
-}
-
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity .7s ease,transform .7s ease;
-}
+.label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-4);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.08s}
 .reveal-d2{transition-delay:.16s}
 .reveal-d3{transition-delay:.24s}
 .reveal-d4{transition-delay:.32s}
-
-/*──────────────────────────────────────────────────────
-  NAV
-──────────────────────────────────────────────────────*/
-.nav{
-  position:fixed;inset:0 0 auto 0;
-  height:var(--nav-h);
-  z-index:200;
-  display:flex;align-items:center;
-  padding:0 40px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(16px) saturate(180%);
-  -webkit-backdrop-filter:blur(16px) saturate(180%);
-  border-bottom:1px solid var(--gray-2);
-  transition:box-shadow .3s;
-}
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;background:rgba(255,255,255,0.85);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--gray-2);transition:box-shadow .3s;}
 .nav.scrolled{box-shadow:var(--shadow-sm)}
-.nav-inner{
-  max-width:var(--max-w);margin:0 auto;width:100%;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:.95rem;
-  font-weight:800;
-  color:var(--ink);
-  letter-spacing:.02em;
-  line-height:1.1;
-}
-.nav-links{
-  display:flex;gap:32px;align-items:center;
-}
-.nav-links a{
-  font-size:.82rem;font-weight:500;
-  color:var(--gray-5);
-  transition:color .2s;
-}
+.nav-inner{max-width:var(--max-w);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);letter-spacing:.02em;line-height:1.1;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--gray-5);transition:color .2s;}
 .nav-links a:hover{color:var(--ink)}
-.nav-cta{
-  padding:9px 20px;
-  border-radius:999px;
-  background:var(--ink);
-  color:var(--white);
-  font-size:.8rem;font-weight:600;
-  letter-spacing:.01em;
-  transition:opacity .2s,transform .15s;
-  display:inline-flex;align-items:center;gap:6px;
-}
+.nav-cta{padding:9px 20px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.8rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:6px;}
 .nav-cta:hover{opacity:.85;transform:translateY(-1px)}
-
-.burger{
-  display:none;flex-direction:column;gap:5px;
-  width:24px;
-}
-.burger span{
-  display:block;height:1.5px;
-  background:var(--ink);border-radius:2px;
-  transition:all .3s;
-}
-
-.mob-menu{
-  display:none;
-  position:fixed;inset:var(--nav-h) 0 0 0;
-  background:var(--white);
-  z-index:199;
-  flex-direction:column;
-  padding:32px 40px;
-  gap:24px;
-  border-top:1px solid var(--gray-2);
-}
+.burger{display:none;flex-direction:column;gap:5px;width:24px;}
+.burger span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:all .3s;}
+.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:var(--white);z-index:199;flex-direction:column;padding:32px 40px;gap:24px;border-top:1px solid var(--gray-2);}
 .mob-menu.open{display:flex}
-.mob-link{
-  font-size:1.1rem;font-weight:500;
-  color:var(--gray-6);
-  transition:color .2s;
-}
+.mob-link{font-size:1.1rem;font-weight:500;color:var(--gray-6);transition:color .2s;}
 .mob-link:hover{color:var(--ink)}
-
-/*──────────────────────────────────────────────────────
-  HERO
-──────────────────────────────────────────────────────*/
-.hero{
-  min-height:100vh;
-  display:flex;align-items:center;
-  padding-top:var(--nav-h);
-  position:relative;
-  overflow:hidden;
-  background:var(--white);
-}
-
-/* Ruled background lines */
-.hero::before{
-  content:'';
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(var(--gray-2) 1px,transparent 1px),
-    linear-gradient(90deg,var(--gray-2) 1px,transparent 1px);
-  background-size:64px 64px;
-  opacity:.35;
-  mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 20%,transparent 80%);
-}
-
-/* Gradient blob */
-.hero-blob{
-  position:absolute;
-  top:-200px;right:-300px;
-  width:900px;height:900px;
-  background:radial-gradient(circle,rgba(99,102,241,.05) 0%,transparent 60%);
-  pointer-events:none;
-}
-
-.hero-inner{
-  position:relative;z-index:1;
-  max-width:var(--max-w);margin:0 auto;
-  padding:80px 40px 100px;
-  width:100%;
-}
-
-.hero-kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 14px;
-  border-radius:999px;
-  border:1px solid var(--gray-2);
-  background:var(--white);
-  box-shadow:var(--shadow-xs);
-  margin-bottom:36px;
-  animation:fadeUp .9s ease both;
-}
-.kicker-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:#22c55e;
-  box-shadow:0 0 6px rgba(34,197,94,.8);
-  animation:breathe 2.5s ease infinite;
-}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden;background:var(--white);}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--gray-2) 1px,transparent 1px),linear-gradient(90deg,var(--gray-2) 1px,transparent 1px);background-size:64px 64px;opacity:.35;mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 20%,transparent 80%);}
+.hero-blob{position:absolute;top:-200px;right:-300px;width:900px;height:900px;background:radial-gradient(circle,rgba(99,102,241,.05) 0%,transparent 60%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:80px 40px 100px;width:100%;}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid var(--gray-2);background:var(--white);box-shadow:var(--shadow-xs);margin-bottom:36px;animation:fadeUp .9s ease both;}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px rgba(34,197,94,.8);animation:breathe 2.5s ease infinite;}
 @keyframes breathe{0%,100%{opacity:1}50%{opacity:.35}}
-.hero-kicker span{
-  font-size:.72rem;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gray-5);
-}
-
-.hero-h1{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:clamp(2.8rem,7vw,5.5rem);
-  line-height:1.05;
-  letter-spacing:-.03em;
-  font-weight:800;
-  color:var(--ink);
-  max-width:820px;
-  margin-bottom:28px;
-  animation:fadeUp .9s .1s ease both;
-}
-.hero-h1 em{
-  font-style:normal;
-  font-weight:300;
-  color:var(--gray-5);
-}
-
-.hero-sub{
-  font-size:1.05rem;
-  font-weight:300;
-  color:var(--gray-5);
-  max-width:540px;
-  margin-bottom:48px;
-  line-height:1.7;
-  animation:fadeUp .9s .2s ease both;
-}
-.hero-sub strong{
-  color:var(--gray-7);font-weight:500;
-  display:block;
-  font-size:.82rem;
-  letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:6px;
-}
-
-.hero-actions{
-  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
-  animation:fadeUp .9s .3s ease both;
-}
-.btn-ink{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:999px;
-  background:var(--ink);color:var(--white);
-  font-size:.88rem;font-weight:600;
-  letter-spacing:.01em;
-  transition:opacity .2s,transform .2s,box-shadow .2s;
-  box-shadow:0 4px 20px rgba(0,0,0,.15);
-}
+.hero-kicker span{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-5);}
+.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;color:var(--ink);max-width:820px;margin-bottom:28px;animation:fadeUp .9s .1s ease both;}
+.hero-h1 em{font-style:normal;font-weight:300;color:var(--gray-5);}
+.hero-sub{font-size:1.05rem;font-weight:300;color:var(--gray-5);max-width:540px;margin-bottom:48px;line-height:1.7;animation:fadeUp .9s .2s ease both;}
+.hero-sub strong{color:var(--gray-7);font-weight:500;display:block;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;animation:fadeUp .9s .3s ease both;}
+.btn-ink{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.15);}
 .btn-ink:hover{opacity:.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
-.btn-line{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 24px;border-radius:999px;
-  border:1.5px solid var(--gray-2);
-  color:var(--gray-6);font-size:.88rem;font-weight:500;
-  transition:border-color .2s,color .2s,transform .2s;
-}
+.btn-line{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;border:1.5px solid var(--gray-2);color:var(--gray-6);font-size:.88rem;font-weight:500;transition:border-color .2s,color .2s,transform .2s;}
 .btn-line:hover{border-color:var(--gray-5);color:var(--ink);transform:translateY(-2px)}
-
-/* Floating stat bar */
-.hero-metrics{
-  display:flex;align-items:stretch;gap:0;
-  margin-top:64px;
-  border:1px solid var(--gray-2);
-  border-radius:var(--r-xl);
-  background:var(--white);
-  box-shadow:var(--shadow-md);
-  overflow:hidden;
-  max-width:560px;
-  animation:fadeUp .9s .4s ease both;
-}
-.metric{
-  flex:1;padding:24px 20px;
-  border-right:1px solid var(--gray-2);
-  text-align:center;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-}
+.hero-metrics{display:flex;align-items:stretch;gap:0;margin-top:64px;border:1px solid var(--gray-2);border-radius:var(--r-xl);background:var(--white);box-shadow:var(--shadow-md);overflow:hidden;max-width:560px;animation:fadeUp .9s .4s ease both;}
+.metric{flex:1;padding:24px 20px;border-right:1px solid var(--gray-2);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .metric:last-child{border-right:none}
-.metric-val{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:1.9rem;letter-spacing:-.02em;
-  font-weight:800;
-  color:var(--ink);line-height:1;margin-bottom:6px;
-}
-.metric-lbl{
-  font-size:.68rem;font-weight:600;
-  color:var(--gray-4);letter-spacing:.06em;
-  text-transform:uppercase;
-  line-height:1.3;
-}
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/*──────────────────────────────────────────────────────
-  DIVIDER
-──────────────────────────────────────────────────────*/
-.section-sep{
-  height:1px;background:var(--gray-2);
-  max-width:var(--max-w);margin:0 auto;
-}
-
-/*──────────────────────────────────────────────────────
-  ABOUT
-──────────────────────────────────────────────────────*/
+.metric-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.9rem;letter-spacing:-.02em;font-weight:800;color:var(--ink);line-height:1;margin-bottom:6px;}
+.metric-lbl{font-size:.68rem;font-weight:600;color:var(--gray-4);letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-sep{height:1px;background:var(--gray-2);max-width:var(--max-w);margin:0 auto;}
 .about{padding:120px 0}
-.about-grid{
-  display:grid;grid-template-columns:220px 1fr 1.1fr;
-  gap:64px;align-items:start;
-}
-.about-photo-col{
-  display:flex;flex-direction:column;align-items:center;gap:16px;
-  padding-top:8px;
-}
-.about-photo-frame{
-  width:200px;height:200px;
-  border-radius:var(--r-xl);
-  overflow:hidden;
-  border:1px solid var(--gray-2);
-  box-shadow:var(--shadow-md);
-  flex-shrink:0;
-  background:var(--gray-1);
-}
-.about-photo-frame img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  display:block;
-}
-.about-photo-name{
-  font-size:.82rem;font-weight:700;
-  color:var(--ink);text-align:center;
-  letter-spacing:-.01em;
-}
-.about-photo-role{
-  font-size:.7rem;font-weight:500;
-  color:var(--gray-4);text-align:center;
-  letter-spacing:.06em;text-transform:uppercase;
-  margin-top:-10px;
-}
-.about-photo-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:5px 12px;border-radius:999px;
-  background:var(--gray-1);border:1px solid var(--gray-2);
-  font-size:.68rem;font-weight:600;
-  color:var(--gray-5);letter-spacing:.04em;
-}
-.about-photo-badge-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:#22c55e;
-  box-shadow:0 0 5px rgba(34,197,94,.7);
-}
-.about-left{}
-.about-lede{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:clamp(1.4rem,2.5vw,2rem);
-  line-height:1.25;letter-spacing:-.025em;
-  font-weight:800;
-  color:var(--ink);margin-top:20px;margin-bottom:28px;
-}
+.about-grid{display:grid;grid-template-columns:220px 1fr 1.1fr;gap:64px;align-items:start;}
+.about-photo-col{display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:8px;}
+.about-photo-frame{width:200px;height:200px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--gray-2);box-shadow:var(--shadow-md);flex-shrink:0;background:var(--gray-1);}
+.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.about-photo-name{font-size:.82rem;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.01em;}
+.about-photo-role{font-size:.7rem;font-weight:500;color:var(--gray-4);text-align:center;letter-spacing:.06em;text-transform:uppercase;margin-top:-10px;}
+.about-photo-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--gray-1);border:1px solid var(--gray-2);font-size:.68rem;font-weight:600;color:var(--gray-5);letter-spacing:.04em;}
+.about-photo-badge-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.7);}
+.about-lede{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.25;letter-spacing:-.025em;font-weight:800;color:var(--ink);margin-top:20px;margin-bottom:28px;}
 .about-lede em{color:var(--gray-5);font-style:normal;font-weight:300}
-.about-body{
-  font-size:.92rem;font-weight:300;
-  color:var(--gray-5);line-height:1.8;
-}
+.about-body{font-size:.92rem;font-weight:300;color:var(--gray-5);line-height:1.8;}
 .about-body strong{color:var(--gray-7);font-weight:500}
-
-.about-right{}
-.capability-list{
-  display:flex;flex-direction:column;gap:2px;
-}
-.cap-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  border-radius:var(--r-md);
-  transition:background .2s,transform .2s;
-  cursor:default;
-}
+.capability-list{display:flex;flex-direction:column;gap:2px;}
+.cap-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:var(--r-md);transition:background .2s,transform .2s;cursor:default;}
 .cap-item:hover{background:var(--gray-1);transform:translateX(4px)}
 .cap-name{font-size:.9rem;font-weight:500;color:var(--ink)}
-.cap-badge{
-  font-size:.68rem;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:4px 10px;border-radius:999px;
-  background:var(--gray-1);color:var(--gray-5);
-  border:1px solid var(--gray-2);
-}
-
-/*──────────────────────────────────────────────────────
-  SYSTEMS
-──────────────────────────────────────────────────────*/
-.systems{
-  padding:80px 0 160px;
-  background:var(--gray-0);
-  border-top:1px solid var(--gray-2);
-  border-bottom:1px solid var(--gray-2);
-}
+.cap-badge{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--gray-1);color:var(--gray-5);border:1px solid var(--gray-2);}
+.systems{padding:80px 0 160px;background:var(--gray-0);border-top:1px solid var(--gray-2);border-bottom:1px solid var(--gray-2);}
 .systems-head{text-align:center;padding:0 40px 80px}
-.systems-head .section-title{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:800;
-  letter-spacing:-.03em;color:var(--ink);
-  margin-top:16px;
-}
+.systems-head .section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-top:16px;}
 .systems-head .section-title em{color:var(--gray-5);font-style:normal;font-weight:300}
-
-/* System blocks */
-.sys-block{
-  max-width:var(--max-w);margin:0 auto 2px;
-  padding:0 40px;
-}
-.sys-card{
-  display:grid;grid-template-columns:1fr 1fr;
-  border-radius:var(--r-2xl);
-  overflow:hidden;
-  border:1px solid var(--gray-2);
-  background:var(--white);
-  box-shadow:var(--shadow-sm);
-  transition:box-shadow .4s,transform .4s;
-  margin-bottom:20px;
-}
+.sys-block{max-width:var(--max-w);margin:0 auto 2px;padding:0 40px;}
+.sys-card{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r-2xl);overflow:hidden;border:1px solid var(--gray-2);background:var(--white);box-shadow:var(--shadow-sm);transition:box-shadow .4s,transform .4s;margin-bottom:20px;}
 .sys-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
 .sys-card.flip{direction:rtl}
 .sys-card.flip>*{direction:ltr}
-
-/* Mockup pane */
-.sys-mock{
-  position:relative;min-height:480px;
-  overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-}
-
-/* ── FINTRA mockup ── */
-.mock-fintra{
-  background:linear-gradient(160deg,#0a0f1e 0%,#0f172a 50%,#111827 100%);
-}
-.fintra-ui{
-  width:calc(100% - 40px);max-width:360px;
-  display:flex;flex-direction:column;gap:10px;
-  padding:20px;
-}
-.fi-header{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:4px;
-}
-.fi-logo{
-  font-size:.72rem;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:rgba(255,255,255,.3);
-}
+.sys-mock{position:relative;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.mock-fintra{background:linear-gradient(160deg,#0a0f1e 0%,#0f172a 50%,#111827 100%);}
+.fintra-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:10px;padding:20px;}
+.fi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.fi-logo{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);}
 .fi-date{font-size:.65rem;color:rgba(255,255,255,.2)}
-.fi-net{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;padding:20px;
-}
+.fi-net{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;}
 .fi-net-label{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.fi-net-value{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;
-}
-.fi-net-change{
-  font-size:.72rem;color:#4ade80;font-weight:500;
-  display:flex;align-items:center;gap:4px;
-}
+.fi-net-value{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;}
+.fi-net-change{font-size:.72rem;color:#4ade80;font-weight:500;display:flex;align-items:center;gap:4px;}
 .fi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.fi-mini{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:14px;
-}
+.fi-mini{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px;}
 .fi-mini-label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
 .fi-mini-val{font-size:1.1rem;font-family:'Plus Jakarta Sans',sans-serif;color:#f8fafc;line-height:1}
-.fi-bars{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:16px 16px 10px;
-}
+.fi-bars{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:16px 16px 10px;}
 .fi-bars-label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 .bar-track{height:6px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin-bottom:4px}
 .bar-fill{height:100%;border-radius:999px;animation:growBar 2s .5s ease both}
 @keyframes growBar{from{width:0}}
-.fi-accounts{
-  display:flex;flex-direction:column;gap:4px;
-}
-.fi-acc-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:9px 14px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
-  border-radius:8px;font-size:.72rem;
-}
+.fi-accounts{display:flex;flex-direction:column;gap:4px;}
+.fi-acc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:.72rem;}
 .fi-acc-name{color:rgba(255,255,255,.4)}
 .fi-acc-val{color:rgba(255,255,255,.7);font-weight:500}
-
-/* ── POS mockup ── */
-.mock-pos{
-  background:linear-gradient(160deg,#0f0a1a 0%,#160d24 50%,#1a0f2e 100%);
-}
-.pos-ui{
-  width:calc(100% - 40px);max-width:360px;
-  display:flex;flex-direction:column;gap:8px;
-  padding:20px;
-}
-.pos-header{
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;
-}
+.mock-pos{background:linear-gradient(160deg,#0f0a1a 0%,#160d24 50%,#1a0f2e 100%);}
+.pos-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:8px;padding:20px;}
+.pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
 .pos-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.pos-status{
-  display:flex;align-items:center;gap:5px;
-  font-size:.65rem;color:rgba(255,255,255,.35);font-weight:500;
-}
-.pos-status::before{
-  content:'';display:block;width:5px;height:5px;border-radius:50%;
-  background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.6);
-}
-.pos-order{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;padding:14px;
-}
+.pos-status{display:flex;align-items:center;gap:5px;font-size:.65rem;color:rgba(255,255,255,.35);font-weight:500;}
+.pos-status::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.6);}
+.pos-order{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px;}
 .pos-order-head{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
-.pos-item{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.75rem;
-}
+.pos-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.75rem;}
 .pos-item:last-child{border-bottom:none}
-.pos-item-name{
-  display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);
-}
-.pos-dot{
-  width:7px;height:7px;border-radius:50%;flex-shrink:0;
-}
+.pos-item-name{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);}
+.pos-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .pos-item-price{color:rgba(255,255,255,.65);font-weight:500}
-.pos-total{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:12px 14px;
-  background:rgba(255,255,255,.06);border-radius:10px;
-}
+.pos-total{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,.06);border-radius:10px;}
 .pos-total-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.04em}
-.pos-total-val{
-  font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;
-  color:#f8fafc;line-height:1;
-}
+.pos-total-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;color:#f8fafc;line-height:1;}
 .pos-methods{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2px}
-.pos-method{
-  padding:10px 6px;border-radius:8px;text-align:center;
-  font-size:.65rem;font-weight:600;letter-spacing:.04em;
-  border:1px solid;transition:opacity .2s;
-}
+.pos-method{padding:10px 6px;border-radius:8px;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.04em;border:1px solid;transition:opacity .2s;}
 .pm-gcash{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.25);color:rgba(180,180,255,.7)}
 .pm-cash{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.2);color:rgba(100,255,180,.7)}
 .pm-card{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.2);color:rgba(255,150,150,.7)}
 .pm-maya{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.2);color:rgba(255,210,80,.7)}
-.pos-inventory{
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
-}
-.pos-inv-item{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:9px;padding:10px 8px;text-align:center;font-size:.62rem;color:rgba(255,255,255,.35);
-  font-weight:500;letter-spacing:.04em;
-}
-
-/* ── ERP mockup ── */
-.mock-erp{
-  background:linear-gradient(160deg,#071014 0%,#091820 50%,#0c1e2a 100%);
-}
-.erp-ui{
-  width:calc(100% - 40px);max-width:360px;
-  display:flex;flex-direction:column;gap:10px;
-  padding:20px;
-}
+.pos-inventory{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.pos-inv-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:10px 8px;text-align:center;font-size:.62rem;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.04em;}
+.mock-erp{background:linear-gradient(160deg,#071014 0%,#091820 50%,#0c1e2a 100%);}
+.erp-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:10px;padding:20px;}
 .erp-header{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:4px}
-.erp-modules{
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
-}
-.erp-mod{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
-  border-radius:10px;padding:12px 8px;text-align:center;
-}
+.erp-modules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.erp-mod{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 8px;text-align:center;}
 .erp-mod-icon{font-size:.95rem;margin-bottom:5px}
 .erp-mod-name{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.04em}
-.erp-flow{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;padding:16px;
-}
+.erp-flow{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px;}
 .erp-flow-title{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
-.erp-flow-row{
-  display:flex;align-items:center;gap:6px;margin-bottom:7px;
-  flex-wrap:wrap;
-}
-.erp-node{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 10px;border-radius:6px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
-  font-size:.65rem;color:rgba(255,255,255,.45);font-weight:500;
-}
+.erp-flow-row{display:flex;align-items:center;gap:6px;margin-bottom:7px;flex-wrap:wrap;}
+.erp-node{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.65rem;color:rgba(255,255,255,.45);font-weight:500;}
 .erp-nd{width:5px;height:5px;border-radius:50%}
 .erp-arrow{color:rgba(255,255,255,.15);font-size:.75rem}
-.erp-automations{
-  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);
-  border-radius:10px;padding:14px;
-}
+.erp-automations{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;}
 .erp-auto-title{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.erp-auto-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);
-  font-size:.72rem;
-}
+.erp-auto-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;}
 .erp-auto-row:last-child{border-bottom:none}
 .erp-auto-name{color:rgba(255,255,255,.35)}
 .erp-auto-on{color:#4ade80;font-weight:600;font-size:.65rem;letter-spacing:.06em}
-
-/* ── Convention Event System mockup ── */
-.mock-qr{
-  background:linear-gradient(160deg,#080c10 0%,#0c1218 50%,#101820 100%);
-}
-.qr-ui{
-  width:calc(100% - 40px);max-width:340px;
-  display:flex;flex-direction:column;gap:10px;
-  padding:24px;
-}
-
-/* Flow steps */
+.mock-qr{background:linear-gradient(160deg,#080c10 0%,#0c1218 50%,#101820 100%);}
+.qr-ui{width:calc(100% - 40px);max-width:340px;display:flex;flex-direction:column;gap:10px;padding:24px;}
 .qr-flow{display:flex;flex-direction:column;gap:4px}
-.qr-flow-step{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 12px;border-radius:10px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  transition:background .3s;
-}
+.qr-flow-step{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:background .3s;}
 .qr-flow-done{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.04)}
 .qr-flow-active{border-color:rgba(99,102,241,.35);background:rgba(99,102,241,.08)}
 .qr-flow-pending{opacity:.4}
@@ -670,342 +203,104 @@ ul{list-style:none}
 .qr-flow-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.65)}
 .qr-flow-sub{font-size:.62rem;color:rgba(255,255,255,.3);margin-top:1px}
 .qr-flow-check{font-size:.7rem;color:#4ade80;font-weight:700;margin-left:auto}
-.qr-flow-pulse{
-  width:8px;height:8px;border-radius:50%;
-  background:#818cf8;margin-left:auto;flex-shrink:0;
-  box-shadow:0 0 8px rgba(129,140,248,.8);
-  animation:breathe 1.5s ease infinite;
-}
-
-/* Score card */
-.qr-score-card{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;padding:14px;
-}
-.qr-score-header{
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;
-}
+.qr-flow-pulse{width:8px;height:8px;border-radius:50%;background:#818cf8;margin-left:auto;flex-shrink:0;box-shadow:0 0 8px rgba(129,140,248,.8);animation:breathe 1.5s ease infinite;}
+.qr-score-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;}
+.qr-score-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
 .qr-score-title{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.qr-score-badge{
-  font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  padding:3px 8px;border-radius:999px;
-  background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.25);
-  color:rgba(255,150,150,.8);
-}
+.qr-score-badge{font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.25);color:rgba(255,150,150,.8);}
 .qr-score-bar-wrap{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.qr-score-bar-track{
-  flex:1;height:6px;border-radius:999px;
-  background:rgba(255,255,255,.06);overflow:hidden;
-}
-.qr-score-bar-fill{
-  height:100%;border-radius:999px;
-  background:linear-gradient(90deg,#f87171,#fb923c);
-  animation:growBar 1.5s .3s ease both;
-}
+.qr-score-bar-track{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;}
+.qr-score-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#f87171,#fb923c);animation:growBar 1.5s .3s ease both;}
 .qr-score-pct{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.5)}
 .qr-score-meta{font-size:.62rem;color:rgba(255,255,255,.25);margin-bottom:10px}
 .qr-score-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.qr-score-btn{
-  padding:8px;border-radius:8px;text-align:center;
-  font-size:.65rem;font-weight:700;letter-spacing:.04em;
-}
-.qr-score-retry{
-  background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);
-  color:rgba(180,185,255,.8);
-}
-.qr-score-cert{
-  background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);
-  color:rgba(100,255,180,.8);
-}
-.qr-score-cert-dim{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  color:rgba(255,255,255,.2);
-}
-
-/* Dashboard row */
-.qr-dash-row{
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;
-}
-.qr-dash-stat{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;padding:12px 8px;text-align:center;
-}
-.qr-dash-val{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;
-}
+.qr-score-btn{padding:8px;border-radius:8px;text-align:center;font-size:.65rem;font-weight:700;letter-spacing:.04em;}
+.qr-score-retry{background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);color:rgba(180,185,255,.8);}
+.qr-score-cert{background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);color:rgba(100,255,180,.8);}
+.qr-score-cert-dim{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.2);}
+.qr-dash-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+.qr-dash-stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 8px;text-align:center;}
+.qr-dash-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;}
 .qr-dash-lbl{font-size:.58rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase}
-
-/* System info pane */
-.sys-info{
-  padding:64px 60px;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.sys-num{
-  font-size:.68rem;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--gray-3);margin-bottom:28px;
-}
-.sys-title{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:clamp(1.7rem,2.5vw,2.4rem);
-  line-height:1.15;letter-spacing:-.025em;
-  font-weight:800;
-  color:var(--ink);margin-bottom:10px;
-}
-.sys-tagline{
-  font-size:.95rem;font-weight:300;
-  color:var(--gray-4);margin-bottom:40px;
-}
+.sys-info{padding:64px 60px;display:flex;flex-direction:column;justify-content:center;}
+.sys-num{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-3);margin-bottom:28px;}
+.sys-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.7rem,2.5vw,2.4rem);line-height:1.15;letter-spacing:-.025em;font-weight:800;color:var(--ink);margin-bottom:10px;}
+.sys-tagline{font-size:.95rem;font-weight:300;color:var(--gray-4);margin-bottom:40px;}
 .sys-features{display:flex;flex-direction:column;gap:2px}
-.feat{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:14px;border-radius:var(--r-md);
-  transition:background .2s;cursor:default;
-}
+.feat{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:var(--r-md);transition:background .2s;cursor:default;}
 .feat:hover{background:var(--gray-1)}
-.feat-icon{
-  width:32px;height:32px;flex-shrink:0;border-radius:9px;
-  background:var(--gray-1);border:1px solid var(--gray-2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;margin-top:1px;
-}
-.feat-body{}
+.feat-icon{width:32px;height:32px;flex-shrink:0;border-radius:9px;background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-top:1px;}
 .feat-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:2px}
 .feat-desc{font-size:.78rem;color:var(--gray-4);line-height:1.5;font-weight:300}
-
-/*──────────────────────────────────────────────────────
-  PROCESS
-──────────────────────────────────────────────────────*/
 .process{padding:120px 0;background:var(--white)}
 .process-head{text-align:center;margin-bottom:80px}
-.section-title{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:clamp(2rem,3.5vw,2.8rem);
-  letter-spacing:-.03em;color:var(--ink);
-  font-weight:800;
-  margin-top:14px;
-}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.03em;color:var(--ink);font-weight:800;margin-top:14px;}
 .section-title em{color:var(--gray-5);font-style:normal;font-weight:300}
-
-.steps{
-  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
-  align-items:start;gap:0;
-  max-width:900px;margin:0 auto;
-  padding:0 40px;
-}
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:0;max-width:900px;margin:0 auto;padding:0 40px;}
 .step{text-align:center;padding:0 12px}
-.step-bubble{
-  width:80px;height:80px;border-radius:50%;
-  background:var(--white);border:1.5px solid var(--gray-2);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 24px;font-size:1.6rem;
-  box-shadow:var(--shadow-sm);
-  transition:border-color .3s,box-shadow .3s,transform .3s;
-}
-.step:hover .step-bubble{
-  border-color:var(--gray-5);
-  box-shadow:var(--shadow-md);
-  transform:translateY(-4px);
-}
-.step-n{
-  font-size:.68rem;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gray-3);margin-bottom:8px;
-}
-.step-t{
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:1.5rem;font-weight:800;color:var(--ink);
-  margin-bottom:12px;letter-spacing:-.02em;
-}
+.step-bubble{width:80px;height:80px;border-radius:50%;background:var(--white);border:1.5px solid var(--gray-2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:1.6rem;box-shadow:var(--shadow-sm);transition:border-color .3s,box-shadow .3s,transform .3s;}
+.step:hover .step-bubble{border-color:var(--gray-5);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.step-n{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-3);margin-bottom:8px;}
+.step-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em;}
 .step-d{font-size:.85rem;color:var(--gray-4);line-height:1.7;font-weight:300}
-.step-connector{
-  display:flex;align-items:center;justify-content:center;
-  padding-top:40px;color:var(--gray-3);
-  font-size:1.1rem;
-}
-
-/*──────────────────────────────────────────────────────
-  CONTACT
-──────────────────────────────────────────────────────*/
-.contact-section{
-  padding:120px 0;
-  background:var(--gray-0);
-  border-top:1px solid var(--gray-2);
-}
+.step-connector{display:flex;align-items:center;justify-content:center;padding-top:40px;color:var(--gray-3);font-size:1.1rem;}
+.contact-section{padding:120px 0;background:var(--gray-0);border-top:1px solid var(--gray-2);}
 .contact-header{margin-bottom:64px}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1.2fr;
-  gap:24px;align-items:start;
-}
-.contact-card{
-  background:var(--white);
-  border:1px solid var(--gray-2);
-  border-radius:var(--r-xl);
-  padding:40px;
-  box-shadow:var(--shadow-xs);
-  transition:box-shadow .3s,border-color .3s;
-}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:start;}
+.contact-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:40px;box-shadow:var(--shadow-xs);transition:box-shadow .3s,border-color .3s;}
 .contact-card:hover{box-shadow:var(--shadow-md);border-color:var(--gray-3)}
-.contact-card-title{
-  font-size:1rem;font-weight:700;
-  color:var(--ink);margin-bottom:24px;
-  letter-spacing:-.01em;
-}
-.contact-link-row{
-  display:flex;align-items:center;gap:12px;
-  padding:14px 16px;
-  border-radius:var(--r-md);
-  border:1px solid var(--gray-2);
-  background:var(--gray-0);
-  margin-bottom:10px;
-  transition:border-color .2s,transform .2s,background .2s;
-  cursor:pointer;
-}
+.contact-card-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:24px;letter-spacing:-.01em;}
+.contact-link-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-md);border:1px solid var(--gray-2);background:var(--gray-0);margin-bottom:10px;transition:border-color .2s,transform .2s,background .2s;cursor:pointer;}
 .contact-link-row:hover{border-color:var(--gray-4);transform:translateY(-2px);background:var(--white)}
-.contact-link-icon{
-  width:36px;height:36px;border-radius:9px;
-  background:var(--gray-1);border:1px solid var(--gray-2);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
+.contact-link-icon{width:36px;height:36px;border-radius:9px;background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .contact-link-name{font-size:.85rem;font-weight:600;color:var(--ink)}
 .contact-link-val{font-size:.72rem;color:var(--gray-4);margin-top:1px}
-.contact-location{
-  margin-top:20px;padding:18px;
-  border-radius:var(--r-md);
-  background:var(--gray-0);border:1px solid var(--gray-2);
-}
+.contact-location{margin-top:20px;padding:18px;border-radius:var(--r-md);background:var(--gray-0);border:1px solid var(--gray-2);}
 .contact-location-label{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
 .contact-location-val{font-size:.95rem;font-weight:600;color:var(--ink)}
 .contact-location-sub{font-size:.75rem;color:var(--gray-4);margin-top:2px}
-
-/* Form */
 .fg{margin-bottom:14px}
-.flabel{
-  display:block;font-size:.7rem;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--gray-4);margin-bottom:6px;
-}
+.flabel{display:block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-4);margin-bottom:6px;}
 .freq{color:var(--gray-3)}
-.finput{
-  width:100%;padding:11px 14px;
-  border-radius:var(--r-sm);
-  border:1px solid var(--gray-2);
-  background:var(--gray-0);
-  color:var(--ink);
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:.88rem;font-weight:400;
-  outline:none;
-  transition:border-color .2s,box-shadow .2s,background .2s;
-  -webkit-appearance:none;
-}
-.finput:focus{
-  border-color:var(--gray-5);
-  background:var(--white);
-  box-shadow:0 0 0 3px rgba(0,0,0,.04);
-}
+.finput{width:100%;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--gray-2);background:var(--gray-0);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:400;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none;}
+.finput:focus{border-color:var(--gray-5);background:var(--white);box-shadow:0 0 0 3px rgba(0,0,0,.04);}
 .finput::placeholder{color:var(--gray-3)}
 .ftextarea{resize:none}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fsubmit{
-  width:100%;padding:13px;margin-top:4px;
-  border-radius:var(--r-md);
-  background:var(--ink);color:var(--white);
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:.85rem;font-weight:700;
-  letter-spacing:.02em;
-  transition:opacity .2s,transform .15s;
-}
+.fsubmit{width:100%;padding:13px;margin-top:4px;border-radius:var(--r-md);background:var(--ink);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.02em;transition:opacity .2s,transform .15s;}
 .fsubmit:hover{opacity:.85;transform:translateY(-1px)}
-
-/* Popup */
-.popup-overlay{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.45);
-  backdrop-filter:blur(8px);
-  z-index:999;align-items:center;justify-content:center;
-}
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);z-index:999;align-items:center;justify-content:center;}
 .popup-overlay.show{display:flex}
-.popup-box{
-  background:var(--white);
-  border:1px solid var(--gray-2);
-  border-radius:var(--r-xl);
-  padding:48px 40px;text-align:center;
-  max-width:380px;width:90%;
-  box-shadow:var(--shadow-xl);
-  animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;
-}
+.popup-box{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:var(--shadow-xl);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
 @keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 .popup-icon{font-size:2.2rem;margin-bottom:16px}
-.popup-title{
-  font-size:1.3rem;font-weight:800;
-  letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;
-}
+.popup-title{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;}
 .popup-text{font-size:.88rem;color:var(--gray-4);line-height:1.6;margin-bottom:28px}
-.popup-close{
-  padding:12px 32px;border-radius:999px;
-  background:var(--ink);color:var(--white);
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-size:.85rem;font-weight:600;
-  transition:opacity .2s;
-}
+.popup-close{padding:12px 32px;border-radius:999px;background:var(--ink);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:600;transition:opacity .2s;}
 .popup-close:hover{opacity:.85}
-
-/*──────────────────────────────────────────────────────
-  FOOTER
-──────────────────────────────────────────────────────*/
-footer{
-  padding:40px 0;
-  border-top:1px solid var(--gray-2);
-  background:var(--white);
-}
-.foot-inner{
-  max-width:var(--max-w);margin:0 auto;padding:0 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
-}
-.foot-logo{
-  font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;
-  font-weight:700;
-  color:var(--ink);
-  letter-spacing:-.01em;
-}
+footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white);}
+.foot-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
 .foot-copy{font-size:.75rem;color:var(--gray-3)}
 .foot-links{display:flex;gap:24px}
-.foot-link{
-  font-size:.78rem;color:var(--gray-4);
-  display:inline-flex;align-items:center;gap:6px;
-  transition:color .2s;
-}
+.foot-link{font-size:.78rem;color:var(--gray-4);display:inline-flex;align-items:center;gap:6px;transition:color .2s;}
 .foot-link:hover{color:var(--ink)}
-.foot-up{
-  font-size:.75rem;color:var(--gray-3);
-  display:inline-flex;align-items:center;gap:5px;
-  transition:color .2s;
-}
+.foot-up{font-size:.75rem;color:var(--gray-3);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
 .foot-up:hover{color:var(--gray-6)}
-
-/*──────────────────────────────────────────────────────
-  RESPONSIVE
-──────────────────────────────────────────────────────*/
 @media(max-width:960px){
   .nav-links{display:none}
   .burger{display:flex}
   .nav-cta{display:none}
-
   .about-grid{grid-template-columns:1fr;gap:40px}
   .about-photo-col{flex-direction:row;justify-content:flex-start;gap:20px;align-items:center}
   .about-photo-frame{width:100px;height:100px;border-radius:var(--r-lg);flex-shrink:0}
   .about-photo-name,.about-photo-role,.about-photo-badge{text-align:left}
-
   .sys-card{grid-template-columns:1fr}
   .sys-card.flip{direction:ltr}
   .sys-mock{min-height:300px}
   .sys-info{padding:40px 36px}
-
   .steps{grid-template-columns:1fr;gap:32px}
   .step-connector{display:none}
-
   .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
@@ -1018,34 +313,26 @@ footer{
   .steps{padding:0 16px}
   .contact-section .wrap{padding-left:16px;padding-right:16px}
   .foot-inner{padding-left:16px;padding-right:16px}
-
-  /* Metrics: keep horizontal but compact */
   .hero-metrics{max-width:100%;margin-top:48px}
   .metric{padding:18px 10px}
   .metric-val{font-size:1.4rem}
   .metric-lbl{font-size:.6rem;letter-spacing:.04em}
-
   .hero-h1{font-size:2.2rem}
   .hero-actions{flex-direction:column;align-items:flex-start;gap:10px}
   .btn-ink,.btn-line{width:100%;justify-content:center;max-width:100%}
-
   .about-grid{gap:32px}
   .about-photo-frame{width:80px;height:80px}
   .about-lede{font-size:1.5rem}
-
   .sys-info{padding:28px 20px}
   .sys-mock{min-height:260px}
   .sys-title{font-size:1.5rem}
-
   .section-title{font-size:1.8rem}
   .step-bubble{width:60px;height:60px;font-size:1.2rem}
   .step-t{font-size:1.2rem}
-
   .fi-row{grid-template-columns:1fr}
   .form-row-2{grid-template-columns:1fr}
   .contact-card{padding:24px 20px}
   .contact-header{margin-bottom:40px}
-
   .foot-inner{flex-direction:column;align-items:center;text-align:center;gap:12px}
   .foot-links{justify-content:center}
 }
@@ -1055,10 +342,6 @@ footer{
   .metric-lbl{font-size:.55rem}
   .metric{padding:14px 8px}
 }
-
-/*──────────────────────────────────────────────────────
-  SCROLLBAR
-──────────────────────────────────────────────────────*/
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--gray-1)}
 ::-webkit-scrollbar-thumb{background:var(--gray-3);border-radius:999px}
@@ -1066,7 +349,6 @@ footer{
 </head>
 <body>
 
-<!--═══════════ NAV ═══════════-->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-logo">FMA</a>
@@ -1088,7 +370,6 @@ footer{
   </div>
 </nav>
 
-<!--═══════════ MOBILE MENU ═══════════-->
 <div class="mob-menu" id="mobMenu">
   <a href="#about" class="mob-link">About</a>
   <a href="#systems" class="mob-link">Systems</a>
@@ -1097,28 +378,23 @@ footer{
   <a href="#contact" class="btn-ink" style="width:fit-content">Hire Me</a>
 </div>
 
-<!--═══════════ HERO ═══════════-->
 <section class="hero" id="top">
   <div class="hero-blob"></div>
   <div class="hero-inner">
-
     <div class="hero-kicker">
       <div class="kicker-dot"></div>
       <span>Available for new projects</span>
     </div>
-
     <h1 class="hero-h1">
       I build systems that<br>
       <em>simplify complex</em><br>
       operations.
     </h1>
-
     <p class="hero-sub">
       <strong>ERP &bull; Automation &bull; Finance Systems &bull; Custom Solutions</strong>
       Turning messy, manual business processes into clean, scalable systems.
       Based in Manila, Philippines.
     </p>
-
     <div class="hero-actions">
       <a href="#systems" class="btn-ink">
         View My Work
@@ -1126,7 +402,6 @@ footer{
       </a>
       <a href="#contact" class="btn-line">Get in Touch</a>
     </div>
-
     <div class="hero-metrics reveal">
       <div class="metric">
         <div class="metric-val">3+</div>
@@ -1141,17 +416,14 @@ footer{
         <div class="metric-lbl">Specialist</div>
       </div>
     </div>
-
   </div>
 </section>
 
 <div class="section-sep"></div>
 
-<!--═══════════ ABOUT ═══════════-->
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <!-- Photo column -->
       <div class="about-photo-col reveal">
         <div class="about-photo-frame">
           <img src="data:image/png;base64,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" alt="Felix Marco Alforque"/>
@@ -1163,8 +435,6 @@ footer{
           Manila, PH
         </div>
       </div>
-
-      <!-- Bio column -->
       <div class="about-left">
         <p class="label reveal">About</p>
         <h2 class="about-lede reveal reveal-d1">
@@ -1181,92 +451,46 @@ footer{
       </div>
       <div class="about-right reveal reveal-d2">
         <div class="capability-list">
-          <div class="cap-item">
-            <span class="cap-name">ERP System Analysis & Implementation</span>
-            <span class="cap-badge">Core</span>
-          </div>
-          <div class="cap-item">
-            <span class="cap-name">Business Process Automation</span>
-            <span class="cap-badge">Core</span>
-          </div>
-          <div class="cap-item">
-            <span class="cap-name">Finance System Design</span>
-            <span class="cap-badge">Specialist</span>
-          </div>
-          <div class="cap-item">
-            <span class="cap-name">POS System Development</span>
-            <span class="cap-badge">Specialist</span>
-          </div>
-          <div class="cap-item">
-            <span class="cap-name">Web Development (HTML/CSS/JS)</span>
-            <span class="cap-badge">Proficient</span>
-          </div>
-          <div class="cap-item">
-            <span class="cap-name">IT Support & Infrastructure</span>
-            <span class="cap-badge">Proficient</span>
-          </div>
+          <div class="cap-item"><span class="cap-name">ERP System Analysis & Implementation</span><span class="cap-badge">Core</span></div>
+          <div class="cap-item"><span class="cap-name">Business Process Automation</span><span class="cap-badge">Core</span></div>
+          <div class="cap-item"><span class="cap-name">Finance System Design</span><span class="cap-badge">Specialist</span></div>
+          <div class="cap-item"><span class="cap-name">POS System Development</span><span class="cap-badge">Specialist</span></div>
+          <div class="cap-item"><span class="cap-name">Web Development (HTML/CSS/JS)</span><span class="cap-badge">Proficient</span></div>
+          <div class="cap-item"><span class="cap-name">IT Support & Infrastructure</span><span class="cap-badge">Proficient</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!--═══════════ SYSTEMS ═══════════-->
 <section class="systems" id="systems">
   <div class="systems-head reveal">
     <p class="label">Featured Systems</p>
     <h2 class="section-title">Products I've <em>built</em></h2>
   </div>
-
-  <!--── Fintra ──-->
   <div class="sys-block">
     <div class="sys-card reveal">
       <div class="sys-mock mock-fintra">
         <div class="fintra-ui">
-          <div class="fi-header">
-            <span class="fi-logo">Fintra</span>
-            <span class="fi-date">Mar 2025</span>
-          </div>
+          <div class="fi-header"><span class="fi-logo">Fintra</span><span class="fi-date">Mar 2025</span></div>
           <div class="fi-net">
             <div class="fi-net-label">Net Worth</div>
             <div class="fi-net-value">₱ 284,500</div>
-            <div class="fi-net-change">
-              <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>
-              +₱ 23,800 this month
-            </div>
+            <div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div>
           </div>
           <div class="fi-row">
-            <div class="fi-mini">
-              <div class="fi-mini-label">Income</div>
-              <div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div>
-            </div>
-            <div class="fi-mini">
-              <div class="fi-mini-label">Expenses</div>
-              <div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div>
-            </div>
+            <div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div>
+            <div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div>
           </div>
           <div class="fi-bars">
             <div class="fi-bars-label">Savings Rate — 57%</div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div>
-            </div>
-            <div class="bar-track" style="margin-top:8px">
-              <div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div>
-            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+            <div class="bar-track" style="margin-top:8px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div>
           </div>
           <div class="fi-accounts">
-            <div class="fi-acc-row">
-              <span class="fi-acc-name">BDO Checking</span>
-              <span class="fi-acc-val">₱ 92,300</span>
-            </div>
-            <div class="fi-acc-row">
-              <span class="fi-acc-name">GCash</span>
-              <span class="fi-acc-val">₱ 14,800</span>
-            </div>
-            <div class="fi-acc-row">
-              <span class="fi-acc-name">Cash on Hand</span>
-              <span class="fi-acc-val">₱ 8,400</span>
-            </div>
+            <div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div>
+            <div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div>
+            <div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div>
           </div>
         </div>
       </div>
@@ -1275,33 +499,13 @@ footer{
         <h3 class="sys-title">Fintra</h3>
         <p class="sys-tagline">Your Financial Control Center</p>
         <div class="sys-features">
-          <div class="feat">
-            <div class="feat-icon">📊</div>
-            <div class="feat-body">
-              <div class="feat-title">Real-time financial dashboard</div>
-              <div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">🏦</div>
-            <div class="feat-body">
-              <div class="feat-title">Multi-account tracking</div>
-              <div class="feat-desc">Banks, e-wallets, cash — unified view across all accounts.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">🔒</div>
-            <div class="feat-body">
-              <div class="feat-title">Privacy-first, offline-first</div>
-              <div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div>
-            </div>
-          </div>
+          <div class="feat"><div class="feat-icon">📊</div><div class="feat-body"><div class="feat-title">Real-time financial dashboard</div><div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div></div></div>
+          <div class="feat"><div class="feat-icon">🏦</div><div class="feat-body"><div class="feat-title">Multi-account tracking</div><div class="feat-desc">Banks, e-wallets, cash — unified view across all accounts.</div></div></div>
+          <div class="feat"><div class="feat-icon">🔒</div><div class="feat-body"><div class="feat-title">Privacy-first, offline-first</div><div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div></div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <!--── POS ──-->
   <div class="sys-block">
     <div class="sys-card flip reveal">
       <div class="sys-info">
@@ -1309,54 +513,21 @@ footer{
         <h3 class="sys-title">POS System</h3>
         <p class="sys-tagline">Fast. Flexible. Scalable.</p>
         <div class="sys-features">
-          <div class="feat">
-            <div class="feat-icon">🏪</div>
-            <div class="feat-body">
-              <div class="feat-title">Multi-industry ready</div>
-              <div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">⚡</div>
-            <div class="feat-body">
-              <div class="feat-title">Streamlined transactions</div>
-              <div class="feat-desc">Minimal friction checkout — built for speed at the counter.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">🧩</div>
-            <div class="feat-body">
-              <div class="feat-title">Modular system design</div>
-              <div class="feat-desc">Add inventory, loyalty, or reporting modules as your business scales.</div>
-            </div>
-          </div>
+          <div class="feat"><div class="feat-icon">🏪</div><div class="feat-body"><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
+          <div class="feat"><div class="feat-icon">⚡</div><div class="feat-body"><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal friction checkout — built for speed at the counter.</div></div></div>
+          <div class="feat"><div class="feat-icon">🧩</div><div class="feat-body"><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as your business scales.</div></div></div>
         </div>
       </div>
       <div class="sys-mock mock-pos">
         <div class="pos-ui">
-          <div class="pos-header">
-            <span class="pos-title">POS Terminal</span>
-            <span class="pos-status">Live</span>
-          </div>
+          <div class="pos-header"><span class="pos-title">POS Terminal</span><span class="pos-status">Live</span></div>
           <div class="pos-order">
             <div class="pos-order-head">Current Order — Table 4</div>
-            <div class="pos-item">
-              <span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span>
-              <span class="pos-item-price">₱ 180</span>
-            </div>
-            <div class="pos-item">
-              <span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span>
-              <span class="pos-item-price">₱ 95</span>
-            </div>
-            <div class="pos-item">
-              <span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span>
-              <span class="pos-item-price">₱ 145</span>
-            </div>
+            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div>
+            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div>
+            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div>
           </div>
-          <div class="pos-total">
-            <span class="pos-total-label">Total</span>
-            <span class="pos-total-val">₱ 420</span>
-          </div>
+          <div class="pos-total"><span class="pos-total-label">Total</span><span class="pos-total-val">₱ 420</span></div>
           <div class="pos-methods">
             <div class="pos-method pm-gcash">GCash</div>
             <div class="pos-method pm-cash">Cash</div>
@@ -1372,8 +543,6 @@ footer{
       </div>
     </div>
   </div>
-
-  <!--── ERP ──-->
   <div class="sys-block">
     <div class="sys-card reveal">
       <div class="sys-mock mock-erp">
@@ -1406,18 +575,9 @@ footer{
           </div>
           <div class="erp-automations">
             <div class="erp-auto-title">Automation Rules</div>
-            <div class="erp-auto-row">
-              <span class="erp-auto-name">Auto-reorder threshold</span>
-              <span class="erp-auto-on">ON</span>
-            </div>
-            <div class="erp-auto-row">
-              <span class="erp-auto-name">Weekly report generation</span>
-              <span class="erp-auto-on">ON</span>
-            </div>
-            <div class="erp-auto-row">
-              <span class="erp-auto-name">Payroll calculation</span>
-              <span class="erp-auto-on">ON</span>
-            </div>
+            <div class="erp-auto-row"><span class="erp-auto-name">Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div>
+            <div class="erp-auto-row"><span class="erp-auto-name">Weekly report generation</span><span class="erp-auto-on">ON</span></div>
+            <div class="erp-auto-row"><span class="erp-auto-name">Payroll calculation</span><span class="erp-auto-on">ON</span></div>
           </div>
         </div>
       </div>
@@ -1426,33 +586,13 @@ footer{
         <h3 class="sys-title">ERP & Automation Systems</h3>
         <p class="sys-tagline">From process to system</p>
         <div class="sys-features">
-          <div class="feat">
-            <div class="feat-icon">🏗️</div>
-            <div class="feat-body">
-              <div class="feat-title">End-to-end ERP coordination</div>
-              <div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">🔍</div>
-            <div class="feat-body">
-              <div class="feat-title">Business-to-system translation</div>
-              <div class="feat-desc">Deep requirement analysis before a single line of code is written.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">⚙️</div>
-            <div class="feat-body">
-              <div class="feat-title">Workflow automation</div>
-              <div class="feat-desc">Eliminate manual work. Automate the repeatable, focus humans on decisions.</div>
-            </div>
-          </div>
+          <div class="feat"><div class="feat-icon">🏗️</div><div class="feat-body"><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
+          <div class="feat"><div class="feat-icon">🔍</div><div class="feat-body"><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
+          <div class="feat"><div class="feat-icon">⚙️</div><div class="feat-body"><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, focus humans on decisions.</div></div></div>
         </div>
       </div>
     </div>
   </div>
-
-  <!--── Convention Event System ──-->
   <div class="sys-block">
     <div class="sys-card flip reveal">
       <div class="sys-info">
@@ -1460,106 +600,36 @@ footer{
         <h3 class="sys-title">Convention Event System</h3>
         <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
         <div class="sys-features">
-          <div class="feat">
-            <div class="feat-icon">🎟️</div>
-            <div class="feat-body">
-              <div class="feat-title">Guest Registration & QR Stub</div>
-              <div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">📲</div>
-            <div class="feat-body">
-              <div class="feat-title">QR Scan — Check-in & Check-out</div>
-              <div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div>
-            </div>
-          </div>
-          <div class="feat">
-            <div class="feat-icon">📝</div>
-            <div class="feat-body">
-              <div class="feat-title">In-event Assessment & Certification</div>
-              <div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div>
-            </div>
-          </div>
+          <div class="feat"><div class="feat-icon">🎟️</div><div class="feat-body"><div class="feat-title">Guest Registration & QR Stub</div><div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div></div></div>
+          <div class="feat"><div class="feat-icon">📲</div><div class="feat-body"><div class="feat-title">QR Scan — Check-in & Check-out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div></div></div>
+          <div class="feat"><div class="feat-icon">📝</div><div class="feat-body"><div class="feat-title">In-event Assessment & Certification</div><div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div></div></div>
         </div>
       </div>
       <div class="sys-mock mock-qr">
         <div class="qr-ui">
-          <!-- Flow steps -->
           <div class="qr-flow">
-            <div class="qr-flow-step qr-flow-done">
-              <div class="qr-flow-icon">✉️</div>
-              <div class="qr-flow-body">
-                <div class="qr-flow-label">Registration</div>
-                <div class="qr-flow-sub">Email + QR stub sent</div>
-              </div>
-              <div class="qr-flow-check">✓</div>
-            </div>
-            <div class="qr-flow-step qr-flow-done">
-              <div class="qr-flow-icon">📲</div>
-              <div class="qr-flow-body">
-                <div class="qr-flow-label">Check-in Scan</div>
-                <div class="qr-flow-sub">9:02 AM logged</div>
-              </div>
-              <div class="qr-flow-check">✓</div>
-            </div>
-            <div class="qr-flow-step qr-flow-active">
-              <div class="qr-flow-icon">📝</div>
-              <div class="qr-flow-body">
-                <div class="qr-flow-label">Assessment</div>
-                <div class="qr-flow-sub">In progress…</div>
-              </div>
-              <div class="qr-flow-pulse"></div>
-            </div>
-            <div class="qr-flow-step qr-flow-pending">
-              <div class="qr-flow-icon">🏅</div>
-              <div class="qr-flow-body">
-                <div class="qr-flow-label">Certificate</div>
-                <div class="qr-flow-sub">Awaiting pass</div>
-              </div>
-            </div>
+            <div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div class="qr-flow-body"><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div>
+            <div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div class="qr-flow-body"><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div>
+            <div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div class="qr-flow-body"><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div>
+            <div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div class="qr-flow-body"><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div>
           </div>
-          <!-- Score card -->
           <div class="qr-score-card">
-            <div class="qr-score-header">
-              <span class="qr-score-title">TechCon 2025 — Assessment</span>
-              <span class="qr-score-badge">Live</span>
-            </div>
-            <div class="qr-score-bar-wrap">
-              <div class="qr-score-bar-track">
-                <div class="qr-score-bar-fill" style="width:72%"></div>
-              </div>
-              <span class="qr-score-pct">72%</span>
-            </div>
+            <div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div>
+            <div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><div class="qr-score-bar-fill" style="width:72%"></div></div><span class="qr-score-pct">72%</span></div>
             <div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div>
-            <div class="qr-score-actions">
-              <div class="qr-score-btn qr-score-retry">Retake</div>
-              <div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div>
-            </div>
+            <div class="qr-score-actions"><div class="qr-score-btn qr-score-retry">Retake</div><div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div></div>
           </div>
-          <!-- Dashboard row -->
           <div class="qr-dash-row">
-            <div class="qr-dash-stat">
-              <div class="qr-dash-val">248</div>
-              <div class="qr-dash-lbl">Checked In</div>
-            </div>
-            <div class="qr-dash-stat">
-              <div class="qr-dash-val">186</div>
-              <div class="qr-dash-lbl">Tested</div>
-            </div>
-            <div class="qr-dash-stat">
-              <div class="qr-dash-val" style="color:#4ade80">142</div>
-              <div class="qr-dash-lbl">Certified</div>
-            </div>
+            <div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div>
+            <div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div>
+            <div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </section>
 
-<!--═══════════ PROCESS ═══════════-->
 <section class="process" id="process">
   <div class="process-head wrap reveal">
     <p class="label">How I Work</p>
@@ -1589,7 +659,6 @@ footer{
   </div>
 </section>
 
-<!--═══════════ CONTACT ═══════════-->
 <section class="contact-section" id="contact">
   <div class="wrap">
     <div class="contact-header reveal">
@@ -1598,11 +667,8 @@ footer{
       <p style="font-size:.95rem;color:var(--gray-4);font-weight:300;max-width:480px;">Whether you need an ERP rollout, automation system, or a custom tool — I'm ready to help.</p>
     </div>
     <div class="contact-grid">
-
-      <!-- Left: direct links -->
       <div class="contact-card reveal">
         <h3 class="contact-card-title">Reach out directly</h3>
-
         <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="contact-link-row">
           <div class="contact-link-icon">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--gray-5)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1613,26 +679,22 @@ footer{
           </div>
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
         </a>
-
-        <a href="/cdn-cgi/l/email-protection#42232e242d3033372724272e2b3a2f2330212d02252f232b2e6c212d2f" class="contact-link-row">
+        <a href="mailto:alforquefelixmarco@gmail.com" class="contact-link-row">
           <div class="contact-link-icon">
             <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color:var(--gray-5)"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <div>
             <div class="contact-link-name">Email</div>
-            <div class="contact-link-val"><span class="__cf_email__" data-cfemail="2f4e4349405d5e5a4a494a434657424e5d4c406f48424e4643014c4042">[email&#160;protected]</span></div>
+            <div class="contact-link-val">alforquefelixmarco@gmail.com</div>
           </div>
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
         </a>
-
         <div class="contact-location">
           <div class="contact-location-label">Based in</div>
           <div class="contact-location-val">Manila, Philippines 🇵🇭</div>
           <div class="contact-location-sub">Open to remote & local projects</div>
         </div>
       </div>
-
-      <!-- Right: form -->
       <div class="contact-card reveal reveal-d1">
         <h3 class="contact-card-title">Send a message</h3>
         <div class="form-row-2">
@@ -1659,12 +721,10 @@ footer{
         </div>
         <button class="fsubmit" id="formSubmit">Send Message</button>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- SUCCESS POPUP -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
     <div class="popup-icon">✅</div>
@@ -1674,13 +734,12 @@ footer{
   </div>
 </div>
 
-<!--═══════════ FOOTER ═══════════-->
 <footer>
   <div class="foot-inner">
     <div class="foot-logo">Felix Marco Alforque</div>
     <div class="foot-copy">© 2025 · ERP System Analyst · Manila, PH</div>
     <div class="foot-links">
-      <a href="/cdn-cgi/l/email-protection#a6c7cac0c9d4d7d3c3c0c3cacfdecbc7d4c5c9e6c1cbc7cfca88c5c9cb" class="foot-link">
+      <a href="mailto:alforquefelixmarco@gmail.com" class="foot-link">
         <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         Email
       </a>
@@ -1696,107 +755,110 @@ footer{
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// EMAILJS INIT
-(function(){ emailjs.init("clYt3hnTwhHOCCeVq"); })();
+<script>
+// ── EmailJS init ──────────────────────────────────────────
+(function(){ emailjs.init('clYt3hnTwhHOCCeVq'); })();
 
-// NAV scroll shadow
-var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){
-  nav.classList.toggle('scrolled',window.scrollY>10);
-},{ passive:true });
+// ── Nav shadow on scroll ──────────────────────────────────
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
 
-// Hamburger
-var burger=document.getElementById('burger');
-var mobMenu=document.getElementById('mobMenu');
-burger.addEventListener('click',function(){
+// ── Hamburger menu ────────────────────────────────────────
+var burger  = document.getElementById('burger');
+var mobMenu = document.getElementById('mobMenu');
+burger.addEventListener('click', function(){
   mobMenu.classList.toggle('open');
 });
 mobMenu.querySelectorAll('a').forEach(function(a){
-  a.addEventListener('click',function(){ mobMenu.classList.remove('open'); });
+  a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
 });
 
-// Scroll reveal
-var reveals=document.querySelectorAll('.reveal');
-var revealObs=new IntersectionObserver(function(entries){
+// ── Scroll reveal ─────────────────────────────────────────
+var revealObs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){
-    if(e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); }
+    if (e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); }
   });
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-reveals.forEach(function(el){ revealObs.observe(el); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
 
-// Popup helpers
-function showPopup(){
-  document.getElementById('popup').classList.add('show');
-}
-document.getElementById('popupClose').addEventListener('click',function(){
-  document.getElementById('popup').classList.remove('show');
-});
-document.getElementById('popup').addEventListener('click',function(e){
-  if(e.target===this) this.classList.remove('show');
+// ── Popup helpers ─────────────────────────────────────────
+function showPopup(){ document.getElementById('popup').classList.add('show'); }
+function hidePopup(){ document.getElementById('popup').classList.remove('show'); }
+document.getElementById('popupClose').addEventListener('click', hidePopup);
+document.getElementById('popup').addEventListener('click', function(e){
+  if (e.target === this) hidePopup();
 });
 
-// Contact form + EmailJS
-var submitBtn=document.getElementById('formSubmit');
-if(submitBtn){
-  submitBtn.addEventListener('click',function(){
-    var btn=this;
-    var firstName=(document.getElementById('firstName')||{value:''}).value.trim();
-    var lastName=(document.getElementById('lastName')||{value:''}).value.trim();
-    var email=(document.getElementById('emailAddr')||{value:''}).value.trim();
-    var subject=(document.getElementById('subject')||{value:''}).value.trim();
-    var message=(document.getElementById('message')||{value:''}).value.trim();
+// ── Contact form ──────────────────────────────────────────
+document.getElementById('formSubmit').addEventListener('click', function(){
+  var btn       = this;
+  var firstName = document.getElementById('firstName').value.trim();
+  var lastName  = document.getElementById('lastName').value.trim();
+  var email     = document.getElementById('emailAddr').value.trim();
+  var subject   = document.getElementById('subject').value.trim();
+  var message   = document.getElementById('message').value.trim();
 
-    if(!firstName||!email||!message){
-      btn.textContent='Please fill required fields';
-      btn.style.background='#dc2626';
-      setTimeout(function(){ btn.textContent='Send Message'; btn.style.background=''; },3000);
-      return;
-    }
+  // Basic validation
+  if (!firstName || !email || !message) {
+    btn.textContent    = 'Please fill required fields';
+    btn.style.background = '#dc2626';
+    setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+    return;
+  }
 
-    btn.textContent='Sending...';
-    btn.disabled=true;
+  btn.textContent = 'Sending…';
+  btn.disabled    = true;
 
-    var now=new Date().toLocaleString('en-US',{
-      year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'
-    });
+  var now = new Date().toLocaleString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
 
-    emailjs.send('service_iefhjij','template_t7eh7pk',{
-      from_name:  firstName+' '+lastName,
-      from_email: email,
-      subject:    subject||'Portfolio Inquiry',
-      message:    message,
-      time:       now,
-      to_email:   'alforquefelixmarco@gmail.com'
+  var templateParams = {
+    from_name:  firstName + (lastName ? ' ' + lastName : ''),
+    from_email: email,
+    subject:    subject || 'Portfolio Inquiry',
+    message:    message,
+    time:       now
+    // NOTE: recipient is set to alforquefelixmarco@gmail.com
+    // directly inside your EmailJS template dashboard — no need
+    // to pass to_email here.
+  };
+
+  // ── Send notification to you ──────────────────────────
+  emailjs.send('service_iefhjij', 'template_t7eh7pk', templateParams)
+    .then(function(){
+      // ── Send auto-reply to the visitor ──────────────
+      return emailjs.send('service_iefhjij', 'template_vnf3qxp', {
+        from_name:  templateParams.from_name,
+        from_email: email,   // auto-reply goes to the visitor
+        subject:    templateParams.subject,
+        message:    templateParams.message,
+        time:       now
+      });
     })
     .then(function(){
-      emailjs.send('service_iefhjij','template_vnf3qxp',{
-        from_name:  firstName+' '+lastName,
-        from_email: email,
-        subject:    subject||'Portfolio Inquiry',
-        message:    message,
-        time:       now,
-        to_email:   'alforquefelixmarco@gmail.com'
-      });
-      btn.textContent='Message Sent!';
-      btn.style.background='#16a34a';
-      btn.disabled=false;
+      // ── Everything succeeded ─────────────────────────
+      btn.textContent      = 'Message Sent!';
+      btn.style.background = '#16a34a';
+      btn.disabled         = false;
       ['firstName','lastName','emailAddr','subject','message'].forEach(function(id){
-        var el=document.getElementById(id);
-        if(el) el.value='';
+        document.getElementById(id).value = '';
       });
       showPopup();
-      setTimeout(function(){ btn.textContent='Send Message'; btn.style.background=''; },4000);
+      setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 4000);
     })
     .catch(function(err){
-      console.error('EmailJS error:',err);
-      btn.textContent='Failed — Try Again';
-      btn.style.background='#dc2626';
-      btn.disabled=false;
-      setTimeout(function(){ btn.textContent='Send Message'; btn.style.background=''; },4000);
+      // ── Something failed — log details to console ────
+      console.error('EmailJS error:', JSON.stringify(err));
+      btn.textContent      = 'Failed — Try Again';
+      btn.style.background = '#dc2626';
+      btn.disabled         = false;
+      setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 4000);
     });
-  });
-}
+});
 </script>
 </body>
 </html>
