@@ -1,302 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8"/>  
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Felix Marco Alforque — ERP System Analyst · Manila</title>
 <meta name="description" content="Felix Marco Alforque — ERP System Analyst and Web Developer based in Manila, Philippines. Specializing in ERP implementation, business process automation, and custom finance systems."/>
 <meta property="og:title" content="Felix Marco Alforque — ERP System Analyst"/>
-<meta property="og:description" content="I build systems that simplify complex operations. ERP • Automation • Finance Systems • Custom Solutions. Based in Manila, Philippines."/>
+<meta property="og:description" content="I build systems that simplify complex operations. ERP · Automation · Finance Systems · Custom Solutions. Based in Manila, Philippines."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://felixmarcoalforque.it.com"/>
-<meta property="og:image" content="https://felixmarcoalforque.it.com/og-preview.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Felix Marco Alforque — ERP System Analyst"/>
-<meta name="twitter:description" content="I build systems that simplify complex operations. ERP • Automation • Finance Systems • Custom Solutions."/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a2e'/><text y='.9em' font-size='60' x='50%' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>F</text></svg>"/>
-<title>Felix Marco Alforque — ERP System Analyst · Manila</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000'/><text y='.9em' font-size='62' x='50%25' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>F</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 :root {
-  --white:   #ffffff;
-  --gray-0:  #fafafa;
-  --gray-1:  #f4f4f5;
-  --gray-2:  #e4e4e7;
-  --gray-3:  #d1d1d6;
-  --gray-4:  #a1a1aa;
-  --gray-5:  #71717a;
-  --gray-6:  #52525b;
-  --gray-7:  #3f3f46;
-  --gray-8:  #27272a;
-  --gray-9:  #18181b;
-  --ink:     #0a0a0b;
-  --accent:      #1a1a2e;
-  --accent-soft: rgba(26,26,46,0.06);
-  --green:   #16a34a;
-  --red:     #dc2626;
-  --blue:    #2563eb;
-  --amber:   #d97706;
-  --violet:  #7c3aed;
+  --white:  #ffffff;
+  --black:  #000000;
+  --g0:     #fafafa;
+  --g1:     #f5f5f5;
+  --g2:     #e8e8e8;
+  --g3:     #d0d0d0;
+  --g4:     #a8a8a8;
+  --g5:     #6b6b6b;
+  --g6:     #3d3d3d;
+  --g7:     #1a1a1a;
+  --ink:    #000000;
+  --accent: #000000;
+  --glass:  rgba(255,255,255,0.72);
+  --glass-border: rgba(0,0,0,0.08);
   --r-sm:  8px;
   --r-md:  14px;
   --r-lg:  20px;
   --r-xl:  28px;
-  --r-2xl: 36px;
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-lg: 0 24px 64px rgba(0,0,0,0.10), 0 8px 24px rgba(0,0,0,0.06);
-  --shadow-xl: 0 40px 100px rgba(0,0,0,0.13), 0 16px 40px rgba(0,0,0,0.08);
+  --r-2xl: 40px;
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.09);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+  --shadow-xl: 0 40px 100px rgba(0,0,0,0.15);
   --nav-h: 56px;
   --max-w: 1120px;
-  --prose: 680px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 img{display:block;max-width:100%}
 ul{list-style:none}
 .wrap{max-width:var(--max-w);margin:0 auto;padding:0 40px}
-.prose-wrap{max-width:var(--prose);margin:0 auto;padding:0 40px}
-.label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-4);}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.08s}
-.reveal-d2{transition-delay:.16s}
-.reveal-d3{transition-delay:.24s}
-.reveal-d4{transition-delay:.32s}
-.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;background:rgba(255,255,255,0.85);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-bottom:1px solid var(--gray-2);transition:box-shadow .3s;}
+.label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g4);}
+
+/* ── REVEAL ─────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.07s}
+.reveal-d2{transition-delay:.14s}
+.reveal-d3{transition-delay:.21s}
+.reveal-d4{transition-delay:.28s}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;background:rgba(255,255,255,0.80);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--g2);transition:box-shadow .3s;}
 .nav.scrolled{box-shadow:var(--shadow-sm)}
 .nav-inner{max-width:var(--max-w);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);letter-spacing:.02em;line-height:1.1;}
-.nav-links{display:flex;gap:32px;align-items:center;}
-.nav-links a{font-size:.82rem;font-weight:500;color:var(--gray-5);transition:color .2s;}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{padding:9px 20px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.8rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:6px;}
-.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.nav-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:var(--black);letter-spacing:.06em;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{font-size:.78rem;font-weight:500;color:var(--g5);transition:color .2s;letter-spacing:.01em;display:flex;align-items:center;gap:5px;}
+.nav-links a:hover{color:var(--black)}
+.nav-cta{padding:9px 20px;border-radius:999px;background:var(--black);color:var(--white);font-size:.78rem;font-weight:600;letter-spacing:.02em;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:7px;}
+.nav-cta:hover{opacity:.8;transform:translateY(-1px)}
 .burger{display:none;flex-direction:column;gap:5px;width:24px;}
-.burger span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:all .3s;}
-.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:var(--white);z-index:199;flex-direction:column;padding:32px 40px;gap:24px;border-top:1px solid var(--gray-2);}
+.burger span{display:block;height:1.5px;background:var(--black);border-radius:2px;transition:all .3s;}
+.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:199;flex-direction:column;padding:36px 40px;gap:24px;border-top:1px solid var(--g2);}
 .mob-menu.open{display:flex}
-.mob-link{font-size:1.1rem;font-weight:500;color:var(--gray-6);transition:color .2s;}
-.mob-link:hover{color:var(--ink)}
+.mob-link{font-size:1rem;font-weight:500;color:var(--g6);transition:color .2s;}
+.mob-link:hover{color:var(--black)}
+
+/* ── HERO ────────────────────────────────────────────────── */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden;background:var(--white);}
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--gray-2) 1px,transparent 1px),linear-gradient(90deg,var(--gray-2) 1px,transparent 1px);background-size:64px 64px;opacity:.35;mask-image:radial-gradient(ellipse 90% 70% at 50% 50%,black 20%,transparent 80%);}
-.hero-blob{position:absolute;top:-200px;right:-300px;width:900px;height:900px;background:radial-gradient(circle,rgba(99,102,241,.05) 0%,transparent 60%);pointer-events:none;}
-.hero-inner{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:80px 40px 100px;width:100%;}
-.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;border:1px solid var(--gray-2);background:var(--white);box-shadow:var(--shadow-xs);margin-bottom:36px;animation:fadeUp .9s ease both;}
-.kicker-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px rgba(34,197,94,.8);animation:breathe 2.5s ease infinite;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--g2) 1px,transparent 1px),linear-gradient(90deg,var(--g2) 1px,transparent 1px);background-size:72px 72px;opacity:.4;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,black 20%,transparent 80%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:90px 40px 110px;width:100%;}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid var(--g2);background:var(--white);box-shadow:var(--shadow-xs);margin-bottom:40px;animation:fadeUp .9s ease both;}
+.kicker-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);animation:breathe 2.5s ease infinite;}
 @keyframes breathe{0%,100%{opacity:1}50%{opacity:.35}}
-.hero-kicker span{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-5);}
-.hero-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.05;letter-spacing:-.03em;font-weight:800;color:var(--ink);max-width:820px;margin-bottom:28px;animation:fadeUp .9s .1s ease both;}
-.hero-h1 em{font-style:normal;font-weight:300;color:var(--gray-5);}
-.hero-sub{font-size:1.05rem;font-weight:300;color:var(--gray-5);max-width:540px;margin-bottom:48px;line-height:1.7;animation:fadeUp .9s .2s ease both;}
-.hero-sub strong{color:var(--gray-7);font-weight:500;display:block;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.hero-kicker span{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g5);}
+.hero-h1{font-family:'Sora',sans-serif;font-size:clamp(2.8rem,7vw,5.8rem);line-height:1.04;letter-spacing:-.04em;font-weight:800;color:var(--black);max-width:860px;margin-bottom:28px;animation:fadeUp .9s .1s ease both;}
+.hero-h1 em{font-style:normal;font-weight:300;color:var(--g4);}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--g5);max-width:520px;margin-bottom:52px;line-height:1.75;animation:fadeUp .9s .2s ease both;}
+.hero-sub strong{color:var(--g4);font-weight:500;display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
 .hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;animation:fadeUp .9s .3s ease both;}
-.btn-ink{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;background:var(--ink);color:var(--white);font-size:.88rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,0,0,.15);}
-.btn-ink:hover{opacity:.85;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
-.btn-line{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;border:1.5px solid var(--gray-2);color:var(--gray-6);font-size:.88rem;font-weight:500;transition:border-color .2s,color .2s,transform .2s;}
-.btn-line:hover{border-color:var(--gray-5);color:var(--ink);transform:translateY(-2px)}
-.hero-metrics{display:flex;align-items:stretch;gap:0;margin-top:64px;border:1px solid var(--gray-2);border-radius:var(--r-xl);background:var(--white);box-shadow:var(--shadow-md);overflow:hidden;max-width:560px;animation:fadeUp .9s .4s ease both;}
-.metric{flex:1;padding:24px 20px;border-right:1px solid var(--gray-2);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--black);color:var(--white);font-size:.85rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(0,0,0,.18);}
+.btn-primary:hover{opacity:.82;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.22)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;border:1.5px solid var(--g2);color:var(--g6);font-size:.85rem;font-weight:500;transition:border-color .2s,color .2s,transform .2s;}
+.btn-ghost:hover{border-color:var(--g5);color:var(--black);transform:translateY(-2px)}
+.hero-metrics{display:flex;align-items:stretch;gap:0;margin-top:72px;border:1px solid var(--g2);border-radius:var(--r-xl);background:var(--white);box-shadow:var(--shadow-md);overflow:hidden;max-width:560px;animation:fadeUp .9s .4s ease both;}
+.metric{flex:1;padding:24px 16px;border-right:1px solid var(--g2);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .metric:last-child{border-right:none}
-.metric-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.9rem;letter-spacing:-.02em;font-weight:800;color:var(--ink);line-height:1;margin-bottom:6px;}
-.metric-lbl{font-size:.68rem;font-weight:600;color:var(--gray-4);letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.section-sep{height:1px;background:var(--gray-2);max-width:var(--max-w);margin:0 auto;}
-.about{padding:120px 0}
+.metric-val{font-family:'Sora',sans-serif;font-size:1.85rem;letter-spacing:-.025em;font-weight:800;color:var(--black);line-height:1;margin-bottom:6px;}
+.metric-lbl{font-size:.62rem;font-weight:500;color:var(--g4);letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ── TRUST STRIP ─────────────────────────────────────────── */
+.trust-strip{padding:16px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;padding:0 40px;max-width:var(--max-w);margin:0 auto;}
+.trust-item{display:flex;align-items:center;gap:9px;color:var(--g5);}
+.trust-icon{flex-shrink:0;opacity:.7;}
+.trust-text{font-size:.73rem;font-weight:500;color:var(--g5);letter-spacing:.01em;}
+.trust-divider{width:1px;height:18px;background:var(--g2);flex-shrink:0;}
+
+/* ── ABOUT ───────────────────────────────────────────────── */
+.about{padding:130px 0;background:var(--white);}
 .about-grid{display:grid;grid-template-columns:220px 1fr 1.1fr;gap:64px;align-items:start;}
 .about-photo-col{display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:8px;}
-.about-photo-frame{width:200px;height:200px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--gray-2);box-shadow:var(--shadow-md);flex-shrink:0;background:var(--gray-1);}
-.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-.about-photo-name{font-size:.82rem;font-weight:700;color:var(--ink);text-align:center;letter-spacing:-.01em;}
-.about-photo-role{font-size:.7rem;font-weight:500;color:var(--gray-4);text-align:center;letter-spacing:.06em;text-transform:uppercase;margin-top:-10px;}
-.about-photo-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--gray-1);border:1px solid var(--gray-2);font-size:.68rem;font-weight:600;color:var(--gray-5);letter-spacing:.04em;}
+.about-photo-frame{width:200px;height:200px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--g2);box-shadow:var(--shadow-md);flex-shrink:0;background:var(--g1);}
+.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.about-photo-name{font-family:'Sora',sans-serif;font-size:.82rem;font-weight:700;color:var(--black);text-align:center;letter-spacing:-.01em;}
+.about-photo-role{font-size:.68rem;font-weight:500;color:var(--g4);text-align:center;letter-spacing:.06em;text-transform:uppercase;margin-top:-10px;}
+.about-photo-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--g1);border:1px solid var(--g2);font-size:.67rem;font-weight:600;color:var(--g5);letter-spacing:.04em;}
 .about-photo-badge-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.7);}
-.about-lede{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.25;letter-spacing:-.025em;font-weight:800;color:var(--ink);margin-top:20px;margin-bottom:28px;}
-.about-lede em{color:var(--gray-5);font-style:normal;font-weight:300}
-.about-body{font-size:.92rem;font-weight:300;color:var(--gray-5);line-height:1.8;}
-.about-body strong{color:var(--gray-7);font-weight:500}
+.about-lede{font-family:'Sora',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.22;letter-spacing:-.03em;font-weight:800;color:var(--black);margin-top:20px;margin-bottom:28px;}
+.about-lede em{color:var(--g4);font-style:normal;font-weight:300;}
+.about-body{font-size:.9rem;font-weight:300;color:var(--g5);line-height:1.85;}
+.about-body strong{color:var(--g7);font-weight:600}
 .capability-list{display:flex;flex-direction:column;gap:2px;}
-.cap-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-radius:var(--r-md);transition:background .2s,transform .2s;cursor:default;}
-.cap-item:hover{background:var(--gray-1);transform:translateX(4px)}
-.cap-name{font-size:.9rem;font-weight:500;color:var(--ink)}
-.cap-badge{font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--gray-1);color:var(--gray-5);border:1px solid var(--gray-2);}
-.systems{padding:80px 0 160px;background:var(--gray-0);border-top:1px solid var(--gray-2);border-bottom:1px solid var(--gray-2);}
+.cap-item{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s,transform .2s;cursor:default;}
+.cap-item:hover{background:var(--g0);border-color:var(--g2);transform:translateX(4px)}
+.cap-name{font-size:.87rem;font-weight:500;color:var(--ink)}
+.cap-badge{font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--g1);color:var(--g5);border:1px solid var(--g2);}
+
+/* ── SECTION COMMON ──────────────────────────────────────── */
+.section-sep{height:1px;background:var(--g2);max-width:var(--max-w);margin:0 auto;}
+.section-title{font-family:'Sora',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.035em;color:var(--black);font-weight:800;margin-top:14px;}
+.section-title em{color:var(--g4);font-style:normal;font-weight:300;}
+
+/* ── ERP SECTION ─────────────────────────────────────────── */
+.erp-bg{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
+.erp-bg-head{text-align:center;padding:0 40px;margin-bottom:72px;}
+.erp-bg-intro{font-size:.95rem;font-weight:300;color:var(--g5);max-width:580px;margin:18px auto 0;line-height:1.8;}
+.erp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.erp-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:28px 24px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
+.erp-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--g3);}
+.erp-card-icon{width:44px;height:44px;border-radius:var(--r-md);background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-bottom:16px;flex-shrink:0;}
+.erp-card-title{font-family:'Sora',sans-serif;font-size:.92rem;font-weight:700;color:var(--black);margin-bottom:8px;letter-spacing:-.015em;}
+.erp-card-desc{font-size:.78rem;font-weight:300;color:var(--g5);line-height:1.8;flex:1;}
+.erp-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+.erp-tag{font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--g1);color:var(--g4);border:1px solid var(--g2);}
+.conf-notice{max-width:var(--max-w);margin:48px auto 0;padding:0 40px;}
+.conf-box{background:rgba(0,0,0,.02);border:1px solid var(--g2);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:14px;align-items:flex-start;}
+.conf-box-icon{flex-shrink:0;padding-top:2px;color:var(--g5);}
+.conf-box-title{font-size:.8rem;font-weight:700;color:var(--g7);margin-bottom:5px;letter-spacing:.01em;}
+.conf-box-text{font-size:.77rem;color:var(--g5);line-height:1.7;font-weight:300;}
+
+/* ── SYSTEMS ─────────────────────────────────────────────── */
+.systems{padding:80px 0 160px;background:var(--white);}
 .systems-head{text-align:center;padding:0 40px 80px}
-.systems-head .section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--ink);margin-top:16px;}
-.systems-head .section-title em{color:var(--gray-5);font-style:normal;font-weight:300}
+.systems-head .section-title{font-size:clamp(2rem,4vw,3rem);}
 .sys-block{max-width:var(--max-w);margin:0 auto 2px;padding:0 40px;}
-.sys-card{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r-2xl);overflow:hidden;border:1px solid var(--gray-2);background:var(--white);box-shadow:var(--shadow-sm);transition:box-shadow .4s,transform .4s;margin-bottom:20px;}
-.sys-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.sys-card{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r-2xl);overflow:hidden;border:1px solid var(--g2);background:var(--white);box-shadow:var(--shadow-sm);transition:box-shadow .4s,transform .4s,border-color .4s;margin-bottom:20px;}
+.sys-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--g3)}
 .sys-card.flip{direction:rtl}
 .sys-card.flip>*{direction:ltr}
 .sys-mock{position:relative;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.mock-fintra{background:linear-gradient(160deg,#0a0f1e 0%,#0f172a 50%,#111827 100%);}
+.mock-fintra{background:linear-gradient(160deg,#020510 0%,#050c1e 50%,#080f24 100%);}
 .fintra-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:10px;padding:20px;}
 .fi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-.fi-logo{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);}
-.fi-date{font-size:.65rem;color:rgba(255,255,255,.2)}
-.fi-net{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;}
-.fi-net-label{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.fi-net-value{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;}
+.fi-logo{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.fi-date{font-size:.65rem;color:rgba(255,255,255,.15)}
+.fi-net{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;}
+.fi-net-label{font-size:.63rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.fi-net-value{font-family:'Sora',sans-serif;font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;}
 .fi-net-change{font-size:.72rem;color:#4ade80;font-weight:500;display:flex;align-items:center;gap:4px;}
 .fi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.fi-mini{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px;}
-.fi-mini-label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
-.fi-mini-val{font-size:1.1rem;font-family:'Plus Jakarta Sans',sans-serif;color:#f8fafc;line-height:1}
-.fi-bars{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:16px 16px 10px;}
-.fi-bars-label{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
-.bar-track{height:6px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin-bottom:4px}
+.fi-mini{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;}
+.fi-mini-label{font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.fi-mini-val{font-size:1.1rem;font-family:'Sora',sans-serif;color:#f8fafc;line-height:1}
+.fi-bars{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 16px 10px;}
+.fi-bars-label{font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.bar-track{height:5px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin-bottom:4px}
 .bar-fill{height:100%;border-radius:999px;animation:growBar 2s .5s ease both}
 @keyframes growBar{from{width:0}}
 .fi-accounts{display:flex;flex-direction:column;gap:4px;}
-.fi-acc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:.72rem;}
-.fi-acc-name{color:rgba(255,255,255,.4)}
-.fi-acc-val{color:rgba(255,255,255,.7);font-weight:500}
-.mock-pos{background:linear-gradient(160deg,#0f0a1a 0%,#160d24 50%,#1a0f2e 100%);}
+.fi-acc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;font-size:.72rem;}
+.fi-acc-name{color:rgba(255,255,255,.35)}
+.fi-acc-val{color:rgba(255,255,255,.65);font-weight:500}
+.mock-pos{background:linear-gradient(160deg,#0a0514 0%,#100820 50%,#160b2a 100%);}
 .pos-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:8px;padding:20px;}
 .pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-.pos-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.pos-status{display:flex;align-items:center;gap:5px;font-size:.65rem;color:rgba(255,255,255,.35);font-weight:500;}
-.pos-status::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px rgba(74,222,128,.6);}
-.pos-order{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px;}
-.pos-order-head{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.pos-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.pos-status{display:flex;align-items:center;gap:5px;font-size:.65rem;color:rgba(255,255,255,.3);font-weight:500;}
+.pos-status::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 7px rgba(74,222,128,.7);}
+.pos-order{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;}
+.pos-order-head{font-size:.6rem;color:rgba(255,255,255,.2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
 .pos-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.75rem;}
 .pos-item:last-child{border-bottom:none}
-.pos-item-name{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);}
+.pos-item-name{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);}
 .pos-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.pos-item-price{color:rgba(255,255,255,.65);font-weight:500}
+.pos-item-price{color:rgba(255,255,255,.6);font-weight:500}
 .pos-total{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,.06);border-radius:10px;}
-.pos-total-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.04em}
-.pos-total-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;color:#f8fafc;line-height:1;}
-.pos-methods{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2px}
-.pos-method{padding:10px 6px;border-radius:8px;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.04em;border:1px solid;transition:opacity .2s;}
-.pm-gcash{background:rgba(99,102,241,.12);border-color:rgba(99,102,241,.25);color:rgba(180,180,255,.7)}
-.pm-cash{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.2);color:rgba(100,255,180,.7)}
-.pm-card{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.2);color:rgba(255,150,150,.7)}
-.pm-maya{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.2);color:rgba(255,210,80,.7)}
+.pos-total-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.04em}
+.pos-total-val{font-family:'Sora',sans-serif;font-size:1.5rem;color:#f8fafc;}
+.pos-methods{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.pos-method{padding:10px 6px;border-radius:9px;text-align:center;font-size:.62rem;font-weight:600;letter-spacing:.04em;border:1px solid;}
+.pm-gcash{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.2);color:rgba(180,180,255,.7)}
+.pm-cash{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.18);color:rgba(100,230,170,.7)}
+.pm-card{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.18);color:rgba(255,150,145,.7)}
+.pm-maya{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.18);color:rgba(255,210,80,.7)}
 .pos-inventory{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
-.pos-inv-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:10px 8px;text-align:center;font-size:.62rem;color:rgba(255,255,255,.35);font-weight:500;letter-spacing:.04em;}
-.mock-erp{background:linear-gradient(160deg,#071014 0%,#091820 50%,#0c1e2a 100%);}
+.pos-inv-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:10px 8px;text-align:center;font-size:.6rem;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.04em;}
+.mock-erp{background:linear-gradient(160deg,#040d10 0%,#061520 50%,#081a2a 100%);}
 .erp-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:10px;padding:20px;}
-.erp-header{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:4px}
+.erp-header{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:4px}
 .erp-modules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
-.erp-mod{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 8px;text-align:center;}
+.erp-mod{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 8px;text-align:center;}
 .erp-mod-icon{font-size:.95rem;margin-bottom:5px}
-.erp-mod-name{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.04em}
+.erp-mod-name{font-size:.58rem;color:rgba(255,255,255,.3);font-weight:500;letter-spacing:.04em}
 .erp-flow{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px;}
-.erp-flow-title{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.erp-flow-title{font-size:.6rem;color:rgba(255,255,255,.2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
 .erp-flow-row{display:flex;align-items:center;gap:6px;margin-bottom:7px;flex-wrap:wrap;}
-.erp-node{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.65rem;color:rgba(255,255,255,.45);font-weight:500;}
+.erp-node{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:.63rem;color:rgba(255,255,255,.45);font-weight:500;}
 .erp-nd{width:5px;height:5px;border-radius:50%}
 .erp-arrow{color:rgba(255,255,255,.15);font-size:.75rem}
 .erp-automations{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;}
-.erp-auto-title{font-size:.62rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.erp-auto-title{font-size:.6rem;color:rgba(255,255,255,.2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .erp-auto-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;}
 .erp-auto-row:last-child{border-bottom:none}
-.erp-auto-name{color:rgba(255,255,255,.35)}
-.erp-auto-on{color:#4ade80;font-weight:600;font-size:.65rem;letter-spacing:.06em}
-.mock-qr{background:linear-gradient(160deg,#080c10 0%,#0c1218 50%,#101820 100%);}
+.erp-auto-name{color:rgba(255,255,255,.32)}
+.erp-auto-on{color:#4ade80;font-weight:700;font-size:.63rem;letter-spacing:.06em}
+.mock-qr{background:linear-gradient(160deg,#040810 0%,#060c18 50%,#080e20 100%);}
 .qr-ui{width:calc(100% - 40px);max-width:340px;display:flex;flex-direction:column;gap:10px;padding:24px;}
 .qr-flow{display:flex;flex-direction:column;gap:4px}
-.qr-flow-step{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:background .3s;}
+.qr-flow-step{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);}
 .qr-flow-done{border-color:rgba(74,222,128,.2);background:rgba(74,222,128,.04)}
-.qr-flow-active{border-color:rgba(99,102,241,.35);background:rgba(99,102,241,.08)}
-.qr-flow-pending{opacity:.4}
+.qr-flow-active{border-color:rgba(99,102,241,.3);background:rgba(99,102,241,.06)}
+.qr-flow-pending{opacity:.35}
 .qr-flow-icon{font-size:.9rem;flex-shrink:0}
 .qr-flow-body{flex:1}
-.qr-flow-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.65)}
-.qr-flow-sub{font-size:.62rem;color:rgba(255,255,255,.3);margin-top:1px}
+.qr-flow-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6)}
+.qr-flow-sub{font-size:.6rem;color:rgba(255,255,255,.25);margin-top:1px}
 .qr-flow-check{font-size:.7rem;color:#4ade80;font-weight:700;margin-left:auto}
 .qr-flow-pulse{width:8px;height:8px;border-radius:50%;background:#818cf8;margin-left:auto;flex-shrink:0;box-shadow:0 0 8px rgba(129,140,248,.8);animation:breathe 1.5s ease infinite;}
 .qr-score-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;}
 .qr-score-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.qr-score-title{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.qr-score-badge{font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(248,113,113,.15);border:1px solid rgba(248,113,113,.25);color:rgba(255,150,150,.8);}
+.qr-score-title{font-size:.63rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.04em}
+.qr-score-badge{font-size:.56rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.22);color:rgba(255,120,115,.75);}
 .qr-score-bar-wrap{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.qr-score-bar-track{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;}
+.qr-score-bar-track{flex:1;height:5px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;}
 .qr-score-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#f87171,#fb923c);animation:growBar 1.5s .3s ease both;}
-.qr-score-pct{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.5)}
-.qr-score-meta{font-size:.62rem;color:rgba(255,255,255,.25);margin-bottom:10px}
+.qr-score-pct{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.45)}
+.qr-score-meta{font-size:.6rem;color:rgba(255,255,255,.2);margin-bottom:10px}
 .qr-score-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.qr-score-btn{padding:8px;border-radius:8px;text-align:center;font-size:.65rem;font-weight:700;letter-spacing:.04em;}
-.qr-score-retry{background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);color:rgba(180,185,255,.8);}
-.qr-score-cert{background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);color:rgba(100,255,180,.8);}
+.qr-score-btn{padding:8px;border-radius:8px;text-align:center;font-size:.63rem;font-weight:700;letter-spacing:.04em;}
+.qr-score-retry{background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.25);color:rgba(180,185,255,.75);}
+.qr-score-cert{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.25);color:rgba(100,230,160,.75);}
 .qr-score-cert-dim{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.2);}
 .qr-dash-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
 .qr-dash-stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 8px;text-align:center;}
-.qr-dash-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;}
-.qr-dash-lbl{font-size:.58rem;color:rgba(255,255,255,.25);letter-spacing:.06em;text-transform:uppercase}
-.sys-info{padding:64px 60px;display:flex;flex-direction:column;justify-content:center;}
-.sys-num{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gray-3);margin-bottom:28px;}
-.sys-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.7rem,2.5vw,2.4rem);line-height:1.15;letter-spacing:-.025em;font-weight:800;color:var(--ink);margin-bottom:10px;}
-.sys-tagline{font-size:.95rem;font-weight:300;color:var(--gray-4);margin-bottom:40px;}
+.qr-dash-val{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;}
+.qr-dash-lbl{font-size:.56rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase}
+.sys-info{padding:60px 56px;display:flex;flex-direction:column;justify-content:center;}
+.sys-num{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);margin-bottom:28px;}
+.sys-title{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,2.5vw,2.4rem);line-height:1.15;letter-spacing:-.03em;font-weight:800;color:var(--black);margin-bottom:10px;}
+.sys-tagline{font-size:.92rem;font-weight:300;color:var(--g4);margin-bottom:40px;}
 .sys-features{display:flex;flex-direction:column;gap:2px}
-.feat{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:var(--r-md);transition:background .2s;cursor:default;}
-.feat:hover{background:var(--gray-1)}
-.feat-icon{width:32px;height:32px;flex-shrink:0;border-radius:9px;background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-top:1px;}
-.feat-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:2px}
-.feat-desc{font-size:.78rem;color:var(--gray-4);line-height:1.5;font-weight:300}
-.process{padding:120px 0;background:var(--white)}
+.feat{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s;cursor:default;}
+.feat:hover{background:var(--g0);border-color:var(--g2)}
+.feat-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-top:1px;}
+.feat-title{font-size:.86rem;font-weight:600;color:var(--black);margin-bottom:2px}
+.feat-desc{font-size:.76rem;color:var(--g4);line-height:1.55;font-weight:300}
+
+/* ── SERVICES ────────────────────────────────────────────── */
+.services{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
+.services-head{text-align:center;padding:0 40px;margin-bottom:72px;}
+.services-sub{font-size:.95rem;font-weight:300;color:var(--g5);max-width:560px;margin:16px auto 0;line-height:1.8;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.svc-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:28px 24px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
+.svc-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--g3);}
+.svc-icon{width:46px;height:46px;border-radius:var(--r-md);border:1px solid var(--g2);background:var(--g1);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-bottom:18px;flex-shrink:0;}
+.svc-title{font-family:'Sora',sans-serif;font-size:.94rem;font-weight:700;color:var(--black);margin-bottom:9px;letter-spacing:-.015em;}
+.svc-desc{font-size:.78rem;font-weight:300;color:var(--g5);line-height:1.75;}
+.svc-list{margin-top:16px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.svc-li{display:flex;align-items:flex-start;gap:8px;font-size:.75rem;color:var(--g5);line-height:1.5;}
+.svc-arrow{color:var(--g4);font-size:.72rem;padding-top:2px;flex-shrink:0;}
+.svc-ideal-wrap{margin-top:18px;padding-top:14px;border-top:1px solid var(--g1);}
+.svc-ideal-lbl{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g3);margin-bottom:3px;}
+.svc-ideal-val{font-size:.74rem;font-weight:400;color:var(--g4);line-height:1.5;}
+.services-cta-wrap{text-align:center;margin-top:56px;padding:0 40px;}
+.services-cta-wrap p{font-size:.9rem;color:var(--g4);font-weight:300;margin-bottom:22px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
+
+/* ── TESTIMONIALS ────────────────────────────────────────── */
+.testimonials{padding:120px 0;background:var(--white);}
+.testi-head{text-align:center;margin-bottom:56px;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
+.testi-card{background:var(--g0);border:1px solid var(--g2);border-radius:var(--r-xl);padding:30px;display:flex;flex-direction:column;gap:22px;transition:box-shadow .3s,transform .3s,border-color .3s;}
+.testi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--g3)}
+.testi-quote{font-size:.88rem;line-height:1.75;color:var(--g5);font-style:italic;}
+.testi-quote::before{content:'“';font-size:2rem;line-height:0;vertical-align:-0.4em;color:var(--g2);margin-right:3px;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;}
+.testi-name{font-size:.82rem;font-weight:600;color:var(--black);}
+.testi-company{font-size:.74rem;color:var(--g4);margin-top:2px;}
+
+/* ── PROCESS ─────────────────────────────────────────────── */
+.process{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);}
 .process-head{text-align:center;margin-bottom:80px}
-.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.03em;color:var(--ink);font-weight:800;margin-top:14px;}
-.section-title em{color:var(--gray-5);font-style:normal;font-weight:300}
 .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:0;max-width:900px;margin:0 auto;padding:0 40px;}
 .step{text-align:center;padding:0 12px}
-.step-bubble{width:80px;height:80px;border-radius:50%;background:var(--white);border:1.5px solid var(--gray-2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:1.6rem;box-shadow:var(--shadow-sm);transition:border-color .3s,box-shadow .3s,transform .3s;}
-.step:hover .step-bubble{border-color:var(--gray-5);box-shadow:var(--shadow-md);transform:translateY(-4px);}
-.step-n{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-3);margin-bottom:8px;}
-.step-t{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em;}
-.step-d{font-size:.85rem;color:var(--gray-4);line-height:1.7;font-weight:300}
-.step-connector{display:flex;align-items:center;justify-content:center;padding-top:40px;color:var(--gray-3);font-size:1.1rem;}
-.contact-section{padding:120px 0;background:var(--gray-0);border-top:1px solid var(--gray-2);}
+.step-bubble{width:80px;height:80px;border-radius:50%;background:var(--white);border:1.5px solid var(--g2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--g6);box-shadow:var(--shadow-xs);transition:border-color .3s,box-shadow .3s,transform .3s,background .3s;}
+.step:hover .step-bubble{border-color:var(--black);box-shadow:var(--shadow-md);transform:translateY(-4px);}
+.step-n{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);margin-bottom:8px;}
+.step-t{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:var(--black);margin-bottom:12px;letter-spacing:-.02em;}
+.step-d{font-size:.83rem;color:var(--g4);line-height:1.7;font-weight:300}
+.step-connector{display:flex;align-items:center;justify-content:center;padding-top:40px;color:var(--g3);font-size:1rem;}
+
+/* ── CONTACT ─────────────────────────────────────────────── */
+.contact-section{padding:120px 0;background:var(--white);}
 .contact-header{margin-bottom:64px}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:start;}
-.contact-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:40px;box-shadow:var(--shadow-xs);transition:box-shadow .3s,border-color .3s;}
-.contact-card:hover{box-shadow:var(--shadow-md);border-color:var(--gray-3)}
-.contact-card-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:24px;letter-spacing:-.01em;}
-.contact-link-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-md);border:1px solid var(--gray-2);background:var(--gray-0);margin-bottom:10px;transition:border-color .2s,transform .2s,background .2s;cursor:pointer;}
-.contact-link-row:hover{border-color:var(--gray-4);transform:translateY(-2px);background:var(--white)}
-.contact-link-icon{width:36px;height:36px;border-radius:9px;background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.contact-link-name{font-size:.85rem;font-weight:600;color:var(--ink)}
-.contact-link-val{font-size:.72rem;color:var(--gray-4);margin-top:1px}
-.contact-location{margin-top:20px;padding:18px;border-radius:var(--r-md);background:var(--gray-0);border:1px solid var(--gray-2);}
-.contact-location-label{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-3);margin-bottom:6px}
-.contact-location-val{font-size:.95rem;font-weight:600;color:var(--ink)}
-.contact-location-sub{font-size:.75rem;color:var(--gray-4);margin-top:2px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start;}
+.contact-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:38px;box-shadow:var(--shadow-xs);transition:box-shadow .3s,border-color .3s;}
+.contact-card:hover{box-shadow:var(--shadow-md);border-color:var(--g3)}
+.contact-card-title{font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:22px;letter-spacing:-.01em;}
+.contact-link-row{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:var(--r-md);border:1px solid var(--g2);background:var(--g0);margin-bottom:10px;transition:border-color .2s,transform .2s,background .2s;cursor:pointer;}
+.contact-link-row:hover{border-color:var(--g4);transform:translateY(-2px);background:var(--white)}
+.contact-link-icon{width:36px;height:36px;border-radius:9px;background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g5);}
+.contact-link-name{font-size:.83rem;font-weight:600;color:var(--black)}
+.contact-link-val{font-size:.7rem;color:var(--g4);margin-top:1px}
+.contact-location{margin-top:18px;padding:16px;border-radius:var(--r-md);background:var(--g0);border:1px solid var(--g2);display:flex;align-items:flex-start;gap:10px;}
+.contact-location-icon{color:var(--g4);flex-shrink:0;margin-top:1px;}
+.contact-location-label{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g3);margin-bottom:6px}
+.contact-location-val{font-size:.9rem;font-weight:600;color:var(--black)}
+.contact-location-sub{font-size:.73rem;color:var(--g4);margin-top:2px}
 .fg{margin-bottom:14px}
-.flabel{display:block;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-4);margin-bottom:6px;}
-.freq{color:var(--gray-3)}
-.finput{width:100%;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--gray-2);background:var(--gray-0);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:400;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none;}
-.finput:focus{border-color:var(--gray-5);background:var(--white);box-shadow:0 0 0 3px rgba(0,0,0,.04);}
-.finput::placeholder{color:var(--gray-3)}
+.flabel{display:block;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g4);margin-bottom:7px;}
+.freq{color:var(--g3)}
+.finput{width:100%;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--g2);background:var(--g0);color:var(--black);font-family:'Inter',sans-serif;font-size:.87rem;font-weight:400;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none;}
+.finput:focus{border-color:var(--black);background:var(--white);box-shadow:0 0 0 3px rgba(0,0,0,.06);}
+.finput::placeholder{color:var(--g3)}
 .ftextarea{resize:none}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fsubmit{width:100%;padding:13px;margin-top:4px;border-radius:var(--r-md);background:var(--ink);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.02em;transition:opacity .2s,transform .15s;}
-.fsubmit:hover{opacity:.85;transform:translateY(-1px)}
-.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);z-index:999;align-items:center;justify-content:center;}
+.fsubmit{width:100%;padding:13px;margin-top:4px;border-radius:var(--r-md);background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.02em;transition:opacity .2s,transform .15s;}
+.fsubmit:hover{opacity:.82;transform:translateY(-1px)}
+
+/* ── POPUP ───────────────────────────────────────────────── */
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(12px);z-index:999;align-items:center;justify-content:center;}
 .popup-overlay.show{display:flex}
-.popup-box{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:var(--shadow-xl);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+.popup-box{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:var(--shadow-xl);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
 @keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 .popup-icon{font-size:2.2rem;margin-bottom:16px}
-.popup-title{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px;}
-.popup-text{font-size:.88rem;color:var(--gray-4);line-height:1.6;margin-bottom:28px}
-.popup-close{padding:12px 32px;border-radius:999px;background:var(--ink);color:var(--white);font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:600;transition:opacity .2s;}
-.popup-close:hover{opacity:.85}
-footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white);}
+.popup-title{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.02em;color:var(--black);margin-bottom:8px;}
+.popup-text{font-size:.87rem;color:var(--g4);line-height:1.6;margin-bottom:28px}
+.popup-close{padding:12px 32px;border-radius:999px;background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;transition:opacity .2s;}
+.popup-close:hover{opacity:.82}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
 .foot-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.foot-logo{font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
-.foot-copy{font-size:.75rem;color:var(--gray-3)}
-.foot-links{display:flex;gap:24px}
-.foot-link{font-size:.78rem;color:var(--gray-4);display:inline-flex;align-items:center;gap:6px;transition:color .2s;}
-.foot-link:hover{color:var(--ink)}
-.foot-up{font-size:.75rem;color:var(--gray-3);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
-.foot-up:hover{color:var(--gray-6)}
+.foot-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;color:var(--black);letter-spacing:-.01em;}
+.foot-copy{font-size:.73rem;color:var(--g3)}
+.foot-links{display:flex;gap:22px}
+.foot-link{font-size:.76rem;color:var(--g4);display:inline-flex;align-items:center;gap:6px;transition:color .2s;}
+.foot-link:hover{color:var(--black)}
+.foot-up{font-size:.73rem;color:var(--g4);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
+.foot-up:hover{color:var(--black)}
+
+/* ── SCROLLBAR ───────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--g1)}
+::-webkit-scrollbar-thumb{background:var(--g3);border-radius:999px}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
 @media(max-width:960px){
   .nav-links{display:none}
   .burger{display:flex}
@@ -308,126 +381,55 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   .sys-card{grid-template-columns:1fr}
   .sys-card.flip{direction:ltr}
   .sys-mock{min-height:300px}
-  .sys-info{padding:40px 36px}
+  .sys-info{padding:40px 32px}
   .steps{grid-template-columns:1fr;gap:32px}
   .step-connector{display:none}
   .contact-grid{grid-template-columns:1fr}
+  .erp-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .trust-divider{display:none}
+  .trust-inner{gap:20px}
 }
 @media(max-width:640px){
-  .wrap,.nav{padding-left:16px;padding-right:16px}
-  .hero-inner{padding-left:16px;padding-right:16px;padding-bottom:80px}
+  .wrap,.nav{padding-left:20px;padding-right:20px}
+  .hero-inner{padding-left:20px;padding-right:20px;padding-bottom:80px}
   .about{padding:80px 0}
-  .about .wrap{padding-left:16px;padding-right:16px}
-  .systems-head{padding-left:16px;padding-right:16px}
-  .sys-block{padding:0 16px}
-  .steps{padding:0 16px}
-  .contact-section .wrap{padding-left:16px;padding-right:16px}
-  .foot-inner{padding-left:16px;padding-right:16px}
+  .about .wrap{padding-left:20px;padding-right:20px}
+  .systems-head{padding-left:20px;padding-right:20px}
+  .sys-block{padding:0 20px}
+  .steps{padding:0 20px}
+  .contact-section .wrap{padding-left:20px;padding-right:20px}
+  .foot-inner{padding-left:20px;padding-right:20px}
   .hero-metrics{max-width:100%;margin-top:48px}
   .metric{padding:18px 10px}
   .metric-val{font-size:1.4rem}
-  .metric-lbl{font-size:.6rem;letter-spacing:.04em}
-  .hero-h1{font-size:2.2rem}
+  .metric-lbl{font-size:.58rem}
+  .hero-h1{font-size:2.4rem}
   .hero-actions{flex-direction:column;align-items:flex-start;gap:10px}
-  .btn-ink,.btn-line{width:100%;justify-content:center;max-width:100%}
-  .about-grid{gap:32px}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
   .about-photo-frame{width:80px;height:80px}
   .about-lede{font-size:1.5rem}
   .sys-info{padding:28px 20px}
   .sys-mock{min-height:260px}
-  .sys-title{font-size:1.5rem}
   .section-title{font-size:1.8rem}
-  .step-bubble{width:60px;height:60px;font-size:1.2rem}
+  .step-bubble{width:64px;height:64px}
   .step-t{font-size:1.2rem}
   .fi-row{grid-template-columns:1fr}
   .form-row-2{grid-template-columns:1fr}
   .contact-card{padding:24px 20px}
-  .contact-header{margin-bottom:40px}
+  .erp-grid,.services-grid{grid-template-columns:1fr;padding:0 20px}
+  .testi-grid{padding:0 20px}
+  .conf-notice,.services-cta-wrap{padding:0 20px}
+  .erp-bg-head,.services-head,.testi-head{padding-left:20px;padding-right:20px}
+  .trust-inner{gap:14px;padding:0 20px}
   .foot-inner{flex-direction:column;align-items:center;text-align:center;gap:12px}
   .foot-links{justify-content:center}
 }
 @media(max-width:380px){
-  .hero-h1{font-size:1.9rem}
+  .hero-h1{font-size:2rem}
   .metric-val{font-size:1.2rem}
-  .metric-lbl{font-size:.55rem}
   .metric{padding:14px 8px}
 }
-
-/* ═══ TRUST STRIP ════════════════════════════════════════════════ */
-.trust-strip{padding:20px 0;background:var(--white);border-bottom:1px solid var(--gray-2);}
-.trust-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;padding:0 40px;max-width:var(--max-w);margin:0 auto;}
-.trust-item{display:flex;align-items:center;gap:9px;}
-.trust-icon{font-size:.95rem;flex-shrink:0;opacity:.7;}
-.trust-text{font-size:.76rem;font-weight:500;color:var(--gray-5);letter-spacing:.01em;}
-.trust-divider{width:1px;height:20px;background:var(--gray-2);flex-shrink:0;}
-
-/* ═══ ERP BACKGROUND ══════════════════════════════════════════════ */
-.erp-bg{padding:120px 0;background:var(--gray-0);border-top:1px solid var(--gray-2);border-bottom:1px solid var(--gray-2);}
-.erp-bg-head{text-align:center;padding:0 40px;margin-bottom:72px;}
-.erp-bg-intro{font-size:.97rem;font-weight:300;color:var(--gray-5);max-width:580px;margin:18px auto 0;line-height:1.8;}
-.erp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
-.erp-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:30px 26px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
-.erp-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--gray-3);}
-.erp-card-icon{width:42px;height:42px;border-radius:var(--r-md);background:var(--gray-1);border:1px solid var(--gray-2);display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:16px;flex-shrink:0;}
-.erp-card-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em;}
-.erp-card-desc{font-size:.8rem;font-weight:300;color:var(--gray-5);line-height:1.75;flex:1;}
-.erp-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
-.erp-tag{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--gray-1);color:var(--gray-4);border:1px solid var(--gray-2);}
-.conf-notice{max-width:var(--max-w);margin:48px auto 0;padding:0 40px;}
-.conf-box{background:rgba(217,119,6,.04);border:1px solid rgba(217,119,6,.18);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:14px;align-items:flex-start;}
-.conf-box-icon{font-size:1rem;flex-shrink:0;padding-top:1px;opacity:.8;}
-.conf-box-title{font-size:.8rem;font-weight:700;color:#92400e;margin-bottom:5px;letter-spacing:.01em;}
-.conf-box-text{font-size:.78rem;color:#92400e;opacity:.8;line-height:1.7;font-weight:300;}
-
-/* ═══ SERVICES ════════════════════════════════════════════════════ */
-.services{padding:120px 0;background:var(--white);}
-.services-head{text-align:center;padding:0 40px;margin-bottom:72px;}
-.services-sub{font-size:.97rem;font-weight:300;color:var(--gray-5);max-width:560px;margin:16px auto 0;line-height:1.8;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
-.svc-card{background:var(--white);border:1px solid var(--gray-2);border-radius:var(--r-xl);padding:30px 26px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
-.svc-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--gray-4);}
-.svc-icon{width:46px;height:46px;border-radius:var(--r-md);border:1px solid var(--gray-2);background:var(--gray-1);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:18px;flex-shrink:0;}
-.svc-title{font-size:.97rem;font-weight:700;color:var(--ink);margin-bottom:9px;letter-spacing:-.015em;}
-.svc-desc{font-size:.8rem;font-weight:300;color:var(--gray-5);line-height:1.75;}
-.svc-list{margin-top:16px;display:flex;flex-direction:column;gap:7px;flex:1;}
-.svc-li{display:flex;align-items:flex-start;gap:8px;font-size:.77rem;color:var(--gray-5);line-height:1.5;}
-.svc-arrow{color:var(--gray-3);font-size:.72rem;padding-top:2px;flex-shrink:0;}
-.svc-ideal-wrap{margin-top:18px;padding-top:14px;border-top:1px solid var(--gray-1);}
-.svc-ideal-lbl{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-3);margin-bottom:3px;}
-.svc-ideal-val{font-size:.76rem;font-weight:400;color:var(--gray-4);line-height:1.5;}
-.services-cta-wrap{text-align:center;margin-top:56px;padding:0 40px;}
-.services-cta-wrap p{font-size:.92rem;color:var(--gray-4);font-weight:300;margin-bottom:22px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
-
-/* ═══ RESPONSIVE ADDITIONS ════════════════════════════════════════ */
-@media(max-width:960px){
-  .erp-grid{grid-template-columns:1fr 1fr;}
-  .services-grid{grid-template-columns:1fr 1fr;}
-  .trust-divider{display:none;}
-  .trust-inner{gap:20px;}
-}
-@media(max-width:640px){
-  .erp-grid,.services-grid{grid-template-columns:1fr;padding:0 16px;}
-  .conf-notice{padding:0 16px;}
-  .erp-bg-head,.services-head{padding-left:16px;padding-right:16px;}
-  .services-cta-wrap{padding:0 16px;}
-  .trust-inner{gap:14px;padding:0 16px;}
-  .trust-item{font-size:.7rem;}
-}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--gray-1)}
-::-webkit-scrollbar-thumb{background:var(--gray-3);border-radius:999px}
-
-/* ── Testimonials ─────────────────────────────────────── */
-.testimonials { padding: 80px 0; }
-.testi-head { text-align: center; margin-bottom: 48px; }
-.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-.testi-card { background: var(--gray-0); border: 1px solid var(--gray-2); border-radius: var(--r-lg); padding: 32px; display: flex; flex-direction: column; gap: 24px; }
-.testi-quote { font-size: .95rem; line-height: 1.7; color: var(--gray-7); font-style: italic; }
-.testi-quote::before { content: '\201C'; font-size: 2rem; line-height: 0; vertical-align: -0.4em; color: var(--gray-3); margin-right: 4px; }
-.testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0; }
-.testi-name { font-size: .85rem; font-weight: 600; color: var(--ink); }
-.testi-company { font-size: .78rem; color: var(--gray-5); margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -442,16 +444,11 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" style="display:flex;align-items:center;gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" style="display:flex;align-items:center;gap:5px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="#contact" class="nav-cta">
-        Hire Me
-        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#contact" class="nav-cta">Hire Me <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -463,11 +460,11 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   <a href="#services" class="mob-link">Services</a>
   <a href="#process" class="mob-link">Process</a>
   <a href="#contact" class="mob-link">Contact</a>
-  <a href="#contact" class="btn-ink" style="width:fit-content">Hire Me</a>
+  <a href="#contact" class="btn-primary" style="width:fit-content">Hire Me</a>
 </div>
 
 <section class="hero" id="top">
-  <div class="hero-blob"></div>
+  <div class="hero-grid-bg"></div>
   <div class="hero-inner">
     <div class="hero-kicker">
       <div class="kicker-dot"></div>
@@ -484,76 +481,47 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
       Based in Manila, Philippines.
     </p>
     <div class="hero-actions">
-      <a href="#systems" class="btn-ink">
-        View My Work
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#contact" class="btn-line">Get in Touch</a>
+      <a href="#systems" class="btn-primary">View My Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
     </div>
     <div class="hero-metrics reveal">
-      <div class="metric">
-        <div class="metric-val">3+</div>
-        <div class="metric-lbl">Years building</div>
-      </div>
-      <div class="metric">
-        <div class="metric-val">10+</div>
-        <div class="metric-lbl">Systems shipped</div>
-      </div>
-      <div class="metric">
-        <div class="metric-val">6</div>
-        <div class="metric-lbl">ERP modules implemented</div>
-      </div>
-      <div class="metric">
-        <div class="metric-val">PH</div>
-        <div class="metric-lbl">Remote-ready</div>
-      </div>
+      <div class="metric"><div class="metric-val">3+</div><div class="metric-lbl">Years building</div></div>
+      <div class="metric"><div class="metric-val">10+</div><div class="metric-lbl">Systems shipped</div></div>
+      <div class="metric"><div class="metric-val">6</div><div class="metric-lbl">ERP modules</div></div>
+      <div class="metric"><div class="metric-val">PH</div><div class="metric-lbl">Remote-ready</div></div>
     </div>
   </div>
 </section>
 
-<div class="section-sep"></div>
 <div class="trust-strip">
   <div class="trust-inner">
-    <div class="trust-item"><span class="trust-icon">🏢</span><span class="trust-text">Corporate ERP Experience</span></div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span class="trust-text">Corporate ERP Experience</span></div>
     <div class="trust-divider"></div>
-    <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-text">NDA-Compliant Work</span></div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="trust-text">NDA-Compliant Work</span></div>
     <div class="trust-divider"></div>
-    <div class="trust-item"><span class="trust-icon">📐</span><span class="trust-text">Architecture Before Code</span></div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M3 9l6-6M6 12l6-6M9 15l6-6M12 18l6-6"/></svg><span class="trust-text">Architecture Before Code</span></div>
     <div class="trust-divider"></div>
-    <div class="trust-item"><span class="trust-icon">⚙️</span><span class="trust-text">End-to-End Implementation</span></div>
+    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span class="trust-text">End-to-End Implementation</span></div>
     <div class="trust-divider"></div>
-    <div class="trust-item"><span class="trust-icon">🇵🇭</span><span class="trust-text">Manila-based · Remote-ready</span></div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="trust-text">Manila-based · Remote-ready</span></div>
   </div>
 </div>
-
 
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-grid">
       <div class="about-photo-col reveal">
         <div class="about-photo-frame">
-          <img loading="lazy" src="data:image/png;base64,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" alt="Felix Marco Alforque"/>
+          <img loading="lazy" data:image/png;base64,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" alt="Felix Marco Alforque"/>
         </div>
         <div class="about-photo-name">Felix Marco Alforque</div>
         <div class="about-photo-role">ERP System Analyst</div>
-        <div class="about-photo-badge">
-          <span class="about-photo-badge-dot"></span>
-          Manila, PH
-        </div>
+        <div class="about-photo-badge"><span class="about-photo-badge-dot"></span>Manila, PH</div>
       </div>
       <div class="about-left">
         <p class="label reveal">About</p>
-        <h2 class="about-lede reveal reveal-d1">
-          Where business logic<br>meets <em>technical execution</em>
-        </h2>
-        <p class="about-body reveal reveal-d2">
-          I'm <strong>Felix Marco Alforque</strong> — an ERP System Analyst and Web Developer
-          based in Manila. I specialize in transforming business processes into efficient,
-          system-driven workflows.<br><br>
-          I bridge the gap between <strong>what a business needs</strong> and
-          <strong>what technology can do</strong> — translating real-world operations
-          into scalable digital systems that actually get used.
-        </p>
+        <h2 class="about-lede reveal reveal-d1">Where business logic<br>meets <em>technical execution</em></h2>
+        <p class="about-body reveal reveal-d2">I'm <strong>Felix Marco Alforque</strong> — an ERP System Analyst and Web Developer based in Manila. I specialize in transforming business processes into efficient, system-driven workflows.<br><br>I bridge the gap between <strong>what a business needs</strong> and <strong>what technology can do</strong> — translating real-world operations into scalable digital systems that actually get used.</p>
       </div>
       <div class="about-right reveal reveal-d2">
         <div class="capability-list">
@@ -569,9 +537,6 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
   </div>
 </section>
 
-
-<div class="section-sep"></div>
-
 <section class="erp-bg" id="erp-experience">
   <div class="erp-bg-head reveal">
     <p class="label">ERP Track Record</p>
@@ -579,46 +544,16 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <p class="erp-bg-intro">Before building systems for clients, I spent years inside corporate ERP environments — implementing, customizing, and optimizing the exact type of software your business depends on. This is the depth I bring to every project.</p>
   </div>
   <div class="erp-grid">
-    <div class="erp-card reveal">
-      <div class="erp-card-icon">💰</div>
-      <h3 class="erp-card-title">Finance Module Implementation</h3>
-      <p class="erp-card-desc">Worked directly on ERP finance modules — general ledger configuration, accounts payable/receivable workflows, cost center mapping, and period-end closing procedures aligned to business reporting cycles.</p>
-      <div class="erp-card-tags"><span class="erp-tag">GL Config</span><span class="erp-tag">AP/AR</span><span class="erp-tag">Cost Centers</span></div>
-    </div>
-    <div class="erp-card reveal reveal-d1">
-      <div class="erp-card-icon">👥</div>
-      <h3 class="erp-card-title">HR & Payroll Systems</h3>
-      <p class="erp-card-desc">Supported full HR module setups including employee master data, leave and attendance management, payroll calculation workflows, and government contribution integrations (SSS, PhilHealth, Pag-IBIG).</p>
-      <div class="erp-card-tags"><span class="erp-tag">Payroll</span><span class="erp-tag">Leave Mgmt</span><span class="erp-tag">Gov Compliance</span></div>
-    </div>
-    <div class="erp-card reveal reveal-d2">
-      <div class="erp-card-icon">📦</div>
-      <h3 class="erp-card-title">Inventory & Procurement</h3>
-      <p class="erp-card-desc">Handled inventory management setups, purchase order approval workflows, multi-warehouse location structures, and auto-reorder threshold automation within enterprise environments.</p>
-      <div class="erp-card-tags"><span class="erp-tag">PO Workflow</span><span class="erp-tag">Warehousing</span><span class="erp-tag">Auto-reorder</span></div>
-    </div>
-    <div class="erp-card reveal">
-      <div class="erp-card-icon">⚙️</div>
-      <h3 class="erp-card-title">Business Workflow Automation</h3>
-      <p class="erp-card-desc">Mapped and automated approval chains, inter-department data flows, and high-frequency recurring tasks — reducing manual effort and error rates across multiple business units simultaneously.</p>
-      <div class="erp-card-tags"><span class="erp-tag">Approvals</span><span class="erp-tag">Automation</span><span class="erp-tag">Data Flow</span></div>
-    </div>
-    <div class="erp-card reveal reveal-d1">
-      <div class="erp-card-icon">📊</div>
-      <h3 class="erp-card-title">Reporting & Dashboard Builds</h3>
-      <p class="erp-card-desc">Designed and built management reporting modules — daily operations dashboards, month-end financial summaries, and KPI trackers that gave leadership teams real-time visibility into business performance.</p>
-      <div class="erp-card-tags"><span class="erp-tag">KPI Dashboards</span><span class="erp-tag">Month-end Reports</span><span class="erp-tag">Mgmt Views</span></div>
-    </div>
-    <div class="erp-card reveal reveal-d2">
-      <div class="erp-card-icon">🖥️</div>
-      <h3 class="erp-card-title">UI Improvements & User Training</h3>
-      <p class="erp-card-desc">Redesigned internal ERP screens for usability — streamlined navigation, simplified data entry forms, role-specific views — then trained end-users and department leads to drive actual system adoption.</p>
-      <div class="erp-card-tags"><span class="erp-tag">UX Redesign</span><span class="erp-tag">Training</span><span class="erp-tag">Adoption</span></div>
-    </div>
+    <div class="erp-card reveal"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3 class="erp-card-title">Finance Module Implementation</h3><p class="erp-card-desc">Worked directly on ERP finance modules — general ledger configuration, accounts payable/receivable workflows, cost center mapping, and period-end closing procedures aligned to business reporting cycles.</p><div class="erp-card-tags"><span class="erp-tag">GL Config</span><span class="erp-tag">AP/AR</span><span class="erp-tag">Cost Centers</span></div></div>
+    <div class="erp-card reveal reveal-d1"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3 class="erp-card-title">HR & Payroll Systems</h3><p class="erp-card-desc">Supported full HR module setups including employee master data, leave and attendance management, payroll calculation workflows, and government contribution integrations (SSS, PhilHealth, Pag-IBIG).</p><div class="erp-card-tags"><span class="erp-tag">Payroll</span><span class="erp-tag">Leave Mgmt</span><span class="erp-tag">Gov Compliance</span></div></div>
+    <div class="erp-card reveal reveal-d2"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><h3 class="erp-card-title">Inventory & Procurement</h3><p class="erp-card-desc">Handled inventory management setups, purchase order approval workflows, multi-warehouse location structures, and auto-reorder threshold automation within enterprise environments.</p><div class="erp-card-tags"><span class="erp-tag">PO Workflow</span><span class="erp-tag">Warehousing</span><span class="erp-tag">Auto-reorder</span></div></div>
+    <div class="erp-card reveal"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><h3 class="erp-card-title">Business Workflow Automation</h3><p class="erp-card-desc">Mapped and automated approval chains, inter-department data flows, and high-frequency recurring tasks — reducing manual effort and error rates across multiple business units simultaneously.</p><div class="erp-card-tags"><span class="erp-tag">Approvals</span><span class="erp-tag">Automation</span><span class="erp-tag">Data Flow</span></div></div>
+    <div class="erp-card reveal reveal-d1"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3 class="erp-card-title">Reporting & Dashboard Builds</h3><p class="erp-card-desc">Designed and built management reporting modules — daily operations dashboards, month-end financial summaries, and KPI trackers that gave leadership teams real-time visibility into business performance.</p><div class="erp-card-tags"><span class="erp-tag">KPI Dashboards</span><span class="erp-tag">Month-end Reports</span><span class="erp-tag">Mgmt Views</span></div></div>
+    <div class="erp-card reveal reveal-d2"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3 class="erp-card-title">UI Improvements & User Training</h3><p class="erp-card-desc">Redesigned internal ERP screens for usability — streamlined navigation, simplified data entry forms, role-specific views — then trained end-users and department leads to drive actual system adoption.</p><div class="erp-card-tags"><span class="erp-tag">UX Redesign</span><span class="erp-tag">Training</span><span class="erp-tag">Adoption</span></div></div>
   </div>
   <div class="conf-notice reveal">
     <div class="conf-box">
-      <span class="conf-box-icon">🔒</span>
+      <span class="conf-box-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
       <div>
         <div class="conf-box-title">A note on confidentiality</div>
         <p class="conf-box-text">All ERP implementation work above was performed on internal corporate systems under non-disclosure agreements. Client names, system screenshots, and proprietary data cannot be shared publicly. I am happy to discuss scope, technical challenges, and my specific contributions in detail during a private consultation.</p>
@@ -626,6 +561,7 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     </div>
   </div>
 </section>
+
 <section class="systems" id="systems">
   <div class="systems-head reveal">
     <p class="label">Featured Systems</p>
@@ -636,25 +572,10 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
       <div class="sys-mock mock-fintra">
         <div class="fintra-ui">
           <div class="fi-header"><span class="fi-logo">Fintra</span><span class="fi-date">Mar 2025</span></div>
-          <div class="fi-net">
-            <div class="fi-net-label">Net Worth</div>
-            <div class="fi-net-value">₱ 284,500</div>
-            <div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div>
-          </div>
-          <div class="fi-row">
-            <div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div>
-            <div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div>
-          </div>
-          <div class="fi-bars">
-            <div class="fi-bars-label">Savings Rate — 57%</div>
-            <div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
-            <div class="bar-track" style="margin-top:8px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div>
-          </div>
-          <div class="fi-accounts">
-            <div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div>
-            <div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div>
-            <div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div>
-          </div>
+          <div class="fi-net"><div class="fi-net-label">Net Worth</div><div class="fi-net-value">₱ 284,500</div><div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div></div>
+          <div class="fi-row"><div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div><div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div></div>
+          <div class="fi-bars"><div class="fi-bars-label">Savings Rate — 57%</div><div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div><div class="bar-track" style="margin-top:6px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div></div>
+          <div class="fi-accounts"><div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div><div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div><div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div></div>
         </div>
       </div>
       <div class="sys-info">
@@ -662,9 +583,9 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
         <h3 class="sys-title">Fintra</h3>
         <p class="sys-tagline">Your Financial Control Center</p>
         <div class="sys-features">
-          <div class="feat"><div class="feat-icon">📊</div><div class="feat-body"><div class="feat-title">Real-time financial dashboard</div><div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div></div></div>
-          <div class="feat"><div class="feat-icon">🏦</div><div class="feat-body"><div class="feat-title">Multi-account tracking</div><div class="feat-desc">Banks, e-wallets, cash — unified view across all accounts.</div></div></div>
-          <div class="feat"><div class="feat-icon">🔒</div><div class="feat-body"><div class="feat-title">Privacy-first, offline-first</div><div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="feat-body"><div class="feat-title">Real-time financial dashboard</div><div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div class="feat-body"><div class="feat-title">Multi-account tracking</div><div class="feat-desc">Banks, e-wallets, cash — unified view across all accounts.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-body"><div class="feat-title">Privacy-first, offline-first</div><div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div></div></div>
         </div>
       </div>
     </div>
@@ -676,32 +597,18 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
         <h3 class="sys-title">POS System</h3>
         <p class="sys-tagline">Fast. Flexible. Scalable.</p>
         <div class="sys-features">
-          <div class="feat"><div class="feat-icon">🏪</div><div class="feat-body"><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
-          <div class="feat"><div class="feat-icon">⚡</div><div class="feat-body"><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal friction checkout — built for speed at the counter.</div></div></div>
-          <div class="feat"><div class="feat-icon">🧩</div><div class="feat-body"><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as your business scales.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="feat-body"><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="feat-body"><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal friction checkout — built for speed at the counter.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="feat-body"><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as your business scales.</div></div></div>
         </div>
       </div>
       <div class="sys-mock mock-pos">
         <div class="pos-ui">
           <div class="pos-header"><span class="pos-title">POS Terminal</span><span class="pos-status">Live</span></div>
-          <div class="pos-order">
-            <div class="pos-order-head">Current Order — Table 4</div>
-            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div>
-            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div>
-            <div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div>
-          </div>
+          <div class="pos-order"><div class="pos-order-head">Current Order — Table 4</div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div></div>
           <div class="pos-total"><span class="pos-total-label">Total</span><span class="pos-total-val">₱ 420</span></div>
-          <div class="pos-methods">
-            <div class="pos-method pm-gcash">GCash</div>
-            <div class="pos-method pm-cash">Cash</div>
-            <div class="pos-method pm-card">Card</div>
-            <div class="pos-method pm-maya">Maya</div>
-          </div>
-          <div class="pos-inventory">
-            <div class="pos-inv-item">Inventory</div>
-            <div class="pos-inv-item">Reports</div>
-            <div class="pos-inv-item">Loyalty</div>
-          </div>
+          <div class="pos-methods"><div class="pos-method pm-gcash">GCash</div><div class="pos-method pm-cash">Cash</div><div class="pos-method pm-card">Card</div><div class="pos-method pm-maya">Maya</div></div>
+          <div class="pos-inventory"><div class="pos-inv-item">Inventory</div><div class="pos-inv-item">Reports</div><div class="pos-inv-item">Loyalty</div></div>
         </div>
       </div>
     </div>
@@ -711,37 +618,9 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
       <div class="sys-mock mock-erp">
         <div class="erp-ui">
           <div class="erp-header">ERP Architecture</div>
-          <div class="erp-modules">
-            <div class="erp-mod"><div class="erp-mod-icon">💼</div><div class="erp-mod-name">Sales</div></div>
-            <div class="erp-mod"><div class="erp-mod-icon">📦</div><div class="erp-mod-name">Inventory</div></div>
-            <div class="erp-mod"><div class="erp-mod-icon">💰</div><div class="erp-mod-name">Finance</div></div>
-            <div class="erp-mod"><div class="erp-mod-icon">👥</div><div class="erp-mod-name">HR</div></div>
-            <div class="erp-mod"><div class="erp-mod-icon">🚚</div><div class="erp-mod-name">Logistics</div></div>
-            <div class="erp-mod"><div class="erp-mod-icon">📊</div><div class="erp-mod-name">Reports</div></div>
-          </div>
-          <div class="erp-flow">
-            <div class="erp-flow-title">Data Flow</div>
-            <div class="erp-flow-row">
-              <div class="erp-node"><span class="erp-nd" style="background:#818cf8"></span>Sales</div>
-              <span class="erp-arrow">→</span>
-              <div class="erp-node"><span class="erp-nd" style="background:#34d399"></span>Inventory</div>
-              <span class="erp-arrow">→</span>
-              <div class="erp-node"><span class="erp-nd" style="background:#f472b6"></span>Finance</div>
-            </div>
-            <div class="erp-flow-row" style="margin-top:6px">
-              <div class="erp-node"><span class="erp-nd" style="background:#fbbf24"></span>HR</div>
-              <span class="erp-arrow">→</span>
-              <div class="erp-node"><span class="erp-nd" style="background:#60a5fa"></span>Payroll</div>
-              <span class="erp-arrow">→</span>
-              <div class="erp-node"><span class="erp-nd" style="background:#a78bfa"></span>Reports</div>
-            </div>
-          </div>
-          <div class="erp-automations">
-            <div class="erp-auto-title">Automation Rules</div>
-            <div class="erp-auto-row"><span class="erp-auto-name">Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div>
-            <div class="erp-auto-row"><span class="erp-auto-name">Weekly report generation</span><span class="erp-auto-on">ON</span></div>
-            <div class="erp-auto-row"><span class="erp-auto-name">Payroll calculation</span><span class="erp-auto-on">ON</span></div>
-          </div>
+          <div class="erp-modules"><div class="erp-mod"><div class="erp-mod-icon">💼</div><div class="erp-mod-name">Sales</div></div><div class="erp-mod"><div class="erp-mod-icon">📦</div><div class="erp-mod-name">Inventory</div></div><div class="erp-mod"><div class="erp-mod-icon">💰</div><div class="erp-mod-name">Finance</div></div><div class="erp-mod"><div class="erp-mod-icon">👥</div><div class="erp-mod-name">HR</div></div><div class="erp-mod"><div class="erp-mod-icon">🚚</div><div class="erp-mod-name">Logistics</div></div><div class="erp-mod"><div class="erp-mod-icon">📊</div><div class="erp-mod-name">Reports</div></div></div>
+          <div class="erp-flow"><div class="erp-flow-title">Data Flow</div><div class="erp-flow-row"><div class="erp-node"><span class="erp-nd" style="background:#818cf8"></span>Sales</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#34d399"></span>Inventory</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#f472b6"></span>Finance</div></div><div class="erp-flow-row" style="margin-top:6px"><div class="erp-node"><span class="erp-nd" style="background:#fbbf24"></span>HR</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#60a5fa"></span>Payroll</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#a78bfa"></span>Reports</div></div></div>
+          <div class="erp-automations"><div class="erp-auto-title">Automation Rules</div><div class="erp-auto-row"><span class="erp-auto-name">Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Weekly report generation</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Payroll calculation</span><span class="erp-auto-on">ON</span></div></div>
         </div>
       </div>
       <div class="sys-info">
@@ -749,9 +628,9 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
         <h3 class="sys-title">ERP & Automation Systems</h3>
         <p class="sys-tagline">From process to system</p>
         <div class="sys-features">
-          <div class="feat"><div class="feat-icon">🏗️</div><div class="feat-body"><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
-          <div class="feat"><div class="feat-icon">🔍</div><div class="feat-body"><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
-          <div class="feat"><div class="feat-icon">⚙️</div><div class="feat-body"><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, focus humans on decisions.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div class="feat-body"><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="feat-body"><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="feat-body"><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, focus humans on decisions.</div></div></div>
         </div>
       </div>
     </div>
@@ -763,38 +642,21 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
         <h3 class="sys-title">Convention Event System</h3>
         <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
         <div class="sys-features">
-          <div class="feat"><div class="feat-icon">🎟️</div><div class="feat-body"><div class="feat-title">Guest Registration & QR Stub</div><div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div></div></div>
-          <div class="feat"><div class="feat-icon">📲</div><div class="feat-body"><div class="feat-title">QR Scan — Check-in & Check-out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div></div></div>
-          <div class="feat"><div class="feat-icon">📝</div><div class="feat-body"><div class="feat-title">In-event Assessment & Certification</div><div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div><div class="feat-body"><div class="feat-title">Guest Registration & QR Stub</div><div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div><div class="feat-body"><div class="feat-title">QR Scan — Check-in & Check-out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg></div><div class="feat-body"><div class="feat-title">In-event Assessment & Certification</div><div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div></div></div>
         </div>
       </div>
       <div class="sys-mock mock-qr">
         <div class="qr-ui">
-          <div class="qr-flow">
-            <div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div class="qr-flow-body"><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div>
-            <div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div class="qr-flow-body"><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div>
-            <div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div class="qr-flow-body"><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div>
-            <div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div class="qr-flow-body"><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div>
-          </div>
-          <div class="qr-score-card">
-            <div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div>
-            <div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><div class="qr-score-bar-fill" style="width:72%"></div></div><span class="qr-score-pct">72%</span></div>
-            <div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div>
-            <div class="qr-score-actions"><div class="qr-score-btn qr-score-retry">Retake</div><div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div></div>
-          </div>
-          <div class="qr-dash-row">
-            <div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div>
-            <div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div>
-            <div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div>
-          </div>
+          <div class="qr-flow"><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div class="qr-flow-body"><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div class="qr-flow-body"><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div class="qr-flow-body"><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div><div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div class="qr-flow-body"><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div></div>
+          <div class="qr-score-card"><div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div><div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><div class="qr-score-bar-fill" style="width:72%"></div></div><span class="qr-score-pct">72%</span></div><div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div><div class="qr-score-actions"><div class="qr-score-btn qr-score-retry">Retake</div><div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div></div></div>
+          <div class="qr-dash-row"><div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div><div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div><div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<div class="section-sep"></div>
 
 <section class="services" id="services">
   <div class="services-head reveal">
@@ -803,105 +665,19 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <p class="services-sub">Whether you need a full ERP from the ground up, targeted improvements to an existing system, or a clearer picture of why your current setup isn't working — here's how I can help.</p>
   </div>
   <div class="services-grid">
-    <div class="svc-card reveal">
-      <div class="svc-icon">🏗️</div>
-      <h3 class="svc-title">Custom ERP Development</h3>
-      <p class="svc-desc">Built for how your business actually operates — not a generic template forced into your workflow.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>Full module architecture planning</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Finance, HR, Inventory &amp; Sales integration</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Role-based access &amp; approval flows</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Dashboard &amp; reporting layer included</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">SMBs ready to replace spreadsheets with a real, scalable system</div>
-      </div>
-    </div>
-    <div class="svc-card reveal reveal-d1">
-      <div class="svc-icon">🧩</div>
-      <h3 class="svc-title">ERP Module Add-On</h3>
-      <p class="svc-desc">Your existing system is missing something critical. I build what's needed and integrate it cleanly into what you already have.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>Payroll &amp; government compliance module</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Inventory &amp; auto-reorder module</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Customer or supplier portals</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>3rd-party API integrations</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">Growing businesses that need specific extensions to their current setup</div>
-      </div>
-    </div>
-    <div class="svc-card reveal reveal-d2">
-      <div class="svc-icon">📊</div>
-      <h3 class="svc-title">Reporting &amp; Business Intelligence</h3>
-      <p class="svc-desc">Turn raw ERP data into dashboards your leadership team actually reads — and acts on.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>KPI &amp; operations dashboards</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Automated month-end report generation</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Financial summaries &amp; P&amp;L views</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Exportable report templates</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">Management teams making decisions without clear visibility into their data</div>
-      </div>
-    </div>
-    <div class="svc-card reveal">
-      <div class="svc-icon">⚙️</div>
-      <h3 class="svc-title">Business Process Automation</h3>
-      <p class="svc-desc">Find the manual, repetitive tasks draining your team's time — and eliminate them with smart workflow automation.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>Approval chain automation</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Automated notifications &amp; alerts</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Scheduled data jobs &amp; batch processing</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Cross-department data sync</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">Teams losing hours every week to avoidable manual processes</div>
-      </div>
-    </div>
-    <div class="svc-card reveal reveal-d1">
-      <div class="svc-icon">🔍</div>
-      <h3 class="svc-title">ERP Audit &amp; Process Review</h3>
-      <p class="svc-desc">Not sure why your system isn't working the way it should? I audit your setup, find the gaps, and deliver a clear path forward.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>Current system gap analysis</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Process bottleneck identification</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Actionable improvement roadmap</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Optional implementation support</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">Businesses with ERP frustrations but no clear diagnosis of the problem</div>
-      </div>
-    </div>
-    <div class="svc-card reveal reveal-d2">
-      <div class="svc-icon">🖥️</div>
-      <h3 class="svc-title">ERP UI/UX Redesign</h3>
-      <p class="svc-desc">Your system works technically but your team resists using it. I redesign the interface to cut friction and drive real adoption.</p>
-      <ul class="svc-list">
-        <li class="svc-li"><span class="svc-arrow">→</span>User flow analysis &amp; redesign</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Form simplification &amp; data entry UX</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Navigation restructuring</li>
-        <li class="svc-li"><span class="svc-arrow">→</span>Role-based interface customization</li>
-      </ul>
-      <div class="svc-ideal-wrap">
-        <div class="svc-ideal-lbl">Best for</div>
-        <div class="svc-ideal-val">Teams avoiding the ERP because it's too confusing or slow to use</div>
-      </div>
-    </div>
+    <div class="svc-card reveal"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3 class="svc-title">Custom ERP Development</h3><p class="svc-desc">Built for how your business actually operates — not a generic template forced into your workflow.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Full module architecture planning</li><li class="svc-li"><span class="svc-arrow">→</span>Finance, HR, Inventory &amp; Sales integration</li><li class="svc-li"><span class="svc-arrow">→</span>Role-based access &amp; approval flows</li><li class="svc-li"><span class="svc-arrow">→</span>Dashboard &amp; reporting layer included</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">SMBs ready to replace spreadsheets with a real, scalable system</div></div></div>
+    <div class="svc-card reveal reveal-d1"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h3 class="svc-title">ERP Module Add-On</h3><p class="svc-desc">Your existing system is missing something critical. I build what's needed and integrate it cleanly into what you already have.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Payroll &amp; government compliance module</li><li class="svc-li"><span class="svc-arrow">→</span>Inventory &amp; auto-reorder module</li><li class="svc-li"><span class="svc-arrow">→</span>Customer or supplier portals</li><li class="svc-li"><span class="svc-arrow">→</span>3rd-party API integrations</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Growing businesses that need specific extensions to their current setup</div></div></div>
+    <div class="svc-card reveal reveal-d2"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3 class="svc-title">Reporting &amp; Business Intelligence</h3><p class="svc-desc">Turn raw ERP data into dashboards your leadership team actually reads — and acts on.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>KPI &amp; operations dashboards</li><li class="svc-li"><span class="svc-arrow">→</span>Automated month-end report generation</li><li class="svc-li"><span class="svc-arrow">→</span>Financial summaries &amp; P&amp;L views</li><li class="svc-li"><span class="svc-arrow">→</span>Exportable report templates</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Management teams making decisions without clear visibility into their data</div></div></div>
+    <div class="svc-card reveal"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 class="svc-title">Business Process Automation</h3><p class="svc-desc">Find the manual, repetitive tasks draining your team's time — and eliminate them with smart workflow automation.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Approval chain automation</li><li class="svc-li"><span class="svc-arrow">→</span>Automated notifications &amp; alerts</li><li class="svc-li"><span class="svc-arrow">→</span>Scheduled data jobs &amp; batch processing</li><li class="svc-li"><span class="svc-arrow">→</span>Cross-department data sync</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Teams losing hours every week to avoidable manual processes</div></div></div>
+    <div class="svc-card reveal reveal-d1"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3 class="svc-title">ERP Audit &amp; Process Review</h3><p class="svc-desc">Not sure why your system isn't working the way it should? I audit your setup, find the gaps, and deliver a clear path forward.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Current system gap analysis</li><li class="svc-li"><span class="svc-arrow">→</span>Process bottleneck identification</li><li class="svc-li"><span class="svc-arrow">→</span>Actionable improvement roadmap</li><li class="svc-li"><span class="svc-arrow">→</span>Optional implementation support</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Businesses with ERP frustrations but no clear diagnosis of the problem</div></div></div>
+    <div class="svc-card reveal reveal-d2"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3 class="svc-title">ERP UI/UX Redesign</h3><p class="svc-desc">Your system works technically but your team resists using it. I redesign the interface to cut friction and drive real adoption.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>User flow analysis &amp; redesign</li><li class="svc-li"><span class="svc-arrow">→</span>Form simplification &amp; data entry UX</li><li class="svc-li"><span class="svc-arrow">→</span>Navigation restructuring</li><li class="svc-li"><span class="svc-arrow">→</span>Role-based interface customization</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Teams avoiding the ERP because it's too confusing or slow to use</div></div></div>
   </div>
   <div class="services-cta-wrap reveal">
     <p>Not sure which engagement fits your situation? Let's talk — it usually becomes clear within the first 15 minutes.</p>
-    <a href="#contact" class="btn-ink">Start a Conversation
-      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
-    </a>
+    <a href="#contact" class="btn-primary">Start a Conversation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   </div>
 </section>
-<div class="section-sep"></div>
+
 <section class="testimonials" id="testimonials">
   <div class="wrap">
     <div class="testi-head reveal">
@@ -911,33 +687,15 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-quote">"Felix doesn't just build what you ask — he asks the right questions first and builds what you actually need. Our ERP rollout ran smoother than any previous implementation."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">JR</div>
-          <div>
-            <div class="testi-name">Operations Manager</div>
-            <div class="testi-company">Manufacturing Company · Metro Manila</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">JR</div><div><div class="testi-name">Operations Manager</div><div class="testi-company">Manufacturing Company · Metro Manila</div></div></div>
       </div>
       <div class="testi-card reveal reveal-d1">
         <div class="testi-quote">"The finance module he configured saved us days of manual reconciliation every month. He understood our reporting needs better than some of our own staff."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">MA</div>
-          <div>
-            <div class="testi-name">Finance Controller</div>
-            <div class="testi-company">Multi-company Group · Philippines</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">MA</div><div><div class="testi-name">Finance Controller</div><div class="testi-company">Multi-company Group · Philippines</div></div></div>
       </div>
       <div class="testi-card reveal reveal-d2">
         <div class="testi-quote">"Felix bridged the gap between our IT team and business users perfectly. He speaks both languages — that's rare and incredibly valuable in an ERP project."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">KS</div>
-          <div>
-            <div class="testi-name">IT Director</div>
-            <div class="testi-company">Logistics Company · Manila</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">KS</div><div><div class="testi-name">IT Director</div><div class="testi-company">Logistics Company · Manila</div></div></div>
       </div>
     </div>
   </div>
@@ -949,26 +707,11 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <h2 class="section-title">From problem<br>to <em>working system</em></h2>
   </div>
   <div class="steps">
-    <div class="step reveal">
-      <div class="step-bubble">🔍</div>
-      <div class="step-n">Step 01</div>
-      <h3 class="step-t">Analyze</h3>
-      <p class="step-d">Deep discovery into your business operations, pain points, and goals. No assumptions — just honest, thorough analysis before anything is built.</p>
-    </div>
+    <div class="step reveal"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="step-n">Step 01</div><h3 class="step-t">Analyze</h3><p class="step-d">Deep discovery into your business operations, pain points, and goals. No assumptions — just honest, thorough analysis before anything is built.</p></div>
     <div class="step-connector reveal">→</div>
-    <div class="step reveal reveal-d1">
-      <div class="step-bubble">📐</div>
-      <div class="step-n">Step 02</div>
-      <h3 class="step-t">Design</h3>
-      <p class="step-d">Architecture first, code second. I map data flows, user journeys, and system logic — then design the solution before touching implementation.</p>
-    </div>
+    <div class="step reveal reveal-d1"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M3 9l6-6M6 12l6-6M9 15l6-6M12 18l6-6"/></svg></div><div class="step-n">Step 02</div><h3 class="step-t">Design</h3><p class="step-d">Architecture first, code second. I map data flows, user journeys, and system logic — then design the solution before touching implementation.</p></div>
     <div class="step-connector reveal reveal-d1">→</div>
-    <div class="step reveal reveal-d2">
-      <div class="step-bubble">⚙️</div>
-      <div class="step-n">Step 03</div>
-      <h3 class="step-t">Implement</h3>
-      <p class="step-d">Build, test, deploy, and stay close. I don't hand off and disappear — I iterate until the system genuinely solves the problem.</p>
-    </div>
+    <div class="step reveal reveal-d2"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="step-n">Step 03</div><h3 class="step-t">Implement</h3><p class="step-d">Build, test, deploy, and stay close. I don't hand off and disappear — I iterate until the system genuinely solves the problem.</p></div>
   </div>
 </section>
 
@@ -977,61 +720,39 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <div class="contact-header reveal">
       <p class="label">Contact</p>
       <h2 class="section-title" style="margin-bottom:12px">Let's build something <em>powerful</em></h2>
-      <p style="font-size:.95rem;color:var(--gray-4);font-weight:300;max-width:480px;">Whether you need an ERP rollout, automation system, or a custom tool — I'm ready to help.</p>
+      <p style="font-size:.93rem;color:var(--g5);font-weight:300;max-width:480px;">Whether you need an ERP rollout, automation system, or a custom tool — I'm ready to help.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-card reveal">
         <h3 class="contact-card-title">Reach out directly</h3>
         <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="contact-link-row">
-          <div class="contact-link-icon">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--gray-5)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div>
-            <div class="contact-link-name">LinkedIn</div>
-            <div class="contact-link-val">Felix Marco Alforque</div>
-          </div>
-          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
+          <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <div><div class="contact-link-name">LinkedIn</div><div class="contact-link-val">Felix Marco Alforque</div></div>
+          <span style="margin-left:auto;color:var(--g3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
         <a href="mailto:contact@felixmarcoalforque.it.com" class="contact-link-row">
-          <div class="contact-link-icon">
-            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="color:var(--gray-5)"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <div class="contact-link-name">Email</div>
-            <div class="contact-link-val">contact@felixmarcoalforque.it.com</div>
-          </div>
-          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="margin-left:auto;color:var(--gray-3)"><path d="M9 5l7 7-7 7"/></svg>
+          <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-link-name">Email</div><div class="contact-link-val">contact@felixmarcoalforque.it.com</div></div>
+          <span style="margin-left:auto;color:var(--g3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
         <div class="contact-location">
-          <div class="contact-location-label">Based in</div>
-          <div class="contact-location-val">Manila, Philippines 🇵🇭</div>
-          <div class="contact-location-sub">Open to remote & local projects</div>
+          <div class="contact-location-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="contact-location-label">Based in</div>
+            <div class="contact-location-val">Manila, Philippines 🇵🇭</div>
+            <div class="contact-location-sub">Open to remote & local projects</div>
+          </div>
         </div>
       </div>
       <div class="contact-card reveal reveal-d1">
         <h3 class="contact-card-title">Send a message</h3>
         <div class="form-row-2">
-          <div class="fg">
-            <label class="flabel">First Name <span class="freq">*</span></label>
-            <input type="text" id="firstName" class="finput" placeholder="John"/>
-          </div>
-          <div class="fg">
-            <label class="flabel">Last Name</label>
-            <input type="text" id="lastName" class="finput" placeholder="Doe"/>
-          </div>
+          <div class="fg"><label class="flabel">First Name <span class="freq">*</span></label><input type="text" id="firstName" class="finput" placeholder="John"/></div>
+          <div class="fg"><label class="flabel">Last Name</label><input type="text" id="lastName" class="finput" placeholder="Doe"/></div>
         </div>
-        <div class="fg">
-          <label class="flabel">Email Address <span class="freq">*</span></label>
-          <input type="email" id="emailAddr" class="finput" placeholder="john@company.com"/>
-        </div>
-        <div class="fg">
-          <label class="flabel">Subject</label>
-          <input type="text" id="subject" class="finput" placeholder="ERP Consulting / Website / Dashboard..."/>
-        </div>
-        <div class="fg">
-          <label class="flabel">Message <span class="freq">*</span></label>
-          <textarea id="message" class="finput ftextarea" rows="4" placeholder="Tell me about your project or challenge..."></textarea>
-        </div>
+        <div class="fg"><label class="flabel">Email Address <span class="freq">*</span></label><input type="email" id="emailAddr" class="finput" placeholder="john@company.com"/></div>
+        <div class="fg"><label class="flabel">Subject</label><input type="text" id="subject" class="finput" placeholder="ERP Consulting / Website / Dashboard..."/></div>
+        <div class="fg"><label class="flabel">Message <span class="freq">*</span></label><textarea id="message" class="finput ftextarea" rows="4" placeholder="Tell me about your project or challenge..."></textarea></div>
         <button class="fsubmit" id="formSubmit">Send Message</button>
       </div>
     </div>
@@ -1052,23 +773,16 @@ footer{padding:40px 0;border-top:1px solid var(--gray-2);background:var(--white)
     <div class="foot-logo">Felix Marco Alforque</div>
     <div class="foot-copy">© 2026 · ERP System Analyst · Manila, PH</div>
     <div class="foot-links">
-      <a href="mailto:contact@felixmarcoalforque.it.com" class="foot-link">
-        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Email
-      </a>
-      <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="foot-link">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
+      <a href="mailto:contact@felixmarcoalforque.it.com" class="foot-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
+      <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="foot-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
     </div>
-    <a href="#top" class="foot-up">
-      Back to top
-      <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 15l7-7 7 7"/></svg>
-    </a>
+    <a href="#top" class="foot-up">Back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></a>
   </div>
 </footer>
 
 <script>
+
+
 // ── EmailJS init ──────────────────────────────────────────
 (function(){ emailjs.init('clYt3hnTwhHOCCeVq'); })();
 
@@ -1135,9 +849,12 @@ document.getElementById('formSubmit').addEventListener('click', function(){
     subject:    subject || 'Portfolio Inquiry',
     message:    message,
     time:       now
+    // NOTE: recipient is set to contact@felixmarcoalforque.it.com
+    // directly inside your EmailJS template dashboard — no need
+    // to pass to_email here.
   };
 
-  // ── Send via EmailJS (template handles auto-reply) ──────────────
+  // ── Send message ──────────────────────────────────────
   emailjs.send('service_idfylpd', 'template_mwj260i', templateParams)
     .then(function(){
       // ── Everything succeeded ─────────────────────────
@@ -1159,6 +876,8 @@ document.getElementById('formSubmit').addEventListener('click', function(){
       setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 4000);
     });
 });
+
+
 </script>
 </body>
 </html>
