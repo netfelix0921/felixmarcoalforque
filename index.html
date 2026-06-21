@@ -1,181 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>  
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Felix Marco Alforque — ERP System Analyst · Manila</title>
-<meta name="description" content="Felix Marco Alforque — ERP System Analyst and Web Developer based in Manila, Philippines. Specializing in ERP implementation, business process automation, and custom finance systems."/>
-<meta property="og:title" content="Felix Marco Alforque — ERP System Analyst"/>
-<meta property="og:description" content="I build systems that simplify complex operations. ERP · Automation · Finance Systems · Custom Solutions. Based in Manila, Philippines."/>
+<title>Felix Marco Alforque — Web Developer · Websites &amp; Web Apps · Manila</title>
+<meta name="description" content="Felix Marco Alforque — web developer in Manila building fast, modern, conversion-ready websites and web apps: portfolios, business sites, online shops, landing pages, and custom tools."/>
+<meta property="og:title" content="Felix Marco Alforque — Web Developer"/>
+<meta property="og:description" content="I design &amp; build modern websites that look premium and actually convert. Portfolios · Business sites · Online shops · Web apps. Manila, Philippines."/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000'/><text y='.9em' font-size='62' x='50%25' text-anchor='middle' fill='white' font-family='system-ui' font-weight='800'>F</text></svg>"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23080910'/><text y='.92em' font-size='60' x='50%25' text-anchor='middle' fill='%23F5F6FB' font-family='monospace' font-weight='700'>ƒ</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
-:root {
-  --white:  #ffffff;
-  --black:  #000000;
-  --g0:     #fafafa;
-  --g1:     #f5f5f5;
-  --g2:     #e8e8e8;
-  --g3:     #d0d0d0;
-  --g4:     #a8a8a8;
-  --g5:     #6b6b6b;
-  --g6:     #3d3d3d;
-  --g7:     #1a1a1a;
-  --ink:    #000000;
-  --accent: #000000;
-  --glass:  rgba(255,255,255,0.72);
-  --glass-border: rgba(0,0,0,0.08);
-  --r-sm:  8px;
-  --r-md:  14px;
-  --r-lg:  20px;
-  --r-xl:  28px;
-  --r-2xl: 40px;
-  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-sm: 0 2px 12px rgba(0,0,0,0.07);
-  --shadow-md: 0 8px 32px rgba(0,0,0,0.09);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
-  --shadow-xl: 0 40px 100px rgba(0,0,0,0.15);
-  --nav-h: 56px;
-  --max-w: 1120px;
+:root{
+  --bg:#080910;
+  --bg-soft:#0B0D16;
+  --surface:#0E1019;
+  --surface-2:#13151F;
+  --surface-3:#191B27;
+  --ink:#F5F6FB;
+  --ink-soft:#C9CCDA;
+  --muted:#9095A8;
+  --faint:#595E72;
+  --fainter:#3A3E4E;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.05);
+  --glass:rgba(255,255,255,.035);
+  --g1:#6366F1;   /* indigo */
+  --g2:#8B5CF6;   /* violet */
+  --g3:#EC4899;   /* pink   */
+  --signal:#818CF8;
+  --live:#34D399;
+  --signal-grad:linear-gradient(100deg,var(--g1),var(--g2) 52%,var(--g3));
+  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-xl:26px; --r-2xl:34px;
+  --nav-h:60px;
+  --max-w:1160px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 img{display:block;max-width:100%}
 ul{list-style:none}
+::selection{background:rgba(129,140,248,.3);color:#fff}
 .wrap{max-width:var(--max-w);margin:0 auto;padding:0 40px}
-.label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g4);}
 
-/* ── REVEAL ─────────────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+/* mono utility label — the structural device, encodes the "systems/data" world */
+.mono{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.08em;color:var(--faint);text-transform:uppercase;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);}
+.eyebrow::before{content:'';width:22px;height:1px;background:linear-gradient(90deg,var(--signal),transparent);}
+.display{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.025em;color:var(--ink);line-height:1.05;}
+.grad-text{background:var(--signal-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+/* section scaffolding */
+.section{padding:120px 0;position:relative}
+.section-head{max-width:680px;margin-bottom:64px}
+.section-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,3.6vw,2.9rem);letter-spacing:-.03em;line-height:1.08;color:var(--ink);margin-top:18px}
+.section-title em{font-style:normal;color:var(--faint);font-weight:400}
+.section-intro{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.8;margin-top:20px;max-width:600px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
 .reveal.in{opacity:1;transform:none}
-.reveal-d1{transition-delay:.07s}
-.reveal-d2{transition-delay:.14s}
-.reveal-d3{transition-delay:.21s}
-.reveal-d4{transition-delay:.28s}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
 
-/* ── NAV ─────────────────────────────────────────────────── */
-.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;background:rgba(255,255,255,0.80);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--g2);transition:box-shadow .3s;}
-.nav.scrolled{box-shadow:var(--shadow-sm)}
+/* ─── NAV ─────────────────────────────────────────── */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;
+  background:rgba(8,9,16,.6);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
+.nav.scrolled{border-bottom-color:var(--line);background:rgba(8,9,16,.78)}
 .nav-inner{max-width:var(--max-w);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:800;color:var(--black);letter-spacing:.06em;}
-.nav-links{display:flex;gap:28px;align-items:center;}
-.nav-links a{font-size:.78rem;font-weight:500;color:var(--g5);transition:color .2s;letter-spacing:.01em;display:flex;align-items:center;gap:5px;}
-.nav-links a:hover{color:var(--black)}
-.nav-cta{padding:9px 20px;border-radius:999px;background:var(--black);color:var(--white);font-size:.78rem;font-weight:600;letter-spacing:.02em;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:7px;}
-.nav-cta:hover{opacity:.8;transform:translateY(-1px)}
-.burger{display:none;flex-direction:column;gap:5px;width:24px;}
-.burger span{display:block;height:1.5px;background:var(--black);border-radius:2px;transition:all .3s;}
-.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:199;flex-direction:column;padding:36px 40px;gap:24px;border-top:1px solid var(--g2);}
+.nav-logo{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:600;letter-spacing:.04em;color:var(--ink);display:flex;align-items:center;gap:9px;}
+.nav-logo .lp{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 9px var(--live);animation:breathe 2.6s ease infinite;}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);transition:color .2s;letter-spacing:.005em}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{padding:9px 18px;border-radius:999px;background:var(--ink);color:#0a0a12;font-size:.78rem;font-weight:600;letter-spacing:.01em;transition:transform .18s var(--ease),box-shadow .2s;display:inline-flex;align-items:center;gap:7px;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,246,251,.16)}
+.burger{display:none;flex-direction:column;gap:5px;width:24px}
+.burger span{display:block;height:1.6px;background:var(--ink);border-radius:2px;transition:.3s}
+.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:rgba(8,9,16,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;padding:36px 40px;gap:26px;border-top:1px solid var(--line)}
 .mob-menu.open{display:flex}
-.mob-link{font-size:1rem;font-weight:500;color:var(--g6);transition:color .2s;}
-.mob-link:hover{color:var(--black)}
+.mob-link{font-size:1.05rem;font-weight:500;color:var(--ink-soft)}
 
-/* ── HERO ────────────────────────────────────────────────── */
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden;background:var(--white);}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--g2) 1px,transparent 1px),linear-gradient(90deg,var(--g2) 1px,transparent 1px);background-size:72px 72px;opacity:.4;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,black 20%,transparent 80%);pointer-events:none;}
-.hero-inner{position:relative;z-index:1;max-width:var(--max-w);margin:0 auto;padding:90px 40px 110px;width:100%;}
-.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;border:1px solid var(--g2);background:var(--white);box-shadow:var(--shadow-xs);margin-bottom:40px;animation:fadeUp .9s ease both;}
-.kicker-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);animation:breathe 2.5s ease infinite;}
-@keyframes breathe{0%,100%{opacity:1}50%{opacity:.35}}
-.hero-kicker span{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g5);}
-.hero-h1{font-family:'Sora',sans-serif;font-size:clamp(2.8rem,7vw,5.8rem);line-height:1.04;letter-spacing:-.04em;font-weight:800;color:var(--black);max-width:860px;margin-bottom:28px;animation:fadeUp .9s .1s ease both;}
-.hero-h1 em{font-style:normal;font-weight:300;color:var(--g4);}
-.hero-sub{font-size:1rem;font-weight:300;color:var(--g5);max-width:520px;margin-bottom:52px;line-height:1.75;animation:fadeUp .9s .2s ease both;}
-.hero-sub strong{color:var(--g4);font-weight:500;display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
-.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;animation:fadeUp .9s .3s ease both;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--black);color:var(--white);font-size:.85rem;font-weight:600;letter-spacing:.01em;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(0,0,0,.18);}
-.btn-primary:hover{opacity:.82;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.22)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;border:1.5px solid var(--g2);color:var(--g6);font-size:.85rem;font-weight:500;transition:border-color .2s,color .2s,transform .2s;}
-.btn-ghost:hover{border-color:var(--g5);color:var(--black);transform:translateY(-2px)}
-.hero-metrics{display:flex;align-items:stretch;gap:0;margin-top:72px;border:1px solid var(--g2);border-radius:var(--r-xl);background:var(--white);box-shadow:var(--shadow-md);overflow:hidden;max-width:560px;animation:fadeUp .9s .4s ease both;}
-.metric{flex:1;padding:24px 16px;border-right:1px solid var(--g2);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.metric:last-child{border-right:none}
-.metric-val{font-family:'Sora',sans-serif;font-size:1.85rem;letter-spacing:-.025em;font-weight:800;color:var(--black);line-height:1;margin-bottom:6px;}
-.metric-lbl{font-size:.62rem;font-weight:500;color:var(--g4);letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* ─── HERO ────────────────────────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);overflow:hidden;}
+.hero-aura{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(620px 520px at 14% 18%, rgba(99,102,241,.20), transparent 62%),
+    radial-gradient(560px 520px at 88% 76%, rgba(236,72,153,.14), transparent 60%),
+    radial-gradient(520px 460px at 70% 12%, rgba(139,92,246,.13), transparent 60%);}
+.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:58px 58px;
+  mask-image:radial-gradient(ellipse 90% 75% at 30% 40%,#000 10%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 75% at 30% 40%,#000 10%,transparent 78%);}
+.hero-inner{position:relative;z-index:2;max-width:var(--max-w);margin:0 auto;padding:96px 40px 90px;width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.hero-kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 12px;border-radius:999px;
+  border:1px solid var(--line);background:var(--glass);margin-bottom:34px;
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  animation:fadeUp .9s var(--ease) both;}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 9px var(--live);animation:breathe 2.4s ease infinite;}
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2.7rem,5.3vw,4.6rem);line-height:1.04;letter-spacing:-.035em;color:var(--ink);margin-bottom:26px;animation:fadeUp .9s .08s var(--ease) both;}
+.hero-h1 .line{display:block;overflow:hidden}
+.hero-h1 em{font-style:normal}
+.hero-sub{font-size:1.02rem;font-weight:300;color:var(--muted);max-width:480px;line-height:1.75;margin-bottom:18px;animation:fadeUp .9s .18s var(--ease) both;}
+.hero-stack{font-family:'JetBrains Mono',monospace;font-size:.74rem;font-weight:500;letter-spacing:.04em;color:var(--faint);margin-bottom:38px;display:flex;flex-wrap:wrap;gap:8px 0;animation:fadeUp .9s .24s var(--ease) both;}
+.hero-stack span{position:relative;padding:0 14px}
+.hero-stack span:first-child{padding-left:0}
+.hero-stack span:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--fainter)}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;animation:fadeUp .9s .3s var(--ease) both;}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;background:var(--signal-grad);color:#fff;font-size:.86rem;font-weight:600;letter-spacing:.005em;transition:transform .2s var(--ease),box-shadow .25s;box-shadow:0 12px 36px -10px rgba(124,58,237,.6);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 46px -10px rgba(124,58,237,.75)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);font-size:.86rem;font-weight:500;transition:border-color .2s,color .2s,transform .2s,background .2s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,.22);color:var(--ink);transform:translateY(-2px);background:var(--glass)}
 
-/* ── TRUST STRIP ─────────────────────────────────────────── */
-.trust-strip{padding:16px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
-.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;padding:0 40px;max-width:var(--max-w);margin:0 auto;}
-.trust-item{display:flex;align-items:center;gap:9px;color:var(--g5);}
-.trust-icon{flex-shrink:0;opacity:.7;}
-.trust-text{font-size:.73rem;font-weight:500;color:var(--g5);letter-spacing:.01em;}
-.trust-divider{width:1px;height:18px;background:var(--g2);flex-shrink:0;}
+/* ── HERO SIGNATURE: live system map ── */
+.sysmap{position:relative;animation:fadeUp 1s .25s var(--ease) both;}
+.sysmap-card{position:relative;border:1px solid var(--line);border-radius:var(--r-2xl);background:linear-gradient(160deg,rgba(20,22,33,.9),rgba(11,13,22,.9));
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden;padding:22px;}
+.sysmap-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;padding:0 4px}
+.sysmap-title{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.sysmap-live{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--live)}
+.sysmap-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live);animation:breathe 1.8s ease infinite}
+.sysmap-svg{display:block;width:100%;height:auto}
+.node-chip{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.1)}
+.node-core{fill:url(#coreGrad);stroke:rgba(255,255,255,.18)}
+.node-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;fill:var(--ink-soft);letter-spacing:.02em}
+.node-core-label{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;fill:#fff;letter-spacing:.01em}
+.link-line{stroke:rgba(255,255,255,.1);stroke-width:1.4;fill:none}
+.pulse{r:3.2}
+.sysmap-foot{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:18px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--line)}
+.sm-stat{background:var(--surface);padding:14px 12px;text-align:center}
+.sm-val{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.sm-lbl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:6px}
 
-/* ── ABOUT ───────────────────────────────────────────────── */
-.about{padding:130px 0;background:var(--white);}
-.about-grid{display:grid;grid-template-columns:220px 1fr 1.1fr;gap:64px;align-items:start;}
-.about-photo-col{display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:8px;}
-.about-photo-frame{width:200px;height:200px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--g2);box-shadow:var(--shadow-md);flex-shrink:0;background:var(--g1);}
-.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;}
-.about-photo-name{font-family:'Sora',sans-serif;font-size:.82rem;font-weight:700;color:var(--black);text-align:center;letter-spacing:-.01em;}
-.about-photo-role{font-size:.68rem;font-weight:500;color:var(--g4);text-align:center;letter-spacing:.06em;text-transform:uppercase;margin-top:-10px;}
-.about-photo-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--g1);border:1px solid var(--g2);font-size:.67rem;font-weight:600;color:var(--g5);letter-spacing:.04em;}
-.about-photo-badge-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;box-shadow:0 0 5px rgba(34,197,94,.7);}
-.about-lede{font-family:'Sora',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.22;letter-spacing:-.03em;font-weight:800;color:var(--black);margin-top:20px;margin-bottom:28px;}
-.about-lede em{color:var(--g4);font-style:normal;font-weight:300;}
-.about-body{font-size:.9rem;font-weight:300;color:var(--g5);line-height:1.85;}
-.about-body strong{color:var(--g7);font-weight:600}
-.capability-list{display:flex;flex-direction:column;gap:2px;}
-.cap-item{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s,transform .2s;cursor:default;}
-.cap-item:hover{background:var(--g0);border-color:var(--g2);transform:translateX(4px)}
-.cap-name{font-size:.87rem;font-weight:500;color:var(--ink)}
-.cap-badge{font-size:.64rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--g1);color:var(--g5);border:1px solid var(--g2);}
+/* ── HERO SIGNATURE: live browser preview ── */
+.bp{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:linear-gradient(165deg,#15131f,#0d0c16);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);}
+.bp-bar{height:42px;display:flex;align-items:center;gap:8px;padding:0 16px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--line)}
+.bp-dot{width:11px;height:11px;border-radius:50%}
+.bp-url{margin-left:12px;flex:1;height:22px;border-radius:6px;background:rgba(255,255,255,.05);display:flex;align-items:center;padding:0 12px;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--faint);letter-spacing:.02em}
+.bp-body{padding:18px}
+.bp-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.bp-logo{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:#fff;letter-spacing:.02em}
+.bp-menu{display:flex;gap:10px}
+.bp-menu i{display:block;width:26px;height:6px;border-radius:3px;background:rgba(255,255,255,.1)}
+.bp-hero{height:118px;border-radius:12px;background:linear-gradient(115deg,#6366F1,#8B5CF6 52%,#EC4899);position:relative;overflow:hidden;margin-bottom:14px;display:flex;flex-direction:column;justify-content:center;padding:0 22px;box-shadow:0 14px 36px -14px rgba(124,58,237,.7)}
+.bp-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(180px 120px at 82% 18%,rgba(255,255,255,.28),transparent 70%)}
+.bp-h-line{height:11px;border-radius:4px;background:rgba(255,255,255,.92);width:62%;margin-bottom:8px}
+.bp-h-line.s{width:40%;height:7px;background:rgba(255,255,255,.6)}
+.bp-h-btn{position:absolute;right:22px;bottom:18px;width:64px;height:22px;border-radius:999px;background:rgba(255,255,255,.95)}
+.bp-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.bp-card{height:60px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid var(--line);padding:9px}
+.bp-card span{display:block;height:7px;border-radius:3px;background:rgba(255,255,255,.14);margin-bottom:6px}
+.bp-card span.sm{width:55%;background:rgba(255,255,255,.08)}
+.bp-card .ic{width:18px;height:18px;border-radius:5px;background:var(--signal-grad);margin-bottom:8px;opacity:.85}
 
-/* ── SECTION COMMON ──────────────────────────────────────── */
-.section-sep{height:1px;background:var(--g2);max-width:var(--max-w);margin:0 auto;}
-.section-title{font-family:'Sora',sans-serif;font-size:clamp(2rem,3.5vw,2.8rem);letter-spacing:-.035em;color:var(--black);font-weight:800;margin-top:14px;}
-.section-title em{color:var(--g4);font-style:normal;font-weight:300;}
+/* ── IMAGE FALLBACK ── */
+.about-photo-frame.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,#1b1828,#100e18)}
+.about-photo-frame.noimg img{display:none}
+.about-photo-frame.noimg::before{content:'FM';font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:2.6rem;letter-spacing:.02em;
+  background:var(--signal-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-photo-frame.noimg::after{display:none}
 
-/* ── ERP SECTION ─────────────────────────────────────────── */
-.erp-bg{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
-.erp-bg-head{text-align:center;padding:0 40px;margin-bottom:72px;}
-.erp-bg-intro{font-size:.95rem;font-weight:300;color:var(--g5);max-width:580px;margin:18px auto 0;line-height:1.8;}
-.erp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
-.erp-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:28px 24px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
-.erp-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--g3);}
-.erp-card-icon{width:44px;height:44px;border-radius:var(--r-md);background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-bottom:16px;flex-shrink:0;}
-.erp-card-title{font-family:'Sora',sans-serif;font-size:.92rem;font-weight:700;color:var(--black);margin-bottom:8px;letter-spacing:-.015em;}
-.erp-card-desc{font-size:.78rem;font-weight:300;color:var(--g5);line-height:1.8;flex:1;}
-.erp-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
-.erp-tag{font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--g1);color:var(--g4);border:1px solid var(--g2);}
-.conf-notice{max-width:var(--max-w);margin:48px auto 0;padding:0 40px;}
-.conf-box{background:rgba(0,0,0,.02);border:1px solid var(--g2);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:14px;align-items:flex-start;}
-.conf-box-icon{flex-shrink:0;padding-top:2px;color:var(--g5);}
-.conf-box-title{font-size:.8rem;font-weight:700;color:var(--g7);margin-bottom:5px;letter-spacing:.01em;}
-.conf-box-text{font-size:.77rem;color:var(--g5);line-height:1.7;font-weight:300;}
+/* ===== SECTION STYLES ===== */
+/* ─── TRUST STRIP ─────────────────────────────────── */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;padding:0 40px;max-width:var(--max-w);margin:0 auto}
+.trust-item{display:flex;align-items:center;gap:9px;color:var(--muted);padding:18px 26px}
+.trust-item svg{opacity:.55;flex-shrink:0;color:var(--signal)}
+.trust-text{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.04em;color:var(--muted)}
 
-/* ── SYSTEMS ─────────────────────────────────────────────── */
-.systems{padding:80px 0 160px;background:var(--white);}
-.systems-head{text-align:center;padding:0 40px 80px}
-.systems-head .section-title{font-size:clamp(2rem,4vw,3rem);}
-.sys-block{max-width:var(--max-w);margin:0 auto 2px;padding:0 40px;}
-.sys-card{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r-2xl);overflow:hidden;border:1px solid var(--g2);background:var(--white);box-shadow:var(--shadow-sm);transition:box-shadow .4s,transform .4s,border-color .4s;margin-bottom:20px;}
-.sys-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:var(--g3)}
+/* ─── ABOUT ───────────────────────────────────────── */
+.about{padding:130px 0}
+.about-grid{display:grid;grid-template-columns:230px 1fr 1.05fr;gap:60px;align-items:start}
+.about-photo-col{display:flex;flex-direction:column;gap:16px;padding-top:6px}
+.about-photo-frame{width:200px;height:240px;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);background:var(--surface-2);position:relative;box-shadow:0 30px 70px -28px rgba(0,0,0,.9)}
+.about-photo-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 66%,rgba(8,9,16,.42));pointer-events:none}
+.about-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-photo-meta{display:flex;flex-direction:column;gap:4px}
+.about-photo-name{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.about-photo-role{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:500;color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+.about-photo-badge{margin-top:6px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:var(--glass);border:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:500;color:var(--muted);letter-spacing:.04em;width:fit-content}
+.about-photo-badge .d{width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 7px var(--live)}
+.about-lede{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.22;letter-spacing:-.025em;font-weight:600;color:var(--ink);margin:16px 0 26px}
+.about-lede em{font-style:normal;color:var(--faint);font-weight:400}
+.about-body{font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.9}
+.about-body strong{color:var(--ink-soft);font-weight:600}
+.cap-list{display:flex;flex-direction:column;gap:2px}
+.cap-item{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s,transform .25s var(--ease);cursor:default}
+.cap-item:hover{background:var(--glass);border-color:var(--line);transform:translateX(5px)}
+.cap-name{font-size:.86rem;font-weight:500;color:var(--ink-soft)}
+.cap-badge{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.cap-badge.core{color:var(--signal);border-color:rgba(129,140,248,.3);background:rgba(129,140,248,.08)}
+
+/* ─── ERP TRACK RECORD ────────────────────────────── */
+.erp-sec{padding:120px 0;background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.erp-sec .section-head{margin-left:auto;margin-right:auto;text-align:center}
+.erp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:26px 24px;transition:transform .35s var(--ease),border-color .3s,box-shadow .35s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card::before{content:'';position:absolute;inset:0 0 auto 0;height:1px;background:linear-gradient(90deg,transparent,rgba(129,140,248,.5),transparent);opacity:0;transition:opacity .35s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.16);box-shadow:0 26px 60px -28px rgba(0,0,0,.9)}
+.card:hover::before{opacity:1}
+.card-icon{width:42px;height:42px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--signal);margin-bottom:16px;flex-shrink:0}
+.card-title{font-family:'Space Grotesk',sans-serif;font-size:.96rem;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.card-desc{font-size:.79rem;font-weight:300;color:var(--muted);line-height:1.75;flex:1}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.04em;padding:4px 9px;border-radius:6px;background:var(--surface-2);color:var(--faint);border:1px solid var(--line)}
+.conf{max-width:var(--max-w);margin:44px auto 0;padding:0 40px}
+.conf-box{background:var(--glass);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 26px;display:flex;gap:14px;align-items:flex-start}
+.conf-icon{flex-shrink:0;padding-top:2px;color:var(--signal)}
+.conf-title{font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:5px}
+.conf-text{font-size:.78rem;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ─── SYSTEMS ─────────────────────────────────────── */
+.systems{padding:120px 0 150px}
+.systems .section-head{text-align:center;margin-left:auto;margin-right:auto}
+.sys-block{max-width:var(--max-w);margin:0 auto 20px;padding:0 40px}
+.sys-card{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r-2xl);overflow:hidden;border:1px solid var(--line);background:var(--surface);box-shadow:0 30px 70px -40px rgba(0,0,0,.9);transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
+.sys-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.15);box-shadow:0 40px 90px -36px rgba(0,0,0,.95)}
 .sys-card.flip{direction:rtl}
 .sys-card.flip>*{direction:ltr}
-.sys-mock{position:relative;min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.sys-mock{position:relative;min-height:470px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sys-info{padding:56px 52px;display:flex;flex-direction:column;justify-content:center}
+.sys-num{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.sys-num::before{content:'';width:18px;height:1px;background:var(--signal)}
+.sys-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,2.4vw,2.3rem);line-height:1.12;letter-spacing:-.03em;font-weight:600;color:var(--ink);margin-bottom:8px}
+.sys-tagline{font-size:.92rem;font-weight:300;color:var(--faint);margin-bottom:36px}
+.sys-features{display:flex;flex-direction:column;gap:2px}
+.feat{display:flex;align-items:flex-start;gap:14px;padding:13px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s;cursor:default}
+.feat:hover{background:var(--glass);border-color:var(--line)}
+.feat-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--signal);margin-top:1px}
+.feat-title{font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.feat-desc{font-size:.76rem;color:var(--muted);line-height:1.55;font-weight:300}
+
+/* ─── SERVICES ────────────────────────────────────── */
+.services{padding:120px 0;background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.services .section-head{text-align:center;margin-left:auto;margin-right:auto}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.svc-list{margin-top:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc-li{display:flex;align-items:flex-start;gap:9px;font-size:.77rem;color:var(--muted);line-height:1.5}
+.svc-li .a{color:var(--signal);font-family:'JetBrains Mono',monospace;font-size:.72rem;padding-top:1px;flex-shrink:0}
+.svc-ideal{margin-top:18px;padding-top:15px;border-top:1px solid var(--line-soft)}
+.svc-ideal-lbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--fainter);margin-bottom:4px}
+.svc-ideal-val{font-size:.76rem;font-weight:300;color:var(--faint);line-height:1.5}
+.services-cta{text-align:center;margin-top:52px;padding:0 40px}
+.services-cta p{font-size:.92rem;color:var(--muted);font-weight:300;margin:0 auto 22px;max-width:480px;line-height:1.7}
+
+/* ─── PROCESS ─────────────────────────────────────── */
+.process{padding:120px 0}
+.process .section-head{text-align:center;margin-left:auto;margin-right:auto}
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;max-width:980px;margin:0 auto;padding:0 40px}
+.step{text-align:center;padding:0 14px}
+.step-bubble{width:78px;height:78px;border-radius:20px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--signal);transition:border-color .3s,box-shadow .3s,transform .3s var(--ease);position:relative}
+.step:hover .step-bubble{border-color:rgba(129,140,248,.4);box-shadow:0 0 0 4px rgba(129,140,248,.08),0 20px 40px -20px rgba(99,102,241,.5);transform:translateY(-4px)}
+.step-n{font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fainter);margin-bottom:8px}
+.step-t{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em}
+.step-d{font-size:.83rem;color:var(--muted);line-height:1.7;font-weight:300}
+.step-conn{display:flex;align-items:center;justify-content:center;padding-top:30px;color:var(--fainter)}
+
+/* ─── CONTACT ─────────────────────────────────────── */
+.contact{padding:120px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:18px;align-items:start;margin-top:56px}
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:36px;transition:border-color .3s,box-shadow .3s}
+.contact-card:hover{border-color:rgba(255,255,255,.14);box-shadow:0 26px 60px -34px rgba(0,0,0,.9)}
+.contact-card-title{font-family:'Space Grotesk',sans-serif;font-size:.96rem;font-weight:600;color:var(--ink);margin-bottom:22px;letter-spacing:-.01em}
+.clink{display:flex;align-items:center;gap:13px;padding:14px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--bg-soft);margin-bottom:10px;transition:border-color .2s,transform .25s var(--ease),background .2s;cursor:pointer}
+.clink:hover{border-color:rgba(255,255,255,.2);transform:translateY(-2px);background:var(--surface-2)}
+.clink-icon{width:38px;height:38px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--signal)}
+.clink-name{font-size:.84rem;font-weight:600;color:var(--ink)}
+.clink-val{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--faint);margin-top:2px}
+.clink .chev{margin-left:auto;color:var(--fainter)}
+.cloc{margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--bg-soft);border:1px solid var(--line);display:flex;align-items:flex-start;gap:11px}
+.cloc-icon{color:var(--signal);flex-shrink:0;margin-top:1px}
+.cloc-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fainter);margin-bottom:6px}
+.cloc-val{font-size:.9rem;font-weight:600;color:var(--ink)}
+.cloc-sub{font-size:.74rem;color:var(--muted);margin-top:2px;font-weight:300}
+.fg{margin-bottom:14px}
+.flabel{display:block;font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.freq{color:var(--g3)}
+.finput{width:100%;padding:12px 14px;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none}
+.finput:focus{border-color:var(--signal);background:var(--surface);box-shadow:0 0 0 3px rgba(129,140,248,.12)}
+.finput::placeholder{color:var(--fainter)}
+.ftextarea{resize:none}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fsubmit{width:100%;padding:14px;margin-top:4px;border-radius:var(--r-md);background:var(--signal-grad);color:#fff;font-family:'Inter',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.01em;transition:transform .18s var(--ease),box-shadow .25s;box-shadow:0 12px 32px -12px rgba(124,58,237,.6)}
+.fsubmit:hover{transform:translateY(-1px);box-shadow:0 16px 40px -12px rgba(124,58,237,.75)}
+
+/* ─── POPUP ───────────────────────────────────────── */
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(4,4,9,.7);backdrop-filter:blur(12px);z-index:999;align-items:center;justify-content:center}
+.popup-overlay.show{display:flex}
+.popup-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:44px 40px;text-align:center;max-width:380px;width:90%;box-shadow:0 50px 100px -30px rgba(0,0,0,.9);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes popIn{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}
+.popup-icon{width:54px;height:54px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--live)}
+.popup-title{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+.popup-text{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:26px;font-weight:300}
+.popup-close{padding:11px 30px;border-radius:999px;background:var(--ink);color:#0a0a12;font-family:'Inter',sans-serif;font-size:.84rem;font-weight:600;transition:transform .18s var(--ease)}
+.popup-close:hover{transform:translateY(-1px)}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+footer{padding:44px 0;border-top:1px solid var(--line)}
+.foot-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-logo{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:600;color:var(--ink);letter-spacing:.02em}
+.foot-copy{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--fainter);letter-spacing:.03em}
+.foot-links{display:flex;gap:22px}
+.foot-link{font-size:.78rem;color:var(--muted);display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+.foot-link:hover{color:var(--ink)}
+.foot-up{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.foot-up:hover{color:var(--ink)}
+
+/* ─── SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:999px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--faint)}
+
+/* ─── REDUCED MOTION ──────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.01s!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .sysmap{max-width:520px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo-col{flex-direction:row;align-items:center;gap:22px}
+  .about-photo-frame{width:104px;height:124px}
+  .sys-card{grid-template-columns:1fr}
+  .sys-card.flip{direction:ltr}
+  .sys-mock{min-height:320px;order:-1}
+  .sys-card.flip .sys-mock{order:-1}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .step-conn{display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .erp-grid,.services-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .burger{display:flex}
+}
+@media(max-width:640px){
+  .wrap,.nav{padding-left:22px;padding-right:22px}
+  .hero-inner{padding-left:22px;padding-right:22px;padding-bottom:70px}
+  .section{padding:80px 0}
+  .about{padding:80px 0}
+  .erp-sec,.services,.process,.contact,.systems{padding:80px 0}
+  .sys-block{padding:0 22px}
+  .sys-info{padding:34px 26px}
+  .sys-mock{min-height:300px}
+  .conf,.services-cta,.steps{padding-left:22px;padding-right:22px}
+  .foot-inner{padding-left:22px;padding-right:22px;flex-direction:column;text-align:center;gap:14px}
+  .erp-grid,.services-grid{grid-template-columns:1fr}
+  .form-row-2{grid-template-columns:1fr}
+  .contact-card{padding:26px 22px}
+  .hero-h1{font-size:2.5rem}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost{justify-content:center}
+  .trust-item{padding:14px 16px}
+}
+
+/* ===== PRODUCT MOCKUP COMPONENTS (reused) ===== */
 .mock-fintra{background:linear-gradient(160deg,#020510 0%,#050c1e 50%,#080f24 100%);}
 .fintra-ui{width:calc(100% - 40px);max-width:360px;display:flex;flex-direction:column;gap:10px;padding:20px;}
 .fi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
-.fi-logo{font-family:'Sora',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.fi-logo{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);}
 .fi-date{font-size:.65rem;color:rgba(255,255,255,.15)}
 .fi-net{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;}
 .fi-net-label{font-size:.63rem;color:rgba(255,255,255,.3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.fi-net-value{font-family:'Sora',sans-serif;font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;}
+.fi-net-value{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;color:#f8fafc;line-height:1;margin-bottom:4px;}
 .fi-net-change{font-size:.72rem;color:#4ade80;font-weight:500;display:flex;align-items:center;gap:4px;}
 .fi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .fi-mini{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;}
 .fi-mini-label{font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
-.fi-mini-val{font-size:1.1rem;font-family:'Sora',sans-serif;color:#f8fafc;line-height:1}
+.fi-mini-val{font-size:1.1rem;font-family:'Space Grotesk',sans-serif;color:#f8fafc;line-height:1}
 .fi-bars{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 16px 10px;}
 .fi-bars-label{font-size:.6rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
 .bar-track{height:5px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;margin-bottom:4px}
@@ -200,7 +405,7 @@ ul{list-style:none}
 .pos-item-price{color:rgba(255,255,255,.6);font-weight:500}
 .pos-total{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,.06);border-radius:10px;}
 .pos-total-label{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.04em}
-.pos-total-val{font-family:'Sora',sans-serif;font-size:1.5rem;color:#f8fafc;}
+.pos-total-val{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;color:#f8fafc;}
 .pos-methods{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
 .pos-method{padding:10px 6px;border-radius:9px;text-align:center;font-size:.62rem;font-weight:600;letter-spacing:.04em;border:1px solid;}
 .pm-gcash{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.2);color:rgba(180,180,255,.7)}
@@ -257,197 +462,25 @@ ul{list-style:none}
 .qr-score-cert-dim{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.2);}
 .qr-dash-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
 .qr-dash-stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 8px;text-align:center;}
-.qr-dash-val{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;}
+.qr-dash-val{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:800;color:#f8fafc;line-height:1;margin-bottom:4px;}
 .qr-dash-lbl{font-size:.56rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase}
-.sys-info{padding:60px 56px;display:flex;flex-direction:column;justify-content:center;}
-.sys-num{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);margin-bottom:28px;}
-.sys-title{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,2.5vw,2.4rem);line-height:1.15;letter-spacing:-.03em;font-weight:800;color:var(--black);margin-bottom:10px;}
-.sys-tagline{font-size:.92rem;font-weight:300;color:var(--g4);margin-bottom:40px;}
-.sys-features{display:flex;flex-direction:column;gap:2px}
-.feat{display:flex;align-items:flex-start;gap:14px;padding:14px;border-radius:var(--r-md);border:1px solid transparent;transition:background .2s,border-color .2s;cursor:default;}
-.feat:hover{background:var(--g0);border-color:var(--g2)}
-.feat-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-top:1px;}
-.feat-title{font-size:.86rem;font-weight:600;color:var(--black);margin-bottom:2px}
-.feat-desc{font-size:.76rem;color:var(--g4);line-height:1.55;font-weight:300}
 
-/* ── SERVICES ────────────────────────────────────────────── */
-.services{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);}
-.services-head{text-align:center;padding:0 40px;margin-bottom:72px;}
-.services-sub{font-size:.95rem;font-weight:300;color:var(--g5);max-width:560px;margin:16px auto 0;line-height:1.8;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
-.svc-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:28px 24px;transition:box-shadow .3s,transform .3s,border-color .3s;display:flex;flex-direction:column;}
-.svc-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:var(--g3);}
-.svc-icon{width:46px;height:46px;border-radius:var(--r-md);border:1px solid var(--g2);background:var(--g1);display:flex;align-items:center;justify-content:center;color:var(--g6);margin-bottom:18px;flex-shrink:0;}
-.svc-title{font-family:'Sora',sans-serif;font-size:.94rem;font-weight:700;color:var(--black);margin-bottom:9px;letter-spacing:-.015em;}
-.svc-desc{font-size:.78rem;font-weight:300;color:var(--g5);line-height:1.75;}
-.svc-list{margin-top:16px;display:flex;flex-direction:column;gap:7px;flex:1;}
-.svc-li{display:flex;align-items:flex-start;gap:8px;font-size:.75rem;color:var(--g5);line-height:1.5;}
-.svc-arrow{color:var(--g4);font-size:.72rem;padding-top:2px;flex-shrink:0;}
-.svc-ideal-wrap{margin-top:18px;padding-top:14px;border-top:1px solid var(--g1);}
-.svc-ideal-lbl{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g3);margin-bottom:3px;}
-.svc-ideal-val{font-size:.74rem;font-weight:400;color:var(--g4);line-height:1.5;}
-.services-cta-wrap{text-align:center;margin-top:56px;padding:0 40px;}
-.services-cta-wrap p{font-size:.9rem;color:var(--g4);font-weight:300;margin-bottom:22px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;}
-
-/* ── TESTIMONIALS ────────────────────────────────────────── */
-.testimonials{padding:120px 0;background:var(--white);}
-.testi-head{text-align:center;margin-bottom:56px;}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:var(--max-w);margin:0 auto;padding:0 40px;}
-.testi-card{background:var(--g0);border:1px solid var(--g2);border-radius:var(--r-xl);padding:30px;display:flex;flex-direction:column;gap:22px;transition:box-shadow .3s,transform .3s,border-color .3s;}
-.testi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--g3)}
-.testi-quote{font-size:.88rem;line-height:1.75;color:var(--g5);font-style:italic;}
-.testi-quote::before{content:'“';font-size:2rem;line-height:0;vertical-align:-0.4em;color:var(--g2);margin-right:3px;}
-.testi-author{display:flex;align-items:center;gap:12px;}
-.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex-shrink:0;}
-.testi-name{font-size:.82rem;font-weight:600;color:var(--black);}
-.testi-company{font-size:.74rem;color:var(--g4);margin-top:2px;}
-
-/* ── PROCESS ─────────────────────────────────────────────── */
-.process{padding:120px 0;background:var(--g0);border-top:1px solid var(--g2);}
-.process-head{text-align:center;margin-bottom:80px}
-.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:0;max-width:900px;margin:0 auto;padding:0 40px;}
-.step{text-align:center;padding:0 12px}
-.step-bubble{width:80px;height:80px;border-radius:50%;background:var(--white);border:1.5px solid var(--g2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--g6);box-shadow:var(--shadow-xs);transition:border-color .3s,box-shadow .3s,transform .3s,background .3s;}
-.step:hover .step-bubble{border-color:var(--black);box-shadow:var(--shadow-md);transform:translateY(-4px);}
-.step-n{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);margin-bottom:8px;}
-.step-t{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:var(--black);margin-bottom:12px;letter-spacing:-.02em;}
-.step-d{font-size:.83rem;color:var(--g4);line-height:1.7;font-weight:300}
-.step-connector{display:flex;align-items:center;justify-content:center;padding-top:40px;color:var(--g3);font-size:1rem;}
-
-/* ── CONTACT ─────────────────────────────────────────────── */
-.contact-section{padding:120px 0;background:var(--white);}
-.contact-header{margin-bottom:64px}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start;}
-.contact-card{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:38px;box-shadow:var(--shadow-xs);transition:box-shadow .3s,border-color .3s;}
-.contact-card:hover{box-shadow:var(--shadow-md);border-color:var(--g3)}
-.contact-card-title{font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:22px;letter-spacing:-.01em;}
-.contact-link-row{display:flex;align-items:center;gap:12px;padding:13px 15px;border-radius:var(--r-md);border:1px solid var(--g2);background:var(--g0);margin-bottom:10px;transition:border-color .2s,transform .2s,background .2s;cursor:pointer;}
-.contact-link-row:hover{border-color:var(--g4);transform:translateY(-2px);background:var(--white)}
-.contact-link-icon{width:36px;height:36px;border-radius:9px;background:var(--g1);border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--g5);}
-.contact-link-name{font-size:.83rem;font-weight:600;color:var(--black)}
-.contact-link-val{font-size:.7rem;color:var(--g4);margin-top:1px}
-.contact-location{margin-top:18px;padding:16px;border-radius:var(--r-md);background:var(--g0);border:1px solid var(--g2);display:flex;align-items:flex-start;gap:10px;}
-.contact-location-icon{color:var(--g4);flex-shrink:0;margin-top:1px;}
-.contact-location-label{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--g3);margin-bottom:6px}
-.contact-location-val{font-size:.9rem;font-weight:600;color:var(--black)}
-.contact-location-sub{font-size:.73rem;color:var(--g4);margin-top:2px}
-.fg{margin-bottom:14px}
-.flabel{display:block;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g4);margin-bottom:7px;}
-.freq{color:var(--g3)}
-.finput{width:100%;padding:11px 14px;border-radius:var(--r-sm);border:1px solid var(--g2);background:var(--g0);color:var(--black);font-family:'Inter',sans-serif;font-size:.87rem;font-weight:400;outline:none;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none;}
-.finput:focus{border-color:var(--black);background:var(--white);box-shadow:0 0 0 3px rgba(0,0,0,.06);}
-.finput::placeholder{color:var(--g3)}
-.ftextarea{resize:none}
-.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fsubmit{width:100%;padding:13px;margin-top:4px;border-radius:var(--r-md);background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.02em;transition:opacity .2s,transform .15s;}
-.fsubmit:hover{opacity:.82;transform:translateY(-1px)}
-
-/* ── POPUP ───────────────────────────────────────────────── */
-.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(12px);z-index:999;align-items:center;justify-content:center;}
-.popup-overlay.show{display:flex}
-.popup-box{background:var(--white);border:1px solid var(--g2);border-radius:var(--r-xl);padding:48px 40px;text-align:center;max-width:380px;width:90%;box-shadow:var(--shadow-xl);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
-@keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-.popup-icon{font-size:2.2rem;margin-bottom:16px}
-.popup-title{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.02em;color:var(--black);margin-bottom:8px;}
-.popup-text{font-size:.87rem;color:var(--g4);line-height:1.6;margin-bottom:28px}
-.popup-close{padding:12px 32px;border-radius:999px;background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;transition:opacity .2s;}
-.popup-close:hover{opacity:.82}
-
-/* ── FOOTER ──────────────────────────────────────────────── */
-footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
-.foot-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.foot-logo{font-family:'Sora',sans-serif;font-size:.9rem;font-weight:700;color:var(--black);letter-spacing:-.01em;}
-.foot-copy{font-size:.73rem;color:var(--g3)}
-.foot-links{display:flex;gap:22px}
-.foot-link{font-size:.76rem;color:var(--g4);display:inline-flex;align-items:center;gap:6px;transition:color .2s;}
-.foot-link:hover{color:var(--black)}
-.foot-up{font-size:.73rem;color:var(--g4);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
-.foot-up:hover{color:var(--black)}
-
-/* ── SCROLLBAR ───────────────────────────────────────────── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--g1)}
-::-webkit-scrollbar-thumb{background:var(--g3);border-radius:999px}
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media(max-width:960px){
-  .nav-links{display:none}
-  .burger{display:flex}
-  .nav-cta{display:none}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .about-photo-col{flex-direction:row;justify-content:flex-start;gap:20px;align-items:center}
-  .about-photo-frame{width:100px;height:100px;border-radius:var(--r-lg);flex-shrink:0}
-  .about-photo-name,.about-photo-role,.about-photo-badge{text-align:left}
-  .sys-card{grid-template-columns:1fr}
-  .sys-card.flip{direction:ltr}
-  .sys-mock{min-height:300px}
-  .sys-info{padding:40px 32px}
-  .steps{grid-template-columns:1fr;gap:32px}
-  .step-connector{display:none}
-  .contact-grid{grid-template-columns:1fr}
-  .erp-grid{grid-template-columns:1fr 1fr}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .trust-divider{display:none}
-  .trust-inner{gap:20px}
-}
-@media(max-width:640px){
-  .wrap,.nav{padding-left:20px;padding-right:20px}
-  .hero-inner{padding-left:20px;padding-right:20px;padding-bottom:80px}
-  .about{padding:80px 0}
-  .about .wrap{padding-left:20px;padding-right:20px}
-  .systems-head{padding-left:20px;padding-right:20px}
-  .sys-block{padding:0 20px}
-  .steps{padding:0 20px}
-  .contact-section .wrap{padding-left:20px;padding-right:20px}
-  .foot-inner{padding-left:20px;padding-right:20px}
-  .hero-metrics{max-width:100%;margin-top:48px}
-  .metric{padding:18px 10px}
-  .metric-val{font-size:1.4rem}
-  .metric-lbl{font-size:.58rem}
-  .hero-h1{font-size:2.4rem}
-  .hero-actions{flex-direction:column;align-items:flex-start;gap:10px}
-  .btn-primary,.btn-ghost{width:100%;justify-content:center}
-  .about-photo-frame{width:80px;height:80px}
-  .about-lede{font-size:1.5rem}
-  .sys-info{padding:28px 20px}
-  .sys-mock{min-height:260px}
-  .section-title{font-size:1.8rem}
-  .step-bubble{width:64px;height:64px}
-  .step-t{font-size:1.2rem}
-  .fi-row{grid-template-columns:1fr}
-  .form-row-2{grid-template-columns:1fr}
-  .contact-card{padding:24px 20px}
-  .erp-grid,.services-grid{grid-template-columns:1fr;padding:0 20px}
-  .testi-grid{padding:0 20px}
-  .conf-notice,.services-cta-wrap{padding:0 20px}
-  .erp-bg-head,.services-head,.testi-head{padding-left:20px;padding-right:20px}
-  .trust-inner{gap:14px;padding:0 20px}
-  .foot-inner{flex-direction:column;align-items:center;text-align:center;gap:12px}
-  .foot-links{justify-content:center}
-}
-@media(max-width:380px){
-  .hero-h1{font-size:2rem}
-  .metric-val{font-size:1.2rem}
-  .metric{padding:14px 8px}
-}
 </style>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-logo">FMA</a>
+    <a href="#top" class="nav-logo"><span class="lp"></span>FMA<span style="color:var(--faint)">/web</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#systems">Systems</a></li>
-      <li><a href="#erp-experience">ERP Work</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" style="display:flex;align-items:center;gap:5px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
+      <li><a href="#background">Background</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:12px">
-      <a href="#contact" class="nav-cta">Hire Me <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#contact" class="nav-cta">Hire me <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -455,55 +488,79 @@ footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
 
 <div class="mob-menu" id="mobMenu">
   <a href="#about" class="mob-link">About</a>
-  <a href="#systems" class="mob-link">Systems</a>
-  <a href="#erp-experience" class="mob-link">ERP Work</a>
   <a href="#services" class="mob-link">Services</a>
+  <a href="#work" class="mob-link">Work</a>
   <a href="#process" class="mob-link">Process</a>
-  <a href="#contact" class="mob-link">Contact</a>
-  <a href="#contact" class="btn-primary" style="width:fit-content">Hire Me</a>
+  <a href="#background" class="mob-link">Background</a>
+  <a href="#contact" class="btn-primary" style="width:fit-content">Hire me</a>
 </div>
 
 <section class="hero" id="top">
-  <div class="hero-grid-bg"></div>
+  <div class="hero-aura"></div>
+  <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-kicker">
-      <div class="kicker-dot"></div>
-      <span>Available for new projects</span>
+    <div class="hero-copy">
+      <div class="hero-kicker"><span class="dot"></span>Available for new projects</div>
+      <h1 class="hero-h1">
+        I build<br>
+        <em class="grad-text">websites</em> businesses<br>
+        grow on.
+      </h1>
+      <p class="hero-sub">Modern, fast-loading sites and web apps that look premium and actually convert — from portfolios and online shops to custom tools.</p>
+      <div class="hero-stack"><span>Portfolio</span><span>Business Sites</span><span>Online Shops</span><span>Web Apps</span></div>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">View my work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
     </div>
-    <h1 class="hero-h1">
-      I build systems that<br>
-      <em>simplify complex</em><br>
-      operations.
-    </h1>
-    <p class="hero-sub">
-      <strong>ERP &bull; Automation &bull; Finance Systems &bull; Custom Solutions</strong>
-      Turning messy, manual business processes into clean, scalable systems.
-      Based in Manila, Philippines.
-    </p>
-    <div class="hero-actions">
-      <a href="#systems" class="btn-primary">View My Work <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="#contact" class="btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-metrics reveal">
-      <div class="metric"><div class="metric-val">3+</div><div class="metric-lbl">Years building</div></div>
-      <div class="metric"><div class="metric-val">10+</div><div class="metric-lbl">Systems shipped</div></div>
-      <div class="metric"><div class="metric-val">6</div><div class="metric-lbl">ERP modules</div></div>
-      <div class="metric"><div class="metric-val">PH</div><div class="metric-lbl">Remote-ready</div></div>
+
+    <div class="sysmap reveal">
+      <div class="sysmap-card">
+        <div class="sysmap-top">
+          <span class="sysmap-title">live_preview.html</span>
+          <span class="sysmap-live">live</span>
+        </div>
+        <div class="bp">
+          <div class="bp-bar">
+            <span class="bp-dot" style="background:#FF5F57"></span>
+            <span class="bp-dot" style="background:#FEBC2E"></span>
+            <span class="bp-dot" style="background:#28C840"></span>
+            <span class="bp-url">felixmarcoalforque.it.com</span>
+          </div>
+          <div class="bp-body">
+            <div class="bp-nav">
+              <span class="bp-logo">Studio<span style="color:var(--signal)">.</span></span>
+              <span class="bp-menu"><i></i><i></i><i></i></span>
+            </div>
+            <div class="bp-hero">
+              <div class="bp-h-line"></div>
+              <div class="bp-h-line s"></div>
+              <div class="bp-h-btn"></div>
+            </div>
+            <div class="bp-row">
+              <div class="bp-card"><div class="ic"></div><span></span><span class="sm"></span></div>
+              <div class="bp-card"><div class="ic"></div><span></span><span class="sm"></span></div>
+              <div class="bp-card"><div class="ic"></div><span></span><span class="sm"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sysmap-foot">
+          <div class="sm-stat"><div class="sm-val">3+</div><div class="sm-lbl">Years</div></div>
+          <div class="sm-stat"><div class="sm-val">12+</div><div class="sm-lbl">Sites &amp; apps</div></div>
+          <div class="sm-stat"><div class="sm-val">100%</div><div class="sm-lbl">Custom-built</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="trust-strip">
+<div class="trust">
   <div class="trust-inner">
-    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg><span class="trust-text">Corporate ERP Experience</span></div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="trust-text">NDA-Compliant Work</span></div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M3 9l6-6M6 12l6-6M9 15l6-6M12 18l6-6"/></svg><span class="trust-text">Architecture Before Code</span></div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span class="trust-text">End-to-End Implementation</span></div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="trust-text">Manila-based · Remote-ready</span></div>
+    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg><span class="trust-text">Modern, responsive design</span></div>
+    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="trust-text">Fast-loading &amp; SEO-ready</span></div>
+    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span class="trust-text">Custom-built, no templates</span></div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><span class="trust-text">E-commerce ready</span></div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="trust-text">Manila · remote-ready</span></div>
   </div>
 </div>
 
@@ -511,147 +568,26 @@ footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
   <div class="wrap">
     <div class="about-grid">
       <div class="about-photo-col reveal">
-        <div class="about-photo-frame">
-    <img src="felixmarco.png" alt="Felix Marco Alforque">
+        <div class="about-photo-frame"><img src="felixmarco.png" alt="Felix Marco Alforque" onerror="this.closest('.about-photo-frame').classList.add('noimg')"></div>
+        <div class="about-photo-meta">
+          <div class="about-photo-name">Felix Marco Alforque</div>
+          <div class="about-photo-role">Web Developer</div>
+          <div class="about-photo-badge"><span class="d"></span>Manila, PH</div>
         </div>
-        <div class="about-photo-name">Felix Marco Alforque</div>
-        <div class="about-photo-role">ERP System Analyst</div>
-        <div class="about-photo-badge"><span class="about-photo-badge-dot"></span>Manila, PH</div>
       </div>
       <div class="about-left">
-        <p class="label reveal">About</p>
-        <h2 class="about-lede reveal reveal-d1">Where business logic<br>meets <em>technical execution</em></h2>
-        <p class="about-body reveal reveal-d2">I'm <strong>Felix Marco Alforque</strong> — an ERP System Analyst and Web Developer based in Manila. I specialize in transforming business processes into efficient, system-driven workflows.<br><br>I bridge the gap between <strong>what a business needs</strong> and <strong>what technology can do</strong> — translating real-world operations into scalable digital systems that actually get used.</p>
+        <p class="eyebrow reveal">// about</p>
+        <h2 class="about-lede reveal reveal-d1">Where clean design meets <em>solid engineering.</em></h2>
+        <p class="about-body reveal reveal-d2">I'm <strong>Felix Marco Alforque</strong> — a web developer based in Manila. I build modern websites and web apps that are fast, responsive, and made to convert visitors into customers.<br><br>What sets my work apart: I also come from an <strong>enterprise systems background</strong>, so I don't just make sites that look good — I build them to <strong>work.</strong> Clean architecture, real functionality, and the backend logic to back it up.</p>
       </div>
       <div class="about-right reveal reveal-d2">
-        <div class="capability-list">
-          <div class="cap-item"><span class="cap-name">ERP System Analysis & Implementation</span><span class="cap-badge">Core</span></div>
-          <div class="cap-item"><span class="cap-name">Business Process Automation</span><span class="cap-badge">Core</span></div>
-          <div class="cap-item"><span class="cap-name">Finance System Design</span><span class="cap-badge">Specialist</span></div>
-          <div class="cap-item"><span class="cap-name">POS System Development</span><span class="cap-badge">Specialist</span></div>
-          <div class="cap-item"><span class="cap-name">Web Development (HTML/CSS/JS)</span><span class="cap-badge">Proficient</span></div>
-          <div class="cap-item"><span class="cap-name">IT Support & Infrastructure</span><span class="cap-badge">Proficient</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="erp-bg" id="erp-experience">
-  <div class="erp-bg-head reveal">
-    <p class="label">ERP Track Record</p>
-    <h2 class="section-title">Behind the builds,<br><em>real enterprise work</em></h2>
-    <p class="erp-bg-intro">Before building systems for clients, I spent years inside corporate ERP environments — implementing, customizing, and optimizing the exact type of software your business depends on. This is the depth I bring to every project.</p>
-  </div>
-  <div class="erp-grid">
-    <div class="erp-card reveal"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3 class="erp-card-title">Finance Module Implementation</h3><p class="erp-card-desc">Worked directly on ERP finance modules — general ledger configuration, accounts payable/receivable workflows, cost center mapping, and period-end closing procedures aligned to business reporting cycles.</p><div class="erp-card-tags"><span class="erp-tag">GL Config</span><span class="erp-tag">AP/AR</span><span class="erp-tag">Cost Centers</span></div></div>
-    <div class="erp-card reveal reveal-d1"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3 class="erp-card-title">HR & Payroll Systems</h3><p class="erp-card-desc">Supported full HR module setups including employee master data, leave and attendance management, payroll calculation workflows, and government contribution integrations (SSS, PhilHealth, Pag-IBIG).</p><div class="erp-card-tags"><span class="erp-tag">Payroll</span><span class="erp-tag">Leave Mgmt</span><span class="erp-tag">Gov Compliance</span></div></div>
-    <div class="erp-card reveal reveal-d2"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><h3 class="erp-card-title">Inventory & Procurement</h3><p class="erp-card-desc">Handled inventory management setups, purchase order approval workflows, multi-warehouse location structures, and auto-reorder threshold automation within enterprise environments.</p><div class="erp-card-tags"><span class="erp-tag">PO Workflow</span><span class="erp-tag">Warehousing</span><span class="erp-tag">Auto-reorder</span></div></div>
-    <div class="erp-card reveal"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><h3 class="erp-card-title">Business Workflow Automation</h3><p class="erp-card-desc">Mapped and automated approval chains, inter-department data flows, and high-frequency recurring tasks — reducing manual effort and error rates across multiple business units simultaneously.</p><div class="erp-card-tags"><span class="erp-tag">Approvals</span><span class="erp-tag">Automation</span><span class="erp-tag">Data Flow</span></div></div>
-    <div class="erp-card reveal reveal-d1"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3 class="erp-card-title">Reporting & Dashboard Builds</h3><p class="erp-card-desc">Designed and built management reporting modules — daily operations dashboards, month-end financial summaries, and KPI trackers that gave leadership teams real-time visibility into business performance.</p><div class="erp-card-tags"><span class="erp-tag">KPI Dashboards</span><span class="erp-tag">Month-end Reports</span><span class="erp-tag">Mgmt Views</span></div></div>
-    <div class="erp-card reveal reveal-d2"><div class="erp-card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3 class="erp-card-title">UI Improvements & User Training</h3><p class="erp-card-desc">Redesigned internal ERP screens for usability — streamlined navigation, simplified data entry forms, role-specific views — then trained end-users and department leads to drive actual system adoption.</p><div class="erp-card-tags"><span class="erp-tag">UX Redesign</span><span class="erp-tag">Training</span><span class="erp-tag">Adoption</span></div></div>
-  </div>
-  <div class="conf-notice reveal">
-    <div class="conf-box">
-      <span class="conf-box-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-      <div>
-        <div class="conf-box-title">A note on confidentiality</div>
-        <p class="conf-box-text">All ERP implementation work above was performed on internal corporate systems under non-disclosure agreements. Client names, system screenshots, and proprietary data cannot be shared publicly. I am happy to discuss scope, technical challenges, and my specific contributions in detail during a private consultation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="systems" id="systems">
-  <div class="systems-head reveal">
-    <p class="label">Featured Systems</p>
-    <h2 class="section-title">Products I've <em>built</em></h2>
-  </div>
-  <div class="sys-block">
-    <div class="sys-card reveal">
-      <div class="sys-mock mock-fintra">
-        <div class="fintra-ui">
-          <div class="fi-header"><span class="fi-logo">Fintra</span><span class="fi-date">Mar 2025</span></div>
-          <div class="fi-net"><div class="fi-net-label">Net Worth</div><div class="fi-net-value">₱ 284,500</div><div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div></div>
-          <div class="fi-row"><div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div><div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div></div>
-          <div class="fi-bars"><div class="fi-bars-label">Savings Rate — 57%</div><div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div><div class="bar-track" style="margin-top:6px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div></div>
-          <div class="fi-accounts"><div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div><div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div><div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div></div>
-        </div>
-      </div>
-      <div class="sys-info">
-        <div class="sys-num">System 01 — Finance</div>
-        <h3 class="sys-title">Fintra</h3>
-        <p class="sys-tagline">Your Financial Control Center</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="feat-body"><div class="feat-title">Real-time financial dashboard</div><div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div class="feat-body"><div class="feat-title">Multi-account tracking</div><div class="feat-desc">Banks, e-wallets, cash — unified view across all accounts.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="feat-body"><div class="feat-title">Privacy-first, offline-first</div><div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sys-block">
-    <div class="sys-card flip reveal">
-      <div class="sys-info">
-        <div class="sys-num">System 02 — Commerce</div>
-        <h3 class="sys-title">POS System</h3>
-        <p class="sys-tagline">Fast. Flexible. Scalable.</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div class="feat-body"><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="feat-body"><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal friction checkout — built for speed at the counter.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="feat-body"><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as your business scales.</div></div></div>
-        </div>
-      </div>
-      <div class="sys-mock mock-pos">
-        <div class="pos-ui">
-          <div class="pos-header"><span class="pos-title">POS Terminal</span><span class="pos-status">Live</span></div>
-          <div class="pos-order"><div class="pos-order-head">Current Order — Table 4</div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div></div>
-          <div class="pos-total"><span class="pos-total-label">Total</span><span class="pos-total-val">₱ 420</span></div>
-          <div class="pos-methods"><div class="pos-method pm-gcash">GCash</div><div class="pos-method pm-cash">Cash</div><div class="pos-method pm-card">Card</div><div class="pos-method pm-maya">Maya</div></div>
-          <div class="pos-inventory"><div class="pos-inv-item">Inventory</div><div class="pos-inv-item">Reports</div><div class="pos-inv-item">Loyalty</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sys-block">
-    <div class="sys-card reveal">
-      <div class="sys-mock mock-erp">
-        <div class="erp-ui">
-          <div class="erp-header">ERP Architecture</div>
-          <div class="erp-modules"><div class="erp-mod"><div class="erp-mod-icon">💼</div><div class="erp-mod-name">Sales</div></div><div class="erp-mod"><div class="erp-mod-icon">📦</div><div class="erp-mod-name">Inventory</div></div><div class="erp-mod"><div class="erp-mod-icon">💰</div><div class="erp-mod-name">Finance</div></div><div class="erp-mod"><div class="erp-mod-icon">👥</div><div class="erp-mod-name">HR</div></div><div class="erp-mod"><div class="erp-mod-icon">🚚</div><div class="erp-mod-name">Logistics</div></div><div class="erp-mod"><div class="erp-mod-icon">📊</div><div class="erp-mod-name">Reports</div></div></div>
-          <div class="erp-flow"><div class="erp-flow-title">Data Flow</div><div class="erp-flow-row"><div class="erp-node"><span class="erp-nd" style="background:#818cf8"></span>Sales</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#34d399"></span>Inventory</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#f472b6"></span>Finance</div></div><div class="erp-flow-row" style="margin-top:6px"><div class="erp-node"><span class="erp-nd" style="background:#fbbf24"></span>HR</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#60a5fa"></span>Payroll</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#a78bfa"></span>Reports</div></div></div>
-          <div class="erp-automations"><div class="erp-auto-title">Automation Rules</div><div class="erp-auto-row"><span class="erp-auto-name">Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Weekly report generation</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Payroll calculation</span><span class="erp-auto-on">ON</span></div></div>
-        </div>
-      </div>
-      <div class="sys-info">
-        <div class="sys-num">System 03 — Enterprise</div>
-        <h3 class="sys-title">ERP & Automation Systems</h3>
-        <p class="sys-tagline">From process to system</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div class="feat-body"><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="feat-body"><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="feat-body"><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, focus humans on decisions.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sys-block">
-    <div class="sys-card flip reveal">
-      <div class="sys-info">
-        <div class="sys-num">System 04 — Events</div>
-        <h3 class="sys-title">Convention Event System</h3>
-        <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div><div class="feat-body"><div class="feat-title">Guest Registration & QR Stub</div><div class="feat-desc">Guests sign up online and receive an email with their unique QR stub — their digital ticket to the event.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div><div class="feat-body"><div class="feat-title">QR Scan — Check-in & Check-out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure times with a live attendance dashboard.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg></div><div class="feat-body"><div class="feat-title">In-event Assessment & Certification</div><div class="feat-desc">Guests take a test during the event — instant scoring, unlimited retakes on fail, and auto-generated certificate on pass.</div></div></div>
-        </div>
-      </div>
-      <div class="sys-mock mock-qr">
-        <div class="qr-ui">
-          <div class="qr-flow"><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div class="qr-flow-body"><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div class="qr-flow-body"><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div class="qr-flow-body"><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div><div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div class="qr-flow-body"><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div></div>
-          <div class="qr-score-card"><div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div><div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><div class="qr-score-bar-fill" style="width:72%"></div></div><span class="qr-score-pct">72%</span></div><div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div><div class="qr-score-actions"><div class="qr-score-btn qr-score-retry">Retake</div><div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div></div></div>
-          <div class="qr-dash-row"><div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div><div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div><div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div></div>
+        <div class="cap-list">
+          <div class="cap-item"><span class="cap-name">Website Design &amp; Development</span><span class="cap-badge core">Core</span></div>
+          <div class="cap-item"><span class="cap-name">E-commerce &amp; Online Shops</span><span class="cap-badge core">Core</span></div>
+          <div class="cap-item"><span class="cap-name">Web Apps &amp; Custom Tools</span><span class="cap-badge">Specialist</span></div>
+          <div class="cap-item"><span class="cap-name">Landing Pages &amp; Conversion</span><span class="cap-badge">Specialist</span></div>
+          <div class="cap-item"><span class="cap-name">ERP &amp; Business Systems</span><span class="cap-badge">Proficient</span></div>
+          <div class="cap-item"><span class="cap-name">Deployment &amp; Hosting Setup</span><span class="cap-badge">Proficient</span></div>
         </div>
       </div>
     </div>
@@ -659,101 +595,199 @@ footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
 </section>
 
 <section class="services" id="services">
-  <div class="services-head reveal">
-    <p class="label">What I Can Build For You</p>
-    <h2 class="section-title">Engagements I <em>take on</em></h2>
-    <p class="services-sub">Whether you need a full ERP from the ground up, targeted improvements to an existing system, or a clearer picture of why your current setup isn't working — here's how I can help.</p>
-  </div>
-  <div class="services-grid">
-    <div class="svc-card reveal"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3 class="svc-title">Custom ERP Development</h3><p class="svc-desc">Built for how your business actually operates — not a generic template forced into your workflow.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Full module architecture planning</li><li class="svc-li"><span class="svc-arrow">→</span>Finance, HR, Inventory &amp; Sales integration</li><li class="svc-li"><span class="svc-arrow">→</span>Role-based access &amp; approval flows</li><li class="svc-li"><span class="svc-arrow">→</span>Dashboard &amp; reporting layer included</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">SMBs ready to replace spreadsheets with a real, scalable system</div></div></div>
-    <div class="svc-card reveal reveal-d1"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h3 class="svc-title">ERP Module Add-On</h3><p class="svc-desc">Your existing system is missing something critical. I build what's needed and integrate it cleanly into what you already have.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Payroll &amp; government compliance module</li><li class="svc-li"><span class="svc-arrow">→</span>Inventory &amp; auto-reorder module</li><li class="svc-li"><span class="svc-arrow">→</span>Customer or supplier portals</li><li class="svc-li"><span class="svc-arrow">→</span>3rd-party API integrations</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Growing businesses that need specific extensions to their current setup</div></div></div>
-    <div class="svc-card reveal reveal-d2"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3 class="svc-title">Reporting &amp; Business Intelligence</h3><p class="svc-desc">Turn raw ERP data into dashboards your leadership team actually reads — and acts on.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>KPI &amp; operations dashboards</li><li class="svc-li"><span class="svc-arrow">→</span>Automated month-end report generation</li><li class="svc-li"><span class="svc-arrow">→</span>Financial summaries &amp; P&amp;L views</li><li class="svc-li"><span class="svc-arrow">→</span>Exportable report templates</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Management teams making decisions without clear visibility into their data</div></div></div>
-    <div class="svc-card reveal"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 class="svc-title">Business Process Automation</h3><p class="svc-desc">Find the manual, repetitive tasks draining your team's time — and eliminate them with smart workflow automation.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Approval chain automation</li><li class="svc-li"><span class="svc-arrow">→</span>Automated notifications &amp; alerts</li><li class="svc-li"><span class="svc-arrow">→</span>Scheduled data jobs &amp; batch processing</li><li class="svc-li"><span class="svc-arrow">→</span>Cross-department data sync</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Teams losing hours every week to avoidable manual processes</div></div></div>
-    <div class="svc-card reveal reveal-d1"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3 class="svc-title">ERP Audit &amp; Process Review</h3><p class="svc-desc">Not sure why your system isn't working the way it should? I audit your setup, find the gaps, and deliver a clear path forward.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>Current system gap analysis</li><li class="svc-li"><span class="svc-arrow">→</span>Process bottleneck identification</li><li class="svc-li"><span class="svc-arrow">→</span>Actionable improvement roadmap</li><li class="svc-li"><span class="svc-arrow">→</span>Optional implementation support</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Businesses with ERP frustrations but no clear diagnosis of the problem</div></div></div>
-    <div class="svc-card reveal reveal-d2"><div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3 class="svc-title">ERP UI/UX Redesign</h3><p class="svc-desc">Your system works technically but your team resists using it. I redesign the interface to cut friction and drive real adoption.</p><ul class="svc-list"><li class="svc-li"><span class="svc-arrow">→</span>User flow analysis &amp; redesign</li><li class="svc-li"><span class="svc-arrow">→</span>Form simplification &amp; data entry UX</li><li class="svc-li"><span class="svc-arrow">→</span>Navigation restructuring</li><li class="svc-li"><span class="svc-arrow">→</span>Role-based interface customization</li></ul><div class="svc-ideal-wrap"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Teams avoiding the ERP because it's too confusing or slow to use</div></div></div>
-  </div>
-  <div class="services-cta-wrap reveal">
-    <p>Not sure which engagement fits your situation? Let's talk — it usually becomes clear within the first 15 minutes.</p>
-    <a href="#contact" class="btn-primary">Start a Conversation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-  </div>
-</section>
-
-<section class="testimonials" id="testimonials">
   <div class="wrap">
-    <div class="testi-head reveal">
-      <p class="label">What People Say</p>
-      <h2 class="section-title">Trusted by the<br><em>teams I work with</em></h2>
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center">// what i build</p>
+      <h2 class="section-title">Websites &amp; web apps, <em>made to order.</em></h2>
+      <p class="section-intro" style="margin-left:auto;margin-right:auto">Whether you need a simple portfolio, a full online shop, or a custom web tool — here's what I can build for you, all custom-coded and built to load fast.</p>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-quote">"Felix doesn't just build what you ask — he asks the right questions first and builds what you actually need. Our ERP rollout ran smoother than any previous implementation."</div>
-        <div class="testi-author"><div class="testi-avatar">JR</div><div><div class="testi-name">Operations Manager</div><div class="testi-company">Manufacturing Company · Metro Manila</div></div></div>
-      </div>
-      <div class="testi-card reveal reveal-d1">
-        <div class="testi-quote">"The finance module he configured saved us days of manual reconciliation every month. He understood our reporting needs better than some of our own staff."</div>
-        <div class="testi-author"><div class="testi-avatar">MA</div><div><div class="testi-name">Finance Controller</div><div class="testi-company">Multi-company Group · Philippines</div></div></div>
-      </div>
-      <div class="testi-card reveal reveal-d2">
-        <div class="testi-quote">"Felix bridged the gap between our IT team and business users perfectly. He speaks both languages — that's rare and incredibly valuable in an ERP project."</div>
-        <div class="testi-author"><div class="testi-avatar">KS</div><div><div class="testi-name">IT Director</div><div class="testi-company">Logistics Company · Manila</div></div></div>
-      </div>
+    <div class="services-grid">
+      <div class="card reveal"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 00-16 0"/></svg></div><h3 class="card-title">Portfolio Website</h3><p class="card-desc">A clean, modern personal site that makes you look as good as your work. Perfect for creatives, freelancers, and professionals.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Custom one-of-a-kind design</li><li class="svc-li"><span class="a">→</span>Project / work showcase</li><li class="svc-li"><span class="a">→</span>About, services &amp; contact</li><li class="svc-li"><span class="a">→</span>Fully mobile-responsive</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Freelancers and professionals who need to stand out online</div></div></div>
+      <div class="card reveal reveal-d1"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></div><h3 class="card-title">Business Website</h3><p class="card-desc">A professional site that builds trust and turns visitors into inquiries. Everything your business needs to look legit online.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Multi-page company site</li><li class="svc-li"><span class="a">→</span>Services, pricing &amp; team pages</li><li class="svc-li"><span class="a">→</span>Contact forms &amp; maps</li><li class="svc-li"><span class="a">→</span>SEO-ready &amp; fast-loading</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Local businesses and SMEs ready for a real online presence</div></div></div>
+      <div class="card reveal reveal-d2"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div><h3 class="card-title">Online Shop</h3><p class="card-desc">A complete e-commerce store with cart, checkout, and the local payment options your customers actually use.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Product catalog &amp; cart</li><li class="svc-li"><span class="a">→</span>GCash, Maya &amp; card checkout</li><li class="svc-li"><span class="a">→</span>Order &amp; inventory tracking</li><li class="svc-li"><span class="a">→</span>Mobile-first storefront</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Brands and sellers ready to sell directly online</div></div></div>
+      <div class="card reveal"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 class="card-title">Landing Page</h3><p class="card-desc">A single high-converting page built around one goal — sign-ups, sales, or leads. Designed to turn clicks into action.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Conversion-focused layout</li><li class="svc-li"><span class="a">→</span>Lead capture &amp; CTAs</li><li class="svc-li"><span class="a">→</span>Fast load, built for ads</li><li class="svc-li"><span class="a">→</span>Analytics-ready</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Product launches, campaigns, and paid-ad traffic</div></div></div>
+      <div class="card reveal reveal-d1"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 class="card-title">Web App &amp; Custom Tool</h3><p class="card-desc">Got a process that needs software? I build custom web apps — dashboards, booking systems, calculators, internal tools.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Dashboards &amp; admin panels</li><li class="svc-li"><span class="a">→</span>Booking &amp; management systems</li><li class="svc-li"><span class="a">→</span>Custom logic &amp; automation</li><li class="svc-li"><span class="a">→</span>Database &amp; API integration</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Businesses that need a tool, not just a site</div></div></div>
+      <div class="card reveal reveal-d2"><div class="card-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3 class="card-title">ERP &amp; Business Systems</h3><p class="card-desc">Need something bigger? With my enterprise background, I also build full business systems — when a website alone won't cut it.</p><ul class="svc-list"><li class="svc-li"><span class="a">→</span>Custom ERP &amp; modules</li><li class="svc-li"><span class="a">→</span>POS &amp; inventory systems</li><li class="svc-li"><span class="a">→</span>Reporting dashboards</li><li class="svc-li"><span class="a">→</span>Process automation</li></ul><div class="svc-ideal"><div class="svc-ideal-lbl">Best for</div><div class="svc-ideal-val">Growing operations that have outgrown spreadsheets</div></div></div>
+    </div>
+    <div class="services-cta reveal">
+      <p>Not sure which one you need? Tell me what you're trying to do — I'll point you to the right fit, no pressure.</p>
+      <a href="#contact" class="btn-primary">Start a conversation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
 
+<section class="systems" id="work">
+  <div class="section-head reveal">
+    <p class="eyebrow" style="justify-content:center">// selected work</p>
+    <h2 class="section-title">Things I've <em>built.</em></h2>
+    <p class="section-intro" style="margin-left:auto;margin-right:auto;text-align:center">A few of the products and systems I've designed and coded from scratch — each one a self-contained, custom build.</p>
+  </div>
+<div class="sys-block">
+    <div class="sys-card reveal">
+      <div class="sys-mock mock-fintra"><div class="fintra-ui">
+          <div class="fi-header"><span class="fi-logo">Fintra</span><span class="fi-date">Mar 2025</span></div>
+          <div class="fi-net"><div class="fi-net-label">Net Worth</div><div class="fi-net-value">₱ 284,500</div><div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div></div>
+          <div class="fi-row"><div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div><div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div></div>
+          <div class="fi-bars"><div class="fi-bars-label">Savings Rate — 57%</div><div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div><div class="bar-track" style="margin-top:6px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div></div>
+          <div class="fi-accounts"><div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div><div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div><div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div></div>
+        </div></div>
+      <div class="sys-info">
+        <div class="sys-num">Project 01 — Web App</div>
+        <h3 class="sys-title">Fintra</h3>
+        <p class="sys-tagline">Your financial control center</p>
+        <div class="sys-features">
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="feat-title">Real-time financial dashboard</div><div class="feat-desc">Net worth, income, expenses, and savings rate — live and at a glance.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div><div class="feat-title">Multi-account tracking</div><div class="feat-desc">Banks, e-wallets, cash — one unified view across every account.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="feat-title">Privacy-first, offline-first</div><div class="feat-desc">Your data stays local. No cloud dependency, no tracking.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sys-block">
+    <div class="sys-card flip reveal">
+      <div class="sys-info">
+        <div class="sys-num">Project 02 — POS / Commerce</div>
+        <h3 class="sys-title">POS System</h3>
+        <p class="sys-tagline">Fast. Flexible. Scalable.</p>
+        <div class="sys-features">
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal-friction checkout — built for speed at the counter.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as the business scales.</div></div></div>
+        </div>
+      </div>
+      <div class="sys-mock mock-pos"><div class="pos-ui">
+          <div class="pos-header"><span class="pos-title">POS Terminal</span><span class="pos-status">Live</span></div>
+          <div class="pos-order"><div class="pos-order-head">Current Order — Table 4</div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div></div>
+          <div class="pos-total"><span class="pos-total-label">Total</span><span class="pos-total-val">₱ 420</span></div>
+          <div class="pos-methods"><div class="pos-method pm-gcash">GCash</div><div class="pos-method pm-cash">Cash</div><div class="pos-method pm-card">Card</div><div class="pos-method pm-maya">Maya</div></div>
+          <div class="pos-inventory"><div class="pos-inv-item">Inventory</div><div class="pos-inv-item">Reports</div><div class="pos-inv-item">Loyalty</div></div>
+        </div></div>
+    </div>
+  </div>
+
+  <div class="sys-block">
+    <div class="sys-card reveal">
+      <div class="sys-mock mock-erp"><div class="erp-ui">
+          <div class="erp-header">ERP Architecture</div>
+          <div class="erp-modules"><div class="erp-mod"><div class="erp-mod-icon">💼</div><div class="erp-mod-name">Sales</div></div><div class="erp-mod"><div class="erp-mod-icon">📦</div><div class="erp-mod-name">Inventory</div></div><div class="erp-mod"><div class="erp-mod-icon">💰</div><div class="erp-mod-name">Finance</div></div><div class="erp-mod"><div class="erp-mod-icon">👥</div><div class="erp-mod-name">HR</div></div><div class="erp-mod"><div class="erp-mod-icon">🚚</div><div class="erp-mod-name">Logistics</div></div><div class="erp-mod"><div class="erp-mod-icon">📊</div><div class="erp-mod-name">Reports</div></div></div>
+          <div class="erp-flow"><div class="erp-flow-title">Data Flow</div><div class="erp-flow-row"><div class="erp-node"><span class="erp-nd" style="background:#818cf8"></span>Sales</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#34d399"></span>Inventory</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#f472b6"></span>Finance</div></div><div class="erp-flow-row" style="margin-top:6px"><div class="erp-node"><span class="erp-nd" style="background:#fbbf24"></span>HR</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#60a5fa"></span>Payroll</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#a78bfa"></span>Reports</div></div></div>
+          <div class="erp-automations"><div class="erp-auto-title">Automation Rules</div><div class="erp-auto-row"><span class="erp-auto-name">Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Weekly report generation</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span class="erp-auto-name">Payroll calculation</span><span class="erp-auto-on">ON</span></div></div></div>
+      <div class="sys-info">
+        <div class="sys-num">Project 03 — Business System</div>
+        <h3 class="sys-title">ERP &amp; Automation</h3>
+        <p class="sys-tagline">From process to system</p>
+        <div class="sys-features">
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, free humans for decisions.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sys-block">
+    <div class="sys-card flip reveal">
+      <div class="sys-info">
+        <div class="sys-num">Project 04 — Event Platform</div>
+        <h3 class="sys-title">Convention Event System</h3>
+        <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
+        <div class="sys-features">
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div><div><div class="feat-title">Guest registration &amp; QR stub</div><div class="feat-desc">Guests sign up online and get an email with a unique QR stub — their digital ticket.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div><div><div class="feat-title">QR scan — check-in &amp; out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure live.</div></div></div>
+          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg></div><div><div class="feat-title">In-event assessment &amp; certs</div><div class="feat-desc">Guests test during the event — instant scoring, retakes on fail, auto-generated certificate on pass.</div></div></div>
+        </div>
+      </div>
+      <div class="sys-mock mock-qr"><div class="qr-ui">
+          <div class="qr-flow"><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div class="qr-flow-body"><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div class="qr-flow-body"><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div class="qr-flow-body"><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div><div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div class="qr-flow-body"><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div></div>
+          <div class="qr-score-card"><div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div><div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><div class="qr-score-bar-fill" style="width:72%"></div></div><span class="qr-score-pct">72%</span></div><div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div><div class="qr-score-actions"><div class="qr-score-btn qr-score-retry">Retake</div><div class="qr-score-btn qr-score-cert qr-score-cert-dim">Certificate 🔒</div></div></div>
+          <div class="qr-dash-row"><div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div><div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div><div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div></div></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="erp-sec" id="background">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width:760px">
+      <p class="eyebrow">// background</p>
+      <h2 class="section-title">Built on real <em>enterprise experience.</em></h2>
+      <p class="section-intro">Before websites, I spent years inside corporate ERP systems — finance, HR &amp; payroll, inventory, and automation. That enterprise depth is the reason the sites and tools I build are architected properly, not just styled to look nice.</p>
+    </div>
+    <div class="card-tags reveal reveal-d1" style="gap:10px;margin-top:6px">
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">Finance Modules</span>
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">HR &amp; Payroll</span>
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">Inventory &amp; Procurement</span>
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">Workflow Automation</span>
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">Reporting &amp; Dashboards</span>
+      <span class="tag" style="font-size:.7rem;padding:8px 14px">System Audits &amp; UX</span>
+    </div>
+    <div class="conf reveal" style="margin-top:36px;padding:0">
+      <div class="conf-box">
+        <span class="conf-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
+        <div>
+          <div class="conf-title">A note on confidentiality</div>
+          <p class="conf-text">My enterprise ERP work was performed on internal corporate systems under non-disclosure agreements, so client names and screenshots can't be shared publicly. Happy to discuss scope and my contributions during a private consultation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="process" id="process">
-  <div class="process-head wrap reveal">
-    <p class="label">How I Work</p>
-    <h2 class="section-title">From problem<br>to <em>working system</em></h2>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center">// how i work</p>
+      <h2 class="section-title">From problem to <em>working system.</em></h2>
+    </div>
   </div>
   <div class="steps">
-    <div class="step reveal"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="step-n">Step 01</div><h3 class="step-t">Analyze</h3><p class="step-d">Deep discovery into your business operations, pain points, and goals. No assumptions — just honest, thorough analysis before anything is built.</p></div>
-    <div class="step-connector reveal">→</div>
-    <div class="step reveal reveal-d1"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M3 9l6-6M6 12l6-6M9 15l6-6M12 18l6-6"/></svg></div><div class="step-n">Step 02</div><h3 class="step-t">Design</h3><p class="step-d">Architecture first, code second. I map data flows, user journeys, and system logic — then design the solution before touching implementation.</p></div>
-    <div class="step-connector reveal reveal-d1">→</div>
-    <div class="step reveal reveal-d2"><div class="step-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="step-n">Step 03</div><h3 class="step-t">Implement</h3><p class="step-d">Build, test, deploy, and stay close. I don't hand off and disappear — I iterate until the system genuinely solves the problem.</p></div>
+    <div class="step reveal"><div class="step-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div class="step-n">Step 01</div><h3 class="step-t">Analyze</h3><p class="step-d">Deep discovery into your operations, pain points, and goals. No assumptions — just honest, thorough analysis before anything is built.</p></div>
+    <div class="step-conn reveal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="step reveal reveal-d1"><div class="step-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div class="step-n">Step 02</div><h3 class="step-t">Design</h3><p class="step-d">Architecture first, code second. I map data flows, user journeys, and system logic — then design the solution before touching implementation.</p></div>
+    <div class="step-conn reveal reveal-d1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="step reveal reveal-d2"><div class="step-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div class="step-n">Step 03</div><h3 class="step-t">Implement</h3><p class="step-d">Build, test, deploy, and stay close. I don't hand off and disappear — I iterate until the system genuinely solves the problem.</p></div>
   </div>
 </section>
 
-<section class="contact-section" id="contact">
+<section class="contact" id="contact">
   <div class="wrap">
-    <div class="contact-header reveal">
-      <p class="label">Contact</p>
-      <h2 class="section-title" style="margin-bottom:12px">Let's build something <em>powerful</em></h2>
-      <p style="font-size:.93rem;color:var(--g5);font-weight:300;max-width:480px;">Whether you need an ERP rollout, automation system, or a custom tool — I'm ready to help.</p>
+    <div class="section-head reveal" style="max-width:560px">
+      <p class="eyebrow">// contact</p>
+      <h2 class="section-title">Let's build something <em>powerful.</em></h2>
+      <p class="section-intro">Whether it's a new website, an online shop, or a custom web app — tell me what you have in mind and I'll tell you how I'd build it.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-card reveal">
         <h3 class="contact-card-title">Reach out directly</h3>
-        <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="contact-link-row">
-          <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-          <div><div class="contact-link-name">LinkedIn</div><div class="contact-link-val">Felix Marco Alforque</div></div>
-          <span style="margin-left:auto;color:var(--g3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="clink">
+          <div class="clink-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <div><div class="clink-name">LinkedIn</div><div class="clink-val">/in/felixmarcoalforque</div></div>
+          <span class="chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
-        <a href="mailto:contact@felixmarcoalforque.it.com" class="contact-link-row">
-          <div class="contact-link-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="contact-link-name">Email</div><div class="contact-link-val">contact@felixmarcoalforque.it.com</div></div>
-          <span style="margin-left:auto;color:var(--g3)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+        <a href="mailto:contact@felixmarcoalforque.it.com" class="clink">
+          <div class="clink-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="clink-name">Email</div><div class="clink-val">contact@felixmarcoalforque.it.com</div></div>
+          <span class="chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
         </a>
-        <div class="contact-location">
-          <div class="contact-location-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="cloc">
+          <div class="cloc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
-            <div class="contact-location-label">Based in</div>
-            <div class="contact-location-val">Manila, Philippines 🇵🇭</div>
-            <div class="contact-location-sub">Open to remote & local projects</div>
+            <div class="cloc-lbl">Based in</div>
+            <div class="cloc-val">Manila, Philippines 🇵🇭</div>
+            <div class="cloc-sub">Open to remote &amp; local projects</div>
           </div>
         </div>
       </div>
       <div class="contact-card reveal reveal-d1">
         <h3 class="contact-card-title">Send a message</h3>
         <div class="form-row-2">
-          <div class="fg"><label class="flabel">First Name <span class="freq">*</span></label><input type="text" id="firstName" class="finput" placeholder="John"/></div>
-          <div class="fg"><label class="flabel">Last Name</label><input type="text" id="lastName" class="finput" placeholder="Doe"/></div>
+          <div class="fg"><label class="flabel">First name <span class="freq">*</span></label><input type="text" id="firstName" class="finput" placeholder="John"/></div>
+          <div class="fg"><label class="flabel">Last name</label><input type="text" id="lastName" class="finput" placeholder="Doe"/></div>
         </div>
-        <div class="fg"><label class="flabel">Email Address <span class="freq">*</span></label><input type="email" id="emailAddr" class="finput" placeholder="john@company.com"/></div>
-        <div class="fg"><label class="flabel">Subject</label><input type="text" id="subject" class="finput" placeholder="ERP Consulting / Website / Dashboard..."/></div>
-        <div class="fg"><label class="flabel">Message <span class="freq">*</span></label><textarea id="message" class="finput ftextarea" rows="4" placeholder="Tell me about your project or challenge..."></textarea></div>
-        <button class="fsubmit" id="formSubmit">Send Message</button>
+        <div class="fg"><label class="flabel">Email address <span class="freq">*</span></label><input type="email" id="emailAddr" class="finput" placeholder="john@company.com"/></div>
+        <div class="fg"><label class="flabel">Subject</label><input type="text" id="subject" class="finput" placeholder="ERP consulting / website / dashboard…"/></div>
+        <div class="fg"><label class="flabel">Message <span class="freq">*</span></label><textarea id="message" class="finput ftextarea" rows="4" placeholder="Tell me about your project or challenge…"></textarea></div>
+        <button class="fsubmit" id="formSubmit">Send message</button>
       </div>
     </div>
   </div>
@@ -761,8 +795,8 @@ footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
 
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
-    <div class="popup-icon">✅</div>
-    <h3 class="popup-title">Message Sent!</h3>
+    <div class="popup-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h3 class="popup-title">Message sent</h3>
     <p class="popup-text">Thanks for reaching out. I'll get back to you as soon as possible — usually within 24 hours.</p>
     <button class="popup-close" id="popupClose">Got it</button>
   </div>
@@ -771,113 +805,63 @@ footer{padding:40px 0;border-top:1px solid var(--g2);background:var(--white);}
 <footer>
   <div class="foot-inner">
     <div class="foot-logo">Felix Marco Alforque</div>
-    <div class="foot-copy">© 2026 · ERP System Analyst · Manila, PH</div>
+    <div class="foot-copy">© 2026 · Web Developer · Manila, PH</div>
     <div class="foot-links">
-      <a href="mailto:contact@felixmarcoalforque.it.com" class="foot-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
-      <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="foot-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+      <a href="mailto:contact@felixmarcoalforque.it.com" class="foot-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
+      <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" class="foot-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
     </div>
     <a href="#top" class="foot-up">Back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></a>
   </div>
 </footer>
 
 <script>
-
-
-// ── EmailJS init ──────────────────────────────────────────
 (function(){ emailjs.init('clYt3hnTwhHOCCeVq'); })();
 
-// ── Nav shadow on scroll ──────────────────────────────────
 var nav = document.getElementById('nav');
-window.addEventListener('scroll', function(){
-  nav.classList.toggle('scrolled', window.scrollY > 10);
-}, { passive: true });
+window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 10); }, { passive:true });
 
-// ── Hamburger menu ────────────────────────────────────────
-var burger  = document.getElementById('burger');
+var burger = document.getElementById('burger');
 var mobMenu = document.getElementById('mobMenu');
-burger.addEventListener('click', function(){
-  mobMenu.classList.toggle('open');
-});
-mobMenu.querySelectorAll('a').forEach(function(a){
-  a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
-});
+burger.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+mobMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobMenu.classList.remove('open'); }); });
 
-// ── Scroll reveal ─────────────────────────────────────────
 var revealObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if (e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+}, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
 
-// ── Popup helpers ─────────────────────────────────────────
 function showPopup(){ document.getElementById('popup').classList.add('show'); }
 function hidePopup(){ document.getElementById('popup').classList.remove('show'); }
 document.getElementById('popupClose').addEventListener('click', hidePopup);
-document.getElementById('popup').addEventListener('click', function(e){
-  if (e.target === this) hidePopup();
-});
+document.getElementById('popup').addEventListener('click', function(e){ if(e.target===this) hidePopup(); });
 
-// ── Contact form ──────────────────────────────────────────
 document.getElementById('formSubmit').addEventListener('click', function(){
-  var btn       = this;
-  var firstName = document.getElementById('firstName').value.trim();
-  var lastName  = document.getElementById('lastName').value.trim();
-  var email     = document.getElementById('emailAddr').value.trim();
-  var subject   = document.getElementById('subject').value.trim();
-  var message   = document.getElementById('message').value.trim();
-
-  // Basic validation
-  if (!firstName || !email || !message) {
-    btn.textContent    = 'Please fill required fields';
-    btn.style.background = '#dc2626';
-    setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
-    return;
+  var btn=this;
+  var firstName=document.getElementById('firstName').value.trim();
+  var lastName=document.getElementById('lastName').value.trim();
+  var email=document.getElementById('emailAddr').value.trim();
+  var subject=document.getElementById('subject').value.trim();
+  var message=document.getElementById('message').value.trim();
+  if(!firstName||!email||!message){
+    btn.textContent='Please fill required fields'; btn.style.background='#dc2626';
+    setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; },3000); return;
   }
-
-  btn.textContent = 'Sending…';
-  btn.disabled    = true;
-
-  var now = new Date().toLocaleString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
-    hour: '2-digit', minute: '2-digit'
-  });
-
-  var templateParams = {
-    from_name:  firstName + (lastName ? ' ' + lastName : ''),
-    email:      email,
-    subject:    subject || 'Portfolio Inquiry',
-    message:    message,
-    time:       now
-    // NOTE: recipient is set to contact@felixmarcoalforque.it.com
-    // directly inside your EmailJS template dashboard — no need
-    // to pass to_email here.
-  };
-
-  // ── Send message ──────────────────────────────────────
-  emailjs.send('service_idfylpd', 'template_mwj260i', templateParams)
+  btn.textContent='Sending…'; btn.disabled=true;
+  var now=new Date().toLocaleString('en-US',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  var templateParams={ from_name:firstName+(lastName?' '+lastName:''), email:email, subject:subject||'Portfolio Inquiry', message:message, time:now };
+  emailjs.send('service_idfylpd','template_mwj260i',templateParams)
     .then(function(){
-      // ── Everything succeeded ─────────────────────────
-      btn.textContent      = 'Message Sent!';
-      btn.style.background = '#16a34a';
-      btn.disabled         = false;
-      ['firstName','lastName','emailAddr','subject','message'].forEach(function(id){
-        document.getElementById(id).value = '';
-      });
+      btn.textContent='Message sent'; btn.style.background='#16a34a'; btn.disabled=false;
+      ['firstName','lastName','emailAddr','subject','message'].forEach(function(id){ document.getElementById(id).value=''; });
       showPopup();
-      setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 4000);
+      setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; },4000);
     })
     .catch(function(err){
-      // ── Something failed — log details to console ────
       console.error('EmailJS error:', JSON.stringify(err));
-      btn.textContent      = 'Failed — Try Again';
-      btn.style.background = '#dc2626';
-      btn.disabled         = false;
-      setTimeout(function(){ btn.textContent = 'Send Message'; btn.style.background = ''; }, 4000);
+      btn.textContent='Failed — try again'; btn.style.background='#dc2626'; btn.disabled=false;
+      setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; },4000);
     });
 });
-
-
 </script>
 </body>
 </html>
