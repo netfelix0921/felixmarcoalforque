@@ -1491,7 +1491,7 @@ document.getElementById('formSubmit').addEventListener('click', function(){
    profile-only scope rules before and after the model call. */
 (function(){
   /* ---------- configuration ---------- */
-  var AI_ENDPOINT     = '/api/felix-ai.php';  /* Vercel/Node: '/api/felix-ai' */
+  var AI_ENDPOINT     = '/api/felix-ai';  /* Vercel serverless function */
   var REQUEST_TIMEOUT = 30000;                /* ms */
   var MAX_CHARS       = 500;
   var MAX_HISTORY     = 8;                    /* 4 exchanges of context */
