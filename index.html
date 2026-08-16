@@ -1,1741 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Felix Marco Alforque — Web &amp; App Developer · Websites, Apps &amp; Business Systems · Manila</title>
-<meta name="description" content="Felix Marco Alforque — web &amp; app developer in Manila. I design and build websites, web apps, PWAs, and business systems — from Micly (multi-device karaoke) and Fintra (personal finance) to POS, ERP, and event platforms."/>
-<meta property="og:title" content="Felix Marco Alforque — Web &amp; App Developer"/>
-<meta property="og:description" content="I design &amp; build websites and apps people actually use. Apps · Websites · Business Systems. Manila, Philippines."/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#05070B"/>
+<meta name="color-scheme" content="dark"/>
+
+<title>Felix Marco Alforque — ERP System Analyst &amp; Web Developer · Manila</title>
+<meta name="description" content="Felix Marco Alforque — ERP System Analyst at Eagle Cement Corporation and hands-on web &amp; app developer in Manila. Websites, web applications, PWAs, POS and custom business systems built around real workflows."/>
+<meta name="author" content="Felix Marco Alforque"/>
+<link rel="canonical" href="https://felixmarcoalforque.it.com/"/>
+
 <meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Felix Marco Alforque"/>
+<meta property="og:url" content="https://felixmarcoalforque.it.com/"/>
+<meta property="og:title" content="Felix Marco Alforque — ERP System Analyst &amp; Web Developer"/>
+<meta property="og:description" content="ERP professional with a strong foundation in web &amp; app development. I build systems that streamline processes, solve real problems, and create better experiences."/>
+<meta property="og:image" content="https://felixmarcoalforque.it.com/assets/img/og-card.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Felix Marco Alforque — ERP System Analyst and Web Developer"/>
+<meta property="og:locale" content="en_PH"/>
+
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Felix Marco Alforque — ERP System Analyst &amp; Web Developer"/>
+<meta name="twitter:description" content="ERP professional with a strong foundation in web &amp; app development. Websites, web applications, PWAs and custom business systems."/>
+<meta name="twitter:image" content="https://felixmarcoalforque.it.com/assets/img/og-card.jpg"/>
+
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
-<link rel="apple-touch-icon" href="logo.png"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<style>
-/* ============================================================
-   01 · TOKENS & BASE
-   ============================================================ */
-:root{
-  --bg:#06070C;
-  --bg-soft:#090B12;
-  --surface:#0C0E16;
-  --surface-2:#11131D;
-  --surface-3:#171A26;
-  --ink:#F4F5FA;
-  --ink-soft:#C8CBDA;
-  --muted:#8E93A7;
-  --faint:#585D72;
-  --line:rgba(255,255,255,.075);
-  --line-soft:rgba(255,255,255,.045);
-  --glass:rgba(255,255,255,.035);
-  --g1:#6366F1; --g2:#8B5CF6; --g3:#EC4899;
-  --signal:#818CF8;
-  --live:#34D399;
-  --signal-grad:linear-gradient(100deg,var(--g1),var(--g2) 52%,var(--g3));
-  /* per-product environments */
-  --mic-a:#C34DFF; --mic-b:#FF4D9D;
-  --fin-a:#34D399; --fin-b:#6366F1;
-  --r-sm:9px; --r-md:14px; --r-lg:20px; --r-xl:26px; --r-2xl:34px;
-  --nav-h:60px; --max-w:1160px;
-  --ease:cubic-bezier(.16,1,.3,1);
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/></noscript>
+
+<link rel="preload" as="image" href="assets/img/felix-hero-960.webp" media="(min-width: 1025px)"/>
+
+<link rel="stylesheet" href="assets/css/base.css"/>
+<link rel="stylesheet" href="assets/css/layout.css"/>
+<link rel="stylesheet" href="assets/css/components.css"/>
+<link rel="stylesheet" href="assets/css/responsive.css"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Felix Marco Alforque",
+  "jobTitle": "ERP System Analyst | Web & App Developer",
+  "url": "https://felixmarcoalforque.it.com/",
+  "image": "https://felixmarcoalforque.it.com/assets/img/og-card.jpg",
+  "email": "mailto:contact@felixmarcoalforque.it.com",
+  "sameAs": ["https://www.linkedin.com/in/felixmarcoalforque/"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Manila", "addressCountry": "PH" },
+  "worksFor": { "@type": "Organization", "name": "Eagle Cement Corporation" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Our Lady of Lourdes College" },
+  "knowsAbout": ["ERP systems","Business process analysis","ITSM / Freshservice","Workflow automation","Web application development","Progressive Web Apps","Next.js","Node.js","Prisma","MySQL","Firebase"]
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer;border:none;background:none;font-family:inherit}
-img{display:block;max-width:100%}
-ul{list-style:none}
-::selection{background:rgba(129,140,248,.3);color:#fff}
-:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:4px}
-.wrap{max-width:var(--max-w);margin:0 auto;padding:0 40px}
-
-.mono{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
-.eyebrow::before{content:'';width:22px;height:1px;background:linear-gradient(90deg,var(--signal),transparent)}
-.display{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-.025em;line-height:1.05}
-.grad-text{background:var(--signal-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-.section{padding:120px 0;position:relative}
-.section-head{max-width:720px;margin-bottom:60px}
-.section-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2rem,3.6vw,2.9rem);letter-spacing:-.03em;line-height:1.08;margin-top:18px}
-.section-title em{font-style:normal;color:var(--faint);font-weight:400}
-.section-intro{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.8;margin-top:18px;max-width:620px}
-
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
-
-.btn-primary{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:999px;background:var(--ink);color:#0a0a12;font-size:.86rem;font-weight:600;letter-spacing:.005em;transition:transform .2s var(--ease),box-shadow .25s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,246,251,.18)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;border:1px solid var(--line);color:var(--ink-soft);font-size:.86rem;font-weight:500;transition:border-color .2s,background .2s,transform .2s var(--ease)}
-.btn-ghost:hover{border-color:rgba(255,255,255,.2);background:var(--glass);transform:translateY(-2px)}
-.status-pill{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--glass)}
-.status-pill .sd{width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live)}
-.status-pill.dev .sd{background:#FBBF24;box-shadow:0 0 8px #FBBF24}
-.tagline-chips{display:flex;flex-wrap:wrap;gap:8px}
-.tagline-chips span{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:var(--muted);padding:6px 12px;border:1px solid var(--line-soft);border-radius:999px;background:var(--glass)}
-
-/* ============================================================
-   02 · NAV
-   ============================================================ */
-.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:200;display:flex;align-items:center;padding:0 40px;background:rgba(6,7,12,.58);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
-.nav.scrolled{border-bottom-color:var(--line);background:rgba(6,7,12,.8)}
-.nav-inner{max-width:var(--max-w);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:600;letter-spacing:.04em;display:flex;align-items:center;gap:9px}
-.nav-logo .lp{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 9px var(--live);animation:breathe 2.6s ease infinite}
-@keyframes breathe{0%,100%{opacity:1}50%{opacity:.45}}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);transition:color .2s;position:relative;padding:4px 0}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;border-radius:2px;background:var(--signal);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.nav-links a:hover{color:var(--ink)}
-.nav-links a.active{color:var(--ink)}
-.nav-links a.active::after{transform:scaleX(1)}
-.nav-cta{padding:9px 18px;border-radius:999px;background:var(--ink);color:#0a0a12;font-size:.78rem;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:transform .18s var(--ease),box-shadow .2s}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,246,251,.16)}
-.burger{display:none;flex-direction:column;gap:5px;width:24px}
-.burger span{display:block;height:1.6px;background:var(--ink);border-radius:2px;transition:.3s}
-.mob-menu{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:rgba(6,7,12,.97);backdrop-filter:blur(20px);z-index:199;flex-direction:column;padding:36px 40px;gap:24px;border-top:1px solid var(--line)}
-.mob-menu.open{display:flex}
-.mob-link{font-size:1.05rem;font-weight:500;color:var(--ink-soft)}
-.mob-menu .mono{margin-bottom:-14px}
-
-/* ============================================================
-   03 · HERO
-   ============================================================ */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 60px;overflow:hidden}
-.hero-aura{position:absolute;inset:0;pointer-events:none;background:radial-gradient(620px 520px at 14% 18%,rgba(99,102,241,.18),transparent 62%),radial-gradient(560px 520px at 88% 76%,rgba(236,72,153,.12),transparent 60%),radial-gradient(520px 460px at 70% 12%,rgba(139,92,246,.12),transparent 60%)}
-.hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(ellipse 90% 80% at 50% 40%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 40%,#000 30%,transparent 75%)}
-.hero-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(129,140,248,.10),transparent 66%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s}
-.hero-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;width:100%;display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center;position:relative;z-index:2}
-.hero-kicker{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);margin-bottom:26px}
-.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 9px var(--live);animation:breathe 2.6s ease infinite}
-.hero-h1{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(2.5rem,5.2vw,4.05rem);letter-spacing:-.035em;line-height:1.04}
-.hero-h1 em{font-style:normal}
-.hero-sub{font-size:1rem;font-weight:300;color:var(--muted);line-height:1.8;margin-top:24px;max-width:480px}
-.hero-sub strong{color:var(--ink-soft);font-weight:500}
-.hero-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.hero-stack span{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.05em;color:var(--muted);padding:7px 13px;border:1px solid var(--line-soft);border-radius:8px;background:var(--glass)}
-.hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-
-/* hero workspace visual */
-.ws{position:relative;perspective:1200px}
-.ws-editor{position:relative;border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015)),var(--surface);box-shadow:0 40px 90px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.02) inset;overflow:hidden;transform:rotateY(-4deg) rotateX(2deg);transition:transform .6s var(--ease)}
-.ws:hover .ws-editor{transform:rotateY(-1.5deg) rotateX(.5deg)}
-.ws-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.02)}
-.ws-dot{width:10px;height:10px;border-radius:50%}
-.ws-tab{margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--muted);padding:4px 12px;border-radius:7px;background:var(--glass);border:1px solid var(--line-soft)}
-.ws-branch{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--faint);display:flex;align-items:center;gap:6px}
-.ws-branch svg{opacity:.7}
-.ws-code{padding:18px 18px 14px;font-family:'JetBrains Mono',monospace;font-size:.72rem;line-height:1.9;min-height:196px}
-.cl{display:flex;gap:14px;white-space:pre}
-.cl .ln{color:var(--fainter,#3A3E4E);width:14px;text-align:right;flex-shrink:0;color:#3A3E4E}
-.tk-k{color:#C792EA}.tk-f{color:#82AAFF}.tk-s{color:#C3E88D}.tk-p{color:#89DDFF}.tk-c{color:#546077}.tk-v{color:#F4F5FA}.tk-n{color:#F78C6C}
-.cl.hl{background:rgba(129,140,248,.07);margin:0 -18px;padding:0 18px;border-left:2px solid var(--signal)}
-.ws-term{border-top:1px solid var(--line-soft);background:rgba(0,0,0,.32);padding:13px 18px;font-family:'JetBrains Mono',monospace;font-size:.7rem;line-height:1.9}
-.tm-line{color:var(--muted)}
-.tm-prompt{color:var(--live)}
-.tm-cmd{color:var(--ink-soft)}
-.tm-ok{color:var(--live)}
-.tm-caret{display:inline-block;width:7px;height:13px;background:var(--signal);vertical-align:-2px;margin-left:2px;animation:caret 1s steps(1) infinite}
-@keyframes caret{50%{opacity:0}}
-.ws-float{position:absolute;border-radius:var(--r-md);border:1px solid var(--line);background:rgba(13,15,23,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 24px 60px -12px rgba(0,0,0,.65);padding:13px 16px;animation:floaty 7s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.ws-deploy{top:-26px;right:-14px;display:flex;align-items:center;gap:11px}
-.ws-deploy .ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(52,211,153,.12);color:var(--live)}
-.ws-deploy .t1{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--ink-soft)}
-.ws-deploy .t2{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--faint);margin-top:2px}
-.ws-phone{bottom:-30px;left:-26px;width:118px;padding:0;overflow:hidden;animation-delay:1.4s}
-.ws-phone .ph-notch{height:14px;display:flex;justify-content:center;align-items:center}
-.ws-phone .ph-notch i{width:34px;height:4px;border-radius:3px;background:rgba(255,255,255,.12)}
-.ws-phone .ph-body{padding:8px 10px 12px}
-.ws-phone .ph-line{height:6px;border-radius:3px;background:rgba(255,255,255,.14);margin-bottom:6px}
-.ws-phone .ph-line.s{width:60%;background:rgba(255,255,255,.08)}
-.ws-phone .ph-btn{height:16px;border-radius:6px;background:var(--signal-grad);margin-top:8px;opacity:.85}
-.ws-phone .ph-cards{display:flex;gap:5px;margin-top:8px}
-.ws-phone .ph-cards i{flex:1;height:24px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid var(--line-soft)}
-.ws-meta{position:absolute;top:46%;right:-34px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;color:var(--faint);writing-mode:vertical-rl;text-transform:uppercase}
-
-.trust{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.012)}
-.trust-inner{max-width:var(--max-w);margin:0 auto;padding:22px 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px}
-.trust-item{display:flex;align-items:center;gap:10px;color:var(--faint)}
-.trust-text{font-size:.78rem;font-weight:500;color:var(--muted)}
-
-/* ============================================================
-   04 · FEATURED APPS
-   ============================================================ */
-.apps-sec{padding:130px 0 40px}
-.app-stage{position:relative;border-radius:var(--r-2xl);border:1px solid var(--line);overflow:hidden;margin-bottom:56px;background:var(--surface)}
-.app-stage-inner{position:relative;z-index:2;display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:center;padding:64px 60px}
-.app-stage.flip .app-stage-inner{grid-template-columns:1.08fr .92fr}
-.app-env{position:absolute;inset:0;pointer-events:none}
-.env-micly{background:radial-gradient(720px 480px at 78% 20%,rgba(195,77,255,.16),transparent 60%),radial-gradient(600px 480px at 92% 90%,rgba(255,77,157,.12),transparent 62%)}
-.env-fintra{background:radial-gradient(720px 480px at 22% 22%,rgba(52,211,153,.10),transparent 60%),radial-gradient(620px 480px at 8% 92%,rgba(99,102,241,.13),transparent 62%)}
-.app-id{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;box-shadow:0 12px 30px -8px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.14)}
-.app-icon.micly{background:linear-gradient(135deg,var(--mic-a),var(--mic-b))}
-.app-icon.fintra{background:linear-gradient(135deg,#0EA5E9 0%,var(--fin-b) 55%,var(--fin-a) 120%)}
-img.app-icon{object-fit:cover;background:var(--surface-2);padding:0}
-.app-icon.fb{display:none}
-.app-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.6rem;letter-spacing:-.02em}
-.app-cat{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:3px}
-.app-desc{font-size:.95rem;font-weight:300;color:var(--muted);line-height:1.85;margin:18px 0 22px;max-width:460px}
-.app-desc strong{color:var(--ink-soft);font-weight:500}
-.app-points{display:flex;flex-direction:column;gap:11px;margin-bottom:24px}
-.app-point{display:flex;gap:11px;align-items:flex-start;font-size:.85rem;color:var(--ink-soft)}
-.app-point .pk{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--signal);margin-top:2px}
-.app-point.mic .pk{color:var(--mic-b)}
-.app-point.fin .pk{color:var(--fin-a)}
-.app-point span b{font-weight:600;color:var(--ink)}
-.app-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.app-badges span{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.05em;color:var(--muted);padding:6px 12px;border:1px solid var(--line);border-radius:7px;background:rgba(0,0,0,.2)}
-.app-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.app-head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
-
-/* Micly — TV + phone */
-.mic-scene{position:relative;padding:10px 0 34px}
-.mic-tv{border-radius:16px;border:1px solid rgba(255,255,255,.12);background:#0A0710;box-shadow:0 34px 80px -18px rgba(0,0,0,.75),0 0 90px -30px rgba(195,77,255,.4);overflow:hidden;transform:rotateY(3deg);transition:transform .6s var(--ease)}
-.app-stage:hover .mic-tv{transform:rotateY(1deg)}
-.mic-tv-screen{aspect-ratio:16/9.4;position:relative;background:radial-gradient(120% 130% at 30% 0%,#221033 0%,#12081C 55%,#0A0710 100%);padding:16px 18px;display:flex;flex-direction:column}
-.mic-tv-top{display:flex;justify-content:space-between;align-items:center}
-.mic-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.86rem;background:linear-gradient(90deg,var(--mic-a),var(--mic-b));-webkit-background-clip:text;background-clip:text;color:transparent}
-.mic-room{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:7px}
-.mic-qr{width:22px;height:22px;border-radius:4px;background:conic-gradient(from 0deg,#fff 0 25%,#0A0710 0 50%,#fff 0 75%,#0A0710 0);opacity:.85;background-size:8px 8px}
-.mic-lyrics{flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;text-align:center}
-.mic-lyr{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:600;color:rgba(255,255,255,.32);letter-spacing:-.01em}
-.mic-lyr.now{font-size:1.12rem;color:#fff}
-.mic-lyr.now .sung{background:linear-gradient(90deg,var(--mic-a),var(--mic-b));-webkit-background-clip:text;background-clip:text;color:transparent}
-.mic-progress{height:3px;border-radius:3px;background:rgba(255,255,255,.12);margin-top:6px;overflow:hidden}
-.mic-progress i{display:block;height:100%;width:44%;border-radius:3px;background:linear-gradient(90deg,var(--mic-a),var(--mic-b));animation:micprog 9s linear infinite}
-@keyframes micprog{0%{width:12%}100%{width:92%}}
-.mic-queue{display:flex;gap:8px;margin-top:12px}
-.mic-q{flex:1;border-radius:8px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);padding:7px 9px}
-.mic-q .qt{font-size:.56rem;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mic-q .qs{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:rgba(255,255,255,.4);margin-top:2px}
-.mic-q.on{border-color:rgba(195,77,255,.5);background:rgba(195,77,255,.12)}
-.mic-tv-stand{height:10px;width:34%;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,.08),transparent);border-radius:0 0 10px 10px}
-.mic-phone{position:absolute;right:-8px;bottom:0;width:132px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:#0D0913;box-shadow:0 26px 60px -12px rgba(0,0,0,.8),0 0 60px -24px rgba(255,77,157,.5);overflow:hidden;animation:floaty 7s ease-in-out infinite;animation-delay:.8s}
-.mic-phone .ph-notch{height:16px;display:flex;justify-content:center;align-items:center}
-.mic-phone .ph-notch i{width:36px;height:4px;border-radius:3px;background:rgba(255,255,255,.14)}
-.mic-ph-body{padding:6px 10px 12px}
-.mic-ph-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.mic-ph-song{font-size:.62rem;font-weight:600;color:#fff;margin-top:3px}
-.mic-ph-controls{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-.mic-ph-controls i{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
-.mic-ph-controls i.big{width:30px;height:30px;background:linear-gradient(135deg,var(--mic-a),var(--mic-b));border:none;box-shadow:0 6px 16px -4px rgba(255,77,157,.6)}
-.mic-ph-react{display:flex;gap:5px;margin-top:9px}
-.mic-ph-react span{flex:1;text-align:center;font-size:.6rem;padding:4px 0;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-.mic-ph-queue{margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:7px}
-.mic-ph-qrow{display:flex;justify-content:space-between;font-size:.52rem;color:rgba(255,255,255,.6);padding:2px 0}
-.mic-ph-qrow b{font-weight:600;color:rgba(255,255,255,.85)}
-
-/* Fintra — dashboard + phone */
-.fin-scene{position:relative;padding:10px 0 30px}
-.fin-desk{border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,#0E1119,#0A0D14);box-shadow:0 34px 80px -18px rgba(0,0,0,.7),0 0 90px -34px rgba(99,102,241,.45);overflow:hidden;transform:rotateY(-3deg);transition:transform .6s var(--ease)}
-.app-stage:hover .fin-desk{transform:rotateY(-1deg)}
-.fin-bar{display:flex;align-items:center;gap:7px;padding:10px 13px;border-bottom:1px solid var(--line-soft)}
-.fin-bar .ws-dot{width:8px;height:8px}
-.fin-bar .url{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--faint);background:var(--glass);padding:3px 10px;border-radius:6px}
-.fintra-ui{padding:14px 16px 16px;font-size:.7rem}
-.fi-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.fi-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff}
-.fi-date{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--faint)}
-.fi-net{border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:10px 12px;margin-bottom:8px}
-.fi-net-label{font-family:'JetBrains Mono',monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.fi-net-value{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.14rem;color:#fff;margin-top:2px}
-.fi-net-change{display:inline-flex;align-items:center;gap:4px;font-size:.56rem;color:#4ade80;margin-top:3px}
-.fi-row{display:flex;gap:8px;margin-bottom:8px}
-.fi-mini{flex:1;border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:8px 10px}
-.fi-mini-label{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-.fi-mini-val{font-weight:600;font-size:.72rem;margin-top:2px}
-.fi-bars{border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:8px 10px;margin-bottom:8px}
-.fi-bars-label{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.bar-track{height:5px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden}
-.bar-fill{display:block;height:100%;border-radius:3px}
-.fi-accounts{border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:6px 10px}
-.fi-acc-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--line-soft);font-size:.6rem}
-.fi-acc-row:last-child{border-bottom:none}
-.fi-acc-name{color:var(--muted)}
-.fi-acc-val{font-weight:600;color:var(--ink-soft)}
-.fin-phone{position:absolute;left:-10px;bottom:-2px;width:118px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:#0B0E15;box-shadow:0 26px 60px -12px rgba(0,0,0,.8),0 0 50px -22px rgba(52,211,153,.45);overflow:hidden;animation:floaty 7s ease-in-out infinite;animation-delay:1.6s}
-.fin-phone .ph-notch{height:15px;display:flex;justify-content:center;align-items:center}
-.fin-phone .ph-notch i{width:34px;height:4px;border-radius:3px;background:rgba(255,255,255,.13)}
-.fin-ph-body{padding:5px 10px 12px}
-.fin-ph-lbl{font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
-.fin-ph-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.86rem;color:#fff;margin-top:2px}
-.fin-ph-spark{display:flex;align-items:flex-end;gap:3px;height:26px;margin-top:8px}
-.fin-ph-spark i{flex:1;border-radius:2px;background:linear-gradient(180deg,rgba(52,211,153,.85),rgba(52,211,153,.25))}
-.fin-ph-rows{margin-top:8px;border-top:1px solid rgba(255,255,255,.08);padding-top:6px}
-.fin-ph-row{display:flex;justify-content:space-between;font-size:.52rem;color:rgba(255,255,255,.6);padding:2px 0}
-.fin-ph-row b{font-weight:600;color:rgba(255,255,255,.85)}
-
-/* ============================================================
-   05 · WEBSITES
-   ============================================================ */
-.web-sec{padding:110px 0}
-.web-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.web-card{position:relative;border-radius:var(--r-xl);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008)),var(--surface);overflow:hidden;transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
-.web-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.16);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
-.web-shot{padding:22px 22px 0}
-.web-browser{border-radius:12px 12px 0 0;border:1px solid var(--line);border-bottom:none;background:#0A0C13;overflow:hidden}
-.wb-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line-soft)}
-.wb-bar i{width:8px;height:8px;border-radius:50%}
-.wb-url{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--faint);background:var(--glass);padding:3px 10px;border-radius:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.wb-body{padding:16px 16px 0;min-height:130px}
-.wb-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.wb-logo{width:44px;height:8px;border-radius:4px;background:rgba(255,255,255,.2)}
-.wb-menu{display:flex;gap:6px}
-.wb-menu i{width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,.1)}
-.wb-h{height:11px;border-radius:5px;background:rgba(255,255,255,.18);width:72%;margin-bottom:8px}
-.wb-h.s{width:48%;height:8px;background:rgba(255,255,255,.09)}
-.wb-cta{width:64px;height:16px;border-radius:8px;margin-top:10px}
-.wb-cards{display:flex;gap:8px;margin-top:14px}
-.wb-cards i{flex:1;height:34px;border-radius:8px 8px 0 0;background:rgba(255,255,255,.045);border:1px solid var(--line-soft);border-bottom:none}
-.web-info{padding:20px 24px 24px;display:flex;flex-direction:column;gap:8px}
-.web-toprow{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.web-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.06rem;letter-spacing:-.015em}
-.web-type{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
-.web-desc{font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.7}
-.web-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
-.web-tags span{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);padding:4px 9px;border:1px solid var(--line-soft);border-radius:6px;background:var(--glass)}
-.web-link{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--ink);margin-top:8px;width:fit-content}
-.web-link svg{transition:transform .25s var(--ease)}
-.web-link:hover svg{transform:translateX(4px)}
-
-/* ============================================================
-   06 · SYSTEMS & BUSINESS TOOLS
-   ============================================================ */
-.systems{padding:110px 0;background:linear-gradient(180deg,transparent,rgba(255,255,255,.012) 18%,rgba(255,255,255,.012) 82%,transparent)}
-.sys-block{max-width:var(--max-w);margin:0 auto 26px;padding:0 40px}
-.sys-card{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;border:1px solid var(--line);border-radius:var(--r-xl);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.006)),var(--surface);padding:44px 46px;transition:border-color .3s,transform .45s var(--ease)}
-.sys-card:hover{border-color:rgba(255,255,255,.14);transform:translateY(-4px)}
-.sys-num{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin-bottom:12px}
-.sys-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.5rem;letter-spacing:-.02em}
-.sys-tagline{font-size:.86rem;color:var(--faint);margin:6px 0 22px;font-weight:300}
-.sys-features{display:flex;flex-direction:column;gap:16px}
-.feat{display:flex;gap:14px;align-items:flex-start}
-.feat-icon{width:36px;height:36px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--line);color:var(--signal)}
-.feat-title{font-size:.86rem;font-weight:600}
-.feat-desc{font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.6;margin-top:2px}
-.sys-mock{border-radius:var(--r-lg);border:1px solid var(--line);background:#0A0C13;overflow:hidden;box-shadow:0 26px 60px -18px rgba(0,0,0,.6);font-size:.7rem}
-.mock-pad{padding:16px}
-/* POS mock */
-.pos-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.pos-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.82rem;color:#fff}
-.pos-status{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--live);display:inline-flex;align-items:center;gap:5px}
-.pos-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 7px var(--live)}
-.pos-order{border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:9px 11px;margin-bottom:8px}
-.pos-order-head{font-family:'JetBrains Mono',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.pos-item{display:flex;justify-content:space-between;padding:4px 0;font-size:.62rem}
-.pos-item-name{display:flex;align-items:center;gap:7px;color:var(--ink-soft)}
-.pos-dot{width:6px;height:6px;border-radius:50%}
-.pos-item-price{font-weight:600;color:var(--ink-soft)}
-.pos-total{display:flex;justify-content:space-between;align-items:center;padding:8px 11px;border-radius:10px;background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.2);margin-bottom:8px}
-.pos-total-label{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.pos-total-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.92rem;color:#fff}
-.pos-methods{display:flex;gap:6px;margin-bottom:8px}
-.pos-method{flex:1;text-align:center;font-size:.56rem;font-weight:600;padding:6px 0;border-radius:8px;border:1px solid var(--line-soft);background:rgba(255,255,255,.04);color:var(--ink-soft)}
-.pos-inventory{display:flex;gap:6px}
-.pos-inv-item{flex:1;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:6px 0;border-radius:8px;border:1px dashed var(--line)}
-/* ERP mock */
-.erp-header{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.erp-modules{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}
-.erp-mod{border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:8px 6px;text-align:center}
-.erp-mod-icon{font-size:.82rem}
-.erp-mod-name{font-size:.56rem;color:var(--muted);margin-top:3px}
-.erp-flow{border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:8px 10px;margin-bottom:8px}
-.erp-flow-title{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.erp-flow-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.erp-node{display:inline-flex;align-items:center;gap:5px;font-size:.56rem;color:var(--ink-soft);padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft)}
-.erp-nd{width:5px;height:5px;border-radius:50%}
-.erp-arrow{color:var(--faint);font-size:.6rem}
-.erp-automations{border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:8px 10px}
-.erp-auto-title{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
-.erp-auto-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:.58rem;color:var(--muted)}
-.erp-auto-on{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--live);border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);padding:1px 7px;border-radius:5px}
-/* QR mock */
-.qr-flow{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
-.qr-flow-step{display:flex;align-items:center;gap:9px;border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:7px 10px;position:relative}
-.qr-flow-icon{font-size:.78rem}
-.qr-flow-label{font-size:.6rem;font-weight:600;color:var(--ink-soft)}
-.qr-flow-sub{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--faint)}
-.qr-flow-check{margin-left:auto;color:var(--live);font-size:.66rem}
-.qr-flow-done{border-color:rgba(52,211,153,.22)}
-.qr-flow-active{border-color:rgba(129,140,248,.4);background:rgba(129,140,248,.07)}
-.qr-flow-pulse{margin-left:auto;width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 8px var(--signal);animation:breathe 1.6s ease infinite}
-.qr-flow-pending{opacity:.55}
-.qr-score-card{border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:9px 11px;margin-bottom:8px}
-.qr-score-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.qr-score-title{font-size:.58rem;font-weight:600;color:var(--ink-soft)}
-.qr-score-badge{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--live)}
-.qr-score-bar-wrap{display:flex;align-items:center;gap:8px}
-.qr-score-bar-track{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
-.qr-score-bar-fill{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--g1),var(--g2))}
-.qr-score-pct{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--ink-soft)}
-.qr-score-meta{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--faint);margin-top:5px}
-.qr-score-actions{display:flex;gap:6px;margin-top:7px}
-.qr-score-btn{flex:1;text-align:center;font-size:.54rem;font-weight:600;padding:5px 0;border-radius:7px;border:1px solid var(--line-soft);background:rgba(255,255,255,.04);color:var(--ink-soft)}
-.qr-score-cert-dim{opacity:.5}
-.qr-dash-row{display:flex;gap:6px}
-.qr-dash-stat{flex:1;text-align:center;border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.03);padding:7px 0}
-.qr-dash-val{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.86rem;color:#fff}
-.qr-dash-lbl{font-family:'JetBrains Mono',monospace;font-size:.48rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:2px}
-
-/* ============================================================
-   07 · SERVICES / ABOUT / STACK / PROCESS / BACKGROUND
-   ============================================================ */
-.services{padding:110px 0}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.svc{border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.006)),var(--surface);padding:26px 26px 24px;transition:border-color .3s,transform .4s var(--ease)}
-.svc:hover{border-color:rgba(255,255,255,.15);transform:translateY(-4px)}
-.svc-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--line);color:var(--signal);margin-bottom:16px}
-.svc-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;letter-spacing:-.01em}
-.svc-desc{font-size:.82rem;font-weight:300;color:var(--muted);line-height:1.7;margin-top:8px}
-.svc-for{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft)}
-.services-cta{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
-.services-cta p{font-size:.9rem;color:var(--muted);font-weight:300;max-width:440px}
-
-.about{padding:110px 0}
-.about-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
-.about-photo-frame{border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);background:var(--surface-2);aspect-ratio:4/4.6;position:relative}
-.about-photo-frame img{width:100%;height:100%;object-fit:cover}
-.about-photo-frame.noimg::after{content:'ƒ';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:4rem;color:var(--faint)}
-.about-photo-frame.noimg img{display:none}
-.about-photo-meta{margin-top:16px}
-.about-photo-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem}
-.about-photo-role{font-size:.8rem;color:var(--muted);margin-top:2px}
-.about-photo-badge{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin-top:10px}
-.about-photo-badge .d{width:6px;height:6px;border-radius:50%;background:var(--live);box-shadow:0 0 8px var(--live)}
-.about-lede{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(1.7rem,3vw,2.4rem);letter-spacing:-.03em;line-height:1.14;margin-top:18px}
-.about-lede em{font-style:normal;color:var(--faint);font-weight:400}
-.about-body{font-size:.95rem;font-weight:300;color:var(--muted);line-height:1.9;margin-top:22px;max-width:640px}
-.about-body strong{color:var(--ink-soft);font-weight:500}
-.about-facts{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
-.about-fact .v{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem}
-.about-fact .l{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:3px}
-
-.stack{padding:100px 0}
-.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.stack-col{border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--surface);padding:22px 24px}
-.stack-col h3{font-family:'JetBrains Mono',monospace;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin-bottom:14px}
-.stack-col ul{display:flex;flex-direction:column;gap:9px}
-.stack-col li{font-size:.82rem;color:var(--ink-soft);display:flex;align-items:center;gap:9px}
-.stack-col li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--faint)}
-
-.process{padding:100px 0}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.step{border-radius:var(--r-lg);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--surface);padding:28px}
-.step-n{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);margin-bottom:12px}
-.step-t{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.1rem}
-.step-d{font-size:.83rem;font-weight:300;color:var(--muted);line-height:1.75;margin-top:9px}
-
-.erp-sec{padding:100px 0;background:linear-gradient(180deg,transparent,rgba(255,255,255,.012) 20%,rgba(255,255,255,.012) 80%,transparent)}
-.card-tags{display:flex;flex-wrap:wrap;gap:10px}
-.tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--muted);padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--glass)}
-.conf-box{display:flex;gap:16px;align-items:flex-start;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--glass);padding:22px 26px;max-width:760px;margin-top:36px}
-.conf-icon{width:34px;height:34px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(129,140,248,.1);color:var(--signal)}
-.conf-title{font-size:.88rem;font-weight:600}
-.conf-text{font-size:.8rem;font-weight:300;color:var(--muted);line-height:1.7;margin-top:5px}
-
-/* ============================================================
-   08 · CONTACT / POPUP / FOOTER
-   ============================================================ */
-.contact{padding:110px 0 90px}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start}
-.contact-card{border-radius:var(--r-xl);border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.008)),var(--surface);padding:30px}
-.contact-card-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;margin-bottom:20px}
-.clink{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r-md);border:1px solid var(--line-soft);background:var(--glass);margin-bottom:12px;transition:border-color .25s,transform .3s var(--ease)}
-.clink:hover{border-color:rgba(255,255,255,.18);transform:translateX(4px)}
-.clink-icon{width:36px;height:36px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(129,140,248,.1);color:var(--signal)}
-.clink-name{font-size:.84rem;font-weight:600}
-.clink-val{font-size:.72rem;color:var(--muted);word-break:break-all}
-.chev{margin-left:auto;color:var(--faint)}
-.cloc{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border-radius:var(--r-md);border:1px dashed var(--line);margin-top:4px}
-.cloc-icon{width:36px;height:36px;flex-shrink:0;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--glass);color:var(--muted)}
-.cloc-lbl{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.cloc-val{font-size:.86rem;font-weight:600;margin-top:2px}
-.cloc-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
-.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fg{margin-bottom:14px}
-.flabel{display:block;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.freq{color:var(--g3)}
-.finput{width:100%;padding:12px 15px;border-radius:var(--r-sm);border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);font-family:'Inter',sans-serif;font-size:.86rem;transition:border-color .25s,box-shadow .25s}
-.finput::placeholder{color:var(--faint)}
-.finput:focus{outline:none;border-color:rgba(129,140,248,.55);box-shadow:0 0 0 3px rgba(129,140,248,.12)}
-.ftextarea{resize:vertical;min-height:110px}
-.fsubmit{width:100%;padding:14px;border-radius:var(--r-sm);background:var(--ink);color:#0a0a12;font-size:.88rem;font-weight:600;transition:transform .2s var(--ease),box-shadow .25s,background .25s}
-.fsubmit:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(245,246,251,.16)}
-.fsubmit:disabled{opacity:.7;cursor:wait}
-.popup-overlay{position:fixed;inset:0;z-index:300;background:rgba(4,5,9,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.popup-overlay.show{opacity:1;pointer-events:auto}
-.popup-box{width:min(380px,90vw);border-radius:var(--r-xl);border:1px solid var(--line);background:var(--surface-2);padding:36px 32px;text-align:center;transform:scale(.94);transition:transform .35s var(--ease)}
-.popup-overlay.show .popup-box{transform:scale(1)}
-.popup-icon{width:56px;height:56px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(52,211,153,.12);color:var(--live)}
-.popup-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.2rem}
-.popup-text{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.7;margin:10px 0 22px}
-.popup-close{padding:11px 30px;border-radius:999px;background:var(--ink);color:#0a0a12;font-size:.84rem;font-weight:600}
-footer{border-top:1px solid var(--line-soft);padding:36px 0}
-.foot-inner{max-width:var(--max-w);margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.92rem}
-.foot-copy{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--faint);letter-spacing:.04em}
-.foot-links{display:flex;gap:18px;margin-left:auto}
-.foot-link{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;color:var(--muted);transition:color .2s}
-.foot-link:hover{color:var(--ink)}
-.foot-up{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);transition:color .2s}
-.foot-up:hover{color:var(--ink)}
-
-/* ============================================================
-   09 · RESPONSIVE
-   ============================================================ */
-@media(max-width:1080px){
-  .hero-inner{grid-template-columns:1fr;gap:64px}
-  .ws{max-width:560px;margin:0 auto}
-  .ws-meta{display:none}
-  .app-stage-inner,.app-stage.flip .app-stage-inner{grid-template-columns:1fr;gap:44px;padding:48px 40px}
-  .sys-card{grid-template-columns:1fr;gap:34px;padding:34px}
-  .sys-card.flip .sys-info{order:1}
-  .sys-card.flip .sys-mock{order:2}
-  .stack-grid{grid-template-columns:repeat(2,1fr)}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .about-grid{grid-template-columns:1fr;gap:44px}
-  .about-photo-col{display:flex;gap:24px;align-items:center}
-  .about-photo-frame{width:180px;flex-shrink:0}
-}
-@media(max-width:820px){
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .burger{display:flex}
-  .web-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr}
-  .section{padding:88px 0}
-}
-@media(max-width:620px){
-  .wrap,.sys-block,.hero-inner,.trust-inner,.foot-inner{padding-left:22px;padding-right:22px}
-  .nav{padding:0 22px}
-  .hero{padding-top:calc(var(--nav-h) + 28px)}
-  .hero-h1{font-size:2.35rem}
-  .hero-actions a{flex:1;justify-content:center}
-  .ws-editor{transform:none}
-  .ws-deploy{top:-18px;right:-4px;padding:10px 13px}
-  .ws-phone{left:-8px;bottom:-22px;width:100px}
-  .app-stage-inner,.app-stage.flip .app-stage-inner{padding:36px 24px}
-  .mic-phone{width:104px;right:-4px}
-  .fin-phone{width:96px;left:-4px}
-  .app-name{font-size:1.35rem}
-  .services-grid{grid-template-columns:1fr}
-  .stack-grid{grid-template-columns:1fr}
-  .form-row-2{grid-template-columns:1fr}
-  .about-photo-col{flex-direction:column;align-items:flex-start}
-  .sys-card{padding:26px 20px}
-  .mock-pad{padding:13px}
-  .trust-inner{justify-content:flex-start}
-  .foot-links{margin-left:0}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
-  .reveal{opacity:1;transform:none}
-}
-</style>
+</script>
 </head>
+
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<nav class="nav" id="nav" aria-label="Primary">
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo"><span class="lp"></span>felix<span style="color:var(--faint)">@web:~$</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#apps">Apps</a></li>
-      <li><a href="#websites">Websites</a></li>
-      <li><a href="#systems">Systems</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:14px">
-      <a href="#contact" class="nav-cta">Hire me <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobMenu"><span></span><span></span><span></span></button>
+<!-- ==========================================================================
+     ICON SPRITE
+     ========================================================================== -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <!-- brand -->
+  <symbol id="i-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7.7 9.6 5.3 12l2.4 2.4M16.3 9.6 18.7 12l-2.4 2.4"/>
+    <path d="M11.9 7.5h3M10.9 12h2.5M13.2 7.5 10.6 16.5"/>
+  </symbol>
+  <!-- ui -->
+  <symbol id="i-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12.5 6.5 19 12l-6.5 5.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5v13M6.5 11.5 12 17.5l5.5-6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5v-13M6.5 12.5 12 6.5l5.5 6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6 15.5 12l-6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.8 9.6 17.4 19 8"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 11.6 19.2 5.2 13.4 20l-2.3-6.2z"/><path d="M11.1 13.8 19.2 5.2"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5h5v5M19 5l-7.5 7.5"/><path d="M18 14.5V18a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 18V7.5A1.5 1.5 0 0 1 6 6h3.5"/></symbol>
+  <!-- contact -->
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.4"/><path d="m3.8 7.2 7.3 5.4a1.5 1.5 0 0 0 1.8 0l7.3-5.4"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9.75h4v10.75H3zM10 9.75h3.83v1.47h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.11v5.25h-4v-4.66c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.74H10z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-6.1 6.5-10.5a6.5 6.5 0 0 0-13 0C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.6V12l3.2 2"/></symbol>
+  <!-- stats -->
+  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5V6.2a1.5 1.5 0 0 1 1.1-1.44l6-1.7A1.5 1.5 0 0 1 13 4.5v16"/><path d="M13 9.5h5.5A1.5 1.5 0 0 1 20 11v9.5M2.6 20.5h18.8"/><path d="M7 8.5h2.5M7 12h2.5M7 15.5h2.5M16 13h1.4M16 16.5h1.4"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3z"/><path d="m4.4 12 7.6 4 7.6-4M4.4 16.4 12 20.4l7.6-4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-9.6A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/></symbol>
+  <!-- about pillars -->
+  <symbol id="i-flow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="6.5" height="5" rx="1.4"/><rect x="14.5" y="15.5" width="6.5" height="5" rx="1.4"/><path d="M6.25 8.5v6a2.5 2.5 0 0 0 2.5 2.5h5.75"/><path d="M12 13.5h5.75"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3.6c3.4 1 6 3.6 6.9 7l-8.4 8.4-4.5-4.5z"/><path d="M8.9 14.9 5.4 18.4M7.1 13.1 4.6 15.6M10.7 16.7l-2.5 2.5"/><circle cx="15.1" cy="8.9" r="1.6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 5 5.8v5.4c0 4.3 3 7.5 7 9.6 4-2.1 7-5.3 7-9.6V5.8z"/><path d="m9 11.8 2.2 2.2L15.2 10"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5c0 3.9-3.8 7-8.5 7-1 0-2-.14-2.9-.4L4.2 20.6l1.3-3.5a6.5 6.5 0 0 1-2-4.6c0-3.9 3.8-7 8.5-7s8.5 3.1 8.5 7z"/><path d="M8.6 11.5h6.8M8.6 14.4h4.2"/></symbol>
+  <!-- skills / services -->
+  <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.6 8 4.8 12l3.8 4M15.4 8l3.8 4-3.8 4M13.4 6.4l-2.8 11.2"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 8 4.4v9.2L12 21l-8-4.4V7.4z"/><path d="m4.3 7.6 7.7 4.2 7.7-4.2M12 11.8V21"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v12c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8V6"/><path d="M5 12c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="6.5" width="11" height="11" rx="2.2"/><rect x="10" y="10" width="4" height="4" rx="1"/><path d="M10 3.4v3.1M14 3.4v3.1M10 17.5v3.1M14 17.5v3.1M3.4 10h3.1M3.4 14h3.1M17.5 10h3.1M17.5 14h3.1"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.4a3.8 3.8 0 0 1 5.2 5.2l-2-2-1.4 1.4-2.6-2.6L14.8 7z"/><path d="m13.4 10.6-7 7a2 2 0 1 0 2.8 2.8l7-7"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9.2V7a1.5 1.5 0 0 1 1.5-1.5h14A1.5 1.5 0 0 1 20.5 7v2.2a2.8 2.8 0 0 0 0 5.6V17a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 17v-2.2a2.8 2.8 0 0 0 0-5.6z"/><path d="M12 8.6v6.8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 20V12M12 20V6.5M17 20v-5.5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 7.5h11.9l-1.1 8.6a1.6 1.6 0 0 1-1.6 1.4H9.1a1.6 1.6 0 0 1-1.6-1.4z"/><path d="M9.6 7.5V6.2a2.6 2.6 0 0 1 5.2 0v1.3"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.6 12h16.8"/><path d="M12 3.5c2.2 2.3 3.4 5.3 3.4 8.5s-1.2 6.2-3.4 8.5c-2.2-2.3-3.4-5.3-3.4-8.5S9.8 5.8 12 3.5z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 11.2A7.6 7.6 0 0 0 6.4 7.4L4.5 9.2"/><path d="M4.5 12.8a7.6 7.6 0 0 0 13.1 3.8l1.9-1.8"/><path d="M4.5 5.5v3.7h3.7M19.5 18.5v-3.7h-3.7"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="4.5" width="17.6" height="15" rx="2.2"/><path d="M3.2 9h17.6M6.4 6.7h.02M9 6.7h.02"/></symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.8" width="10" height="18.4" rx="2.6"/><path d="M10.6 5.4h2.8M12 18.2h.02"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5h13v17l-2.2-1.6-2.2 1.6-2.1-1.6-2.2 1.6-2.1-1.6-2.2 1.6z"/><path d="M9 8h6M9 11.5h6M9 15h3.5"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.4"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.4"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.4"/><path d="M14 14h2.6v2.6H14zM17.9 17.9h2.6v2.6h-2.6M14 20.5h1.3"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 18.5h9.9a3.6 3.6 0 0 0 .5-7.2 5.4 5.4 0 0 0-10.3-1.2 3.9 3.9 0 0 0-.1 8.4z"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17.5a8.5 8.5 0 1 1 16 0z"/><path d="m12 15.5 3.6-4.4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4 9.2 4.2L12 12.4 2.8 8.2z"/><path d="M6.6 10.2v4.5c0 1.6 2.4 2.9 5.4 2.9s5.4-1.3 5.4-2.9v-4.5M20.2 9.2v5.6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.2A1.7 1.7 0 0 1 6.2 3.5H19v14.2H6.2a1.7 1.7 0 0 0-1.7 1.7z"/><path d="M4.5 5.2v14.2A1.7 1.7 0 0 0 6.2 21H19v-3.3"/><path d="M8.5 7.6h6.6"/></symbol>
+  <!-- Felix AI (preserved from the original build) -->
+  <symbol id="i-robot" viewBox="0 0 24 24">
+    <rect x="4" y="6" width="16" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    <path d="M12 3v3M9 3h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
+    <circle cx="15" cy="12" r="1.2" fill="currentColor"/>
+    <path d="M8.5 16c1.8 1.2 5.2 1.2 7 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+  <!-- technologies -->
+  <symbol id="t-html" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.5h14.8l-1.3 15.1L12 20.5l-6.1-1.9z"/><path d="M8.4 8h7.2l-.4 4.4-3.2 1-3.2-1"/></symbol>
+  <symbol id="t-css" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 3.5h14.8l-1.3 15.1L12 20.5l-6.1-1.9z"/><path d="M15.7 8H8.9l.3 3.4h6.1l-.4 3.3-2.9.9-2.9-.9"/></symbol>
+  <symbol id="t-js" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="3"/><path d="M9.4 9.6v4.9a1.6 1.6 0 0 1-3.2 0"/><path d="M17.8 10.3a2 2 0 0 0-3.6 1c0 2 3.6 1.4 3.6 3.3a2 2 0 0 1-3.7.8"/></symbol>
+  <symbol id="t-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M9 16V8l7.4 9.6M15.4 8v5"/></symbol>
+  <symbol id="t-node" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 7.5 4.4v9.2L12 21l-7.5-4.4V7.4z"/><path d="M9.4 15V9.4L14.6 15V9.4"/></symbol>
+  <symbol id="t-prisma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11.2 2.8 4.4 16.4a1 1 0 0 0 .6 1.4l9.6 2.9a1 1 0 0 0 1.3-1.2L12.6 3.1a.8.8 0 0 0-1.4-.3z"/><path d="m11.9 6.6 2.4 12.4"/></symbol>
+  <symbol id="t-mysql" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.8" rx="7.2" ry="2.8"/><path d="M4.8 5.8v12.4c0 1.55 3.22 2.8 7.2 2.8s7.2-1.25 7.2-2.8V5.8"/><path d="M4.8 12c0 1.55 3.22 2.8 7.2 2.8s7.2-1.25 7.2-2.8"/></symbol>
+  <symbol id="t-firebase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 17.6 8 4.3a.7.7 0 0 1 1.3-.2l2.1 4"/><path d="m5.4 17.6 8.4-11.3a.7.7 0 0 1 1.2.2l3.6 11.1"/><path d="M5.4 17.6 12 21l6.6-3.4"/></symbol>
+  <symbol id="t-github" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="5.4" r="2.2"/><circle cx="7" cy="18.6" r="2.2"/><circle cx="17" cy="9.2" r="2.2"/><path d="M7 7.6v8.8M17 11.4v.8a2.6 2.6 0 0 1-2.6 2.6h-3a2.6 2.6 0 0 0-2.6 2.6"/></symbol>
+  <symbol id="t-vercel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.4 21 19H3z"/></symbol>
+  <symbol id="t-shopify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5.6 7.4h12.8l1 12.1a1 1 0 0 1-1 1.1H5.6a1 1 0 0 1-1-1.1z"/><path d="M8.8 7.4V5.8a3.2 3.2 0 0 1 6.4 0v1.6"/><path d="M9.4 11.2h5.2"/></symbol>
+  <symbol id="t-email" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="6" width="18.4" height="12" rx="2.2"/><path d="m3.6 7.6 7.5 5.2a1.6 1.6 0 0 0 1.8 0l7.5-5.2"/><path d="M14.6 15.4h4.6"/></symbol>
+  <symbol id="t-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4" width="17.2" height="6" rx="1.8"/><rect x="3.4" y="14" width="17.2" height="6" rx="1.8"/><path d="M6.8 7h.02M6.8 17h.02M10.6 7h4M10.6 17h4"/></symbol>
+  <symbol id="t-panel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.4" width="17.2" height="15.2" rx="2.4"/><path d="M9.2 4.4v15.2M12.4 8.6h5.2M12.4 12h5.2M12.4 15.4h3.2"/></symbol>
+</svg>
+
+<!-- ==========================================================================
+     NAVIGATION
+     ========================================================================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#top" aria-label="Felix Marco Alforque — back to top">
+      <span class="brand__mark"><svg class="ico" aria-hidden="true"><use href="#i-mark"/></svg></span>
+      <span>Felix Marco Alforque</span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a class="nav__link" href="#top">Home</a>
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#skills">Skills</a>
+      <a class="nav__link" href="#work">Projects</a>
+      <a class="nav__link" href="#experience">Experience</a>
+      <a class="nav__link" href="#services">Services</a>
+      <a class="nav__link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__right">
+      <a class="nav__cta" href="#contact">Hire Me <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg></a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-</nav>
+</header>
 
-<div class="mob-menu" id="mobMenu">
-  <span class="mono">~/navigate</span>
-  <a href="#apps" class="mob-link">Apps</a>
-  <a href="#websites" class="mob-link">Websites</a>
-  <a href="#systems" class="mob-link">Systems</a>
-  <a href="#about" class="mob-link">About</a>
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#contact" class="btn-primary" style="width:fit-content">Hire me</a>
+<div class="mobnav" id="mobMenu" hidden>
+  <p class="mono mobnav__label">MENU</p>
+  <a class="mobnav__link" href="#top">Home <span>01</span></a>
+  <a class="mobnav__link" href="#about">About <span>02</span></a>
+  <a class="mobnav__link" href="#skills">Skills <span>03</span></a>
+  <a class="mobnav__link" href="#work">Projects <span>04</span></a>
+  <a class="mobnav__link" href="#experience">Experience <span>05</span></a>
+  <a class="mobnav__link" href="#services">Services <span>06</span></a>
+  <a class="mobnav__link" href="#contact">Contact <span>07</span></a>
+  <div class="mobnav__foot">
+    <a class="btn btn--primary" href="#contact">Hire Me <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    <a class="btn btn--ghost" href="assets/felix-marco-alforque-cv.pdf" download>Download CV <svg class="ico down" aria-hidden="true"><use href="#i-down"/></svg></a>
+  </div>
 </div>
 
-<!-- ── 01 HERO ─────────────────────────────────────── -->
+<main id="main">
+
+<!-- ==========================================================================
+     HERO  ·  DOM order is the mobile order; the photo is lifted out on desktop
+     ========================================================================== -->
 <section class="hero" id="top">
-  <div class="hero-aura"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-glow" id="heroGlow"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-kicker"><span class="dot"></span>Available for new projects</div>
-      <h1 class="hero-h1">
-        I design &amp; build<br>
-        <em class="grad-text">websites and apps</em><br>
-        people actually use.
+  <div class="hero__light" aria-hidden="true"></div>
+  <div class="hero__floor" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="badge hero__badge reveal"><span class="pulse" aria-hidden="true"></span> ERP System Analyst &amp; Web Developer</p>
+
+      <h1 class="h-display hero__title reveal reveal-d1">
+        Building <span class="grad">Digital Solutions</span>.<br>
+        Driving <span class="grad">Business Forward</span>.
       </h1>
-      <p class="hero-sub">From the first interface sketch to the deployed product — I take ideas all the way to <strong>working software</strong>: websites, web apps, PWAs, and full business systems.</p>
-      <div class="hero-stack" aria-label="What I build">
-        <span>Websites</span><span>Web Apps</span><span>PWAs</span><span>Business Systems</span><span>Digital Products</span>
-      </div>
-      <div class="hero-actions">
-        <a href="#apps" class="btn-primary">See my apps <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="#contact" class="btn-ghost">Get in touch</a>
+
+      <p class="hero__sub reveal reveal-d2">
+        ERP professional with a strong foundation in web &amp; app development. I build systems that
+        streamline processes, solve real problems, and create better experiences.
+      </p>
+
+      <div class="hero__actions reveal reveal-d3">
+        <a class="btn btn--primary btn--lg" href="#work">View My Work <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+        <a class="btn btn--ghost btn--lg" href="assets/felix-marco-alforque-cv.pdf" download>Download CV <svg class="ico down" aria-hidden="true"><use href="#i-down"/></svg></a>
       </div>
     </div>
 
-    <div class="ws reveal" aria-hidden="true">
-      <div class="ws-editor">
-        <div class="ws-bar">
-          <span class="ws-dot" style="background:#FF5F57"></span>
-          <span class="ws-dot" style="background:#FEBC2E"></span>
-          <span class="ws-dot" style="background:#28C840"></span>
-          <span class="ws-tab">app.js</span>
-          <span class="ws-branch"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M18 9a9 9 0 01-9 9"/><circle cx="18" cy="6" r="3"/></svg> main</span>
-        </div>
-        <div class="ws-code">
-<div class="cl"><span class="ln">1</span><span><span class="tk-k">const</span> <span class="tk-v">app</span> <span class="tk-p">=</span> <span class="tk-f">create</span><span class="tk-p">({</span></span></div>
-<div class="cl"><span class="ln">2</span><span>  <span class="tk-v">name</span><span class="tk-p">:</span> <span class="tk-s">'felixmarcoalforque'</span><span class="tk-p">,</span></span></div>
-<div class="cl hl"><span class="ln">3</span><span>  <span class="tk-v">builds</span><span class="tk-p">:</span> <span class="tk-p">[</span><span class="tk-s">'websites'</span><span class="tk-p">,</span> <span class="tk-s">'apps'</span><span class="tk-p">,</span> <span class="tk-s">'systems'</span><span class="tk-p">]</span><span class="tk-p">,</span></span></div>
-<div class="cl"><span class="ln">4</span><span>  <span class="tk-v">from</span><span class="tk-p">:</span> <span class="tk-s">'interface'</span><span class="tk-p">,</span> <span class="tk-v">to</span><span class="tk-p">:</span> <span class="tk-s">'implementation'</span></span></div>
-<div class="cl"><span class="ln">5</span><span><span class="tk-p">});</span></span></div>
-<div class="cl"><span class="ln">6</span><span></span></div>
-<div class="cl"><span class="ln">7</span><span><span class="tk-c">// ship it</span></span></div>
-<div class="cl"><span class="ln">8</span><span><span class="tk-k">await</span> <span class="tk-v">app</span><span class="tk-p">.</span><span class="tk-f">deploy</span><span class="tk-p">(</span><span class="tk-s">'production'</span><span class="tk-p">)</span></span></div>
-        </div>
-        <div class="ws-term">
-          <div class="tm-line"><span class="tm-prompt">felix@web:~$</span> <span class="tm-cmd" id="termType"></span><span class="tm-caret"></span></div>
-          <div class="tm-line" id="termOut" style="min-height:1.6em"></div>
-        </div>
+    <div class="hero__photo reveal reveal-d2">
+      <picture>
+        <source media="(max-width: 1024px)" type="image/webp"
+                srcset="assets/img/felix-about-500.webp 500w, assets/img/felix-about-700.webp 700w"
+                sizes="(max-width: 420px) 92vw, 430px"/>
+        <source type="image/webp"
+                srcset="assets/img/felix-hero-540.webp 540w, assets/img/felix-hero-720.webp 720w, assets/img/felix-hero-960.webp 960w"
+                sizes="55vw"/>
+        <img src="assets/img/felix-hero-960.webp" width="967" height="896" fetchpriority="high" decoding="async"
+             alt="Felix Marco Alforque holding a laptop in his workspace"/>
+      </picture>
+    </div>
+
+    <div class="tech reveal reveal-d4">
+      <p class="tech__label">Technologies I Work With</p>
+      <div class="tech__row stagger">
+        <span class="tech__item" data-name="HTML" tabindex="0" role="img" aria-label="HTML"><svg aria-hidden="true"><use href="#t-html"/></svg></span>
+        <span class="tech__item" data-name="CSS" tabindex="0" role="img" aria-label="CSS"><svg aria-hidden="true"><use href="#t-css"/></svg></span>
+        <span class="tech__item" data-name="JavaScript" tabindex="0" role="img" aria-label="JavaScript"><svg aria-hidden="true"><use href="#t-js"/></svg></span>
+        <span class="tech__item" data-name="Next.js" tabindex="0" role="img" aria-label="Next.js"><svg aria-hidden="true"><use href="#t-next"/></svg></span>
+        <span class="tech__item" data-name="Node.js" tabindex="0" role="img" aria-label="Node.js"><svg aria-hidden="true"><use href="#t-node"/></svg></span>
+        <span class="tech__item" data-name="Prisma" tabindex="0" role="img" aria-label="Prisma"><svg aria-hidden="true"><use href="#t-prisma"/></svg></span>
+        <span class="tech__item" data-name="MySQL" tabindex="0" role="img" aria-label="MySQL"><svg aria-hidden="true"><use href="#t-mysql"/></svg></span>
+        <span class="tech__item" data-name="Firebase" tabindex="0" role="img" aria-label="Firebase"><svg aria-hidden="true"><use href="#t-firebase"/></svg></span>
+        <span class="tech__item" data-name="GitHub" tabindex="0" role="img" aria-label="GitHub"><svg aria-hidden="true"><use href="#t-github"/></svg></span>
+        <span class="tech__item" data-name="Vercel" tabindex="0" role="img" aria-label="Vercel"><svg aria-hidden="true"><use href="#t-vercel"/></svg></span>
+        <span class="tech__item" data-name="Shopify" tabindex="0" role="img" aria-label="Shopify"><svg aria-hidden="true"><use href="#t-shopify"/></svg></span>
+        <span class="tech__item" data-name="EmailJS" tabindex="0" role="img" aria-label="EmailJS"><svg aria-hidden="true"><use href="#t-email"/></svg></span>
+        <span class="tech__item" data-name="DirectAdmin" tabindex="0" role="img" aria-label="DirectAdmin"><svg aria-hidden="true"><use href="#t-server"/></svg></span>
+        <span class="tech__item" data-name="cPanel" tabindex="0" role="img" aria-label="cPanel"><svg aria-hidden="true"><use href="#t-panel"/></svg></span>
       </div>
-      <div class="ws-float ws-deploy">
-        <div class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div><div class="t1">Deployment ready</div><div class="t2">production ✓ · SSL · fast</div></div>
-      </div>
-      <div class="ws-float ws-phone">
-        <div class="ph-notch"><i></i></div>
-        <div class="ph-body">
-          <div class="ph-line"></div>
-          <div class="ph-line s"></div>
-          <div class="ph-cards"><i></i><i></i></div>
-          <div class="ph-btn"></div>
-        </div>
-      </div>
-      <span class="ws-meta">web · app · pwa</span>
     </div>
   </div>
 </section>
 
-<div class="trust">
-  <div class="trust-inner">
-    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg><span class="trust-text">Apps &amp; PWAs, built for real use</span></div>
-    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span class="trust-text">Custom-coded, no templates</span></div>
-    <div class="trust-item"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span class="trust-text">Fast-loading &amp; SEO-ready</span></div>
-    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span class="trust-text">Enterprise systems background</span></div>
-    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="trust-text">Manila · remote-ready</span></div>
-  </div>
-</div>
-
-<!-- ── 02 FEATURED APPS ────────────────────────────── -->
-<section class="apps-sec" id="apps">
+<!-- ==========================================================================
+     STATISTICS
+     ========================================================================== -->
+<section class="stats" aria-label="At a glance">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">// featured apps</p>
-      <h2 class="section-title">Products I've <em>built.</em></h2>
-      <p class="section-intro">Not mockups — real applications I designed, engineered, and shipped end to end. Interface, logic, data, deployment.</p>
+    <div class="stats__card reveal">
+      <div class="stat stat--violet">
+        <span class="stat__icon"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+        <span><span class="stat__value">2+</span><span class="stat__label">Years Experience</span></span>
+      </div>
+      <div class="stat stat--emerald">
+        <span class="stat__icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+        <span><span class="stat__value">2</span><span class="stat__label">Companies</span></span>
+      </div>
+      <div class="stat stat--blue">
+        <span class="stat__icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+        <span><span class="stat__value">10+</span><span class="stat__label">Projects Built</span></span>
+      </div>
+      <div class="stat stat--amber">
+        <span class="stat__icon"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>
+        <span><span class="stat__value">100%</span><span class="stat__label">Commitment</span></span>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- MICLY -->
-    <article class="app-stage reveal">
-      <div class="app-env env-micly"></div>
-      <div class="app-stage-inner">
+<!-- ==========================================================================
+     FEATURED WORK
+     ========================================================================== -->
+<section class="section work" id="work" aria-labelledby="work-h">
+  <span class="aura" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="work__layout">
+
+      <div class="work__intro reveal">
+        <p class="eyebrow">Featured work</p>
         <div>
-          <div class="app-head-row">
-            <div class="app-id">
-              <img src="micly.png" alt="Micly app icon" class="app-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="app-icon micly fb" aria-hidden="true">M</div>
-              <div>
-                <h3 class="app-name">Micly</h3>
-                <div class="app-cat">Karaoke · PWA · Multi-device</div>
+          <h2 class="h-section" id="work-h">Projects That <span class="grad">Make Impact</span></h2>
+          <p class="lede">From web applications to business systems, each project is built with purpose and designed to deliver real value.</p>
+        </div>
+        <button class="btn btn--ghost btn--sm" type="button" id="moreToggle" aria-expanded="false" aria-controls="workMore">
+          <span>View all projects</span> <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg>
+        </button>
+      </div>
+
+      <!-- Fintra -->
+      <article class="pcard reveal reveal-d1">
+        <div class="pcard__shot">
+          <span class="pcard__chip">Live</span>
+          <div class="shot" aria-hidden="true">
+            <div class="ui">
+              <div class="ui__bar">
+                <img class="ui__ico" src="assets/img/fintra.png" alt="" width="512" height="512" loading="lazy" decoding="async"/>
+                <span>fintra · dashboard</span>
+              </div>
+              <div class="ui__body">
+                <div class="fin__top">
+                  <span class="fin__lbl">Net worth</span>
+                  <b class="fin__val">284,500</b>
+                </div>
+                <div class="fin__spark">
+                  <i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i>
+                  <i style="height:66%"></i><i style="height:58%"></i><i style="height:78%"></i><i style="height:94%"></i>
+                </div>
+                <div class="fin__grid">
+                  <div class="fin__mini"><span>Income</span><b class="up">+ 42,000</b></div>
+                  <div class="fin__mini"><span>Expenses</span><b class="dn">− 18,200</b></div>
+                </div>
+                <div class="fin__rows">
+                  <div><span>Bills due</span><b>2</b></div>
+                  <div><span>Budget goals</span><b>on track</b></div>
+                </div>
               </div>
             </div>
-            <span class="status-pill"><span class="sd"></span>Live</span>
-          </div>
-          <p class="app-desc">A modern karaoke app built <strong>TV-first</strong>. The big screen carries the lyrics and the party — while every phone in the room becomes a <strong>remote and controller</strong>. Scan a QR code, join the room, queue your song. No ads, no interruptions, just karaoke.</p>
-          <div class="app-points">
-            <div class="app-point mic"><span class="pk">›</span><span><b>Scan &amp; join</b> — guests hop into the room with a QR code, no installs, no accounts required to sing.</span></div>
-            <div class="app-point mic"><span class="pk">›</span><span><b>Shared song queue</b> — everyone adds songs from their own phone into one live, synced queue.</span></div>
-            <div class="app-point mic"><span class="pk">›</span><span><b>Made for the party</b> — favorites and reactions keep the whole room in on every performance.</span></div>
-          </div>
-          <div class="app-badges" aria-label="Micly technologies">
-            <span>PWA</span><span>Firebase</span><span>Real-time sync</span><span>YouTube playback</span>
-          </div>
-          <div class="app-ctas">
-            <a href="https://miclykaraoke.online" target="_blank" rel="noopener" class="btn-primary">View Live App <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a href="#contact" class="btn-ghost">Ask about Micly</a>
           </div>
         </div>
-        <div class="mic-scene" aria-hidden="true">
-          <div class="mic-tv">
-            <div class="mic-tv-screen">
-              <div class="mic-tv-top">
-                <span class="mic-logo">Micly</span>
-                <span class="mic-room"><span class="mic-qr"></span>ROOM · SCAN TO JOIN</span>
+        <div class="pcard__body">
+          <div class="pcard__text">
+            <h3 class="pcard__title"><a href="https://fintra.xenotechsolution.com" target="_blank" rel="noopener noreferrer">Fintra</a></h3>
+            <p class="pcard__type">Personal Finance Web App · PWA</p>
+            <p class="pcard__desc">Dashboard, accounts, bills, subscriptions, budget goals and income &amp; expense logs in one installable app.</p>
+            <div class="tag-row pcard__tags"><span class="tag">Next.js</span><span class="tag">Firebase</span><span class="tag">PWA</span></div>
+          </div>
+          <span class="arrow-btn" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg></span>
+        </div>
+      </article>
+
+      <!-- MICLY -->
+      <article class="pcard reveal reveal-d2">
+        <div class="pcard__shot">
+          <span class="pcard__chip">Live</span>
+          <div class="shot shot--micly" aria-hidden="true">
+            <div class="tv">
+              <div class="tv__top">
+                <span class="tv__brand"><img class="ui__ico" src="assets/img/micly.png" alt="" width="512" height="512" loading="lazy" decoding="async"/><span class="tv__logo">MICLY</span></span>
+                <span class="tv__room"><i class="tv__qr"></i> SCAN TO JOIN</span>
               </div>
-              <div class="mic-lyrics">
-                <div class="mic-lyr">and I told you to be patient</div>
-                <div class="mic-lyr now"><span class="sung">and I told you</span> to be fine</div>
-                <div class="mic-lyr">and I told you to be balanced</div>
-                <div class="mic-progress"><i></i></div>
+              <div class="tv__lyrics">
+                <p>the room is filling up tonight</p>
+                <p class="on">everybody sing the next line</p>
+                <p>and the queue keeps rolling on</p>
               </div>
-              <div class="mic-queue">
-                <div class="mic-q on"><div class="qt">▶ Now singing</div><div class="qs">Mic 1 · Sneeky</div></div>
-                <div class="mic-q"><div class="qt">Up next</div><div class="qs">Queued from phone</div></div>
-                <div class="mic-q"><div class="qt">+ Add a song</div><div class="qs">Shared queue</div></div>
+              <div class="tv__bar"><i></i></div>
+            </div>
+            <div class="rem">
+              <p class="rem__lbl">Remote</p>
+              <div class="rem__ctl"><i></i><i class="big"></i><i></i></div>
+              <div class="rem__q"><span>Queue</span><b>3 songs</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <div class="pcard__text">
+            <h3 class="pcard__title"><a href="https://miclykaraoke.online" target="_blank" rel="noopener noreferrer">MICLY</a></h3>
+            <p class="pcard__type">Karaoke Platform · PWA</p>
+            <p class="pcard__desc">The TV runs the karaoke interface while phones join by QR to act as remotes and share one song queue.</p>
+            <div class="tag-row pcard__tags"><span class="tag">PWA</span><span class="tag">QR rooms</span><span class="tag">Multi-device</span></div>
+          </div>
+          <span class="arrow-btn" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg></span>
+        </div>
+      </article>
+
+      <!-- Coffee Shop POS -->
+      <article class="pcard reveal reveal-d3">
+        <div class="pcard__shot">
+          <div class="shot" aria-hidden="true">
+            <div class="ui">
+              <div class="ui__bar"><i></i><i></i><i></i><span>coffee shop pos</span></div>
+              <div class="pos">
+                <div class="pos__tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="pos__total"><span>Order total</span><b>420.00</b></div>
+                <div class="pos__pay"><span>Sales</span><span>Inventory</span><span>Reports</span></div>
               </div>
             </div>
           </div>
-          <div class="mic-tv-stand"></div>
-          <div class="mic-phone">
-            <div class="ph-notch"><i></i></div>
-            <div class="mic-ph-body">
-              <div class="mic-ph-lbl">Remote · Room</div>
-              <div class="mic-ph-song">Now Playing</div>
-              <div class="mic-ph-controls"><i></i><i class="big"></i><i></i></div>
-              <div class="mic-ph-react"><span>❤️</span><span>🔥</span><span>👏</span></div>
-              <div class="mic-ph-queue">
-                <div class="mic-ph-qrow"><b>Queue</b><span>3 songs</span></div>
-                <div class="mic-ph-qrow"><span>Your turn in</span><b>2</b></div>
+        </div>
+        <div class="pcard__body">
+          <div class="pcard__text">
+            <h3 class="pcard__title">Coffee Shop POS</h3>
+            <p class="pcard__type">POS &amp; Inventory System</p>
+            <p class="pcard__desc">Sales, products, inventory and reporting for small coffee shops — designed with offline-first and multi-device use in mind.</p>
+            <div class="tag-row pcard__tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">MySQL</span></div>
+          </div>
+          <button class="arrow-btn" type="button" data-ask="Tell me about the Coffee Shop POS project." aria-label="Ask Felix AI about the Coffee Shop POS project">
+            <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- revealed on demand -->
+      <div class="work__more" id="workMore" hidden>
+
+        <article class="pcard reveal">
+          <div class="pcard__shot">
+            <div class="shot" aria-hidden="true">
+              <div class="ui">
+                <div class="ui__bar"><i></i><i></i><i></i><span>event · attendance</span></div>
+                <div class="ev">
+                  <div class="ev__step"><i>✓</i><div><b>Registered</b><span>Confirmation sent</span></div></div>
+                  <div class="ev__step"><i>✓</i><div><b>Digital ID issued</b><span>QR credential</span></div></div>
+                  <div class="ev__step live"><i></i><div><b>Time in</b><span>Scanning attendees</span></div></div>
+                  <div class="ev__stats">
+                    <div><b>QR</b><span>Time entry</span></div>
+                    <div><b>ID</b><span>Digital pass</span></div>
+                    <div><b>Log</b><span>Attendance</span></div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="pcard__body">
+            <div class="pcard__text">
+              <h3 class="pcard__title">Event &amp; Convention Registration</h3>
+              <p class="pcard__type">Registration &amp; Attendance Platform</p>
+              <p class="pcard__desc">Event registration and attendee records, registration confirmation, a digital ID concept and QR time-entry feeding attendance tracking.</p>
+              <div class="tag-row pcard__tags"><span class="tag">Custom business system</span><span class="tag">QR check-in</span></div>
+            </div>
+            <button class="arrow-btn" type="button" data-ask="Tell me about the Event / Convention Registration System." aria-label="Ask Felix AI about the Event and Convention Registration System">
+              <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="pcard reveal reveal-d1">
+          <div class="pcard__shot">
+            <span class="pcard__chip">Live</span>
+            <div class="shot" aria-hidden="true">
+              <div class="ui">
+                <div class="ui__bar"><i></i><i></i><i></i><span>bollarddepot.co.uk</span></div>
+                <div class="shop">
+                  <div class="shop__nav"><i class="logo"></i><i></i><i></i><i class="cart"></i></div>
+                  <div class="shop__hero"></div>
+                  <div class="shop__grid"><i></i><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pcard__body">
+            <div class="pcard__text">
+              <h3 class="pcard__title"><a href="https://bollarddepot.co.uk/" target="_blank" rel="noopener noreferrer">Bollard Depot</a></h3>
+              <p class="pcard__type">Shopify Ecommerce Website</p>
+              <p class="pcard__desc">The one Shopify ecommerce project I have personally handled, while I continue building out my Shopify portfolio.</p>
+              <div class="tag-row pcard__tags"><span class="tag">Shopify</span><span class="tag">Ecommerce</span></div>
+            </div>
+            <span class="arrow-btn" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ABOUT
+     ========================================================================== -->
+<section class="section about" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="about__layout">
+
+      <div class="about__figure reveal">
+        <div class="about__frame">
+          <img src="assets/img/felix-about-700.webp"
+               srcset="assets/img/felix-about-500.webp 500w, assets/img/felix-about-700.webp 700w"
+               sizes="(max-width: 1024px) 100vw, 40vw"
+               width="709" height="888" loading="lazy" decoding="async"
+               alt="Felix Marco Alforque at his desk in Manila"/>
+          <div class="about__plate">
+            <div>
+              <p class="about__plate-name">Felix Marco Alforque</p>
+              <p class="about__plate-role">ERP System Analyst · Web &amp; App Developer</p>
+            </div>
+            <span class="pulse" aria-hidden="true"></span>
           </div>
         </div>
       </div>
-    </article>
 
-    <!-- FINTRA -->
-    <article class="app-stage flip reveal">
-      <div class="app-env env-fintra"></div>
-      <div class="app-stage-inner">
-        <div class="fin-scene" aria-hidden="true">
-          <div class="fin-desk">
-            <div class="fin-bar">
-              <span class="ws-dot" style="background:#FF5F57"></span>
-              <span class="ws-dot" style="background:#FEBC2E"></span>
-              <span class="ws-dot" style="background:#28C840"></span>
-              <span class="url">fintra · dashboard</span>
-            </div>
-            <div class="fintra-ui">
-              <div class="fi-header"><span class="fi-logo">Fintra</span><span class="fi-date">Mar 2025</span></div>
-              <div class="fi-net"><div class="fi-net-label">Net Worth</div><div class="fi-net-value">₱ 284,500</div><div class="fi-net-change"><svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg>+₱ 23,800 this month</div></div>
-              <div class="fi-row"><div class="fi-mini"><div class="fi-mini-label">Income</div><div class="fi-mini-val" style="color:#4ade80">+₱ 42,000</div></div><div class="fi-mini"><div class="fi-mini-label">Expenses</div><div class="fi-mini-val" style="color:#f87171">−₱ 18,200</div></div></div>
-              <div class="fi-bars"><div class="fi-bars-label">Savings Rate — 57%</div><div class="bar-track"><div class="bar-fill" style="width:57%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div><div class="bar-track" style="margin-top:6px"><div class="bar-fill" style="width:43%;background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div></div>
-              <div class="fi-accounts"><div class="fi-acc-row"><span class="fi-acc-name">BDO Checking</span><span class="fi-acc-val">₱ 92,300</span></div><div class="fi-acc-row"><span class="fi-acc-name">GCash</span><span class="fi-acc-val">₱ 14,800</span></div><div class="fi-acc-row"><span class="fi-acc-name">Cash on Hand</span><span class="fi-acc-val">₱ 8,400</span></div></div>
-            </div>
+      <div class="about__content reveal reveal-d1">
+        <p class="eyebrow" style="margin-bottom:20px">About Felix</p>
+        <h2 class="h-section" id="about-h" style="margin-bottom:22px">Building Technology Around <span class="grad">Real Business Needs</span>.</h2>
+
+        <div class="about__body">
+          <p>I'm an <strong>ERP System Analyst at Eagle Cement Corporation</strong> and a hands-on web and app developer based in Manila. Most of my week is spent close to the business — analysing tickets and issues, troubleshooting the system, running tests and UAT, and working through processes with the people who actually use them.</p>
+          <p>Before that I was at <strong>Chase Technologies Corporation</strong>, where I led and supported POS and ERP implementations for clients across a range of industries: translating requirements into specifications, configuring, testing, training, deploying, and staying on after rollout.</p>
+          <p>That combination is the whole point. I build websites, web applications and PWAs — but I design them the way I'd design a business system: <strong>around the workflow first</strong>.</p>
+        </div>
+
+        <div class="about__pillars">
+          <div class="about__pillar">
+            <svg aria-hidden="true"><use href="#i-flow"/></svg>
+            <b>Process before pixels</b>
+            <span>I start from how the work actually flows, then design the screens.</span>
           </div>
-          <div class="fin-phone">
-            <div class="ph-notch"><i></i></div>
-            <div class="fin-ph-body">
-              <div class="fin-ph-lbl">Net Worth</div>
-              <div class="fin-ph-val">₱ 284.5k</div>
-              <div class="fin-ph-spark"><i style="height:35%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:60%"></i><i style="height:72%"></i><i style="height:88%"></i></div>
-              <div class="fin-ph-rows">
-                <div class="fin-ph-row"><b>Budget</b><span>on track</span></div>
-                <div class="fin-ph-row"><span>Bills due</span><b>2</b></div>
-              </div>
-            </div>
+          <div class="about__pillar">
+            <svg aria-hidden="true"><use href="#i-shield"/></svg>
+            <b>Tested properly</b>
+            <span>UAT habits carried straight over from ERP work.</span>
+          </div>
+          <div class="about__pillar">
+            <svg aria-hidden="true"><use href="#i-rocket"/></svg>
+            <b>Shipped, not just built</b>
+            <span>Deployment, hosting, domains and SSL are part of the job.</span>
+          </div>
+          <div class="about__pillar">
+            <svg aria-hidden="true"><use href="#i-chat"/></svg>
+            <b>Plain language</b>
+            <span>Practised at translating between business users and developers.</span>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SKILLS
+     ========================================================================== -->
+<section class="section skills" id="skills" aria-labelledby="skills-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Capabilities</p>
+      <h2 class="h-section" id="skills-h">The Toolkit, <span class="grad">Honestly Listed</span></h2>
+      <p class="lede">Everything below is something I have actually worked with. Nothing is padded to fill a grid.</p>
+    </div>
+
+    <div class="skills__grid">
+
+      <div class="card card--lift skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+          <h3 class="skillcard__title">Web development</h3>
+          <span class="skillcard__count">08</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          <span class="tag">Responsive web development</span><span class="tag">UI/UX implementation</span>
+          <span class="tag">Progressive Web Apps</span><span class="tag">Web application development</span>
+          <span class="tag">Ecommerce websites</span>
+        </div>
+      </div>
+
+      <div class="card card--lift skillcard reveal reveal-d1">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-cube"/></svg></span>
+          <h3 class="skillcard__title">Frameworks &amp; runtime</h3>
+          <span class="skillcard__count">02</span>
+        </div>
+        <div class="tag-row"><span class="tag">Next.js</span><span class="tag">Node.js</span></div>
+      </div>
+
+      <div class="card card--lift skillcard reveal reveal-d2">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-db"/></svg></span>
+          <h3 class="skillcard__title">Backend &amp; data</h3>
+          <span class="skillcard__count">03</span>
+        </div>
+        <div class="tag-row"><span class="tag">Prisma</span><span class="tag">MySQL</span><span class="tag">Firebase</span></div>
+      </div>
+
+      <div class="card card--lift skillcard skillcard--feature skillcard--wide reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-cpu"/></svg></span>
+          <h3 class="skillcard__title">Systems &amp; business</h3>
+          <span class="skillcard__count">08</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">ERP systems</span><span class="tag">ITSM / Freshservice</span>
+          <span class="tag">Workflow automation</span><span class="tag">Business process analysis</span>
+          <span class="tag">Custom business systems</span><span class="tag">Dashboards &amp; reporting</span>
+          <span class="tag">POS &amp; inventory logic</span><span class="tag">Registration &amp; attendance systems</span>
+        </div>
+      </div>
+
+      <div class="card card--lift skillcard reveal reveal-d1">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-ticket"/></svg></span>
+          <h3 class="skillcard__title">ITSM · Freshservice</h3>
+          <span class="skillcard__count">09</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Requesters &amp; departments</span><span class="tag">Service catalog</span>
+          <span class="tag">Workflow automation</span><span class="tag">SLAs &amp; ticket aging</span>
+          <span class="tag">Incident workflows</span><span class="tag">Approvals</span>
+          <span class="tag">Onboarding workflows</span><span class="tag">Dashboards &amp; analytics</span>
+          <span class="tag">Ticket reduction</span>
+        </div>
+      </div>
+
+      <div class="card card--lift skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-tool"/></svg></span>
+          <h3 class="skillcard__title">Tools &amp; platforms</h3>
+          <span class="skillcard__count">05</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">GitHub</span><span class="tag">Vercel</span>
+          <span class="tag">DirectAdmin</span><span class="tag">cPanel</span><span class="tag">EmailJS</span>
+        </div>
+      </div>
+
+      <div class="card card--lift skillcard reveal reveal-d1">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span>
+          <h3 class="skillcard__title">Technical delivery</h3>
+          <span class="skillcard__count">07</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Deployment &amp; hosting</span><span class="tag">Domain &amp; SSL setup</span>
+          <span class="tag">DNS troubleshooting</span><span class="tag">SEO basics</span>
+          <span class="tag">Performance optimization</span><span class="tag">UAT support &amp; testing</span>
+          <span class="tag">System troubleshooting</span>
+        </div>
+      </div>
+
+      <div class="card card--lift skillcard reveal reveal-d2">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg aria-hidden="true"><use href="#i-cart"/></svg></span>
+          <h3 class="skillcard__title">Ecommerce</h3>
+          <span class="skillcard__count">01</span>
+        </div>
+        <p class="pcard__desc" style="margin-top:0">One Shopify ecommerce project handled personally — <a href="https://bollarddepot.co.uk/" target="_blank" rel="noopener noreferrer" style="color:var(--violet-hi)">Bollard Depot</a>. I'm actively building this side of the portfolio out.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EXPERIENCE
+     ========================================================================== -->
+<section class="section exp" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Professional experience</p>
+      <h2 class="h-section" id="exp-h">Where the <span class="grad">Systems Thinking</span> Comes From</h2>
+    </div>
+
+    <div class="timeline">
+
+      <article class="tl-item tl-item--now reveal">
+        <span class="tl-item__dot" aria-hidden="true"></span>
+        <div class="card tl-item__card">
+          <div class="tl-item__meta">
+            <span class="tl-item__period">June 2024 — Present</span>
+            <span class="tl-item__chip"><span class="pulse" aria-hidden="true"></span> Current role</span>
+          </div>
+          <h3 class="tl-item__role">ERP System Analyst</h3>
+          <p class="tl-item__org">Eagle Cement Corporation</p>
+          <ul class="tl-item__list">
+            <li>ERP support and analysis</li>
+            <li>Issue and ticket analysis</li>
+            <li>System troubleshooting</li>
+            <li>Testing and UAT</li>
+            <li>Business process analysis</li>
+            <li>ERP-related data and master-data work</li>
+            <li>Business stakeholder coordination</li>
+            <li>System improvement</li>
+            <li>Workflow and process analysis</li>
+          </ul>
+          <div class="tl-item__foot">
+            <span class="mono">ERP</span>
+            <span class="tag">Ramco ERP</span>
+            <span class="tag">Testing &amp; UAT</span>
+            <span class="tag">Process analysis</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tl-item reveal reveal-d1">
+        <span class="tl-item__dot" aria-hidden="true"></span>
+        <div class="card tl-item__card">
+          <div class="tl-item__meta">
+            <span class="tl-item__period">June 2022 — May 2024</span>
+          </div>
+          <h3 class="tl-item__role">IT Support / ERP / Implementation Specialist</h3>
+          <p class="tl-item__org">Chase Technologies Corporation <span>Manila, Philippines</span></p>
+          <ul class="tl-item__list">
+            <li>Led and supported implementation of POS and ERP systems for clients across various industries</li>
+            <li>Ensured solutions aligned with operational workflows and business needs</li>
+            <li>Worked closely with programmers to translate client requirements into technical specifications</li>
+            <li>Provided documentation and ongoing development-cycle support</li>
+            <li>Acted as liaison between clients and development teams</li>
+            <li>Coordinated with client decision-makers and department heads</li>
+            <li>Understood business processes and identified improvement opportunities</li>
+            <li>Assisted with system configuration, testing, training and deployment</li>
+            <li>Provided technical support and troubleshooting during and after rollout</li>
+            <li>Contributed to system improvement proposals based on field feedback and end-user insights</li>
+          </ul>
+          <div class="tl-item__foot">
+            <span class="mono">DELIVERY</span>
+            <span class="tag">POS &amp; ERP implementation</span>
+            <span class="tag">Requirements</span>
+            <span class="tag">Training</span>
+            <span class="tag">Post-rollout support</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SERVICES
+     ========================================================================== -->
+<section class="section svc-section" id="services" aria-labelledby="svc-h">
+  <span class="grid-bg" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2 class="h-section" id="svc-h">What I Can <span class="grad">Build For You</span></h2>
+      <p class="lede">Fourteen things I take on — from a straightforward business website to the kind of internal system nobody else wants to touch.</p>
+    </div>
+
+    <div class="svc__grid stagger reveal">
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span><h3 class="svc__title">Company &amp; business websites</h3><p class="svc__desc">Corporate and marketing sites, responsive from the first breakpoint.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-refresh"/></svg></span><h3 class="svc__title">Responsive website redesign</h3><p class="svc__desc">Rebuilding an existing site for modern layout, speed and clarity.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-window"/></svg></span><h3 class="svc__title">Web application development</h3><p class="svc__desc">Multi-screen apps with real data, real state and real users.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-mobile"/></svg></span><h3 class="svc__title">Progressive Web Apps</h3><p class="svc__desc">Installable, app-like experiences that run on any device.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-cube"/></svg></span><h3 class="svc__title">Custom business systems</h3><p class="svc__desc">Software shaped around your actual workflow, not a template.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-receipt"/></svg></span><h3 class="svc__title">POS &amp; inventory systems</h3><p class="svc__desc">Sales, products, stock movement and reporting for small operations.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-qr"/></svg></span><h3 class="svc__title">Registration &amp; attendance</h3><p class="svc__desc">Event registration, digital IDs, QR entry and attendance records.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-flow"/></svg></span><h3 class="svc__title">Workflow &amp; process automation</h3><p class="svc__desc">Removing the manual steps between one system and the next.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-cpu"/></svg></span><h3 class="svc__title">ERP-related analysis &amp; support</h3><p class="svc__desc">Requirements, issue analysis, testing and process improvement.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-ticket"/></svg></span><h3 class="svc__title">Freshservice / ITSM setup</h3><p class="svc__desc">Service catalog, SLAs, approvals and onboarding workflows.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span><h3 class="svc__title">Dashboards &amp; reporting</h3><p class="svc__desc">Turning scattered records into numbers people can act on.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-cart"/></svg></span><h3 class="svc__title">Ecommerce / Shopify work</h3><p class="svc__desc">Store setup and ecommerce build-out, Shopify included.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span><h3 class="svc__title">Deployment &amp; hosting support</h3><p class="svc__desc">Domains, SSL, DNS and getting the thing live on your host.</p></div>
+      <div class="svc"><span class="svc__icon"><svg aria-hidden="true"><use href="#i-gauge"/></svg></span><h3 class="svc__title">SEO basics &amp; performance</h3><p class="svc__desc">Metadata, structure and speed work so pages load and get found.</p></div>
+    </div>
+
+    <div class="svc__note reveal">
+      <p>Open to freelance and part-time projects — websites, business systems, web applications, ERP-related solutions and automation. Competitive portfolio-building rates while I keep expanding this list.</p>
+      <a class="btn btn--primary" href="#contact">Discuss a project <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EDUCATION
+     ========================================================================== -->
+<section class="section section--tight edu" id="education" aria-labelledby="edu-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Education</p>
+      <h2 class="h-section" id="edu-h">Where It <span class="grad">Started</span></h2>
+    </div>
+
+    <div class="edu__grid">
+      <div class="card card--lift edu__card reveal">
+        <span class="edu__icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span>
         <div>
-          <div class="app-head-row">
-            <div class="app-id">
-              <img src="fintra.png" alt="Fintra app icon" class="app-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-              <div class="app-icon fintra fb" aria-hidden="true">F</div>
-              <div>
-                <h3 class="app-name">Fintra</h3>
-                <div class="app-cat">Fintech · Web App · PWA</div>
-              </div>
-            </div>
-            <span class="status-pill"><span class="sd"></span>Personal project</span>
-          </div>
-          <p class="app-desc">A personal finance app that works like a <strong>financial control center</strong>. Net worth, income, expenses, and savings rate live at a glance — across banks, e-wallets, and cash — with your data staying <strong>on your device</strong>.</p>
-          <div class="app-points">
-            <div class="app-point fin"><span class="pk">›</span><span><b>Real-time dashboard</b> — net worth, income, expenses, and savings rate, live and at a glance.</span></div>
-            <div class="app-point fin"><span class="pk">›</span><span><b>Multi-account tracking</b> — banks, e-wallets, cash: one unified view across every account.</span></div>
-            <div class="app-point fin"><span class="pk">›</span><span><b>Privacy-first, offline-first</b> — data stays local. No cloud dependency, no tracking.</span></div>
-          </div>
-          <div class="app-badges" aria-label="Fintra technologies">
-            <span>PWA</span><span>Offline-first</span><span>Local-first data</span>
-          </div>
-          <div class="app-ctas">
-            <a href="https://fintra.xenotechsolution.com" target="_blank" rel="noopener" class="btn-primary">View Live App <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-            <a href="#contact" class="btn-ghost">Ask about Fintra</a>
-          </div>
+          <p class="edu__level">Bachelor's degree</p>
+          <h3 class="edu__program">Information Technology</h3>
+          <p class="edu__school">Our Lady of Lourdes College</p>
+          <p class="edu__period">2018 — 2022</p>
         </div>
       </div>
-    </article>
+      <div class="card card--lift edu__card reveal reveal-d1">
+        <span class="edu__icon"><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+        <div>
+          <p class="edu__level">Senior high school</p>
+          <h3 class="edu__program">Information &amp; Communication Technology</h3>
+          <p class="edu__school">Our Lady of Lourdes College</p>
+          <p class="edu__period">2016 — 2018</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── 03 WEBSITES ─────────────────────────────────── -->
-<section class="web-sec" id="websites">
+<!-- ==========================================================================
+     CONTACT / HIRING
+     ========================================================================== -->
+<section class="section contact" id="contact" aria-labelledby="contact-h">
+  <span class="aura" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">// web development</p>
-      <h2 class="section-title">Selected <em>websites.</em></h2>
-      <p class="section-intro">Client-facing sites, custom-coded and built to load fast. Every build below is designed from scratch — no themes, no page builders.</p>
-    </div>
-    <div class="web-grid">
+    <div class="contact__layout">
 
-      <article class="web-card reveal">
-        <div class="web-shot">
-          <div class="web-browser" aria-hidden="true">
-            <div class="wb-bar"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><span class="wb-url">felixmarcoalforque.it.com</span></div>
-            <div class="wb-body">
-              <div class="wb-nav"><span class="wb-logo" style="background:linear-gradient(90deg,#818CF8,#EC4899)"></span><span class="wb-menu"><i></i><i></i><i></i></span></div>
-              <div class="wb-h"></div><div class="wb-h s"></div>
-              <div class="wb-cta" style="background:rgba(244,245,250,.9)"></div>
-              <div class="wb-cards"><i></i><i></i><i></i></div>
-            </div>
+      <div class="contact__cta reveal">
+        <p class="eyebrow" style="margin-bottom:20px">Available for work</p>
+        <h2 class="h-section" id="contact-h">Let's Build <span class="grad">Something Great</span>.</h2>
+        <p class="lede">I'm open to freelance and part-time projects involving websites, business systems, web applications, ERP-related solutions, and automation.</p>
+
+        <div class="contact__actions">
+          <a class="btn btn--primary" href="#contactForm" data-focus="firstName">Hire Felix <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+          <a class="btn btn--ghost" href="#work">View Portfolio <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+          <a class="btn btn--ghost" href="mailto:contact@felixmarcoalforque.it.com">Contact Me <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg></a>
+        </div>
+
+        <div class="contact__links">
+          <a class="clink" href="mailto:contact@felixmarcoalforque.it.com">
+            <span class="clink__icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span class="clink__text"><span class="clink__name">Email</span><span class="clink__val">contact@felixmarcoalforque.it.com</span></span>
+            <span class="clink__chev" aria-hidden="true"><svg aria-hidden="true"><use href="#i-chev"/></svg></span>
+          </a>
+          <a class="clink" href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" rel="noopener noreferrer">
+            <span class="clink__icon"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+            <span class="clink__text"><span class="clink__name">LinkedIn</span><span class="clink__val">in/felixmarcoalforque</span></span>
+            <span class="clink__chev" aria-hidden="true"><svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+          </a>
+          <div class="clink" style="pointer-events:none">
+            <span class="clink__icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <span class="clink__text"><span class="clink__name">Based in</span><span class="clink__val">Manila, Philippines</span></span>
           </div>
         </div>
-        <div class="web-info">
-          <div class="web-toprow">
-            <div><h3 class="web-name">This portfolio</h3><div class="web-type">Portfolio · Single-file build</div></div>
-            <span class="status-pill"><span class="sd"></span>Live</span>
-          </div>
-          <p class="web-desc">The site you're on right now — a hand-coded, single-file portfolio with custom animation, glass navigation, and a working contact pipeline. Consider it a live sample of the work.</p>
-          <div class="web-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>EmailJS</span></div>
-          <a href="#top" class="web-link">You're browsing it <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
+      </div>
 
-      <article class="web-card reveal reveal-d1">
-        <div class="web-shot">
-          <div class="web-browser" aria-hidden="true">
-            <div class="wb-bar"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><span class="wb-url">yourbusiness.com</span></div>
-            <div class="wb-body">
-              <div class="wb-nav"><span class="wb-logo"></span><span class="wb-menu"><i></i><i></i><i></i></span></div>
-              <div class="wb-h" style="width:60%"></div><div class="wb-h s"></div>
-              <div class="wb-cta" style="background:rgba(129,140,248,.85)"></div>
-              <div class="wb-cards"><i></i><i></i><i></i></div>
-            </div>
-          </div>
-        </div>
-        <div class="web-info">
-          <div class="web-toprow">
-            <div><h3 class="web-name">Business &amp; brand sites</h3><div class="web-type">Company · Services · Portfolio</div></div>
-          </div>
-          <p class="web-desc">Multi-page company and personal sites that build trust and turn visitors into inquiries — services, team, contact forms, maps, and SEO handled properly.</p>
-          <div class="web-tags"><span>Responsive</span><span>SEO-ready</span><span>Custom design</span></div>
-          <a href="#contact" class="web-link">Start yours <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
+      <form class="card form reveal reveal-d1" id="contactForm" novalidate>
+        <h3 class="form__title">Send a project brief</h3>
+        <p class="form__hint">Tell me what you're building and I'll come back with questions and a plan.</p>
 
-      <article class="web-card reveal">
-        <div class="web-shot">
-          <div class="web-browser" aria-hidden="true">
-            <div class="wb-bar"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><span class="wb-url">yourshop.com/checkout</span></div>
-            <div class="wb-body">
-              <div class="wb-nav"><span class="wb-logo"></span><span class="wb-menu"><i></i><i></i></span></div>
-              <div class="wb-h" style="width:52%"></div><div class="wb-h s" style="width:36%"></div>
-              <div class="wb-cta" style="background:rgba(52,211,153,.8)"></div>
-              <div class="wb-cards"><i></i><i></i><i></i></div>
-            </div>
-          </div>
-        </div>
-        <div class="web-info">
-          <div class="web-toprow">
-            <div><h3 class="web-name">Online shops</h3><div class="web-type">E-commerce · Storefront</div></div>
-          </div>
-          <p class="web-desc">Complete stores with catalog, cart, and the local payment options Filipino customers actually use — GCash, Maya, and cards — plus order and inventory tracking.</p>
-          <div class="web-tags"><span>Cart &amp; checkout</span><span>GCash · Maya</span><span>Mobile-first</span></div>
-          <a href="#contact" class="web-link">Start yours <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
-
-      <article class="web-card reveal reveal-d1">
-        <div class="web-shot">
-          <div class="web-browser" aria-hidden="true">
-            <div class="wb-bar"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i><span class="wb-url">launch.yourproduct.com</span></div>
-            <div class="wb-body">
-              <div class="wb-nav"><span class="wb-logo"></span><span class="wb-menu"><i></i></span></div>
-              <div class="wb-h" style="width:78%"></div><div class="wb-h s" style="width:56%"></div>
-              <div class="wb-cta" style="background:rgba(236,72,153,.8)"></div>
-              <div class="wb-cards"><i></i><i></i></div>
-            </div>
-          </div>
-        </div>
-        <div class="web-info">
-          <div class="web-toprow">
-            <div><h3 class="web-name">Landing pages</h3><div class="web-type">Launch · Campaign · Conversion</div></div>
-          </div>
-          <p class="web-desc">Single high-converting pages built around one goal — sign-ups, sales, or leads. Fast-loading, analytics-ready, and designed for paid-ad traffic.</p>
-          <div class="web-tags"><span>Conversion-focused</span><span>Fast load</span><span>Analytics-ready</span></div>
-          <a href="#contact" class="web-link">Start yours <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── 04 SYSTEMS & BUSINESS TOOLS ─────────────────── -->
-<section class="systems" id="systems">
-  <div class="sys-block">
-    <div class="section-head reveal">
-      <p class="eyebrow">// software built for operations</p>
-      <h2 class="section-title">Systems &amp; business <em>tools.</em></h2>
-      <p class="section-intro">Where the enterprise background shows. POS, ERP, and workflow platforms — software designed around how a business actually runs.</p>
-    </div>
-  </div>
-
-  <div class="sys-block">
-    <div class="sys-card reveal">
-      <div class="sys-mock"><div class="mock-pad">
-        <div class="pos-header"><span class="pos-title">POS Terminal</span><span class="pos-status">Live</span></div>
-        <div class="pos-order"><div class="pos-order-head">Current Order — Table 4</div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#818cf8"></span>Americano × 2</span><span class="pos-item-price">₱ 180</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#34d399"></span>Croissant × 1</span><span class="pos-item-price">₱ 95</span></div><div class="pos-item"><span class="pos-item-name"><span class="pos-dot" style="background:#f472b6"></span>Cheesecake × 1</span><span class="pos-item-price">₱ 145</span></div></div>
-        <div class="pos-total"><span class="pos-total-label">Total</span><span class="pos-total-val">₱ 420</span></div>
-        <div class="pos-methods"><div class="pos-method">GCash</div><div class="pos-method">Cash</div><div class="pos-method">Card</div><div class="pos-method">Maya</div></div>
-        <div class="pos-inventory"><div class="pos-inv-item">Inventory</div><div class="pos-inv-item">Reports</div><div class="pos-inv-item">Loyalty</div></div>
-      </div></div>
-      <div class="sys-info">
-        <div class="sys-num">System 01 — POS / Commerce</div>
-        <h3 class="sys-title">POS System</h3>
-        <p class="sys-tagline">Fast. Flexible. Scalable.</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><div><div class="feat-title">Multi-industry ready</div><div class="feat-desc">Retail, food service, logistics — one system adapts to any context.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="feat-title">Streamlined transactions</div><div class="feat-desc">Minimal-friction checkout — built for speed at the counter.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div><div class="feat-title">Modular system design</div><div class="feat-desc">Add inventory, loyalty, or reporting modules as the business scales.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sys-block">
-    <div class="sys-card flip reveal">
-      <div class="sys-info">
-        <div class="sys-num">System 02 — Business System</div>
-        <h3 class="sys-title">ERP &amp; Automation</h3>
-        <p class="sys-tagline">From process to system</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><div><div class="feat-title">End-to-end ERP coordination</div><div class="feat-desc">Finance, HR, and Logistics — integrated and connected.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div><div class="feat-title">Business-to-system translation</div><div class="feat-desc">Deep requirement analysis before a single line of code is written.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div><div class="feat-title">Workflow automation</div><div class="feat-desc">Eliminate manual work. Automate the repeatable, free humans for decisions.</div></div></div>
-        </div>
-      </div>
-      <div class="sys-mock"><div class="mock-pad">
-        <div class="erp-header">ERP Architecture</div>
-        <div class="erp-modules"><div class="erp-mod"><div class="erp-mod-icon">💼</div><div class="erp-mod-name">Sales</div></div><div class="erp-mod"><div class="erp-mod-icon">📦</div><div class="erp-mod-name">Inventory</div></div><div class="erp-mod"><div class="erp-mod-icon">💰</div><div class="erp-mod-name">Finance</div></div><div class="erp-mod"><div class="erp-mod-icon">👥</div><div class="erp-mod-name">HR</div></div><div class="erp-mod"><div class="erp-mod-icon">🚚</div><div class="erp-mod-name">Logistics</div></div><div class="erp-mod"><div class="erp-mod-icon">📊</div><div class="erp-mod-name">Reports</div></div></div>
-        <div class="erp-flow"><div class="erp-flow-title">Data Flow</div><div class="erp-flow-row"><div class="erp-node"><span class="erp-nd" style="background:#818cf8"></span>Sales</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#34d399"></span>Inventory</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#f472b6"></span>Finance</div></div><div class="erp-flow-row" style="margin-top:6px"><div class="erp-node"><span class="erp-nd" style="background:#fbbf24"></span>HR</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#60a5fa"></span>Payroll</div><span class="erp-arrow">→</span><div class="erp-node"><span class="erp-nd" style="background:#a78bfa"></span>Reports</div></div></div>
-        <div class="erp-automations"><div class="erp-auto-title">Automation Rules</div><div class="erp-auto-row"><span>Auto-reorder threshold</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span>Weekly report generation</span><span class="erp-auto-on">ON</span></div><div class="erp-auto-row"><span>Payroll calculation</span><span class="erp-auto-on">ON</span></div></div>
-      </div></div>
-    </div>
-  </div>
-
-  <div class="sys-block">
-    <div class="sys-card reveal">
-      <div class="sys-mock"><div class="mock-pad">
-        <div class="qr-flow"><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">✉️</div><div><div class="qr-flow-label">Registration</div><div class="qr-flow-sub">Email + QR stub sent</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-done"><div class="qr-flow-icon">📲</div><div><div class="qr-flow-label">Check-in Scan</div><div class="qr-flow-sub">9:02 AM logged</div></div><div class="qr-flow-check">✓</div></div><div class="qr-flow-step qr-flow-active"><div class="qr-flow-icon">📝</div><div><div class="qr-flow-label">Assessment</div><div class="qr-flow-sub">In progress…</div></div><div class="qr-flow-pulse"></div></div><div class="qr-flow-step qr-flow-pending"><div class="qr-flow-icon">🏅</div><div><div class="qr-flow-label">Certificate</div><div class="qr-flow-sub">Awaiting pass</div></div></div></div>
-        <div class="qr-score-card"><div class="qr-score-header"><span class="qr-score-title">TechCon 2025 — Assessment</span><span class="qr-score-badge">Live</span></div><div class="qr-score-bar-wrap"><div class="qr-score-bar-track"><span class="qr-score-bar-fill" style="width:72%"></span></div><span class="qr-score-pct">72%</span></div><div class="qr-score-meta">14 / 20 correct &nbsp;·&nbsp; Pass: 75%</div><div class="qr-score-actions"><div class="qr-score-btn">Retake</div><div class="qr-score-btn qr-score-cert-dim">Certificate 🔒</div></div></div>
-        <div class="qr-dash-row"><div class="qr-dash-stat"><div class="qr-dash-val">248</div><div class="qr-dash-lbl">Checked In</div></div><div class="qr-dash-stat"><div class="qr-dash-val">186</div><div class="qr-dash-lbl">Tested</div></div><div class="qr-dash-stat"><div class="qr-dash-val" style="color:#4ade80">142</div><div class="qr-dash-lbl">Certified</div></div></div>
-      </div></div>
-      <div class="sys-info">
-        <div class="sys-num">System 03 — Event Platform</div>
-        <h3 class="sys-title">Convention Event System</h3>
-        <p class="sys-tagline">Register. Scan. Learn. Certify.</p>
-        <div class="sys-features">
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div><div><div class="feat-title">Guest registration &amp; QR stub</div><div class="feat-desc">Guests sign up online and get an email with a unique QR stub — their digital ticket.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div><div><div class="feat-title">QR scan — check-in &amp; out</div><div class="feat-desc">On-site scanners fetch guest details instantly, logging arrival and departure live.</div></div></div>
-          <div class="feat"><div class="feat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/></svg></div><div><div class="feat-title">In-event assessment &amp; certs</div><div class="feat-desc">Guests test during the event — instant scoring, retakes on fail, auto-generated certificate on pass.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 05 SERVICES ─────────────────────────────────── -->
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">// what i build</p>
-      <h2 class="section-title">One developer, <em>full delivery.</em></h2>
-      <p class="section-intro">Design, code, data, and deployment handled by the same person — so nothing gets lost between the mockup and the launch.</p>
-    </div>
-    <div class="services-grid">
-      <div class="svc reveal">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3 class="svc-title">Web Development</h3>
-        <p class="svc-desc">Portfolios, business sites, and landing pages — custom-designed, fast-loading, and SEO-ready.</p>
-        <div class="svc-for">for: brands · SMEs · professionals</div>
-      </div>
-      <div class="svc reveal reveal-d1">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg></div>
-        <h3 class="svc-title">App &amp; PWA Development</h3>
-        <p class="svc-desc">Installable, cross-device web apps — like Micly and Fintra — that feel native on phone, tablet, and TV.</p>
-        <div class="svc-for">for: products · startups · ideas</div>
-      </div>
-      <div class="svc reveal reveal-d2">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div>
-        <h3 class="svc-title">E-commerce</h3>
-        <p class="svc-desc">Full storefronts with cart, checkout, and local payments — GCash, Maya, cards — plus order tracking.</p>
-        <div class="svc-for">for: sellers ready to go direct</div>
-      </div>
-      <div class="svc reveal">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <h3 class="svc-title">Custom Business Systems</h3>
-        <p class="svc-desc">POS, ERP modules, dashboards, and workflow automation — built on real enterprise experience.</p>
-        <div class="svc-for">for: operations outgrowing spreadsheets</div>
-      </div>
-      <div class="svc reveal reveal-d1">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h3 class="svc-title">UI Implementation</h3>
-        <p class="svc-desc">Turning designs into pixel-accurate, responsive, accessible interfaces — with the details intact.</p>
-        <div class="svc-for">for: teams with designs, needing code</div>
-      </div>
-      <div class="svc reveal reveal-d2">
-        <div class="svc-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3 class="svc-title">Deployment &amp; Care</h3>
-        <p class="svc-desc">Hosting setup, custom domains, SSL, and post-launch iteration — I stay close after shipping.</p>
-        <div class="svc-for">for: everything I build</div>
-      </div>
-    </div>
-    <div class="services-cta reveal">
-      <p>Not sure which one you need? Tell me what you're trying to do — I'll point you to the right fit, no pressure.</p>
-      <a href="#contact" class="btn-primary">Start a conversation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ── 06 ABOUT ────────────────────────────────────── -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo-col reveal">
-        <div class="about-photo-frame"><img src="felixmarco.png" alt="Felix Marco Alforque" loading="lazy" onerror="this.closest('.about-photo-frame').classList.add('noimg')"></div>
-        <div class="about-photo-meta">
-          <div class="about-photo-name">Felix Marco Alforque</div>
-          <div class="about-photo-role">Web &amp; App Developer</div>
-          <div class="about-photo-badge"><span class="d"></span>Manila, PH</div>
-        </div>
-      </div>
-      <div>
-        <p class="eyebrow reveal">// about</p>
-        <h2 class="about-lede reveal reveal-d1">I don't just design products — <em>I ship them.</em></h2>
-        <p class="about-body reveal reveal-d2">I'm <strong>Felix Marco Alforque</strong> — a web &amp; app developer based in Manila. I care about how software looks, and I can engineer what's underneath: the interface, the logic, the data, and the deployment. That's why my portfolio has working apps in it, not just screenshots.<br><br>Before building products, I spent years inside <strong>corporate ERP systems</strong> — finance, HR &amp; payroll, inventory, automation. That background shows up in everything I ship: apps and websites that are architected properly, not just styled to look nice.<br><br>If you have an idea, I can take it from the first UI sketch to a <strong>working, deployed application</strong>.</p>
-        <div class="about-facts reveal reveal-d3">
-          <div class="about-fact"><div class="v">3+</div><div class="l">Years building</div></div>
-          <div class="about-fact"><div class="v">12+</div><div class="l">Sites &amp; apps</div></div>
-          <div class="about-fact"><div class="v">100%</div><div class="l">Custom-built</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 07 TECH / CAPABILITIES ──────────────────────── -->
-<section class="stack" id="stack">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">// capabilities</p>
-      <h2 class="section-title">The stack behind <em>the work.</em></h2>
-    </div>
-    <div class="stack-grid">
-      <div class="stack-col reveal">
-        <h3>Frontend</h3>
-        <ul><li>HTML · CSS · JavaScript</li><li>Responsive &amp; mobile-first UI</li><li>PWA (installable, offline)</li><li>Animation &amp; micro-interactions</li></ul>
-      </div>
-      <div class="stack-col reveal reveal-d1">
-        <h3>App &amp; Data</h3>
-        <ul><li>Firebase (real-time sync)</li><li>MySQL / relational data</li><li>Local-first / offline storage</li><li>REST &amp; API integration</li></ul>
-      </div>
-      <div class="stack-col reveal reveal-d2">
-        <h3>Systems</h3>
-        <ul><li>ERP modules &amp; workflows</li><li>POS &amp; inventory logic</li><li>Reporting dashboards</li><li>Process automation</li></ul>
-      </div>
-      <div class="stack-col reveal reveal-d3">
-        <h3>Delivery</h3>
-        <ul><li>Web hosting &amp; deployment</li><li>Custom domains &amp; SSL</li><li>SEO &amp; performance</li><li>EmailJS &amp; form pipelines</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 08 PROCESS ──────────────────────────────────── -->
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">// process</p>
-      <h2 class="section-title">From idea to <em>deployed.</em></h2>
-    </div>
-    <div class="process-grid">
-      <div class="step reveal"><div class="step-n">01 · analyze</div><h3 class="step-t">Understand first</h3><p class="step-d">Deep discovery into your goals, users, and pain points. No assumptions — just honest, thorough analysis before anything is built.</p></div>
-      <div class="step reveal reveal-d1"><div class="step-n">02 · design</div><h3 class="step-t">Architecture, then interface</h3><p class="step-d">I map data flows, user journeys, and system logic — then design the experience on top of a structure that holds.</p></div>
-      <div class="step reveal reveal-d2"><div class="step-n">03 · ship</div><h3 class="step-t">Build, deploy, iterate</h3><p class="step-d">Build, test, deploy, and stay close. I don't hand off and disappear — I iterate until the product genuinely works.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 09 ENTERPRISE BACKGROUND ────────────────────── -->
-<section class="erp-sec" id="background">
-  <div class="wrap">
-    <div class="section-head reveal" style="max-width:760px">
-      <p class="eyebrow">// enterprise background</p>
-      <h2 class="section-title">Built on real <em>enterprise experience.</em></h2>
-      <p class="section-intro">Before products, I spent years inside corporate ERP systems — finance, HR &amp; payroll, inventory, and automation. That enterprise depth is why the apps and sites I build are architected properly, not just styled to look nice.</p>
-    </div>
-    <div class="card-tags reveal reveal-d1">
-      <span class="tag">Finance Modules</span>
-      <span class="tag">HR &amp; Payroll</span>
-      <span class="tag">Inventory &amp; Procurement</span>
-      <span class="tag">Workflow Automation</span>
-      <span class="tag">Reporting &amp; Dashboards</span>
-      <span class="tag">System Audits &amp; UX</span>
-    </div>
-    <div class="conf-box reveal">
-      <span class="conf-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>
-      <div>
-        <div class="conf-title">A note on confidentiality</div>
-        <p class="conf-text">My enterprise ERP work was performed on internal corporate systems under non-disclosure agreements, so client names and screenshots can't be shared publicly. Happy to discuss scope and my contributions during a private consultation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── 10 CONTACT ──────────────────────────────────── -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="section-head reveal" style="max-width:600px">
-      <p class="eyebrow">// contact</p>
-      <h2 class="section-title">Have something <em>worth building?</em></h2>
-      <p class="section-intro">A website, an app idea, or a system your business needs — tell me what you have in mind and I'll tell you how I'd build it.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card reveal">
-        <h3 class="contact-card-title">Reach out directly</h3>
-        <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" rel="noopener" class="clink">
-          <div class="clink-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-          <div><div class="clink-name">LinkedIn</div><div class="clink-val">/in/felixmarcoalforque</div></div>
-          <span class="chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
-        </a>
-        <a href="mailto:contact@felixmarcoalforque.it.com" class="clink">
-          <div class="clink-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><div class="clink-name">Email</div><div class="clink-val">contact@felixmarcoalforque.it.com</div></div>
-          <span class="chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
-        </a>
-        <div class="cloc">
-          <div class="cloc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="field field__row">
           <div>
-            <div class="cloc-lbl">Based in</div>
-            <div class="cloc-val">Manila, Philippines 🇵🇭</div>
-            <div class="cloc-sub">Open to remote &amp; local projects</div>
+            <label class="label" for="firstName">First name <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label>
+            <input class="input" id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Juan" required/>
+          </div>
+          <div>
+            <label class="label" for="lastName">Last name</label>
+            <input class="input" id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Dela Cruz"/>
           </div>
         </div>
-      </div>
-      <div class="contact-card reveal reveal-d1">
-        <h3 class="contact-card-title">Send a message</h3>
-        <div class="form-row-2">
-          <div class="fg"><label class="flabel" for="firstName">First name <span class="freq">*</span></label><input type="text" id="firstName" class="finput" placeholder="John" autocomplete="given-name"/></div>
-          <div class="fg"><label class="flabel" for="lastName">Last name</label><input type="text" id="lastName" class="finput" placeholder="Doe" autocomplete="family-name"/></div>
+
+        <div class="field">
+          <label class="label" for="emailAddr">Email <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label>
+          <input class="input" id="emailAddr" name="email" type="email" autocomplete="email" placeholder="you@company.com" required/>
         </div>
-        <div class="fg"><label class="flabel" for="emailAddr">Email address <span class="freq">*</span></label><input type="email" id="emailAddr" class="finput" placeholder="john@company.com" autocomplete="email"/></div>
-        <div class="fg"><label class="flabel" for="subject">Subject</label><input type="text" id="subject" class="finput" placeholder="App idea / website / business system…"/></div>
-        <div class="fg"><label class="flabel" for="message">Message <span class="freq">*</span></label><textarea id="message" class="finput ftextarea" rows="4" placeholder="Tell me about your project or challenge…"></textarea></div>
-        <button class="fsubmit" id="formSubmit">Send message</button>
-      </div>
+
+        <div class="field">
+          <label class="label" for="subject">Subject</label>
+          <input class="input" id="subject" name="subject" type="text" placeholder="Website · business system · ERP support"/>
+        </div>
+
+        <div class="field">
+          <label class="label" for="message">Message <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label>
+          <textarea class="input" id="message" name="message" rows="5" placeholder="What are you trying to build, and what's the deadline?" required></textarea>
+        </div>
+
+        <button class="btn btn--primary form__submit" id="formSubmit" type="submit">
+          <span class="form__submit-label">Send message</span>
+          <svg class="ico arr" aria-hidden="true"><use href="#i-arr"/></svg>
+        </button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
     </div>
   </div>
 </section>
 
-<div class="popup-overlay" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-  <div class="popup-box">
-    <div class="popup-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-    <h3 class="popup-title" id="popupTitle">Message sent</h3>
-    <p class="popup-text">Thanks for reaching out. I'll get back to you as soon as possible — usually within 24 hours.</p>
-    <button class="popup-close" id="popupClose">Got it</button>
-  </div>
-</div>
+</main>
 
-
-<!-- ── FELIX AI ASSISTANT ───────────────────────────── -->
-<button class="ai-launcher" id="aiLauncher" type="button" aria-expanded="false" aria-controls="aiPanel">
-  <span class="ai-orb"><svg class="ai-robot-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="4" y="6" width="16" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
-  <path d="M12 3v3M9 3h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-  <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
-  <circle cx="15" cy="12" r="1.2" fill="currentColor"/>
-  <path d="M8.5 16c1.8 1.2 5.2 1.2 7 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg></span><span class="ai-dot"></span>
-  <span>Ask Felix AI</span>
-</button>
-
-<aside class="ai-panel" id="aiPanel" aria-label="Felix AI assistant" aria-hidden="true">
-  <div class="ai-head">
-    <div class="ai-head-left">
-      <div class="ai-head-orb"><svg class="ai-robot-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="4" y="6" width="16" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
-  <path d="M12 3v3M9 3h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-  <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
-  <circle cx="15" cy="12" r="1.2" fill="currentColor"/>
-  <path d="M8.5 16c1.8 1.2 5.2 1.2 7 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-</svg></div>
-      <div>
-        <div class="ai-head-title">Felix AI</div>
-        <div class="ai-head-sub">professional portfolio · verified profile</div>
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top">
+          <span class="brand__mark"><svg class="ico" aria-hidden="true"><use href="#i-mark"/></svg></span>
+          <span>Felix Marco Alforque</span>
+        </a>
+        <p class="footer__role">ERP System Analyst · Web &amp; App Developer · Manila, Philippines</p>
+        <div class="footer__socials">
+          <a class="footer__social" href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" rel="noopener noreferrer" aria-label="Felix on LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a class="footer__social" href="mailto:contact@felixmarcoalforque.it.com" aria-label="Email Felix"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+        </div>
       </div>
-    </div>
-    <button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button>
-  </div>
-  <div class="ai-scope"><b>Scope:</b> I answer questions about Felix’s professional work, skills, projects, career, and services.</div>
-  <div class="ai-messages" id="aiMessages" aria-live="polite">
-    <div class="ai-msg bot">Hi! I’m Felix AI. Ask me about Felix’s projects, web development skills, systems experience, services, or portfolio.</div>
-  </div>
-  <div class="ai-quick" aria-label="Suggested questions">
-    <button type="button" data-q="What does Felix build?">What does he build?</button>
-    <button type="button" data-q="What are Felix's skills?">Skills</button>
-    <button type="button" data-q="Tell me about Felix's projects.">Projects</button>
-    <button type="button" data-q="How can I hire Felix?">Hire Felix</button>
-  </div>
-  <form class="ai-form" id="aiForm">
-    <label for="aiInput" style="position:absolute;left:-9999px">Ask Felix AI</label>
-    <input class="ai-input" id="aiInput" autocomplete="off" placeholder="Ask something about Felix…" />
-    <button class="ai-send" type="submit" aria-label="Send question">→</button>
-  </form>
-  <div class="ai-foot">Profile-only assistant · No general-purpose answers</div>
-</aside>
 
-
-<footer>
-  <div class="foot-inner">
-    <div>
-      <div class="foot-logo">Felix Marco Alforque</div>
-      <div class="foot-copy">© 2026 · web &amp; app developer · manila, ph · <span style="color:var(--live)">production ✓</span></div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#services">Services</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="foot-links">
-      <a href="mailto:contact@felixmarcoalforque.it.com" class="foot-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
-      <a href="https://www.linkedin.com/in/felixmarcoalforque/" target="_blank" rel="noopener" class="foot-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
-      <a href="#top" class="foot-up">Back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></a>
+
+    <div class="footer__bottom">
+      <p>© 2026 Felix Marco Alforque. All rights reserved.</p>
+      <a class="footer__up" href="#top">Back to top <svg class="ico" aria-hidden="true"><use href="#i-up"/></svg></a>
     </div>
   </div>
 </footer>
 
-<style>
+<!-- ==========================================================================
+     CONFIRMATION
+     ========================================================================== -->
+<div class="modal" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
+  <div class="modal__box">
+    <span class="modal__icon"><svg class="ico" style="width:24px;height:24px" aria-hidden="true"><use href="#i-check"/></svg></span>
+    <h3 id="popupTitle">Message sent</h3>
+    <p>Thanks for reaching out. Your brief landed in my inbox and I'll reply as soon as I can.</p>
+    <button class="btn btn--primary" type="button" id="popupClose">Close</button>
+  </div>
+</div>
 
-/* ============================================================
-   10 · FELIX AI ASSISTANT
-   ============================================================ */
-.ai-launcher{
-  position:fixed;right:24px;bottom:24px;z-index:250;
-  display:flex;align-items:center;gap:10px;padding:11px 15px 11px 11px;
-  border:1px solid rgba(255,255,255,.12);border-radius:999px;
-  background:rgba(12,14,22,.88);color:var(--ink);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  box-shadow:0 18px 50px rgba(0,0,0,.42),0 0 0 1px rgba(129,140,248,.05) inset;
-  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.03em;
-  transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;
-}
-.ai-launcher:hover{transform:translateY(-3px);border-color:rgba(129,140,248,.4);box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 28px rgba(129,140,248,.12)}
-.ai-launcher .ai-orb{
-  color:#fff !important;
-  background:#000 !important;
-  border:1px solid rgba(255,255,255,.22);
-  width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
-  background:#000;
-  color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;
-  box-shadow:0 0 22px rgba(129,140,248,.35);
-}
+<!-- ==========================================================================
+     FELIX AI
+     ========================================================================== -->
+<button class="ai-launcher" id="aiLauncher" type="button" aria-expanded="false" aria-controls="aiPanel">
+  <span class="ai-launcher__orb"><svg class="ai-robot-icon" aria-hidden="true"><use href="#i-robot"/></svg></span>
+  <span class="ai-launcher__label">Ask<br>Felix AI</span>
+  <span class="ai-launcher__dot" aria-hidden="true"></span>
+</button>
 
-.ai-robot-icon{width:19px;height:19px;display:block}
-.ai-head-orb .ai-robot-icon{width:20px;height:20px}
-.ai-launcher .ai-dot{
-  position:absolute;left:36px;top:10px;width:6px;height:6px;border-radius:50%;
-  background:var(--live);box-shadow:0 0 8px var(--live);
-}
-.ai-panel{
-  position:fixed;right:24px;bottom:86px;z-index:249;width:min(390px,calc(100vw - 32px));
-  max-height:min(620px,calc(100vh - 120px));display:flex;flex-direction:column;
-  border:1px solid var(--line);border-radius:22px;overflow:hidden;
-  background:rgba(9,11,18,.96);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-  box-shadow:0 30px 90px rgba(0,0,0,.62),0 0 0 1px rgba(255,255,255,.025) inset;
-  opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;
-  transition:opacity .25s var(--ease),transform .25s var(--ease);
-}
-.ai-panel.open{opacity:1;transform:none;pointer-events:auto}
-.ai-head{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:15px 16px;border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.018);
-}
-.ai-head-left{display:flex;align-items:center;gap:10px}
-.ai-head-orb{
-  color:#fff !important;
-  background:#000 !important;
-  border:1px solid rgba(255,255,255,.22);
-  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
-  background:#000;color:#fff;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;
-}
-.ai-head-title{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:600}
-.ai-head-sub{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--faint);margin-top:2px}
-.ai-close{
-  width:30px;height:30px;border:1px solid var(--line-soft);border-radius:9px;
-  color:var(--muted);display:grid;place-items:center;font-size:1rem;
-}
-.ai-close:hover{color:var(--ink);background:var(--glass)}
-.ai-scope{
-  margin:12px 14px 0;padding:9px 11px;border:1px solid rgba(52,211,153,.16);
-  border-radius:11px;background:rgba(52,211,153,.045);font-size:.68rem;color:var(--muted);
-}
-.ai-scope b{color:var(--ink-soft);font-weight:600}
-.ai-messages{
-  flex:1;min-height:210px;max-height:350px;overflow:auto;padding:14px;
-  display:flex;flex-direction:column;gap:10px;
-}
-.ai-msg{max-width:88%;padding:10px 12px;border-radius:13px;font-size:.78rem;line-height:1.65}
-.ai-msg.bot{align-self:flex-start;color:var(--ink-soft);background:rgba(255,255,255,.045);border:1px solid var(--line-soft);border-bottom-left-radius:4px}
-.ai-msg.user{align-self:flex-end;color:#fff;background:linear-gradient(135deg,rgba(99,102,241,.9),rgba(139,92,246,.9));border-bottom-right-radius:4px}
-.ai-typing{display:inline-flex;gap:4px;align-items:center}
-.ai-typing i{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5;animation:aiDot 1s infinite}
-.ai-typing i:nth-child(2){animation-delay:.15s}.ai-typing i:nth-child(3){animation-delay:.3s}
-@keyframes aiDot{50%{opacity:1;transform:translateY(-2px)}}
-.ai-quick{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 12px}
-.ai-quick button{
-  font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);
-  padding:7px 9px;border:1px solid var(--line-soft);border-radius:8px;background:var(--glass);
-}
-.ai-quick button:hover{color:var(--ink);border-color:rgba(129,140,248,.35)}
-.ai-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line-soft);background:rgba(0,0,0,.15)}
-.ai-input{
-  flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line-soft);border-radius:11px;
-  background:rgba(255,255,255,.035);color:var(--ink);font:400 .76rem 'Inter',sans-serif;outline:none;
-}
-.ai-input:focus{border-color:rgba(129,140,248,.5);box-shadow:0 0 0 3px rgba(129,140,248,.08)}
-.ai-input::placeholder{color:var(--faint)}
-.ai-send{
-  width:40px;border-radius:11px;background:var(--ink);color:#0a0a12;
-  display:grid;place-items:center;font-weight:700;transition:transform .2s var(--ease);
-}
-.ai-send:hover{transform:translateY(-1px)}
-.ai-foot{
-  padding:0 14px 11px;font-family:'JetBrains Mono',monospace;font-size:.5rem;
-  color:var(--faint);text-align:center;
-}
-@media(max-width:600px){
-  .ai-launcher{right:16px;bottom:16px}
-  .ai-panel{right:16px;bottom:76px;width:calc(100vw - 32px)}
-  .ai-messages{max-height:42vh}
-}
+<section class="ai-panel" id="aiPanel" role="dialog" aria-modal="false" aria-labelledby="aiTitle" hidden>
+  <header class="ai-panel__head">
+    <span class="ai-panel__orb"><svg class="ai-robot-icon" aria-hidden="true"><use href="#i-robot"/></svg></span>
+    <div>
+      <p class="ai-panel__title" id="aiTitle">Felix AI</p>
+      <p class="ai-panel__sub">Portfolio assistant</p>
+    </div>
+    <button class="ai-panel__close" id="aiClose" type="button" aria-label="Close Felix AI">
+      <svg class="ico" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </header>
 
+  <p class="ai-scope"><b>Scope:</b> Felix's work, skills, projects, experience, education and availability only. It won't answer general questions.</p>
 
-/* --- Felix AI: backend-driven states + markdown --- */
-.ai-msg.bot p{margin:0 0 8px}
-.ai-msg.bot p:last-child{margin-bottom:0}
-.ai-msg.bot ul,.ai-msg.bot ol{margin:6px 0 8px;padding-left:17px;display:flex;flex-direction:column;gap:4px}
-.ai-msg.bot ul{list-style:disc}
-.ai-msg.bot ol{list-style:decimal}
-.ai-msg.bot li{padding-left:2px}
-.ai-msg.bot strong{color:var(--ink);font-weight:600}
-.ai-msg.bot em{font-style:italic;color:var(--ink-soft)}
-.ai-msg.bot code{
-  font-family:'JetBrains Mono',monospace;font-size:.72em;padding:1px 5px;border-radius:5px;
-  background:rgba(255,255,255,.07);border:1px solid var(--line-soft);color:var(--ink)
-}
-.ai-msg.bot a{color:#a5b4fc;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
-.ai-msg.bot a:hover{color:#c7d2fe}
-.ai-msg.bot.scope{border-color:rgba(129,140,248,.22);background:rgba(129,140,248,.055)}
-.ai-msg.bot.notice{border-color:rgba(251,191,36,.24);background:rgba(251,191,36,.05);color:var(--muted)}
-.ai-thinking{display:flex;align-items:center;gap:8px}
-.ai-thinking-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--faint);letter-spacing:.02em}
-.ai-form.is-busy{opacity:.6}
-.ai-input:disabled,.ai-send:disabled{cursor:not-allowed}
-.ai-send:disabled:hover{transform:none}
-.ai-quick button:disabled{opacity:.45;cursor:not-allowed}
+  <div class="ai-messages" id="aiMessages" role="log" aria-live="polite" aria-label="Conversation with Felix AI"></div>
 
-</style>
+  <div class="ai-quick">
+    <button type="button" data-q="What ERP experience does Felix have?">ERP experience</button>
+    <button type="button" data-q="What technologies does Felix work with?">Tech stack</button>
+    <button type="button" data-q="Tell me about the Fintra project.">Fintra</button>
+    <button type="button" data-q="Is Felix open to freelance work?">Availability</button>
+  </div>
 
-<script>
-/* EmailJS — preserved */
-(function(){ emailjs.init('clYt3hnTwhHOCCeVq'); })();
+  <form class="ai-form" id="aiForm">
+    <label class="sr-only" for="aiInput">Ask about Felix</label>
+    <input class="ai-input" id="aiInput" type="text" maxlength="500" autocomplete="off"
+           placeholder="Ask about Felix's work…"/>
+    <button class="ai-send" type="submit" aria-label="Send question">
+      <svg class="ico" aria-hidden="true"><use href="#i-send"/></svg>
+    </button>
+  </form>
 
-var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <p class="ai-foot">Answers come only from Felix's verified knowledge base.</p>
+</section>
 
-/* Nav scroll state */
-var nav = document.getElementById('nav');
-window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 10); }, { passive:true });
-
-/* Mobile menu */
-var burger = document.getElementById('burger');
-var mobMenu = document.getElementById('mobMenu');
-burger.addEventListener('click', function(){
-  var open = mobMenu.classList.toggle('open');
-  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
-mobMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobMenu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }); });
-
-/* Section reveal */
-var revealObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); revealObs.unobserve(e.target); } });
-}, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
-
-/* Active nav highlight */
-var navAnchors = document.querySelectorAll('#navLinks a');
-var sectionIds = ['apps','websites','systems','about','services'];
-var secObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      navAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
-    }
-  });
-}, { rootMargin:'-40% 0px -55% 0px' });
-sectionIds.forEach(function(id){ var el = document.getElementById(id); if(el) secObs.observe(el); });
-
-/* Hero terminal typing */
-(function(){
-  var typeEl = document.getElementById('termType');
-  var outEl = document.getElementById('termOut');
-  if(!typeEl) return;
-  if(reduceMotion){
-    typeEl.textContent = 'npm run build && deploy';
-    outEl.innerHTML = '<span class="tm-ok">✓ deployed to production</span>';
-    return;
-  }
-  var steps = [
-    { cmd:'npm run build', out:'<span class="tm-ok">✓ build complete</span> <span style="color:var(--faint)">· 0 errors</span>' },
-    { cmd:'deploy --prod', out:'<span class="tm-ok">✓ deployed to production</span> <span style="color:var(--faint)">· live</span>' },
-    { cmd:'git push origin main', out:'<span style="color:var(--muted)">main → main</span> <span class="tm-ok">✓</span>' }
-  ];
-  var si = 0;
-  function typeStep(){
-    var step = steps[si % steps.length]; si++;
-    var i = 0; typeEl.textContent = ''; outEl.innerHTML = '';
-    var t = setInterval(function(){
-      typeEl.textContent = step.cmd.slice(0, ++i);
-      if(i >= step.cmd.length){
-        clearInterval(t);
-        setTimeout(function(){ outEl.innerHTML = step.out; setTimeout(typeStep, 3400); }, 550);
-      }
-    }, 65);
-  }
-  var wsObs = new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting){ typeStep(); wsObs.disconnect(); }
-  }, { threshold:0.3 });
-  wsObs.observe(typeEl.closest('.ws'));
-})();
-
-/* Hero cursor glow — desktop pointers only */
-(function(){
-  var glow = document.getElementById('heroGlow');
-  var hero = document.querySelector('.hero');
-  if(!glow || reduceMotion || !window.matchMedia('(pointer:fine)').matches) return;
-  hero.addEventListener('mousemove', function(e){
-    var r = hero.getBoundingClientRect();
-    glow.style.left = (e.clientX - r.left) + 'px';
-    glow.style.top = (e.clientY - r.top) + 'px';
-    glow.style.opacity = '1';
-  });
-  hero.addEventListener('mouseleave', function(){ glow.style.opacity = '0'; });
-})();
-
-/* Popup */
-function showPopup(){ document.getElementById('popup').classList.add('show'); }
-function hidePopup(){ document.getElementById('popup').classList.remove('show'); }
-document.getElementById('popupClose').addEventListener('click', hidePopup);
-document.getElementById('popup').addEventListener('click', function(e){ if(e.target===this) hidePopup(); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape') hidePopup(); });
-
-/* Contact form — EmailJS pipeline preserved */
-document.getElementById('formSubmit').addEventListener('click', function(){
-  var btn=this;
-  var firstName=document.getElementById('firstName').value.trim();
-  var lastName=document.getElementById('lastName').value.trim();
-  var email=document.getElementById('emailAddr').value.trim();
-  var subject=document.getElementById('subject').value.trim();
-  var message=document.getElementById('message').value.trim();
-  if(!firstName||!email||!message){
-    btn.textContent='Please fill required fields'; btn.style.background='#dc2626'; btn.style.color='#fff';
-    setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; btn.style.color=''; },3000); return;
-  }
-  btn.textContent='Sending…'; btn.disabled=true;
-  var now=new Date().toLocaleString('en-US',{year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'});
-  var templateParams={ from_name:firstName+(lastName?' '+lastName:''), email:email, subject:subject||'Portfolio Inquiry', message:message, time:now };
-  emailjs.send('service_idfylpd','template_mwj260i',templateParams)
-    .then(function(){
-      btn.textContent='Message sent'; btn.style.background='#16a34a'; btn.style.color='#fff'; btn.disabled=false;
-      ['firstName','lastName','emailAddr','subject','message'].forEach(function(id){ document.getElementById(id).value=''; });
-      showPopup();
-      setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; btn.style.color=''; },4000);
-    })
-    .catch(function(err){
-      console.error('EmailJS error:', JSON.stringify(err));
-      btn.textContent='Failed — try again'; btn.style.background='#dc2626'; btn.style.color='#fff'; btn.disabled=false;
-      setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; btn.style.color=''; },4000);
-    });
-});
-
-/* Felix AI — profile-only assistant.
-   The browser never sees an API key: every question goes to the backend
-   endpoint below, which holds OPENAI_API_KEY server-side and enforces the
-   profile-only scope rules before and after the model call. */
-(function(){
-  /* ---------- configuration ---------- */
-  var AI_ENDPOINT     = '/api/felix-ai';  /* Vercel serverless function */
-  var REQUEST_TIMEOUT = 30000;                /* ms */
-  var MAX_CHARS       = 500;
-  var MAX_HISTORY     = 8;                    /* 4 exchanges of context */
-
-  var launcher = document.getElementById('aiLauncher');
-  var panel    = document.getElementById('aiPanel');
-  var closeBtn = document.getElementById('aiClose');
-  var form     = document.getElementById('aiForm');
-  var input    = document.getElementById('aiInput');
-  var sendBtn  = form ? form.querySelector('.ai-send') : null;
-  var messages = document.getElementById('aiMessages');
-  if(!launcher || !panel || !form || !input || !messages) return;
-
-  var slow    = (typeof reduceMotion !== 'undefined' && reduceMotion) ? true : false;
-  var history = [];   /* session only — cleared on page unload, never stored */
-  var busy    = false;
-
-  /* ---------- rendering ---------- */
-
-  function escapeHtml(s){
-    return String(s)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  function anchor(href, label){
-    return '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
-  }
-
-  /* Minimal, escape-first markdown: bold, italic, code, links, lists. */
-  function inlineMd(line){
-    var slots = [];
-    var out = escapeHtml(line);
-
-    /* [label](url) -> placeholder so later passes can't touch the markup */
-    out = out.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function(_, label, url){
-      slots.push(anchor(url, label));
-      return '\u0000' + (slots.length - 1) + '\u0000';
-    });
-
-    /* bare URLs */
-    out = out.replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)])/g, function(url){
-      slots.push(anchor(url, url));
-      return '\u0000' + (slots.length - 1) + '\u0000';
-    });
-
-    out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
-    out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    out = out.replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>');
-    out = out.replace(/(^|[\s(])_([^_\n]+)_/g, '$1<em>$2</em>');
-
-    return out.replace(/\u0000(\d+)\u0000/g, function(_, i){ return slots[i]; });
-  }
-
-  function renderMarkdown(text){
-    var lines = String(text).replace(/\r/g,'').split('\n');
-    var html = '', list = null, para = [];
-
-    function flushPara(){
-      if(para.length){ html += '<p>' + para.join('<br>') + '</p>'; para = []; }
-    }
-    function flushList(){
-      if(list){ html += '<' + list.tag + '>' + list.items.join('') + '</' + list.tag + '>'; list = null; }
-    }
-
-    lines.forEach(function(raw){
-      var line = raw.replace(/\s+$/,'');
-      var bullet = line.match(/^\s*[-•*]\s+(.*)$/);
-      var number = line.match(/^\s*\d+[.)]\s+(.*)$/);
-
-      if(bullet){
-        flushPara();
-        if(!list || list.tag !== 'ul'){ flushList(); list = { tag:'ul', items:[] }; }
-        list.items.push('<li>' + inlineMd(bullet[1]) + '</li>');
-      } else if(number){
-        flushPara();
-        if(!list || list.tag !== 'ol'){ flushList(); list = { tag:'ol', items:[] }; }
-        list.items.push('<li>' + inlineMd(number[1]) + '</li>');
-      } else if(line.trim() === ''){
-        flushList(); flushPara();
-      } else {
-        flushList();
-        para.push(inlineMd(line));
-      }
-    });
-
-    flushList(); flushPara();
-    return html || '<p>' + inlineMd(text) + '</p>';
-  }
-
-  function scrollToEnd(){
-    try{
-      messages.scrollTo({ top: messages.scrollHeight, behavior: slow ? 'auto' : 'smooth' });
-    }catch(e){
-      messages.scrollTop = messages.scrollHeight;
-    }
-  }
-
-  function addUser(text){
-    var el = document.createElement('div');
-    el.className = 'ai-msg user';
-    el.textContent = text;
-    messages.appendChild(el);
-    scrollToEnd();
-  }
-
-  function addBot(text, variant){
-    var el = document.createElement('div');
-    el.className = 'ai-msg bot' + (variant ? ' ' + variant : '');
-    el.innerHTML = renderMarkdown(text);
-    messages.appendChild(el);
-    scrollToEnd();
-    return el;
-  }
-
-  function addThinking(){
-    var el = document.createElement('div');
-    el.className = 'ai-msg bot ai-thinking';
-    el.innerHTML = '<span class="ai-typing"><i></i><i></i><i></i></span><span class="ai-thinking-label">Thinking…</span>';
-    messages.appendChild(el);
-    scrollToEnd();
-    return el;
-  }
-
-  function setBusy(state){
-    busy = state;
-    input.disabled = state;
-    if(sendBtn) sendBtn.disabled = state;
-    panel.querySelectorAll('.ai-quick button').forEach(function(b){ b.disabled = state; });
-    form.classList.toggle('is-busy', state);
-  }
-
-  /* ---------- backend call ---------- */
-
-  function requestAnswer(question){
-    var controller = ('AbortController' in window) ? new AbortController() : null;
-    var timer = window.setTimeout(function(){ if(controller) controller.abort(); }, REQUEST_TIMEOUT);
-
-    return fetch(AI_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: question, history: history.slice(-MAX_HISTORY) }),
-      signal: controller ? controller.signal : undefined
-    }).then(function(res){
-      return res.json().catch(function(){ return {}; }).then(function(data){
-        return { status: res.status, data: data };
-      });
-    }).finally(function(){ window.clearTimeout(timer); });
-  }
-
-  function ask(question){
-    if(busy) return;
-
-    var q = question.trim();
-    if(!q) return;
-    if(q.length > MAX_CHARS){
-      addUser(q.slice(0, MAX_CHARS) + '…');
-      addBot('That question is too long. Keep it under ' + MAX_CHARS + ' characters.', 'notice');
-      return;
-    }
-
-    addUser(q);
-    setBusy(true);
-    var thinking = addThinking();
-
-    if(!navigator.onLine){
-      thinking.remove();
-      setBusy(false);
-      addBot('You appear to be offline. Reconnect and ask again.', 'notice');
-      return;
-    }
-
-    requestAnswer(q).then(function(result){
-      thinking.remove();
-      var data = result.data || {};
-      var answer = typeof data.answer === 'string' ? data.answer : '';
-
-      if(result.status === 404 || result.status === 405){
-        addBot('Felix AI is not connected yet. The assistant endpoint at `' + AI_ENDPOINT + '` is not responding. Meanwhile you can reach Felix through the contact form on this site.', 'notice');
-        return;
-      }
-
-      if(!answer){
-        addBot('Felix AI is temporarily unavailable. Please use the contact form on this site to reach Felix directly.', 'notice');
-        return;
-      }
-
-      var variant = (data.allowed === false) ? 'scope' : '';
-      addBot(answer, variant);
-
-      /* Only in-scope exchanges become context, so pronouns like "there"
-         always resolve against a real answer. */
-      if(data.allowed !== false){
-        history.push({ role:'user', content:q });
-        history.push({ role:'assistant', content:answer });
-        if(history.length > MAX_HISTORY) history = history.slice(-MAX_HISTORY);
-      }
-    }).catch(function(err){
-      thinking.remove();
-      if(err && err.name === 'AbortError'){
-        addBot('Felix AI took too long to respond. Ask again in a moment.', 'notice');
-      } else {
-        addBot('Felix AI cannot be reached right now. Ask again shortly, or use the contact form on this site.', 'notice');
-      }
-    }).finally(function(){
-      setBusy(false);
-      if(panel.classList.contains('open')) input.focus();
-    });
-  }
-
-  /* ---------- panel controls ---------- */
-
-  function openAI(){
-    panel.classList.add('open');
-    panel.setAttribute('aria-hidden','false');
-    launcher.setAttribute('aria-expanded','true');
-    window.setTimeout(function(){ input.focus(); }, 120);
-  }
-  function closeAI(){
-    panel.classList.remove('open');
-    panel.setAttribute('aria-hidden','true');
-    launcher.setAttribute('aria-expanded','false');
-  }
-
-  launcher.addEventListener('click', function(){
-    panel.classList.contains('open') ? closeAI() : openAI();
-  });
-  if(closeBtn) closeBtn.addEventListener('click', closeAI);
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && panel.classList.contains('open')) closeAI();
-  });
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var q = input.value;
-    input.value = '';
-    ask(q);
-  });
-
-  panel.querySelectorAll('.ai-quick button').forEach(function(btn){
-    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-q') || ''); });
-  });
-})();
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
+<script src="assets/js/felix-ai.js" defer></script>
 </body>
 </html>

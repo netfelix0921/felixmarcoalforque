@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# the knowledge base powers Felix AI server-side; it is not a page
+Disallow: /data/
+Disallow: /api/
+
+Sitemap: https://felixmarcoalforque.it.com/sitemap.xml
