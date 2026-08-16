@@ -1,0 +1,359 @@
+/* ==========================================================================
+   responsive.css — intentional layouts, not a scaled-down desktop
+   Breakpoints: 1441+ · 1200 · 1024 · 900 · 768 · 560 · 420 · 380 · 360
+   ========================================================================== */
+
+/* interface previews scale to their card, not the viewport */
+.pcard__shot { container-type: inline-size; }
+@supports (font-size: 1cqw) {
+  .shot { font-size: clamp(9px, 3.4cqw, 15px); }
+}
+
+/* on touch there is no hover, so the tech tooltip would either never show
+   or show clipped at the viewport edge — drop it and keep the label list */
+@media (hover: none) {
+  .tech__item::after { display: none; }
+}
+
+/* ==========================================================================
+   ≥ 1441px — large desktop: more air, wider measure
+   ========================================================================== */
+
+@media (min-width: 1441px) {
+  :root { --wrap: 1280px; --gutter: 48px; }
+
+  .hero { padding-top: calc(var(--nav-h) + 92px); }
+  .hero__copy { max-width: 640px; }
+  .hero__photo { width: clamp(600px, 54%, 1120px); }
+  .hero__sub { font-size: 1.125rem; }
+
+  .work__layout { grid-template-columns: minmax(250px, .9fr) repeat(3, minmax(0, 1fr)); }
+}
+
+/* ==========================================================================
+   ≤ 1200px — narrow desktop / small laptop
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  :root { --gutter: 32px; }
+
+  /* the work intro sits above a full-width row of cards */
+  .work__layout { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .work__intro {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 20px 32px;
+    padding-right: 0;
+    margin-bottom: 6px;
+  }
+  .work__intro .eyebrow { grid-column: 1 / -1; margin-bottom: 0; }
+  .work__intro h2 { margin-bottom: 12px; }
+  .work__intro .lede { margin-bottom: 0; max-width: 52ch; }
+  .work__intro .btn { justify-self: end; }
+
+  .svc__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .stat { gap: 12px; }
+}
+
+/* ==========================================================================
+   ≤ 1024px — tablet landscape: burger nav, hero photo enters the flow
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .nav__links { display: none; }
+  .burger { display: grid; }
+
+  /* ---- hero becomes a stacked, centred composition ---- */
+  .hero {
+    padding-top: calc(var(--nav-h) + 44px);
+    padding-bottom: clamp(72px, 8vw, 96px);
+    text-align: center;
+  }
+  .hero__copy { max-width: 640px; margin-inline: auto; }
+  .hero__sub { margin-inline: auto; }
+  .hero__actions { justify-content: center; }
+  .hero__light {
+    background:
+      radial-gradient(circle at 50% 62%, rgba(70, 80, 255, .2), transparent 46%),
+      radial-gradient(ellipse 70% 40% at 50% 12%, rgba(139, 92, 246, .14), transparent 66%);
+  }
+  .hero__floor { height: 26%; }
+
+  /* photo drops below the CTAs, exactly as specified for mobile order */
+  .hero__photo {
+    position: relative;
+    inset: auto;
+    width: min(430px, 82%);
+    margin: 4px auto clamp(30px, 5vw, 44px);
+    aspect-ratio: 4 / 5;
+  }
+  .hero__photo img {
+    height: 100%;
+    object-position: 50% 10%;
+    -webkit-mask-image:
+      linear-gradient(to bottom, transparent 0%, #000 11%, #000 60%, transparent 99%),
+      linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
+    mask-image:
+      linear-gradient(to bottom, transparent 0%, #000 11%, #000 60%, transparent 99%),
+      linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  /* the photo is in the flow now, so the strip can use the full measure */
+  .tech { max-width: none; }
+  .tech__label { text-align: center; }
+  .tech__row { justify-content: center; }
+
+  /* ---- content ---- */
+  .about__layout { grid-template-columns: minmax(0, 1fr); gap: clamp(30px, 5vw, 44px); }
+  .about__figure { max-width: 400px; }
+
+  .skills__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .tl-item__list { grid-template-columns: minmax(0, 1fr); }
+
+  .footer__top { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .footer__nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  /* ---- Felix AI becomes a corner button ---- */
+  .ai-launcher {
+    top: auto;
+    bottom: 20px;
+    right: 18px;
+    transform: none;
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    border-radius: 50%;
+    place-items: center;
+  }
+  .ai-launcher:hover { transform: scale(1.05); }
+  .ai-launcher__orb { width: 100%; height: 100%; border: 0; background: none; }
+  .ai-launcher__orb svg { width: 24px; height: 24px; }
+  .ai-launcher__label {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  .ai-launcher__dot { top: 6px; right: 6px; }
+}
+
+/* ==========================================================================
+   ≤ 900px — tablet portrait
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  /* stats reflow to a 2 × 2 plate with its own dividers */
+  .stats { margin-top: -34px; }
+  .stats__card { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+  .stat { padding: 15px clamp(12px, 2.6vw, 20px); }
+  .stat + .stat::before { display: none; }
+  .stat:nth-child(2n)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; top: 16%; bottom: 16%;
+    width: 1px; height: auto;
+    transform: none;
+    background: linear-gradient(to bottom, transparent, var(--line-2), transparent);
+  }
+  .stat:nth-child(n + 3)::after {
+    content: '';
+    position: absolute;
+    left: 6%; right: 6%; top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line-2), transparent);
+  }
+
+  .work__layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work__more { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .svc__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .contact__layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .contact__cta { max-width: 640px; }
+}
+
+/* ==========================================================================
+   ≤ 768px — large phone / small tablet
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root { --gutter: 24px; --nav-h: 66px; }
+
+  .nav__cta { display: none; }
+
+  .section { padding-block: clamp(60px, 11vw, 84px); }
+  .section-head { margin-bottom: 32px; }
+
+  /* one project per row so the interface previews read properly */
+  .work__layout,
+  .work__more { grid-template-columns: minmax(0, 1fr); }
+  .work__intro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    margin-bottom: 4px;
+  }
+  .work__intro .btn { justify-self: start; }
+  .pcard__shot { aspect-ratio: 16 / 11; }
+
+  .about__figure { max-width: 100%; }
+  .about__pillars { gap: 10px; }
+  .about__body { font-size: .9688rem; }
+
+  .edu__grid { grid-template-columns: minmax(0, 1fr); }
+
+  .timeline { padding-left: 26px; }
+  .tl-item__dot { left: -26px; }
+
+  .svc__note { padding: 20px; }
+  .svc__note .btn { width: 100%; }
+
+  .footer__nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+
+  /* AI panel takes the full width it needs on a phone */
+  .ai-panel {
+    right: 12px; left: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: min(78vh, 620px);
+  }
+}
+
+/* ==========================================================================
+   ≤ 560px — phone: services become a compact list
+   ========================================================================== */
+
+@media (max-width: 560px) {
+  .skills__grid { grid-template-columns: minmax(0, 1fr); }
+  .skillcard--wide { grid-column: auto; }
+
+  /* deliberately different shape on mobile: icon-left rows, not tiles */
+  .svc__grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .svc {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+    padding: 15px 16px;
+  }
+  .svc:hover { transform: none; }
+  .svc__icon { margin-bottom: 0; width: 34px; height: 34px; }
+  .svc__desc { margin-top: 4px; }
+
+  .about__pillars { grid-template-columns: minmax(0, 1fr); }
+
+  .clink__val { font-size: .875rem; }
+
+  .modal__box { padding: 28px 22px 24px; }
+}
+
+/* ==========================================================================
+   ≤ 420px — standard phone (390 / 393 / 414)
+   ========================================================================== */
+
+@media (max-width: 420px) {
+  :root { --gutter: 20px; --r-lg: 18px; --r-xl: 20px; }
+
+  .hero { padding-top: calc(var(--nav-h) + 32px); }
+  .hero__badge { font-size: .625rem; letter-spacing: .1em; padding: 6px 12px 6px 11px; }
+  .hero__sub { font-size: .9688rem; line-height: 1.68; }
+  .hero__actions { gap: 10px; }
+  .hero__actions .btn { flex: 1 1 100%; }
+  .hero__photo { width: min(360px, 92%); }
+
+  .tech__item { width: 46px; height: 46px; }
+  .tech__item svg { width: 21px; height: 21px; }
+  .tech__row { gap: 8px; }
+
+  .stats { margin-top: -26px; }
+  .stat { flex-direction: column; align-items: flex-start; gap: 9px; padding: 15px 13px; }
+  .stat__icon { width: 36px; height: 36px; }
+  .stat__icon svg { width: 17px; height: 17px; }
+  .stat__value { font-size: 1.375rem; }
+  .stat__label { font-size: .75rem; }
+
+  .pcard__body { flex-direction: column; gap: 16px; }
+  .pcard__body .arrow-btn { order: 2; }
+
+  .field__row { grid-template-columns: minmax(0, 1fr); }
+  .form { padding: 20px 18px; }
+
+  .tl-item__card { padding: 18px 16px; }
+  .tl-item__role { font-size: 1.0625rem; }
+
+  .edu__card { flex-direction: column; gap: 14px; }
+
+  .mobnav { padding: calc(var(--nav-h) + 20px) 20px 28px; }
+  .mobnav__link { font-size: 1.25rem; padding: 13px 2px; }
+
+  .footer__nav { grid-template-columns: minmax(0, 1fr); }
+
+  .ai-msg { max-width: 94%; font-size: .8438rem; }
+  .ai-quick button { font-size: .7188rem; padding: 5px 10px; }
+}
+
+/* ==========================================================================
+   ≤ 380px — small phone (375 / 360)
+   ========================================================================== */
+
+@media (max-width: 380px) {
+  :root { --gutter: 17px; }
+
+  .h-display { font-size: clamp(2.05rem, 10.4vw, 2.5rem); }
+  .h-section { font-size: 1.75rem; }
+
+  .brand { font-size: .875rem; gap: 10px; }
+  .brand__mark { width: 33px; height: 33px; }
+
+  .btn { --btn-py: 12px; --btn-px: 18px; font-size: .875rem; }
+
+  .stats__card { padding: 16px 8px; }
+  .stat { padding: 13px 10px; }
+
+  .about__plate { left: 12px; right: 12px; bottom: 12px; padding: 11px 13px; }
+
+  .svc { gap: 12px; padding: 14px; }
+  .svc__title { font-size: .9063rem; }
+
+  .ai-panel { right: 8px; left: 8px; bottom: 8px; }
+  .ai-form { padding: 10px 12px; }
+  .ai-send { width: 38px; height: 38px; }
+}
+
+/* ==========================================================================
+   very short viewports — keep the AI panel usable
+   ========================================================================== */
+
+@media (max-height: 620px) {
+  .ai-panel { max-height: calc(100vh - 24px); }
+  .ai-scope { display: none; }
+}
+
+/* ==========================================================================
+   print — a clean CV-style fallback
+   ========================================================================== */
+
+@media print {
+  .nav, .mobnav, .burger, .ai-launcher, .ai-panel, .modal,
+  .hero__light, .hero__floor, .grid-bg, .aura, .footer__up { display: none !important; }
+
+  body { background: #fff; color: #111; }
+  .section { padding-block: 18px; break-inside: avoid; }
+  .card, .pcard, .svc, .skillcard, .tl-item__card, .edu__card, .form {
+    border-color: #d6d9de !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+  .grad { -webkit-text-fill-color: #111; color: #111; background: none; }
+  .lede, .about__body, .tl-item__list li, .svc__desc { color: #333 !important; }
+  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: .7em; color: #555; }
+}

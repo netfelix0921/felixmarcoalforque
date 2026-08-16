@@ -1,0 +1,576 @@
+/* ==========================================================================
+   layout.css — navigation, hero, technology strip, statistics, footer
+   ========================================================================== */
+
+/* ==========================================================================
+   1. NAVIGATION
+   ========================================================================== */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 90;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  transition: background-color .4s var(--ease), border-color .4s var(--ease),
+              backdrop-filter .4s var(--ease), height .4s var(--ease);
+}
+.nav.scrolled {
+  height: 64px;
+  background: rgba(5, 7, 11, .72);
+  border-bottom-color: var(--line);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+.nav__inner {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+/* ---- brand ---- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  font-family: var(--display);
+  font-size: .9688rem;
+  font-weight: 700;
+  letter-spacing: -.028em;
+  color: var(--text);
+}
+.brand__mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(150deg, rgba(139, 92, 246, .22), rgba(59, 130, 246, .12));
+  border: 1px solid rgba(139, 92, 246, .34);
+  box-shadow: 0 0 22px -8px rgba(139, 92, 246, .7), 0 1px 0 rgba(255, 255, 255, .1) inset;
+  transition: box-shadow .35s var(--ease), transform .35s var(--ease-out);
+}
+.brand:hover .brand__mark {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px -6px rgba(139, 92, 246, .9), 0 1px 0 rgba(255, 255, 255, .16) inset;
+}
+.brand__mark svg { width: 17px; height: 17px; color: var(--violet-hi); }
+
+/* ---- centre links ---- */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-inline: auto;
+}
+.nav__link {
+  position: relative;
+  display: block;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: -.01em;
+  transition: color .3s var(--ease);
+}
+.nav__link:hover { color: var(--text); }
+
+/* active state: colour + the small dot from the reference */
+.nav__link[aria-current='true'] { color: var(--text); }
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--violet);
+  box-shadow: 0 0 8px 1px rgba(139, 92, 246, .9);
+  opacity: 0;
+  transform: translate(-50%, 4px) scale(.4);
+  transition: opacity .35s var(--ease), transform .35s var(--ease-out);
+}
+.nav__link[aria-current='true']::after {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.nav__right { display: flex; align-items: center; gap: 12px; flex: none; }
+
+/* "Hire Me" — outlined pill with a soft violet rim, per the reference */
+.nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 92, 246, .42);
+  background: rgba(139, 92, 246, .07);
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -.012em;
+  box-shadow: 0 0 26px -12px rgba(139, 92, 246, .8);
+  transition: background-color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav__cta:hover {
+  background: rgba(139, 92, 246, .16);
+  border-color: rgba(167, 139, 250, .7);
+  box-shadow: 0 0 34px -10px rgba(139, 92, 246, 1);
+}
+.nav__cta svg { width: 13px; height: 13px; }
+
+/* ---- burger ---- */
+.burger {
+  display: none;
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  border: 1px solid var(--line-2);
+  background: rgba(14, 17, 25, .8);
+  place-items: center;
+  gap: 4px;
+  align-content: center;
+}
+.burger span {
+  display: block;
+  width: 17px; height: 1.5px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform .35s var(--ease-out), opacity .25s var(--ease);
+}
+.burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* ---- mobile panel ---- */
+.mobnav {
+  position: fixed;
+  inset: 0;
+  z-index: 85;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--nav-h) + 28px) 26px 34px;
+  background: rgba(5, 7, 11, .96);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity .38s var(--ease), transform .38s var(--ease-out), visibility .38s;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.mobnav.open { opacity: 1; visibility: visible; transform: none; }
+
+.mobnav__label {
+  color: var(--text-3);
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.mobnav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 4px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .4s var(--ease-out), transform .4s var(--ease-out), color .25s var(--ease);
+}
+.mobnav.open .mobnav__link { opacity: 1; transform: none; }
+.mobnav.open .mobnav__link:nth-child(2) { transition-delay: .05s; }
+.mobnav.open .mobnav__link:nth-child(3) { transition-delay: .09s; }
+.mobnav.open .mobnav__link:nth-child(4) { transition-delay: .13s; }
+.mobnav.open .mobnav__link:nth-child(5) { transition-delay: .17s; }
+.mobnav.open .mobnav__link:nth-child(6) { transition-delay: .21s; }
+.mobnav.open .mobnav__link:nth-child(7) { transition-delay: .25s; }
+.mobnav.open .mobnav__link:nth-child(8) { transition-delay: .29s; }
+.mobnav__link span { color: var(--text-3); font-family: var(--mono); font-size: .688rem; }
+.mobnav__link:hover { color: var(--violet-hi); }
+
+.mobnav__foot { margin-top: 30px; display: grid; gap: 12px; }
+.mobnav__foot .btn { width: 100%; }
+
+/* ==========================================================================
+   2. HERO
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: calc(var(--nav-h) + clamp(48px, 6vw, 88px));
+  padding-bottom: clamp(96px, 9vw, 132px);
+  overflow: hidden;
+}
+
+/* ---- ambient lighting behind the subject ---- */
+.hero__light {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 38%, rgba(70, 80, 255, .18), transparent 42%),
+    radial-gradient(circle at 84% 62%, rgba(59, 130, 246, .13), transparent 40%),
+    radial-gradient(ellipse 60% 50% at 16% 22%, rgba(139, 92, 246, .13), transparent 62%);
+}
+/* floor shadow that seats the photo on the page */
+.hero__floor {
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--bg) 12%, rgba(5, 7, 11, .72) 52%, transparent);
+}
+
+/* deliberately NOT a containing block, so the photo can bleed to the
+   viewport edge while the copy stays on the 1200px measure */
+.hero__inner {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.hero__copy { position: relative; z-index: 3; max-width: 600px; }
+
+.hero__badge { margin-bottom: 26px; }
+
+.hero__title { margin-bottom: 24px; }
+
+.hero__sub {
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  color: var(--text-2);
+  max-width: 34.5em;
+  margin-bottom: 34px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: clamp(40px, 5vw, 56px);
+}
+
+/* ---- the photo ---- */
+.hero__photo {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(520px, 55%, 1000px);
+  pointer-events: none;
+}
+.hero__photo picture { display: block; width: 100%; height: 100%; }
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+  /* second, softer mask on top of the baked-in alpha so the photo never
+     shows an edge regardless of how the panel is cropped */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 26%),
+    linear-gradient(to top, transparent 0%, #000 20%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 26%),
+    linear-gradient(to top, transparent 0%, #000 20%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* ==========================================================================
+   3. TECHNOLOGY STRIP
+   ========================================================================== */
+
+/* the strip sits above the photo (z-index 2 vs 1) so the icons stay legible
+   over the dark side of the image — which means it must never reach into the
+   photo's opaque zone. 424px = exactly 7 items + 6 gaps, so 14 technologies
+   wrap into a deliberate 7 × 2 block inside the copy column. */
+.tech { position: relative; z-index: 2; max-width: 424px; }
+
+.tech__label {
+  font-size: .8125rem;
+  font-weight: 500;
+  color: var(--text-3);
+  margin-bottom: 15px;
+  letter-spacing: -.005em;
+}
+
+.tech__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech__item {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px; height: 52px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: rgba(13, 16, 23, .8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--text-2);
+  transition: transform .32s var(--ease-out), border-color .3s var(--ease),
+              box-shadow .32s var(--ease), background-color .3s var(--ease), color .3s var(--ease);
+}
+.tech__item svg { width: 24px; height: 24px; }
+.tech__item:hover {
+  transform: scale(1.05) translateY(-2px);
+  border-color: var(--line-hover);
+  background: rgba(20, 24, 34, .9);
+  color: var(--text);
+  box-shadow: 0 12px 30px -14px rgba(109, 69, 224, .7);
+}
+
+/* the "+N more" chip */
+.tech__item--more {
+  width: auto;
+  padding-inline: 16px;
+  font-family: var(--mono);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* small floating tooltip so icon-only cards stay understandable */
+.tech__item::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  padding: 5px 10px;
+  border-radius: 7px;
+  background: #14181F;
+  border: 1px solid var(--line-2);
+  font-family: var(--sans);
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: -.004em;
+  color: var(--text);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease-out);
+  z-index: 5;
+}
+.tech__item:hover::after,
+.tech__item:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+/* ==========================================================================
+   4. STATISTICS — wide glass card overlapping the hero
+   ========================================================================== */
+
+.stats {
+  position: relative;
+  z-index: 4;
+  margin-top: clamp(-96px, -5vw, -48px);
+}
+
+.stats__card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: clamp(24px, 2.6vw, 34px) clamp(18px, 2.4vw, 30px);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, rgba(18, 22, 31, .88), rgba(11, 14, 20, .92));
+  border: 1px solid var(--line-2);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  backdrop-filter: blur(20px) saturate(130%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, .06) inset,
+    0 40px 90px -40px rgba(0, 0, 0, .95),
+    0 0 70px -34px rgba(109, 69, 224, .5);
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-inline: clamp(10px, 1.6vw, 22px);
+  position: relative;
+}
+.stat + .stat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(to bottom, transparent, var(--line-2), transparent);
+}
+
+.stat__icon {
+  display: grid;
+  place-items: center;
+  width: 42px; height: 42px;
+  flex: none;
+  border-radius: 12px;
+  border: 1px solid currentColor;
+  background: currentColor;
+  transition: transform .35s var(--ease-out);
+}
+/* the border/bg use currentColor at low alpha via color-mix fallback below */
+.stat__icon svg { width: 20px; height: 20px; }
+
+.stat--violet  .stat__icon { color: var(--violet); }
+.stat--emerald .stat__icon { color: var(--emerald); }
+.stat--blue    .stat__icon { color: var(--blue-hi); }
+.stat--amber   .stat__icon { color: var(--violet-hi); }
+
+/* keep the tinted-glass look without color-mix support */
+.stat__icon {
+  background: rgba(255, 255, 255, .04);
+  border-color: rgba(255, 255, 255, .09);
+}
+.stat--violet  .stat__icon { background: rgba(139, 92, 246, .12); border-color: rgba(139, 92, 246, .3); }
+.stat--emerald .stat__icon { background: rgba(52, 211, 153, .11); border-color: rgba(52, 211, 153, .28); }
+.stat--blue    .stat__icon { background: rgba(59, 130, 246, .12); border-color: rgba(59, 130, 246, .3); }
+.stat--amber   .stat__icon { background: rgba(167, 139, 250, .12); border-color: rgba(167, 139, 250, .3); }
+
+.stats__card:hover .stat__icon { transform: translateY(-2px); }
+
+.stat__value {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.3vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  color: var(--text);
+}
+.stat__label {
+  font-size: .8125rem;
+  color: var(--text-2);
+  letter-spacing: -.004em;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+
+.footer {
+  position: relative;
+  border-top: 1px solid var(--line);
+  background: var(--bg-2);
+  padding-block: clamp(44px, 5vw, 64px) 30px;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.footer__brand { display: grid; gap: 14px; }
+.footer__role { font-size: .875rem; color: var(--text-2); }
+.footer__socials { display: flex; gap: 9px; margin-top: 4px; }
+.footer__social {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .028);
+  color: var(--text-2);
+  transition: color .3s var(--ease), border-color .3s var(--ease),
+              background-color .3s var(--ease), transform .3s var(--ease-out);
+}
+.footer__social:hover {
+  color: var(--text);
+  border-color: var(--line-hover);
+  background: rgba(139, 92, 246, .1);
+  transform: translateY(-2px);
+}
+.footer__social svg { width: 16px; height: 16px; }
+
+.footer__nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+}
+.footer__nav a {
+  font-size: .875rem;
+  color: var(--text-2);
+  transition: color .25s var(--ease), transform .25s var(--ease-out);
+  width: fit-content;
+}
+.footer__nav a:hover { color: var(--text); transform: translateX(3px); }
+
+.footer__bottom {
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: .8125rem;
+  color: var(--text-3);
+}
+.footer__bottom a { color: var(--text-2); transition: color .25s var(--ease); }
+.footer__bottom a:hover { color: var(--text); }
+.footer__up { display: inline-flex; align-items: center; gap: 7px; }
+.footer__up svg { width: 12px; height: 12px; transition: transform .3s var(--ease-out); }
+.footer__up:hover svg { transform: translateY(-3px); }
+
+/* ==========================================================================
+   ambient lighting beyond the hero — one soft pool per section, no neon.
+   Each host isolates so the -1 layer cannot fall behind the page, and every
+   box stays inside its section so nothing adds horizontal scroll (the blur
+   halo is ink overflow, which does not extend the scroll area).
+   ========================================================================== */
+
+.work,
+.svc-section,
+.contact { isolation: isolate; }
+
+.work .aura {
+  width: min(560px, 44vw);
+  aspect-ratio: 1;
+  top: 3%;
+  right: 0;
+  background: rgba(59, 130, 246, .085);
+}
+
+.contact .aura {
+  width: min(620px, 50vw);
+  aspect-ratio: 1;
+  bottom: 5%;
+  left: 0;
+  background: rgba(139, 92, 246, .1);
+}
+
+/* blur on a 600px box is the one expensive paint on the page — phones get
+   the flat background instead, where the pool would barely read anyway */
+@media (max-width: 768px) {
+  .aura { display: none; }
+}
