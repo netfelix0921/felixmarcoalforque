@@ -14,6 +14,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+/* Static JSON import: Vercel's bundler can see this, so the knowledge base is
+   always shipped with the function. The fs fallback below covers other hosts. */
+let kbStatic = null;
+try {
+  kbStatic = (await import('../data/felix-knowledge-base.json', { with: { type: 'json' } })).default;
+} catch {
+  try {
+    kbStatic = (await import('../data/felix-knowledge-base.json', { assert: { type: 'json' } })).default;
+  } catch { /* fall back to fs */ }
+}
+
 /* ==================================================================
    1. CONFIG
    ================================================================== */
@@ -43,6 +54,7 @@ let kbCache = null;
 
 function loadKnowledgeBase() {
   if (kbCache) return kbCache;
+  if (kbStatic) { kbCache = JSON.stringify(kbStatic); return kbCache; }
   const candidates = [
     path.join(process.cwd(), 'data', 'felix-knowledge-base.json'),
     path.join(process.cwd(), 'public', 'data', 'felix-knowledge-base.json'),
@@ -346,6 +358,7 @@ export default async function handler(req, res) {
 
   const kbJson = loadKnowledgeBase();
   if (!kbJson) {
+    console.error('Felix AI: knowledge base not found. Expected data/felix-knowledge-base.json. cwd=' + process.cwd());
     return res.status(503).json({
       answer: 'Felix AI is temporarily unavailable. Please use the contact form on the portfolio instead.',
       allowed: false,
@@ -355,6 +368,7 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
+    console.error('Felix AI: OPENAI_API_KEY is not set in this deployment. Add it in Environment Variables, then REDEPLOY.');
     return res.status(503).json({
       answer: 'Felix AI is temporarily unavailable. Please use the contact form on the portfolio instead.',
       allowed: false,
