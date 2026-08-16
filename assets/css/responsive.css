@@ -250,7 +250,22 @@
 
   .about__pillars { grid-template-columns: minmax(0, 1fr); }
 
-  .clink__val { font-size: .875rem; }
+  /* Icon moves above the number from here down. In the 2-up plate the cell is
+     too narrow to give up 57px to an icon plus gap and still fit a 112px
+     label — between 420 and 470px that was breaking "Years Experience" across
+     two lines and making the whole plate taller. */
+  .stat { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Let the address wrap instead of truncating. On desktop the row is wide
+     enough that the ellipsis never fires; at 360px there are only ~212px for
+     231px of email, so an ellipsis would hide half the thing people came for.
+     `anywhere` (not `break-word`) also shrinks min-content, so the flex item
+     can't force the card wider than the screen. */
+  .clink__val {
+    font-size: .875rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 
   .modal__box { padding: 28px 22px 24px; }
 }
@@ -274,7 +289,8 @@
   .tech__row { gap: 8px; }
 
   .stats { margin-top: -26px; }
-  .stat { flex-direction: column; align-items: flex-start; gap: 9px; padding: 15px 13px; }
+  /* flex-direction/align-items already set at ≤560 — these are just the deltas */
+  .stat { gap: 9px; padding: 15px 13px; }
   .stat__icon { width: 36px; height: 36px; }
   .stat__icon svg { width: 17px; height: 17px; }
   .stat__value { font-size: 1.375rem; }

@@ -1,6 +1,6 @@
 /* ==========================================================================
-   base.css â€” tokens, reset, typography, utilities
-   Felix Marco Alforque Â· portfolio design system
+   base.css — tokens, reset, typography, utilities
+   Felix Marco Alforque · portfolio design system
    ========================================================================== */
 
 :root {
@@ -15,7 +15,7 @@
   /* ---- text ---- */
   --text:          #F5F7FA;
   --text-2:        #9AA3B5;
-  /* brief specified #626B7F, but that lands at 3.5:1 on card surfaces â€”
+  /* brief specified #626B7F, but that lands at 3.5:1 on card surfaces —
      below WCAG AA for body text. Lifted to the nearest tone that clears
      4.5:1 on bg, card and hover-card. Same hue, same muted read. */
   --text-3:        #778093;
@@ -84,6 +84,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Safety net for narrow screens: a token longer than its container (an email,
+     a URL) breaks rather than pushing the layout sideways. `break-word` only
+     kicks in when the word would actually overflow, so normal copy is
+     unaffected — it does not change where ordinary text wraps. */
+  overflow-wrap: break-word;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
@@ -210,7 +215,7 @@ h1, h2, h3, h4 {
   transition: transform .45s var(--ease-out), border-color .35s var(--ease), box-shadow .45s var(--ease-out);
 }
 
-/* one-pixel top highlight â€” the detail that reads as "expensive" */
+/* one-pixel top highlight — the detail that reads as "expensive" */
 .card::before {
   content: '';
   position: absolute;
@@ -356,12 +361,12 @@ h1, h2, h3, h4 {
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
 
 /* ==========================================================================
-   ambient lighting â€” subtle, never neon
+   ambient lighting — subtle, never neon
    ========================================================================== */
 
 /* z-index:-1 (not 0) so the layer sits under in-flow text rather than over
    it. The host section must set `isolation: isolate` to keep it from
-   escaping past the page background â€” same pattern as .hero__light.
+   escaping past the page background — same pattern as .hero__light.
    Size, position and colour are set per placement. */
 .aura {
   position: absolute;
@@ -457,7 +462,7 @@ h1, h2, h3, h4 {
 .skip-link:focus-visible { transform: translate(-50%, 0); }
 
 /* ==========================================================================
-   reduced motion â€” honour the OS setting completely
+   reduced motion — honour the OS setting completely
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {

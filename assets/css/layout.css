@@ -455,6 +455,16 @@
 
 .stats__card:hover .stat__icon { transform: translateY(-2px); }
 
+/* Same inline-box trap as .clink__text: .stat__value and .stat__label are both
+   <span>, so without this they shared a line ("2+Years Experience") and the
+   label's margin-top was dropped. At 390px that ran 133px of text through a
+   130px grid cell and spilled into the next stat. */
+.stat__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .stat__value {
   font-family: var(--display);
   font-size: clamp(1.5rem, 2.3vw, 1.875rem);
@@ -468,7 +478,7 @@
   color: var(--text-2);
   letter-spacing: -.004em;
   line-height: 1.35;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 /* ==========================================================================

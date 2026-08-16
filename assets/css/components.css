@@ -823,14 +823,30 @@
 }
 .clink:hover .clink__icon { color: var(--violet-hi); }
 .clink__icon svg { width: 17px; height: 17px; }
-.clink__text { flex: 1; min-width: 0; }
-.clink__name { font-size: .688rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); }
+/* A flex column, not the default inline flow. .clink__name and .clink__val are
+   both <span>, and an inline box ignores margin-top, overflow and
+   text-overflow — so the pair rendered on ONE line ("EMAILcontact@…") and the
+   ellipsis below never fired. Flex items are blockified, which restores the
+   two-line stack and switches the truncation back on. */
+.clink__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.clink__name {
+  font-size: .688rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  line-height: 1.4;
+}
 .clink__val {
   font-size: .9063rem;
   font-weight: 500;
   color: var(--text);
   letter-spacing: -.012em;
-  margin-top: 2px;
+  margin-top: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
