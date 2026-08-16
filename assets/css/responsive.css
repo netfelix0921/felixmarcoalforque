@@ -235,18 +235,26 @@
   .skills__grid { grid-template-columns: minmax(0, 1fr); }
   .skillcard--wide { grid-column: auto; }
 
-  /* deliberately different shape on mobile: icon-left rows, not tiles */
+  /* Deliberately different shape on mobile: icon-left rows, not tiles.
+     The title and description must BOTH be placed in column 2 by hand. There
+     are three children and only two columns, so auto-placement dropped the
+     description into column 1 beneath the icon — and because column 1 is
+     `auto`, grid maximises it before it expands the `1fr` track, so it took
+     the whole row and resolved column 2 to 0px. The title then wrapped one
+     character per line down the right edge of the card. */
   .svc__grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .svc {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     align-items: start;
-    gap: 14px;
+    column-gap: 14px;
+    row-gap: 0;
     padding: 15px 16px;
   }
   .svc:hover { transform: none; }
-  .svc__icon { margin-bottom: 0; width: 34px; height: 34px; }
-  .svc__desc { margin-top: 4px; }
+  .svc__icon { grid-area: 1 / 1; margin-bottom: 0; width: 34px; height: 34px; }
+  .svc__title { grid-column: 2; }
+  .svc__desc { grid-column: 2; margin-top: 4px; }
 
   .about__pillars { grid-template-columns: minmax(0, 1fr); }
 
@@ -336,7 +344,9 @@
 
   .about__plate { left: 12px; right: 12px; bottom: 12px; padding: 11px 13px; }
 
-  .svc { gap: 12px; padding: 14px; }
+  /* column-gap, not gap — the shorthand would reset row-gap to 12px and
+     reopen a hole between the title and its description */
+  .svc { column-gap: 12px; padding: 14px; }
   .svc__title { font-size: .9063rem; }
 
   .ai-panel { right: 8px; left: 8px; bottom: 8px; }
