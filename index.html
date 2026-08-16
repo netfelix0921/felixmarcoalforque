@@ -9,7 +9,9 @@
 <meta property="og:description" content="I design &amp; build websites and apps people actually use. Apps · Websites · Business Systems. Manila, Philippines."/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<link rel="icon" type="image/png" href="logo.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="logo.png"/>
 <link rel="apple-touch-icon" href="logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -1167,6 +1169,55 @@ footer{border-top:1px solid var(--line-soft);padding:36px 0}
   </div>
 </div>
 
+
+<!-- ── FELIX AI ASSISTANT ───────────────────────────── -->
+<button class="ai-launcher" id="aiLauncher" type="button" aria-expanded="false" aria-controls="aiPanel">
+  <span class="ai-orb"><svg class="ai-robot-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="4" y="6" width="16" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+  <path d="M12 3v3M9 3h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
+  <circle cx="15" cy="12" r="1.2" fill="currentColor"/>
+  <path d="M8.5 16c1.8 1.2 5.2 1.2 7 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg></span><span class="ai-dot"></span>
+  <span>Ask Felix AI</span>
+</button>
+
+<aside class="ai-panel" id="aiPanel" aria-label="Felix AI assistant" aria-hidden="true">
+  <div class="ai-head">
+    <div class="ai-head-left">
+      <div class="ai-head-orb"><svg class="ai-robot-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="4" y="6" width="16" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+  <path d="M12 3v3M9 3h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="9" cy="12" r="1.2" fill="currentColor"/>
+  <circle cx="15" cy="12" r="1.2" fill="currentColor"/>
+  <path d="M8.5 16c1.8 1.2 5.2 1.2 7 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg></div>
+      <div>
+        <div class="ai-head-title">Felix AI</div>
+        <div class="ai-head-sub">portfolio assistant · profile only</div>
+      </div>
+    </div>
+    <button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button>
+  </div>
+  <div class="ai-scope"><b>Scope:</b> I only answer questions about Felix, his work, projects, skills, services, and portfolio.</div>
+  <div class="ai-messages" id="aiMessages" aria-live="polite">
+    <div class="ai-msg bot">Hi! I’m Felix AI. Ask me about Felix’s projects, web development skills, systems experience, services, or portfolio.</div>
+  </div>
+  <div class="ai-quick" aria-label="Suggested questions">
+    <button type="button" data-q="What does Felix build?">What does he build?</button>
+    <button type="button" data-q="What are Felix's skills?">Skills</button>
+    <button type="button" data-q="Tell me about Felix's projects.">Projects</button>
+    <button type="button" data-q="How can I hire Felix?">Hire Felix</button>
+  </div>
+  <form class="ai-form" id="aiForm">
+    <label for="aiInput" style="position:absolute;left:-9999px">Ask Felix AI</label>
+    <input class="ai-input" id="aiInput" autocomplete="off" placeholder="Ask something about Felix…" />
+    <button class="ai-send" type="submit" aria-label="Send question">→</button>
+  </form>
+  <div class="ai-foot">Profile-only assistant · No general-purpose answers</div>
+</aside>
+
+
 <footer>
   <div class="foot-inner">
     <div>
@@ -1180,6 +1231,114 @@ footer{border-top:1px solid var(--line-soft);padding:36px 0}
     </div>
   </div>
 </footer>
+
+<style>
+
+/* ============================================================
+   10 · FELIX AI ASSISTANT
+   ============================================================ */
+.ai-launcher{
+  position:fixed;right:24px;bottom:24px;z-index:250;
+  display:flex;align-items:center;gap:10px;padding:11px 15px 11px 11px;
+  border:1px solid rgba(255,255,255,.12);border-radius:999px;
+  background:rgba(12,14,22,.88);color:var(--ink);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 18px 50px rgba(0,0,0,.42),0 0 0 1px rgba(129,140,248,.05) inset;
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.03em;
+  transition:transform .25s var(--ease),border-color .25s,box-shadow .25s;
+}
+.ai-launcher:hover{transform:translateY(-3px);border-color:rgba(129,140,248,.4);box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 28px rgba(129,140,248,.12)}
+.ai-launcher .ai-orb{
+  color:#fff !important;
+  background:#000 !important;
+  border:1px solid rgba(255,255,255,.22);
+  width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+  background:#000;
+  color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;
+  box-shadow:0 0 22px rgba(129,140,248,.35);
+}
+
+.ai-robot-icon{width:19px;height:19px;display:block}
+.ai-head-orb .ai-robot-icon{width:20px;height:20px}
+.ai-launcher .ai-dot{
+  position:absolute;left:36px;top:10px;width:6px;height:6px;border-radius:50%;
+  background:var(--live);box-shadow:0 0 8px var(--live);
+}
+.ai-panel{
+  position:fixed;right:24px;bottom:86px;z-index:249;width:min(390px,calc(100vw - 32px));
+  max-height:min(620px,calc(100vh - 120px));display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:rgba(9,11,18,.96);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:0 30px 90px rgba(0,0,0,.62),0 0 0 1px rgba(255,255,255,.025) inset;
+  opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.ai-panel.open{opacity:1;transform:none;pointer-events:auto}
+.ai-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:15px 16px;border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.018);
+}
+.ai-head-left{display:flex;align-items:center;gap:10px}
+.ai-head-orb{
+  color:#fff !important;
+  background:#000 !important;
+  border:1px solid rgba(255,255,255,.22);
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  background:#000;color:#fff;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;
+}
+.ai-head-title{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:600}
+.ai-head-sub{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--faint);margin-top:2px}
+.ai-close{
+  width:30px;height:30px;border:1px solid var(--line-soft);border-radius:9px;
+  color:var(--muted);display:grid;place-items:center;font-size:1rem;
+}
+.ai-close:hover{color:var(--ink);background:var(--glass)}
+.ai-scope{
+  margin:12px 14px 0;padding:9px 11px;border:1px solid rgba(52,211,153,.16);
+  border-radius:11px;background:rgba(52,211,153,.045);font-size:.68rem;color:var(--muted);
+}
+.ai-scope b{color:var(--ink-soft);font-weight:600}
+.ai-messages{
+  flex:1;min-height:210px;max-height:350px;overflow:auto;padding:14px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.ai-msg{max-width:88%;padding:10px 12px;border-radius:13px;font-size:.78rem;line-height:1.65}
+.ai-msg.bot{align-self:flex-start;color:var(--ink-soft);background:rgba(255,255,255,.045);border:1px solid var(--line-soft);border-bottom-left-radius:4px}
+.ai-msg.user{align-self:flex-end;color:#fff;background:linear-gradient(135deg,rgba(99,102,241,.9),rgba(139,92,246,.9));border-bottom-right-radius:4px}
+.ai-typing{display:inline-flex;gap:4px;align-items:center}
+.ai-typing i{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5;animation:aiDot 1s infinite}
+.ai-typing i:nth-child(2){animation-delay:.15s}.ai-typing i:nth-child(3){animation-delay:.3s}
+@keyframes aiDot{50%{opacity:1;transform:translateY(-2px)}}
+.ai-quick{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 12px}
+.ai-quick button{
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);
+  padding:7px 9px;border:1px solid var(--line-soft);border-radius:8px;background:var(--glass);
+}
+.ai-quick button:hover{color:var(--ink);border-color:rgba(129,140,248,.35)}
+.ai-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line-soft);background:rgba(0,0,0,.15)}
+.ai-input{
+  flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line-soft);border-radius:11px;
+  background:rgba(255,255,255,.035);color:var(--ink);font:400 .76rem 'Inter',sans-serif;outline:none;
+}
+.ai-input:focus{border-color:rgba(129,140,248,.5);box-shadow:0 0 0 3px rgba(129,140,248,.08)}
+.ai-input::placeholder{color:var(--faint)}
+.ai-send{
+  width:40px;border-radius:11px;background:var(--ink);color:#0a0a12;
+  display:grid;place-items:center;font-weight:700;transition:transform .2s var(--ease);
+}
+.ai-send:hover{transform:translateY(-1px)}
+.ai-foot{
+  padding:0 14px 11px;font-family:'JetBrains Mono',monospace;font-size:.5rem;
+  color:var(--faint);text-align:center;
+}
+@media(max-width:600px){
+  .ai-launcher{right:16px;bottom:16px}
+  .ai-panel{right:16px;bottom:76px;width:calc(100vw - 32px)}
+  .ai-messages{max-height:42vh}
+}
+
+</style>
 
 <script>
 /* EmailJS — preserved */
@@ -1300,6 +1459,369 @@ document.getElementById('formSubmit').addEventListener('click', function(){
       setTimeout(function(){ btn.textContent='Send message'; btn.style.background=''; btn.style.color=''; },4000);
     });
 });
+
+/* Felix AI — profile-only local assistant.
+   This version intentionally uses only portfolio facts so it can be deployed
+   as a static site without exposing an AI API key. */
+(function(){
+  var launcher = document.getElementById('aiLauncher');
+  var panel = document.getElementById('aiPanel');
+  var close = document.getElementById('aiClose');
+  var form = document.getElementById('aiForm');
+  var input = document.getElementById('aiInput');
+  var messages = document.getElementById('aiMessages');
+  if(!launcher || !panel || !form) return;
+
+  var profile = {
+  "meta": {
+    "name": "Felix Marco Alforque",
+    "purpose": "Professional portfolio AI knowledge base",
+    "scope": "Only professional, work, skills, projects, education/training, and freelance information.",
+    "privacy_rule": "Do not answer about personal life, health, finances, relationships, private company information, or other non-professional topics.",
+    "accuracy_rule": "Never invent employers, responsibilities, certifications, technologies, clients, dates, prices, or project details. If not in this knowledge base, say the information is not available."
+  },
+  "profile": {
+    "professional_title": "ERP System Analyst | Web & App Developer",
+    "summary": "Felix is an ERP System Analyst and hands-on web/app developer who combines business-process understanding with practical software development. His experience spans ERP support and analysis, ITSM/Freshservice administration, workflow automation, responsive websites, web applications, PWAs, ecommerce, dashboards, and custom business systems."
+  },
+  "current_role": {
+    "company": "Eagle Cement Corporation",
+    "position": "ERP System Analyst",
+    "start_date": "June 2024",
+    "end_date": "Present",
+    "erp": "Ramco ERP",
+    "known_context": [
+      "ERP-related incident tickets are a major part of the work environment.",
+      "Ramco ERP is used for ERP concerns.",
+      "Felix works with ERP/business-system requirements, support, troubleshooting, testing, and process-related activities.",
+      "The work involves coordination with business users and system-related problem solving."
+    ],
+    "known_related_work": [
+      "Ramco ERP support and analysis",
+      "UAT/testing coordination",
+      "Issue/ticket analysis",
+      "Business process and workflow analysis",
+      "ERP data/master-data related work",
+      "System troubleshooting",
+      "User/business stakeholder coordination"
+    ]
+  },
+  "freshservice_itsm": {
+    "platform": "Freshservice / Freshworks",
+    "experience": [
+      "Requesters and departments administration",
+      "Service Catalog and service items",
+      "Workflow automation",
+      "SLA configuration and ticket aging analysis",
+      "Incident and service-request workflows",
+      "Approval workflows",
+      "Employee onboarding workflow design",
+      "ITSM dashboards and analytics",
+      "Ticket reduction/process improvement initiatives"
+    ]
+  },
+  "skills": {
+    "web": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive web development",
+      "UI/UX implementation",
+      "Progressive Web Apps (PWA)",
+      "Web application development",
+      "Ecommerce website development"
+    ],
+    "frameworks_and_runtime": [
+      "Next.js",
+      "Node.js"
+    ],
+    "data_and_backend": [
+      "Prisma",
+      "MySQL",
+      "Firebase"
+    ],
+    "tools_and_platforms": [
+      "GitHub",
+      "Vercel",
+      "DirectAdmin",
+      "cPanel",
+      "EmailJS"
+    ],
+    "systems_and_business": [
+      "ERP systems",
+      "ITSM / Freshservice",
+      "Workflow automation",
+      "Business process analysis",
+      "Custom business systems",
+      "Dashboards and reporting",
+      "POS and inventory logic",
+      "Registration and attendance systems"
+    ],
+    "technical_delivery": [
+      "Deployment and hosting",
+      "Domain and SSL setup",
+      "DNS troubleshooting",
+      "SEO basics",
+      "Performance optimization",
+      "UAT support/testing",
+      "System troubleshooting"
+    ],
+    "shopify": {
+      "experience_level_note": "Felix has personally handled one Shopify ecommerce project and is currently building his Shopify portfolio.",
+      "project": "Bollard Depot",
+      "url": "https://bollarddepot.co.uk/"
+    }
+  },
+  "projects": [
+    {
+      "name": "Fintra",
+      "type": "Personal finance web application / PWA",
+      "known_features": [
+        "Dashboard",
+        "Accounts",
+        "Bills tracker",
+        "Subscriptions manager",
+        "Budget goals",
+        "Income and expense logs",
+        "Credit card tracker",
+        "Profiles",
+        "People & Splits",
+        "AI assistant concept"
+      ],
+      "known_technology": [
+        "Next.js",
+        "Firebase",
+        "PWA"
+      ],
+      "note": "Use only the features explicitly documented in the knowledge base; do not invent additional integrations or production claims."
+    },
+    {
+      "name": "MICLY",
+      "type": "Karaoke platform / PWA",
+      "known_features": [
+        "TV karaoke mode",
+        "Mobile phone remote",
+        "QR room joining",
+        "Shared song queue",
+        "Favorites and reactions",
+        "Party/multi-device mode"
+      ],
+      "known_concept": "A karaoke experience where a TV can run the karaoke interface while phones can act as controllers/remotes."
+    },
+    {
+      "name": "Coffee Shop POS",
+      "type": "POS / business system",
+      "target": "Small coffee shop owners",
+      "known_features": [
+        "POS",
+        "Sales",
+        "Product management",
+        "Inventory",
+        "Offline-first design considerations",
+        "Multi-device considerations",
+        "Reporting"
+      ],
+      "known_technology": [
+        "Next.js",
+        "Prisma",
+        "MySQL",
+        "PWA"
+      ],
+      "note": "Some implementation details were discussed during development; do not claim BIR accreditation or certification."
+    },
+    {
+      "name": "Event / Convention Registration System",
+      "type": "Event registration and attendance platform",
+      "known_features": [
+        "Event registration",
+        "Attendee records",
+        "Registration confirmation",
+        "Digital ID concept",
+        "QR/time-entry concept",
+        "Attendance tracking",
+        "Event management"
+      ],
+      "note": "Built as a custom business-system project/concept; do not claim a specific client unless explicitly provided."
+    },
+    {
+      "name": "Bollard Depot",
+      "type": "Shopify ecommerce website",
+      "url": "https://bollarddepot.co.uk/",
+      "role_note": "Felix personally handled a Shopify ecommerce project. Exact individual responsibilities should only be claimed when confirmed."
+    },
+    {
+      "name": "Portfolio Website",
+      "type": "Single-file professional portfolio",
+      "url": "https://felixmarcoalforque.it.com/",
+      "known_technology": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "EmailJS"
+      ],
+      "known_features": [
+        "Responsive portfolio",
+        "Custom animations",
+        "Interactive navigation",
+        "Contact form pipeline",
+        "AI portfolio assistant"
+      ]
+    }
+  ],
+  "services": [
+    "Company and business websites",
+    "Responsive website redesign",
+    "Web application development",
+    "Progressive Web App development",
+    "Custom business systems",
+    "POS and inventory systems",
+    "Event registration and attendance systems",
+    "Workflow and process automation",
+    "ERP-related analysis and support",
+    "Freshservice / ITSM configuration",
+    "Dashboards and reporting",
+    "Ecommerce / Shopify work",
+    "Deployment and hosting support",
+    "Basic SEO and performance optimization"
+  ],
+  "freelance": {
+    "availability": "Open to freelance and part-time projects.",
+    "positioning": "Offers competitive portfolio-building rates while applying broader web development, ERP, systems, and business-process skills.",
+    "portfolio": "https://felixmarcoalforque.it.com/"
+  },
+  "training_and_career_development": {
+    "known_training": [
+      "ITIL 4 training",
+      "Interest/consideration in Data Analytics training",
+      "Business Analytics with Excel",
+      "Python",
+      "Tableau",
+      "Power BI",
+      "SQL"
+    ],
+    "note": "The knowledge base should distinguish completed certifications from training or learning interests. Do not call any item a certification unless explicitly confirmed."
+  },
+  "recruiter_questions": {
+    "current_work": "Felix is currently working at Eagle Cement Corporation as an ERP System Analyst, from June 2024 to Present.",
+    "erp": "Felix works with Ramco ERP in his ERP System Analyst role and has experience with ERP support, issue analysis, testing/UAT, business-process work, and system troubleshooting.",
+    "freshservice": "Felix has hands-on Freshservice/Freshworks administration experience covering service catalog, service items, requesters, departments, workflows, SLAs, approvals, onboarding workflows, and analytics.",
+    "web_development": "Felix builds responsive websites, web applications, PWAs, ecommerce sites, and custom business systems.",
+    "technical_stack": "Known technologies include HTML, CSS, JavaScript, Next.js, Node.js, Prisma, MySQL, Firebase, GitHub, Vercel, DirectAdmin, cPanel, and EmailJS.",
+    "shopify": "Felix has personally handled one Shopify ecommerce project, Bollard Depot, and is expanding his Shopify portfolio.",
+    "projects": "Featured work includes Fintra, MICLY, a Coffee Shop POS, an Event/Convention Registration System, Bollard Depot, and Felix's own portfolio.",
+    "hire": "Felix is open to freelance and part-time work. Visitors can review his portfolio and contact him through the portfolio website."
+  },
+  "unknown_or_do_not_claim": [
+    "Exact number of total years of professional Shopify experience",
+    "Exact number of years of total web-development experience",
+    "Specific university/degree/graduation year",
+    "Specific certifications and certification dates",
+    "Specific Ramco ERP modules unless explicitly confirmed",
+    "Specific previous employers and employment dates not included above",
+    "Exact individual Liquid development responsibilities",
+    "Confidential Eagle Cement information",
+    "Client names not explicitly made public",
+    "Private personal contact details unless intentionally published on the portfolio"
+  ]
+};
+
+  function addMessage(text, type){
+    var el = document.createElement('div');
+    el.className = 'ai-msg ' + type;
+    el.textContent = text;
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function typing(){
+    var el = document.createElement('div');
+    el.className = 'ai-msg bot';
+    el.innerHTML = '<span class="ai-typing"><i></i><i></i><i></i></span>';
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+    return el;
+  }
+
+  function answer(q){
+    var s = q.toLowerCase().trim();
+    if(!s) return 'Ask me something about Felix, such as his skills, projects, services, or how to hire him.';
+
+    if(/\b(hi|hello|hey|good morning|good afternoon)\b/.test(s))
+      return 'Hi! I’m Felix AI. I can tell you about Felix’s work, projects, skills, services, and portfolio.';
+
+    if(/\b(who|about|introduce|background|role|does felix do)\b/.test(s))
+      return 'Felix Marco Alforque is a Web & App Developer and ERP System Analyst. He builds websites, web apps, PWAs, and business systems from interface through implementation.';
+
+    if(/\b(skill|stack|technology|tech|framework|code|develop)\b/.test(s))
+      return 'Felix works with HTML, CSS, JavaScript, Next.js, PWAs, Prisma, MySQL, Firebase, and EmailJS, with broader experience in business systems, ERP workflows, UI/UX, automation, deployment, SEO, and performance.';
+
+    if(/\b(project|portfolio|built|build|work|micly|fintra|pos|erp|event|shopify|bollard)\b/.test(s))
+      return 'Featured work includes Micly (multi-device karaoke), Fintra (personal finance), POS and inventory systems, ERP modules and workflows, event platforms, and a Shopify ecommerce project. Portfolio: ' + profile.portfolio;
+
+    if(/\b(micly|karaoke)\b/.test(s))
+      return 'Micly is one of Felix’s featured products: a multi-device karaoke experience designed around TV and phone interaction.';
+
+    if(/\b(fintra|finance|financial)\b/.test(s))
+      return 'Fintra is Felix’s personal finance product focused on tracking and managing finances.';
+
+    if(/\b(shopify|ecommerce|e-commerce|bollard)\b/.test(s))
+      return 'Felix has Shopify ecommerce experience, including the Bollard Depot project: ' + profile.shopify;
+
+    if(/\b(service|offer|hire|freelance|available|work with|contact|price|rate|quotation)\b/.test(s))
+      return 'Felix offers website development, web apps, PWAs, business systems, UI/UX, process automation, ERP workflows, deployment, SEO, and performance work. You can contact him through the portfolio: ' + profile.portfolio;
+
+    if(/\b(website|web site)\b/.test(s))
+      return 'Felix builds custom, responsive websites and also works on web apps, PWAs, ecommerce, and business systems. His portfolio is ' + profile.portfolio;
+
+    if(/\b(erp|system|automation|workflow|business)\b/.test(s))
+      return 'Felix combines web development with ERP and business-process experience, including ERP modules, workflows, reporting dashboards, POS/inventory logic, and process automation.';
+
+    if(/\b(email|phone|location|manila)\b/.test(s))
+      return 'For current contact details and professional information, please use Felix’s portfolio: ' + profile.portfolio;
+
+    return 'I’m limited to Felix’s professional profile. I can answer about his projects, skills, services, systems experience, or portfolio, but I can’t answer general questions outside that scope.';
+  }
+
+  function ask(q){
+    addMessage(q,'user');
+    var t = typing();
+    window.setTimeout(function(){
+      t.remove();
+      addMessage(answer(q),'bot');
+    }, reduceMotion ? 80 : 450);
+  }
+
+  function openAI(){
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden','false');
+    launcher.setAttribute('aria-expanded','true');
+    window.setTimeout(function(){ input.focus(); }, 120);
+  }
+  function closeAI(){
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden','true');
+    launcher.setAttribute('aria-expanded','false');
+  }
+
+  launcher.addEventListener('click', function(){
+    panel.classList.contains('open') ? closeAI() : openAI();
+  });
+  close.addEventListener('click', closeAI);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && panel.classList.contains('open')) closeAI(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = input.value.trim();
+    if(!q) return;
+    input.value = '';
+    ask(q);
+  });
+
+  panel.querySelectorAll('.ai-quick button').forEach(function(btn){
+    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-q')); });
+  });
+})();
+
 </script>
 </body>
 </html>
