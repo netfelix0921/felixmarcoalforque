@@ -1194,12 +1194,12 @@ footer{border-top:1px solid var(--line-soft);padding:36px 0}
 </svg></div>
       <div>
         <div class="ai-head-title">Felix AI</div>
-        <div class="ai-head-sub">portfolio assistant · profile only</div>
+        <div class="ai-head-sub">professional portfolio · verified profile</div>
       </div>
     </div>
     <button class="ai-close" id="aiClose" type="button" aria-label="Close assistant">×</button>
   </div>
-  <div class="ai-scope"><b>Scope:</b> I only answer questions about Felix, his work, projects, skills, services, and portfolio.</div>
+  <div class="ai-scope"><b>Scope:</b> I answer questions about Felix’s professional work, skills, projects, career, and services.</div>
   <div class="ai-messages" id="aiMessages" aria-live="polite">
     <div class="ai-msg bot">Hi! I’m Felix AI. Ask me about Felix’s projects, web development skills, systems experience, services, or portfolio.</div>
   </div>
@@ -1742,44 +1742,148 @@ document.getElementById('formSubmit').addEventListener('click', function(){
     return el;
   }
 
+  var aiState = { lastIntent: null, lastEntity: null };
+
+  function hasAny(text, words){
+    return words.some(function(w){ return text.indexOf(w) !== -1; });
+  }
+  function cleanText(v){
+    return (v || '').toLowerCase().replace(/[’']/g,'').replace(/[^\w\s&+.-]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function bullets(items){
+    return items.map(function(x){ return '• ' + x; }).join('\n');
+  }
+  function project(name){
+    return profile.projects.find(function(p){ return p.name === name; });
+  }
+
   function answer(q){
-    var s = q.toLowerCase().trim();
-    if(!s) return 'Ask me something about Felix, such as his skills, projects, services, or how to hire him.';
+    var raw = (q || '').trim();
+    var s = cleanText(raw);
+    if(!s) return 'Ask me about Felix’s current work, career, skills, projects, services, or portfolio.';
 
-    if(/\b(hi|hello|hey|good morning|good afternoon)\b/.test(s))
-      return 'Hi! I’m Felix AI. I can tell you about Felix’s work, projects, skills, services, and portfolio.';
+    if(hasAny(s,['hi','hello','hey','good morning','good afternoon','good evening'])){
+      return 'Hi! I’m Felix AI, Felix’s professional portfolio assistant. Ask me about his current role, ERP/Freshservice experience, skills, projects, services, or how to work with him.';
+    }
 
-    if(/\b(who|about|introduce|background|role|does felix do)\b/.test(s))
-      return 'Felix Marco Alforque is a Web & App Developer and ERP System Analyst. He builds websites, web apps, PWAs, and business systems from interface through implementation.';
+    /* Career / current work */
+    if(hasAny(s,['current work','currently working','where does he work','where did he work','current job','job now','employer','company now','present job','work now']) ||
+       (hasAny(s,['work','job','company','employer']) && hasAny(s,['current','now','present','where']))){
+      aiState.lastEntity='current role';
+      return 'Felix is currently working at ' + profile.current_role.company + ' as an ' +
+        profile.current_role.position + ' (' + profile.current_role.start_date + ' – ' +
+        profile.current_role.end_date + ').\n\nHis documented work includes ' +
+        profile.current_role.erp + ', ERP support and analysis, issue/ticket analysis, system troubleshooting, testing/UAT, business-process work, and coordination with business users.';
+    }
 
-    if(/\b(skill|stack|technology|tech|framework|code|develop)\b/.test(s))
-      return 'Felix works with HTML, CSS, JavaScript, Next.js, PWAs, Prisma, MySQL, Firebase, and EmailJS, with broader experience in business systems, ERP workflows, UI/UX, automation, deployment, SEO, and performance.';
+    if(hasAny(s,['career history','career timeline','previous work','previous jobs','past employers','work history','employment history','where has he worked'])){
+      return 'Felix’s verified career timeline currently includes:\n\n• June 2024 – Present — Eagle Cement Corporation\n  ERP System Analyst\n  Ramco ERP and related ERP/system support and analysis.\n\nI don’t have verified previous-employer details in the public knowledge base yet, so I won’t invent them.';
+    }
 
-    if(/\b(project|portfolio|built|build|work|micly|fintra|pos|erp|event|shopify|bollard)\b/.test(s))
-      return 'Featured work includes Micly (multi-device karaoke), Fintra (personal finance), POS and inventory systems, ERP modules and workflows, event platforms, and a Shopify ecommerce project. Portfolio: ' + profile.portfolio;
+    /* ERP */
+    if(hasAny(s,['erp','ramco','enterprise resource planning','erp analyst','erp experience'])){
+      aiState.lastEntity='erp';
+      return 'Felix works with Ramco ERP as an ERP System Analyst. His documented ERP-related work includes:\n\n' +
+        bullets(profile.current_role.known_related_work) +
+        '\n\nHe also works with business-process/system requirements, troubleshooting, testing/UAT, and stakeholder coordination.';
+    }
 
-    if(/\b(micly|karaoke)\b/.test(s))
-      return 'Micly is one of Felix’s featured products: a multi-device karaoke experience designed around TV and phone interaction.';
+    /* Freshservice / ITSM */
+    if(hasAny(s,['freshservice','freshworks','itsm','service catalog','service item','sla','ticketing','ticket analytics','incident management','service request'])){
+      aiState.lastEntity='freshservice';
+      return 'Felix has hands-on Freshservice/Freshworks experience, including:\n\n' +
+        bullets(profile.freshservice_itsm.experience);
+    }
 
-    if(/\b(fintra|finance|financial)\b/.test(s))
-      return 'Fintra is Felix’s personal finance product focused on tracking and managing finances.';
+    /* Specific projects */
+    if(hasAny(s,['micly','karaoke'])){
+      aiState.lastEntity='micly';
+      var m=project('MICLY');
+      return 'MICLY is a karaoke platform/PWA project. Documented features include:\n\n' +
+        bullets(m.known_features) +
+        '\n\nThe concept uses a TV karaoke experience with phones acting as controllers/remotes.';
+    }
+    if(hasAny(s,['fintra','finance tracker','personal finance'])){
+      aiState.lastEntity='fintra';
+      var f=project('Fintra');
+      return 'Fintra is a personal finance web application/PWA. Documented areas include:\n\n' +
+        bullets(f.known_features) + '\n\nKnown technology: ' + f.known_technology.join(', ') + '.';
+    }
+    if(hasAny(s,['coffee pos','coffee shop pos','point of sale','pos system','inventory system'])){
+      aiState.lastEntity='coffee pos';
+      var p=project('Coffee Shop POS');
+      return 'Felix has worked on a Coffee Shop POS/business-system project for small coffee shop owners.\n\n' +
+        bullets(p.known_features) + '\n\nKnown technology: ' + p.known_technology.join(', ') + '.';
+    }
+    if(hasAny(s,['event registration','convention registration','attendance system','event system','registration system','digital id','qr registration'])){
+      aiState.lastEntity='event registration';
+      var e=project('Event / Convention Registration System');
+      return 'Felix has worked on an Event/Convention Registration System concept with:\n\n' +
+        bullets(e.known_features) + '\n\nNo specific client is claimed in the knowledge base.';
+    }
+    if(hasAny(s,['bollard','shopify','ecommerce','e commerce','liquid'])){
+      aiState.lastEntity='shopify';
+      return 'Felix has personally handled one Shopify ecommerce project: Bollard Depot.\n\nStore: ' +
+        profile.skills.shopify.project + '\n' + profile.skills.shopify.url +
+        '\n\nHe is expanding his Shopify portfolio. I won’t claim a specific Liquid responsibility unless verified.';
+    }
 
-    if(/\b(shopify|ecommerce|e-commerce|bollard)\b/.test(s))
-      return 'Felix has Shopify ecommerce experience, including the Bollard Depot project: ' + profile.shopify;
+    /* All projects */
+    if(hasAny(s,['list all work','all work','all projects','projects','project portfolio','what has he built','what did he build','work samples','portfolio'])){
+      aiState.lastEntity='projects';
+      var list=profile.projects.map(function(p){
+        return '• ' + p.name + ' — ' + p.type + (p.url ? '\n  ' + p.url : '');
+      }).join('\n');
+      return 'Here are Felix’s documented featured projects:\n\n' + list +
+        '\n\nPortfolio: ' + profile.freelance.portfolio;
+    }
 
-    if(/\b(service|offer|hire|freelance|available|work with|contact|price|rate|quotation)\b/.test(s))
-      return 'Felix offers website development, web apps, PWAs, business systems, UI/UX, process automation, ERP workflows, deployment, SEO, and performance work. You can contact him through the portfolio: ' + profile.portfolio;
+    /* Skills */
+    if(hasAny(s,['skills','skillset','technical skills','tech stack','technology stack','technologies','programming languages','frameworks','what does he know','what can he code'])){
+      aiState.lastEntity='skills';
+      return 'Felix’s documented technical and systems skills include:\n\n' +
+        'Web: ' + profile.skills.web.join(', ') + '\n\n' +
+        'Frameworks/runtime: ' + profile.skills.frameworks_and_runtime.join(', ') + '\n\n' +
+        'Data/backend: ' + profile.skills.data_and_backend.join(', ') + '\n\n' +
+        'Tools/platforms: ' + profile.skills.tools_and_platforms.join(', ') + '\n\n' +
+        'Systems/business: ' + profile.skills.systems_and_business.join(', ') + '\n\n' +
+        'Delivery: ' + profile.skills.technical_delivery.join(', ') + '.';
+    }
 
-    if(/\b(website|web site)\b/.test(s))
-      return 'Felix builds custom, responsive websites and also works on web apps, PWAs, ecommerce, and business systems. His portfolio is ' + profile.portfolio;
+    /* Services / hiring */
+    if(hasAny(s,['services','what can he do','what does he offer','hire felix','hire him','work with felix','freelance','part time','available','can he build','can felix build','what can felix build'])){
+      aiState.lastEntity='services';
+      return 'Felix is open to freelance and part-time projects. His documented services include:\n\n' +
+        bullets(profile.services) + '\n\nPortfolio: ' + profile.freelance.portfolio;
+    }
 
-    if(/\b(erp|system|automation|workflow|business)\b/.test(s))
-      return 'Felix combines web development with ERP and business-process experience, including ERP modules, workflows, reporting dashboards, POS/inventory logic, and process automation.';
+    /* Recruiter */
+    if(hasAny(s,['recruiter','suitable for','good fit','fit for','qualified','candidate','implementation consultant','web developer role','erp analyst role','why hire'])){
+      return 'Felix’s strongest documented combination is ERP/business-process experience plus hands-on web and application development. His profile is relevant to ERP analysis/support, implementation and UAT, business systems, workflow automation, ITSM administration, and web application development.\n\nI won’t claim qualifications that are not verified in the knowledge base.';
+    }
 
-    if(/\b(email|phone|location|manila)\b/.test(s))
-      return 'For current contact details and professional information, please use Felix’s portfolio: ' + profile.portfolio;
+    /* Education/training */
+    if(hasAny(s,['education','degree','college','university','school','certification','certified','certificate','itil'])){
+      return 'The current public knowledge base records ITIL 4 training and learning/training areas including Data Analytics, Business Analytics with Excel, Python, Tableau, Power BI, and SQL. It does not currently contain enough verified information to state a completed degree or certification, so Felix AI will not guess.';
+    }
 
-    return 'I’m limited to Felix’s professional profile. I can answer about his projects, skills, services, systems experience, or portfolio, but I can’t answer general questions outside that scope.';
+    /* Contact */
+    if(hasAny(s,['portfolio link','website link','contact','how do i contact','email felix','where can i see his work'])){
+      return 'You can view Felix’s professional portfolio here:\n' + profile.freelance.portfolio +
+        '\n\nShopify project:\n' + profile.skills.shopify.url;
+    }
+
+    /* About */
+    if(hasAny(s,['who is felix','about felix','introduce felix','professional background','professional profile','tell me about felix'])){
+      return profile.profile.summary;
+    }
+
+    /* Non-professional boundary */
+    if(hasAny(s,['age','birthday','relationship','girlfriend','family','health','medical','salary','debt','address','home address','personal life','religion','politics'])){
+      return 'I’m Felix’s professional portfolio assistant, so I can only answer questions about his professional background, work, skills, projects, services, and portfolio.';
+    }
+
+    return 'I don’t have a verified answer for that in Felix’s professional knowledge base. I can answer about his current role, career, ERP/Freshservice experience, technical skills, projects, services, Shopify work, or portfolio.';
   }
 
   function ask(q){
