@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------
+# Felix AI — add these rules to the .htaccess in your web root.
+# If a .htaccess already exists there, MERGE this in; do not overwrite.
+# ------------------------------------------------------------------
+
+# 1. Never serve .env or any dotfile
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 2. Never serve the knowledge base directly (belt and braces —
+#    /data/.htaccess already does this)
+RedirectMatch 404 ^/data/.*\.json$
+
+# 3. Force HTTPS so the chat request is never sent in the clear
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
