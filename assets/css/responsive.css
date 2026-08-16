@@ -203,7 +203,12 @@
   .work__intro .btn { justify-self: start; }
   .pcard__shot { aspect-ratio: 16 / 11; }
 
-  .about__figure { max-width: 100%; }
+  /* .about__figure keeps the 400px cap from the ≤1024px block — it used to be
+     released to max-width:100% here. The figure now contains a drawing whose
+     labels are viewBox user units, so they scale with the panel: at the 720px
+     frame a 768px viewport used to give, "SYSTEM OF RECORD" set at 23px and read
+     as a heading rather than a label. Nothing below a ~470px viewport changes,
+     because 100% was already narrower than 400px there. */
   .about__pillars { gap: 10px; }
   .about__body { font-size: .9688rem; }
 

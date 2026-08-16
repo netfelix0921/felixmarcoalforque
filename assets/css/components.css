@@ -488,6 +488,64 @@
 .about__plate-name { font-family: var(--display); font-size: .9375rem; font-weight: 700; letter-spacing: -.026em; }
 .about__plate-role { font-size: .75rem; color: var(--text-2); margin-top: 1px; }
 
+/* --- the figure: an abstracted portrait used as the drawing's paper -----------
+   The <img> in the frame is the portrait sampled to a 44-column dot grid on a
+   neutral grey ramp. Neutral, not the site's blue → violet: that ramp is the same
+   palette the wires below use, and stacked together the wires stopped reading as
+   wires. All colour in this panel belongs to the diagram.
+
+   This overlay is the drawing itself. It adds nothing to .about__frame, its
+   scrim, or the nameplate: the scrim is ::after on the frame, so it still paints
+   over this drawing, and .about__plate's z-index: 2 still paints over both. */
+.about__draw {
+  position: absolute;
+  inset: 0;
+  /* Percentages, not em. A padding percentage resolves against the containing
+     block's INLINE size on every side, top included, so the drawing holds the
+     same proportions in the 286px frame a 320px phone gives it and in the 720px
+     one it gets just under the 768px breakpoint. Tying it to an em would tie it
+     to a font-size, and any clamp on that font-size freezes while the panel keeps
+     growing — at 720px the drawing would sit 3.2% from the edge instead of 5%.
+     5.312% and 4.98% are the 1.6em and 1.5em this was proofed at, restated
+     against the 430px design width. */
+  padding: 5.312% 4.98% 0;
+}
+.about__draw svg { display: block; width: 100%; height: auto; }
+
+/* Boxes are near-opaque on purpose. At a .92 fill the dot field showed through
+   and they read as dirty rather than translucent; at .96 they are clean plates
+   laid on the sheet, and the figure passes cleanly behind them. */
+.sch__box { fill: rgba(9, 12, 18, .96); stroke: var(--line-2); stroke-width: 1; }
+.sch__box--lit { fill: rgba(139, 92, 246, .09); stroke: rgba(139, 92, 246, .5); }
+.sch__lbl {
+  font-family: var(--mono);
+  /* px inside a viewBox is a user unit, so this scales with the panel on its own
+     and needs no container query. Note that letter-spacing lands after every
+     glyph, so the real advance is .690em, not the .600em the bare font gives —
+     which is why the boxes are 152u wide and not the 133u a naive measurement
+     would have sized them to. */
+  font-size: 10.5px;
+  letter-spacing: .09em;
+  fill: var(--text-2);
+}
+.sch__lbl--lit { fill: var(--violet-hi); }
+.sch__wire { fill: none; stroke: rgba(96, 165, 250, .55); stroke-width: 1.25; }
+.sch__node { fill: var(--bg-3); stroke: rgba(255, 255, 255, .3); stroke-width: 1; }
+
+/* The one moving element, and only on the data path. Dash 16 + gap 176 is longer
+   than the 146u of path, so exactly one pulse is ever in flight; a shorter cycle
+   shows two at once. The global prefers-reduced-motion rule in base.css already
+   stops it, so there is no guard needed here. */
+.sch__flow {
+  fill: none;
+  stroke: var(--blue-hi);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 16 176;
+  animation: flow-sub 4.6s linear infinite;
+}
+@keyframes flow-sub { to { stroke-dashoffset: -192; } }
+
 /* grid children need min-width:0 or long words can push the column wider */
 .about__content { min-width: 0; }
 .about__body { color: var(--text-2); font-size: 1rem; line-height: 1.78; }
