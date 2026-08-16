@@ -1338,6 +1338,31 @@ footer{border-top:1px solid var(--line-soft);padding:36px 0}
   .ai-messages{max-height:42vh}
 }
 
+
+/* --- Felix AI: backend-driven states + markdown --- */
+.ai-msg.bot p{margin:0 0 8px}
+.ai-msg.bot p:last-child{margin-bottom:0}
+.ai-msg.bot ul,.ai-msg.bot ol{margin:6px 0 8px;padding-left:17px;display:flex;flex-direction:column;gap:4px}
+.ai-msg.bot ul{list-style:disc}
+.ai-msg.bot ol{list-style:decimal}
+.ai-msg.bot li{padding-left:2px}
+.ai-msg.bot strong{color:var(--ink);font-weight:600}
+.ai-msg.bot em{font-style:italic;color:var(--ink-soft)}
+.ai-msg.bot code{
+  font-family:'JetBrains Mono',monospace;font-size:.72em;padding:1px 5px;border-radius:5px;
+  background:rgba(255,255,255,.07);border:1px solid var(--line-soft);color:var(--ink)
+}
+.ai-msg.bot a{color:#a5b4fc;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
+.ai-msg.bot a:hover{color:#c7d2fe}
+.ai-msg.bot.scope{border-color:rgba(129,140,248,.22);background:rgba(129,140,248,.055)}
+.ai-msg.bot.notice{border-color:rgba(251,191,36,.24);background:rgba(251,191,36,.05);color:var(--muted)}
+.ai-thinking{display:flex;align-items:center;gap:8px}
+.ai-thinking-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--faint);letter-spacing:.02em}
+.ai-form.is-busy{opacity:.6}
+.ai-input:disabled,.ai-send:disabled{cursor:not-allowed}
+.ai-send:disabled:hover{transform:none}
+.ai-quick button:disabled{opacity:.45;cursor:not-allowed}
+
 </style>
 
 <script>
@@ -1460,440 +1485,224 @@ document.getElementById('formSubmit').addEventListener('click', function(){
     });
 });
 
-/* Felix AI — profile-only local assistant.
-   This version intentionally uses only portfolio facts so it can be deployed
-   as a static site without exposing an AI API key. */
+/* Felix AI — profile-only assistant.
+   The browser never sees an API key: every question goes to the backend
+   endpoint below, which holds OPENAI_API_KEY server-side and enforces the
+   profile-only scope rules before and after the model call. */
 (function(){
+  /* ---------- configuration ---------- */
+  var AI_ENDPOINT     = '/api/felix-ai.php';  /* Vercel/Node: '/api/felix-ai' */
+  var REQUEST_TIMEOUT = 30000;                /* ms */
+  var MAX_CHARS       = 500;
+  var MAX_HISTORY     = 8;                    /* 4 exchanges of context */
+
   var launcher = document.getElementById('aiLauncher');
-  var panel = document.getElementById('aiPanel');
-  var close = document.getElementById('aiClose');
-  var form = document.getElementById('aiForm');
-  var input = document.getElementById('aiInput');
+  var panel    = document.getElementById('aiPanel');
+  var closeBtn = document.getElementById('aiClose');
+  var form     = document.getElementById('aiForm');
+  var input    = document.getElementById('aiInput');
+  var sendBtn  = form ? form.querySelector('.ai-send') : null;
   var messages = document.getElementById('aiMessages');
-  if(!launcher || !panel || !form) return;
+  if(!launcher || !panel || !form || !input || !messages) return;
 
-  var profile = {
-  "meta": {
-    "name": "Felix Marco Alforque",
-    "purpose": "Professional portfolio AI knowledge base",
-    "scope": "Only professional, work, skills, projects, education/training, and freelance information.",
-    "privacy_rule": "Do not answer about personal life, health, finances, relationships, private company information, or other non-professional topics.",
-    "accuracy_rule": "Never invent employers, responsibilities, certifications, technologies, clients, dates, prices, or project details. If not in this knowledge base, say the information is not available."
-  },
-  "profile": {
-    "professional_title": "ERP System Analyst | Web & App Developer",
-    "summary": "Felix is an ERP System Analyst and hands-on web/app developer who combines business-process understanding with practical software development. His experience spans ERP support and analysis, ITSM/Freshservice administration, workflow automation, responsive websites, web applications, PWAs, ecommerce, dashboards, and custom business systems."
-  },
-  "current_role": {
-    "company": "Eagle Cement Corporation",
-    "position": "ERP System Analyst",
-    "start_date": "June 2024",
-    "end_date": "Present",
-    "erp": "Ramco ERP",
-    "known_context": [
-      "ERP-related incident tickets are a major part of the work environment.",
-      "Ramco ERP is used for ERP concerns.",
-      "Felix works with ERP/business-system requirements, support, troubleshooting, testing, and process-related activities.",
-      "The work involves coordination with business users and system-related problem solving."
-    ],
-    "known_related_work": [
-      "Ramco ERP support and analysis",
-      "UAT/testing coordination",
-      "Issue/ticket analysis",
-      "Business process and workflow analysis",
-      "ERP data/master-data related work",
-      "System troubleshooting",
-      "User/business stakeholder coordination"
-    ]
-  },
-  "freshservice_itsm": {
-    "platform": "Freshservice / Freshworks",
-    "experience": [
-      "Requesters and departments administration",
-      "Service Catalog and service items",
-      "Workflow automation",
-      "SLA configuration and ticket aging analysis",
-      "Incident and service-request workflows",
-      "Approval workflows",
-      "Employee onboarding workflow design",
-      "ITSM dashboards and analytics",
-      "Ticket reduction/process improvement initiatives"
-    ]
-  },
-  "skills": {
-    "web": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive web development",
-      "UI/UX implementation",
-      "Progressive Web Apps (PWA)",
-      "Web application development",
-      "Ecommerce website development"
-    ],
-    "frameworks_and_runtime": [
-      "Next.js",
-      "Node.js"
-    ],
-    "data_and_backend": [
-      "Prisma",
-      "MySQL",
-      "Firebase"
-    ],
-    "tools_and_platforms": [
-      "GitHub",
-      "Vercel",
-      "DirectAdmin",
-      "cPanel",
-      "EmailJS"
-    ],
-    "systems_and_business": [
-      "ERP systems",
-      "ITSM / Freshservice",
-      "Workflow automation",
-      "Business process analysis",
-      "Custom business systems",
-      "Dashboards and reporting",
-      "POS and inventory logic",
-      "Registration and attendance systems"
-    ],
-    "technical_delivery": [
-      "Deployment and hosting",
-      "Domain and SSL setup",
-      "DNS troubleshooting",
-      "SEO basics",
-      "Performance optimization",
-      "UAT support/testing",
-      "System troubleshooting"
-    ],
-    "shopify": {
-      "experience_level_note": "Felix has personally handled one Shopify ecommerce project and is currently building his Shopify portfolio.",
-      "project": "Bollard Depot",
-      "url": "https://bollarddepot.co.uk/"
-    }
-  },
-  "projects": [
-    {
-      "name": "Fintra",
-      "type": "Personal finance web application / PWA",
-      "known_features": [
-        "Dashboard",
-        "Accounts",
-        "Bills tracker",
-        "Subscriptions manager",
-        "Budget goals",
-        "Income and expense logs",
-        "Credit card tracker",
-        "Profiles",
-        "People & Splits",
-        "AI assistant concept"
-      ],
-      "known_technology": [
-        "Next.js",
-        "Firebase",
-        "PWA"
-      ],
-      "note": "Use only the features explicitly documented in the knowledge base; do not invent additional integrations or production claims."
-    },
-    {
-      "name": "MICLY",
-      "type": "Karaoke platform / PWA",
-      "known_features": [
-        "TV karaoke mode",
-        "Mobile phone remote",
-        "QR room joining",
-        "Shared song queue",
-        "Favorites and reactions",
-        "Party/multi-device mode"
-      ],
-      "known_concept": "A karaoke experience where a TV can run the karaoke interface while phones can act as controllers/remotes."
-    },
-    {
-      "name": "Coffee Shop POS",
-      "type": "POS / business system",
-      "target": "Small coffee shop owners",
-      "known_features": [
-        "POS",
-        "Sales",
-        "Product management",
-        "Inventory",
-        "Offline-first design considerations",
-        "Multi-device considerations",
-        "Reporting"
-      ],
-      "known_technology": [
-        "Next.js",
-        "Prisma",
-        "MySQL",
-        "PWA"
-      ],
-      "note": "Some implementation details were discussed during development; do not claim BIR accreditation or certification."
-    },
-    {
-      "name": "Event / Convention Registration System",
-      "type": "Event registration and attendance platform",
-      "known_features": [
-        "Event registration",
-        "Attendee records",
-        "Registration confirmation",
-        "Digital ID concept",
-        "QR/time-entry concept",
-        "Attendance tracking",
-        "Event management"
-      ],
-      "note": "Built as a custom business-system project/concept; do not claim a specific client unless explicitly provided."
-    },
-    {
-      "name": "Bollard Depot",
-      "type": "Shopify ecommerce website",
-      "url": "https://bollarddepot.co.uk/",
-      "role_note": "Felix personally handled a Shopify ecommerce project. Exact individual responsibilities should only be claimed when confirmed."
-    },
-    {
-      "name": "Portfolio Website",
-      "type": "Single-file professional portfolio",
-      "url": "https://felixmarcoalforque.it.com/",
-      "known_technology": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "EmailJS"
-      ],
-      "known_features": [
-        "Responsive portfolio",
-        "Custom animations",
-        "Interactive navigation",
-        "Contact form pipeline",
-        "AI portfolio assistant"
-      ]
-    }
-  ],
-  "services": [
-    "Company and business websites",
-    "Responsive website redesign",
-    "Web application development",
-    "Progressive Web App development",
-    "Custom business systems",
-    "POS and inventory systems",
-    "Event registration and attendance systems",
-    "Workflow and process automation",
-    "ERP-related analysis and support",
-    "Freshservice / ITSM configuration",
-    "Dashboards and reporting",
-    "Ecommerce / Shopify work",
-    "Deployment and hosting support",
-    "Basic SEO and performance optimization"
-  ],
-  "freelance": {
-    "availability": "Open to freelance and part-time projects.",
-    "positioning": "Offers competitive portfolio-building rates while applying broader web development, ERP, systems, and business-process skills.",
-    "portfolio": "https://felixmarcoalforque.it.com/"
-  },
-  "training_and_career_development": {
-    "known_training": [
-      "ITIL 4 training",
-      "Interest/consideration in Data Analytics training",
-      "Business Analytics with Excel",
-      "Python",
-      "Tableau",
-      "Power BI",
-      "SQL"
-    ],
-    "note": "The knowledge base should distinguish completed certifications from training or learning interests. Do not call any item a certification unless explicitly confirmed."
-  },
-  "recruiter_questions": {
-    "current_work": "Felix is currently working at Eagle Cement Corporation as an ERP System Analyst, from June 2024 to Present.",
-    "erp": "Felix works with Ramco ERP in his ERP System Analyst role and has experience with ERP support, issue analysis, testing/UAT, business-process work, and system troubleshooting.",
-    "freshservice": "Felix has hands-on Freshservice/Freshworks administration experience covering service catalog, service items, requesters, departments, workflows, SLAs, approvals, onboarding workflows, and analytics.",
-    "web_development": "Felix builds responsive websites, web applications, PWAs, ecommerce sites, and custom business systems.",
-    "technical_stack": "Known technologies include HTML, CSS, JavaScript, Next.js, Node.js, Prisma, MySQL, Firebase, GitHub, Vercel, DirectAdmin, cPanel, and EmailJS.",
-    "shopify": "Felix has personally handled one Shopify ecommerce project, Bollard Depot, and is expanding his Shopify portfolio.",
-    "projects": "Featured work includes Fintra, MICLY, a Coffee Shop POS, an Event/Convention Registration System, Bollard Depot, and Felix's own portfolio.",
-    "hire": "Felix is open to freelance and part-time work. Visitors can review his portfolio and contact him through the portfolio website."
-  },
-  "unknown_or_do_not_claim": [
-    "Exact number of total years of professional Shopify experience",
-    "Exact number of years of total web-development experience",
-    "Specific university/degree/graduation year",
-    "Specific certifications and certification dates",
-    "Specific Ramco ERP modules unless explicitly confirmed",
-    "Specific previous employers and employment dates not included above",
-    "Exact individual Liquid development responsibilities",
-    "Confidential Eagle Cement information",
-    "Client names not explicitly made public",
-    "Private personal contact details unless intentionally published on the portfolio"
-  ]
-};
+  var slow    = (typeof reduceMotion !== 'undefined' && reduceMotion) ? true : false;
+  var history = [];   /* session only — cleared on page unload, never stored */
+  var busy    = false;
 
-  function addMessage(text, type){
-    var el = document.createElement('div');
-    el.className = 'ai-msg ' + type;
-    el.textContent = text;
-    messages.appendChild(el);
-    messages.scrollTop = messages.scrollHeight;
+  /* ---------- rendering ---------- */
+
+  function escapeHtml(s){
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
-  function typing(){
+  function anchor(href, label){
+    return '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' + label + '</a>';
+  }
+
+  /* Minimal, escape-first markdown: bold, italic, code, links, lists. */
+  function inlineMd(line){
+    var slots = [];
+    var out = escapeHtml(line);
+
+    /* [label](url) -> placeholder so later passes can't touch the markup */
+    out = out.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, function(_, label, url){
+      slots.push(anchor(url, label));
+      return '\u0000' + (slots.length - 1) + '\u0000';
+    });
+
+    /* bare URLs */
+    out = out.replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)])/g, function(url){
+      slots.push(anchor(url, url));
+      return '\u0000' + (slots.length - 1) + '\u0000';
+    });
+
+    out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
+    out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    out = out.replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+    out = out.replace(/(^|[\s(])_([^_\n]+)_/g, '$1<em>$2</em>');
+
+    return out.replace(/\u0000(\d+)\u0000/g, function(_, i){ return slots[i]; });
+  }
+
+  function renderMarkdown(text){
+    var lines = String(text).replace(/\r/g,'').split('\n');
+    var html = '', list = null, para = [];
+
+    function flushPara(){
+      if(para.length){ html += '<p>' + para.join('<br>') + '</p>'; para = []; }
+    }
+    function flushList(){
+      if(list){ html += '<' + list.tag + '>' + list.items.join('') + '</' + list.tag + '>'; list = null; }
+    }
+
+    lines.forEach(function(raw){
+      var line = raw.replace(/\s+$/,'');
+      var bullet = line.match(/^\s*[-•*]\s+(.*)$/);
+      var number = line.match(/^\s*\d+[.)]\s+(.*)$/);
+
+      if(bullet){
+        flushPara();
+        if(!list || list.tag !== 'ul'){ flushList(); list = { tag:'ul', items:[] }; }
+        list.items.push('<li>' + inlineMd(bullet[1]) + '</li>');
+      } else if(number){
+        flushPara();
+        if(!list || list.tag !== 'ol'){ flushList(); list = { tag:'ol', items:[] }; }
+        list.items.push('<li>' + inlineMd(number[1]) + '</li>');
+      } else if(line.trim() === ''){
+        flushList(); flushPara();
+      } else {
+        flushList();
+        para.push(inlineMd(line));
+      }
+    });
+
+    flushList(); flushPara();
+    return html || '<p>' + inlineMd(text) + '</p>';
+  }
+
+  function scrollToEnd(){
+    try{
+      messages.scrollTo({ top: messages.scrollHeight, behavior: slow ? 'auto' : 'smooth' });
+    }catch(e){
+      messages.scrollTop = messages.scrollHeight;
+    }
+  }
+
+  function addUser(text){
     var el = document.createElement('div');
-    el.className = 'ai-msg bot';
-    el.innerHTML = '<span class="ai-typing"><i></i><i></i><i></i></span>';
+    el.className = 'ai-msg user';
+    el.textContent = text;
     messages.appendChild(el);
-    messages.scrollTop = messages.scrollHeight;
+    scrollToEnd();
+  }
+
+  function addBot(text, variant){
+    var el = document.createElement('div');
+    el.className = 'ai-msg bot' + (variant ? ' ' + variant : '');
+    el.innerHTML = renderMarkdown(text);
+    messages.appendChild(el);
+    scrollToEnd();
     return el;
   }
 
-  var aiState = { lastIntent: null, lastEntity: null };
-
-  function hasAny(text, words){
-    return words.some(function(w){ return text.indexOf(w) !== -1; });
-  }
-  function cleanText(v){
-    return (v || '').toLowerCase().replace(/[’']/g,'').replace(/[^\w\s&+.-]/g,' ').replace(/\s+/g,' ').trim();
-  }
-  function bullets(items){
-    return items.map(function(x){ return '• ' + x; }).join('\n');
-  }
-  function project(name){
-    return profile.projects.find(function(p){ return p.name === name; });
+  function addThinking(){
+    var el = document.createElement('div');
+    el.className = 'ai-msg bot ai-thinking';
+    el.innerHTML = '<span class="ai-typing"><i></i><i></i><i></i></span><span class="ai-thinking-label">Thinking…</span>';
+    messages.appendChild(el);
+    scrollToEnd();
+    return el;
   }
 
-  function answer(q){
-    var raw = (q || '').trim();
-    var s = cleanText(raw);
-    if(!s) return 'Ask me about Felix’s current work, career, skills, projects, services, or portfolio.';
-
-    if(hasAny(s,['hi','hello','hey','good morning','good afternoon','good evening'])){
-      return 'Hi! I’m Felix AI, Felix’s professional portfolio assistant. Ask me about his current role, ERP/Freshservice experience, skills, projects, services, or how to work with him.';
-    }
-
-    /* Career / current work */
-    if(hasAny(s,['current work','currently working','where does he work','where did he work','current job','job now','employer','company now','present job','work now']) ||
-       (hasAny(s,['work','job','company','employer']) && hasAny(s,['current','now','present','where']))){
-      aiState.lastEntity='current role';
-      return 'Felix is currently working at ' + profile.current_role.company + ' as an ' +
-        profile.current_role.position + ' (' + profile.current_role.start_date + ' – ' +
-        profile.current_role.end_date + ').\n\nHis documented work includes ' +
-        profile.current_role.erp + ', ERP support and analysis, issue/ticket analysis, system troubleshooting, testing/UAT, business-process work, and coordination with business users.';
-    }
-
-    if(hasAny(s,['career history','career timeline','previous work','previous jobs','past employers','work history','employment history','where has he worked'])){
-      return 'Felix’s verified career timeline currently includes:\n\n• June 2024 – Present — Eagle Cement Corporation\n  ERP System Analyst\n  Ramco ERP and related ERP/system support and analysis.\n\nI don’t have verified previous-employer details in the public knowledge base yet, so I won’t invent them.';
-    }
-
-    /* ERP */
-    if(hasAny(s,['erp','ramco','enterprise resource planning','erp analyst','erp experience'])){
-      aiState.lastEntity='erp';
-      return 'Felix works with Ramco ERP as an ERP System Analyst. His documented ERP-related work includes:\n\n' +
-        bullets(profile.current_role.known_related_work) +
-        '\n\nHe also works with business-process/system requirements, troubleshooting, testing/UAT, and stakeholder coordination.';
-    }
-
-    /* Freshservice / ITSM */
-    if(hasAny(s,['freshservice','freshworks','itsm','service catalog','service item','sla','ticketing','ticket analytics','incident management','service request'])){
-      aiState.lastEntity='freshservice';
-      return 'Felix has hands-on Freshservice/Freshworks experience, including:\n\n' +
-        bullets(profile.freshservice_itsm.experience);
-    }
-
-    /* Specific projects */
-    if(hasAny(s,['micly','karaoke'])){
-      aiState.lastEntity='micly';
-      var m=project('MICLY');
-      return 'MICLY is a karaoke platform/PWA project. Documented features include:\n\n' +
-        bullets(m.known_features) +
-        '\n\nThe concept uses a TV karaoke experience with phones acting as controllers/remotes.';
-    }
-    if(hasAny(s,['fintra','finance tracker','personal finance'])){
-      aiState.lastEntity='fintra';
-      var f=project('Fintra');
-      return 'Fintra is a personal finance web application/PWA. Documented areas include:\n\n' +
-        bullets(f.known_features) + '\n\nKnown technology: ' + f.known_technology.join(', ') + '.';
-    }
-    if(hasAny(s,['coffee pos','coffee shop pos','point of sale','pos system','inventory system'])){
-      aiState.lastEntity='coffee pos';
-      var p=project('Coffee Shop POS');
-      return 'Felix has worked on a Coffee Shop POS/business-system project for small coffee shop owners.\n\n' +
-        bullets(p.known_features) + '\n\nKnown technology: ' + p.known_technology.join(', ') + '.';
-    }
-    if(hasAny(s,['event registration','convention registration','attendance system','event system','registration system','digital id','qr registration'])){
-      aiState.lastEntity='event registration';
-      var e=project('Event / Convention Registration System');
-      return 'Felix has worked on an Event/Convention Registration System concept with:\n\n' +
-        bullets(e.known_features) + '\n\nNo specific client is claimed in the knowledge base.';
-    }
-    if(hasAny(s,['bollard','shopify','ecommerce','e commerce','liquid'])){
-      aiState.lastEntity='shopify';
-      return 'Felix has personally handled one Shopify ecommerce project: Bollard Depot.\n\nStore: ' +
-        profile.skills.shopify.project + '\n' + profile.skills.shopify.url +
-        '\n\nHe is expanding his Shopify portfolio. I won’t claim a specific Liquid responsibility unless verified.';
-    }
-
-    /* All projects */
-    if(hasAny(s,['list all work','all work','all projects','projects','project portfolio','what has he built','what did he build','work samples','portfolio'])){
-      aiState.lastEntity='projects';
-      var list=profile.projects.map(function(p){
-        return '• ' + p.name + ' — ' + p.type + (p.url ? '\n  ' + p.url : '');
-      }).join('\n');
-      return 'Here are Felix’s documented featured projects:\n\n' + list +
-        '\n\nPortfolio: ' + profile.freelance.portfolio;
-    }
-
-    /* Skills */
-    if(hasAny(s,['skills','skillset','technical skills','tech stack','technology stack','technologies','programming languages','frameworks','what does he know','what can he code'])){
-      aiState.lastEntity='skills';
-      return 'Felix’s documented technical and systems skills include:\n\n' +
-        'Web: ' + profile.skills.web.join(', ') + '\n\n' +
-        'Frameworks/runtime: ' + profile.skills.frameworks_and_runtime.join(', ') + '\n\n' +
-        'Data/backend: ' + profile.skills.data_and_backend.join(', ') + '\n\n' +
-        'Tools/platforms: ' + profile.skills.tools_and_platforms.join(', ') + '\n\n' +
-        'Systems/business: ' + profile.skills.systems_and_business.join(', ') + '\n\n' +
-        'Delivery: ' + profile.skills.technical_delivery.join(', ') + '.';
-    }
-
-    /* Services / hiring */
-    if(hasAny(s,['services','what can he do','what does he offer','hire felix','hire him','work with felix','freelance','part time','available','can he build','can felix build','what can felix build'])){
-      aiState.lastEntity='services';
-      return 'Felix is open to freelance and part-time projects. His documented services include:\n\n' +
-        bullets(profile.services) + '\n\nPortfolio: ' + profile.freelance.portfolio;
-    }
-
-    /* Recruiter */
-    if(hasAny(s,['recruiter','suitable for','good fit','fit for','qualified','candidate','implementation consultant','web developer role','erp analyst role','why hire'])){
-      return 'Felix’s strongest documented combination is ERP/business-process experience plus hands-on web and application development. His profile is relevant to ERP analysis/support, implementation and UAT, business systems, workflow automation, ITSM administration, and web application development.\n\nI won’t claim qualifications that are not verified in the knowledge base.';
-    }
-
-    /* Education/training */
-    if(hasAny(s,['education','degree','college','university','school','certification','certified','certificate','itil'])){
-      return 'The current public knowledge base records ITIL 4 training and learning/training areas including Data Analytics, Business Analytics with Excel, Python, Tableau, Power BI, and SQL. It does not currently contain enough verified information to state a completed degree or certification, so Felix AI will not guess.';
-    }
-
-    /* Contact */
-    if(hasAny(s,['portfolio link','website link','contact','how do i contact','email felix','where can i see his work'])){
-      return 'You can view Felix’s professional portfolio here:\n' + profile.freelance.portfolio +
-        '\n\nShopify project:\n' + profile.skills.shopify.url;
-    }
-
-    /* About */
-    if(hasAny(s,['who is felix','about felix','introduce felix','professional background','professional profile','tell me about felix'])){
-      return profile.profile.summary;
-    }
-
-    /* Non-professional boundary */
-    if(hasAny(s,['age','birthday','relationship','girlfriend','family','health','medical','salary','debt','address','home address','personal life','religion','politics'])){
-      return 'I’m Felix’s professional portfolio assistant, so I can only answer questions about his professional background, work, skills, projects, services, and portfolio.';
-    }
-
-    return 'I don’t have a verified answer for that in Felix’s professional knowledge base. I can answer about his current role, career, ERP/Freshservice experience, technical skills, projects, services, Shopify work, or portfolio.';
+  function setBusy(state){
+    busy = state;
+    input.disabled = state;
+    if(sendBtn) sendBtn.disabled = state;
+    panel.querySelectorAll('.ai-quick button').forEach(function(b){ b.disabled = state; });
+    form.classList.toggle('is-busy', state);
   }
 
-  function ask(q){
-    addMessage(q,'user');
-    var t = typing();
-    window.setTimeout(function(){
-      t.remove();
-      addMessage(answer(q),'bot');
-    }, reduceMotion ? 80 : 450);
+  /* ---------- backend call ---------- */
+
+  function requestAnswer(question){
+    var controller = ('AbortController' in window) ? new AbortController() : null;
+    var timer = window.setTimeout(function(){ if(controller) controller.abort(); }, REQUEST_TIMEOUT);
+
+    return fetch(AI_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: question, history: history.slice(-MAX_HISTORY) }),
+      signal: controller ? controller.signal : undefined
+    }).then(function(res){
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        return { status: res.status, data: data };
+      });
+    }).finally(function(){ window.clearTimeout(timer); });
   }
+
+  function ask(question){
+    if(busy) return;
+
+    var q = question.trim();
+    if(!q) return;
+    if(q.length > MAX_CHARS){
+      addUser(q.slice(0, MAX_CHARS) + '…');
+      addBot('That question is too long. Keep it under ' + MAX_CHARS + ' characters.', 'notice');
+      return;
+    }
+
+    addUser(q);
+    setBusy(true);
+    var thinking = addThinking();
+
+    if(!navigator.onLine){
+      thinking.remove();
+      setBusy(false);
+      addBot('You appear to be offline. Reconnect and ask again.', 'notice');
+      return;
+    }
+
+    requestAnswer(q).then(function(result){
+      thinking.remove();
+      var data = result.data || {};
+      var answer = typeof data.answer === 'string' ? data.answer : '';
+
+      if(result.status === 404 || result.status === 405){
+        addBot('Felix AI is not connected yet. The assistant endpoint at `' + AI_ENDPOINT + '` is not responding. Meanwhile you can reach Felix through the contact form on this site.', 'notice');
+        return;
+      }
+
+      if(!answer){
+        addBot('Felix AI is temporarily unavailable. Please use the contact form on this site to reach Felix directly.', 'notice');
+        return;
+      }
+
+      var variant = (data.allowed === false) ? 'scope' : '';
+      addBot(answer, variant);
+
+      /* Only in-scope exchanges become context, so pronouns like "there"
+         always resolve against a real answer. */
+      if(data.allowed !== false){
+        history.push({ role:'user', content:q });
+        history.push({ role:'assistant', content:answer });
+        if(history.length > MAX_HISTORY) history = history.slice(-MAX_HISTORY);
+      }
+    }).catch(function(err){
+      thinking.remove();
+      if(err && err.name === 'AbortError'){
+        addBot('Felix AI took too long to respond. Ask again in a moment.', 'notice');
+      } else {
+        addBot('Felix AI cannot be reached right now. Ask again shortly, or use the contact form on this site.', 'notice');
+      }
+    }).finally(function(){
+      setBusy(false);
+      if(panel.classList.contains('open')) input.focus();
+    });
+  }
+
+  /* ---------- panel controls ---------- */
 
   function openAI(){
     panel.classList.add('open');
@@ -1910,19 +1719,20 @@ document.getElementById('formSubmit').addEventListener('click', function(){
   launcher.addEventListener('click', function(){
     panel.classList.contains('open') ? closeAI() : openAI();
   });
-  close.addEventListener('click', closeAI);
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && panel.classList.contains('open')) closeAI(); });
+  if(closeBtn) closeBtn.addEventListener('click', closeAI);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && panel.classList.contains('open')) closeAI();
+  });
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var q = input.value.trim();
-    if(!q) return;
+    var q = input.value;
     input.value = '';
     ask(q);
   });
 
   panel.querySelectorAll('.ai-quick button').forEach(function(btn){
-    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-q')); });
+    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-q') || ''); });
   });
 })();
 
