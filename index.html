@@ -471,11 +471,42 @@
 
       <div class="about__figure reveal">
         <div class="about__frame">
-          <img src="assets/img/felix-about-700.webp"
-               srcset="assets/img/felix-about-500.webp 500w, assets/img/felix-about-700.webp 700w"
-               sizes="(max-width: 1024px) 100vw, 40vw"
+          <!-- The portrait, sampled to a 44-column dot grid on a neutral grey
+               ramp, so it reads as the squared drafting paper the diagram below
+               is drawn on rather than as a photograph. Same crop as the photo it
+               replaces, so the framing inside the frame does not shift. -->
+          <img src="assets/img/ground-coarse.webp"
+               srcset="assets/img/ground-coarse-small.webp 490w, assets/img/ground-coarse.webp 700w"
+               sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) 400px, 40vw"
                width="700" height="877" loading="lazy" decoding="async"
-               alt="Felix Marco Alforque at his desk in Manila"/>
+               alt="Abstracted portrait of Felix Marco Alforque, printed as a grid of grey dots across a measured field"/>
+          <div class="about__draw">
+            <svg viewBox="0 0 300 268" role="img" aria-label="Diagram: a record moves from the system of record, through business rules, to what people see on screen">
+              <!-- All three boxes are 152u wide. "SYSTEM OF RECORD" needs 115u at
+                   JetBrains Mono's real tracked advance of 0.690em, so 152 is the
+                   narrowest width that holds every label; equal widths are also
+                   what let one straight spine hit all three centres. Baselines sit
+                   at box centre + half a cap height (3.83u), not at an eyeballed
+                   offset. The chain ends at 264u of a 268u viewBox, which keeps the
+                   last label at 64% of the panel height — above the depth where
+                   .about__frame::after starts costing it contrast. -->
+              <rect class="sch__box" x="18" y="4" width="152" height="38" rx="7"/>
+              <text class="sch__lbl" x="33" y="27">SYSTEM OF RECORD</text>
+
+              <rect class="sch__box sch__box--lit" x="18" y="115" width="152" height="38" rx="7"/>
+              <text class="sch__lbl sch__lbl--lit" x="33" y="138">RULES</text>
+
+              <rect class="sch__box" x="18" y="226" width="152" height="38" rx="7"/>
+              <text class="sch__lbl" x="33" y="249">WHAT PEOPLE SEE</text>
+
+              <path class="sch__wire" d="M94 42 V115"/>
+              <path class="sch__wire" d="M94 153 V226"/>
+              <path class="sch__flow" d="M94 42 V115 M94 153 V226"/>
+
+              <circle class="sch__node" cx="94" cy="42" r="3"/>
+              <circle class="sch__node" cx="94" cy="226" r="3"/>
+            </svg>
+          </div>
           <div class="about__plate">
             <div>
               <p class="about__plate-name">Felix Marco Alforque</p>
