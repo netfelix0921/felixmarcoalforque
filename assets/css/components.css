@@ -21,12 +21,22 @@
 .work__intro h2 { margin-bottom: 18px; }
 .work__intro .lede { font-size: .9688rem; margin-bottom: 26px; max-width: 34ch; }
 
-/* extra projects revealed by "View all projects" */
+/* Extra projects revealed by "View all projects".
+   .work__more is a single child of .work__layout, so it occupies one grid cell.
+   Without an explicit span it auto-places into column 1 — the narrow intro
+   column — and the cards inside collapse to ~100px, wrapping one character per
+   line. Spanning it from the first card column to the end keeps the revealed
+   row on the same tracks as the three cards above, and because those parent
+   tracks are all minmax(0, 1fr) with this same gap, three inner columns render
+   at exactly the width of the cards in row 1.
+   The parent's row gap already separates the two rows, so there is no
+   margin-top here; adding one would double the spacing. */
 .work__more {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column: 2 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2vw, 26px);
-  margin-top: clamp(18px, 2vw, 26px);
+  align-items: start;
 }
 .work__more[hidden] { display: none; }
 

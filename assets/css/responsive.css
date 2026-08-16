@@ -39,6 +39,10 @@
 
   /* the work intro sits above a full-width row of cards */
   .work__layout { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* the intro no longer holds a column of its own, so the revealed row starts
+     at the first track instead of the second. Its three inner columns still
+     match the parent, so card widths stay identical to the row above. */
+  .work__more { grid-column: 1 / -1; }
   .work__intro {
     grid-column: 1 / -1;
     display: grid;
