@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "felixmarcoalforque-portfolio",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
