@@ -50,6 +50,7 @@
     var firstName = (document.getElementById('firstName').value || '').trim();
     var lastName = (document.getElementById('lastName').value || '').trim();
     var email = (document.getElementById('emailAddr').value || '').trim();
+    var projectType = (document.getElementById('projectType').value || '').trim();
     var subject = (document.getElementById('subject').value || '').trim();
     var message = (document.getElementById('message').value || '').trim();
 
@@ -62,6 +63,11 @@
     if (!EMAIL_RE.test(email)) {
       say('Please enter a valid email address.', 'error');
       document.getElementById('emailAddr').focus();
+      return;
+    }
+    if (!projectType) {
+      say('Please select a project type.', 'error');
+      document.getElementById('projectType').focus();
       return;
     }
     if (message.length < 10) {
@@ -90,7 +96,10 @@
       from_name: firstName + (lastName ? ' ' + lastName : ''),
       email: email,
       subject: subject || 'Portfolio Inquiry',
-      message: message,
+      project_type: projectType,
+      /* prefixed onto the message body too, so it shows up in the email even
+         if the EmailJS template itself isn't updated to render {{project_type}} */
+      message: 'Project type: ' + projectType + '\n\n' + message,
       time: now
     };
 
@@ -111,8 +120,12 @@
       });
   });
 
-  /* clear an error the moment the visitor starts fixing it */
-  form.addEventListener('input', function () {
+  /* clear an error the moment the visitor starts fixing it — 'change' is
+     included alongside 'input' because some browsers only fire 'input' on
+     <select> for keyboard interaction, not a mouse pick from the list */
+  function clearErrorOnFix() {
     if (status && status.getAttribute('data-tone') === 'error') say('');
-  });
+  }
+  form.addEventListener('input', clearErrorOnFix);
+  form.addEventListener('change', clearErrorOnFix);
 })();
