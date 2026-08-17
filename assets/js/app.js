@@ -173,6 +173,35 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 6b. keep the AI launcher off the contact CTAs
+   *
+   * Below 1024px the launcher is a fixed circle in the bottom-right corner,
+   * which is exactly where "Let's Talk" and the first form fields land. When
+   * the contact section is on screen the button tucks away (CSS handles the
+   * fade) and leaves the tab order, so it is not a hidden focus stop. It comes
+   * straight back on scroll — and if the panel happens to be open, it is left
+   * alone, because hiding the control that closes it would strand the user.
+   * ------------------------------------------------------------------ */
+  var aiLauncher = document.getElementById('aiLauncher');
+  var contactSection = document.getElementById('contact');
+
+  if (aiLauncher && contactSection && 'IntersectionObserver' in window) {
+    var tuckObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var panel = document.getElementById('aiPanel');
+        var panelOpen = panel && panel.classList.contains('open');
+        var tuck = entry.isIntersecting && !panelOpen;
+
+        aiLauncher.classList.toggle('is-tucked', tuck);
+        if (tuck) aiLauncher.setAttribute('tabindex', '-1');
+        else aiLauncher.removeAttribute('tabindex');
+      });
+    }, { rootMargin: '0px 0px -22% 0px', threshold: 0 });
+
+    tuckObserver.observe(contactSection);
+  }
+
+  /* ------------------------------------------------------------------ *
    * 7. confirmation dialog
    * ------------------------------------------------------------------ */
   var popup = document.getElementById('popup');
