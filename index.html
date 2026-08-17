@@ -423,16 +423,13 @@
       <article class="pcard reveal reveal-d2">
         <div class="pcard__shot">
           <span class="pcard__chip">Live</span>
-          <div class="shot" aria-hidden="true">
-            <div class="ui">
-              <div class="ui__bar"><i></i><i></i><i></i><span>phmail.space</span></div>
-              <div class="mail">
-                <div class="mail__label"><span>Your temporary email</span><span>7-day retention</span></div>
-                <div class="mail__addr">david.tanner@inbox.phmail.space</div>
-                <div class="mail__row"><span>Copy</span><span>New Random Address</span></div>
-                <div class="mail__inbox"><b>Inbox</b><span>0</span></div>
-              </div>
-            </div>
+          <div class="shot shot--device shot--device-blue">
+            <img class="device"
+                 src="assets/img/phmail-app-460.webp"
+                 srcset="assets/img/phmail-app-300.webp 300w, assets/img/phmail-app-460.webp 460w, assets/img/phmail-app-700.webp 700w"
+                 sizes="(max-width: 560px) 40vw, (max-width: 900px) 200px, 170px"
+                 width="460" height="945" loading="lazy" decoding="async"
+                 alt="PHMail on a phone, showing a generated disposable inbox address with Copy, New Random Address and Clear Inbox actions, kept for 7 days."/>
           </div>
         </div>
         <div class="pcard__body">
@@ -478,35 +475,37 @@
         </div>
       </article>
 
-      <!-- Coffee POS -->
-      <article class="pcard reveal reveal-d4">
-        <div class="pcard__shot">
-          <div class="shot" aria-hidden="true">
-            <div class="ui">
-              <div class="ui__bar"><i></i><i></i><i></i><span>coffee shop pos</span></div>
-              <div class="pos">
-                <div class="pos__tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                <div class="pos__total"><span>Order total</span><b>420.00</b></div>
-                <div class="pos__pay"><span>Sales</span><span>Inventory</span><span>Reports</span></div>
+      <!-- revealed on demand -->
+      <div class="work__more" id="workMore" hidden>
+
+        <!-- Coffee POS -->
+        <article class="pcard reveal">
+          <div class="pcard__shot">
+            <div class="shot" aria-hidden="true">
+              <div class="ui">
+                <div class="ui__bar"><i></i><i></i><i></i><span>coffee shop pos</span></div>
+                <div class="pos">
+                  <div class="pos__tiles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="pos__total"><span>Order total</span><b>420.00</b></div>
+                  <div class="pos__pay"><span>Sales</span><span>Inventory</span><span>Reports</span></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="pcard__body">
-          <div class="pcard__text">
-            <h3 class="pcard__title">Coffee POS</h3>
-            <p class="pcard__type">POS &amp; Inventory System</p>
-            <p class="pcard__desc">Offline-first POS designed for small coffee shop businesses — sales, products, inventory and reporting.</p>
-            <div class="tag-row pcard__tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">MySQL</span></div>
+          <div class="pcard__body">
+            <div class="pcard__text">
+              <h3 class="pcard__title">Coffee POS</h3>
+              <p class="pcard__type">POS &amp; Inventory System</p>
+              <p class="pcard__desc">Offline-first POS designed for small coffee shop businesses — sales, products, inventory and reporting.</p>
+              <div class="tag-row pcard__tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">MySQL</span></div>
+            </div>
+            <button class="arrow-btn" type="button" data-ask="Tell me about the Coffee POS project." aria-label="Ask Felix AI about the Coffee POS project">
+              <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg>
+            </button>
           </div>
-          <button class="arrow-btn" type="button" data-ask="Tell me about the Coffee POS project." aria-label="Ask Felix AI about the Coffee POS project">
-            <svg class="ico" aria-hidden="true"><use href="#i-arr"/></svg>
-          </button>
-        </div>
-      </article>
+        </article>
 
-      <!-- revealed on demand -->
-      <div class="work__more" id="workMore" hidden>
+        <!-- Bollard Depot -->
         <article class="pcard reveal">
           <div class="pcard__shot">
             <span class="pcard__chip">Live</span>
@@ -531,6 +530,7 @@
             <span class="arrow-btn" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg></span>
           </div>
         </article>
+
       </div>
 
     </div>
