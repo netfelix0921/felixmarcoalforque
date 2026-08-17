@@ -250,11 +250,55 @@
   padding-inline: var(--gutter);
 }
 
-.hero__copy { position: relative; z-index: 3; max-width: 600px; }
+.hero__copy { position: relative; z-index: 3; max-width: 660px; }
 
-.hero__badge { margin-bottom: 26px; }
+/* Three roles in one pill. The parts are real elements rather than one string
+   so the separators can be dimmed and, on narrow screens, the pill can wrap
+   between roles instead of mid-word. */
+.hero__badge {
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  row-gap: 2px;
+  max-width: 100%;
+}
+.hero__badge .pulse { margin-right: 2px; }
+.hero__badge i {
+  font-style: normal;
+  color: var(--violet);
+  opacity: .75;
+}
 
-.hero__title { margin-bottom: 24px; }
+/* The CV download is kept reachable but deliberately quieter than the two
+   real CTAs beside it — a text link, not a third button competing for the eye. */
+.quiet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: -.008em;
+  padding: 6px 2px;
+  border-bottom: 1px solid transparent;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.quiet-link:hover { color: var(--text); border-bottom-color: var(--line-hover); }
+.quiet-link:hover svg.down { transform: translateY(3px); }
+.quiet-link svg { transition: transform .35s var(--ease-out); }
+
+.hero__cv { margin-left: 6px; }
+
+/* The headline is two deliberate lines: the <br> ends line one, and line two
+   has to fit the copy column or "Better." drops onto a third line on its own.
+   At the .h-display ceiling of 68px that line measures 732px against a 660px
+   column; 56px brings it to 591px and leaves margin for the wider tracking on
+   large screens. The column cannot simply be widened instead — past ~700px it
+   runs into the opaque side of the photo. */
+.hero__title {
+  margin-bottom: 24px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
 
 .hero__sub {
   font-size: 1.0625rem;
@@ -306,8 +350,11 @@
 
 /* the strip sits above the photo (z-index 2 vs 1) so the icons stay legible
    over the dark side of the image — which means it must never reach into the
-   photo's opaque zone. 424px = exactly 7 items + 6 gaps, so 14 technologies
-   wrap into a deliberate 7 × 2 block inside the copy column. */
+   photo's opaque zone. 424px holds 7 items + 6 gaps, so the six headline
+   technologies land as one clean row inside the copy column with room to
+   spare. Six is also the most that still fit a single row at 360px, where a
+   seventh wrapped on its own and read as a mistake. The full, categorised
+   list lives in the Toolkit section. */
 .tech { position: relative; z-index: 2; max-width: 424px; }
 
 .tech__label {
@@ -473,6 +520,14 @@
   letter-spacing: -.04em;
   color: var(--text);
 }
+/* "ERP + IT" is a word, not a figure. At the numeric size it overran its cell
+   between 900 and 1100px, so it gets its own step down while keeping the same
+   weight and colour as the numbers beside it. */
+.stat__value--text {
+  font-size: clamp(1.125rem, 1.7vw, 1.4375rem);
+  letter-spacing: -.03em;
+}
+
 .stat__label {
   font-size: .8125rem;
   color: var(--text-2);

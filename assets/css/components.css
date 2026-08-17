@@ -9,36 +9,41 @@
 
 .work { background: var(--bg); }
 
-.work__layout {
+/* The heading and the "view all" control share one row, so the projects
+   themselves start higher up the section than they used to. */
+.section-head--row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: none;
+}
+.section-head--row .eyebrow { margin-bottom: 18px; }
+.section-head--row h2 { margin-bottom: 16px; }
+.section-head--row .btn { flex: none; }
+
+/* Three supporting projects under the case study. .work__more is a single
+   child, so without an explicit span it would take one cell and the cards
+   inside would collapse; spanning the full row keeps the revealed cards on
+   the same tracks as the row above. The parent's row gap already separates
+   the rows, so there is no margin-top here. */
+.work__grid {
   display: grid;
-  grid-template-columns: minmax(230px, .86fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2vw, 26px);
   align-items: start;
+  margin-top: clamp(18px, 2vw, 26px);
 }
 
-.work__intro { padding-right: 12px; padding-top: 4px; }
-.work__intro .eyebrow { margin-bottom: 20px; }
-.work__intro h2 { margin-bottom: 18px; }
-.work__intro .lede { font-size: .9688rem; margin-bottom: 26px; max-width: 34ch; }
-
-/* Extra projects revealed by "View all projects".
-   .work__more is a single child of .work__layout, so it occupies one grid cell.
-   Without an explicit span it auto-places into column 1 — the narrow intro
-   column — and the cards inside collapse to ~100px, wrapping one character per
-   line. Spanning it from the first card column to the end keeps the revealed
-   row on the same tracks as the three cards above, and because those parent
-   tracks are all minmax(0, 1fr) with this same gap, three inner columns render
-   at exactly the width of the cards in row 1.
-   The parent's row gap already separates the two rows, so there is no
-   margin-top here; adding one would double the spacing. */
 .work__more {
   display: grid;
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2vw, 26px);
   align-items: start;
 }
 .work__more[hidden] { display: none; }
+
 
 /* ---- project card ---- */
 .pcard {
@@ -146,6 +151,75 @@
   color: var(--text-2);
 }
 
+/* ---- the case study: one project given real room ----
+   The preview sits left on a 1.15fr track and the copy right, so the interface
+   drawing reads at roughly twice the size it does in the grid below. Everything
+   else about the card — hover, chip, clickable title — is inherited. */
+.pcard--feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: stretch;
+  border-color: rgba(139, 92, 246, .22);
+}
+.pcard--feature .pcard__shot {
+  aspect-ratio: auto;
+  min-height: 380px;
+  border-bottom: 0;
+  border-right: 1px solid var(--line);
+}
+.pcard--feature .pcard__body {
+  align-items: center;
+  padding: clamp(26px, 3vw, 44px);
+}
+
+.pcard__kicker {
+  font-size: .688rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--violet-hi);
+  margin-bottom: 12px;
+}
+.pcard__title--lg { font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -.036em; }
+.pcard--feature .pcard__type { font-size: .9375rem; margin-top: 6px; }
+.pcard__desc--lg { font-size: .9688rem; line-height: 1.7; color: var(--text-2); margin-top: 16px; }
+
+.pcard__points { margin-top: 18px; display: grid; gap: 9px; }
+.pcard__points li {
+  position: relative;
+  padding-left: 20px;
+  font-size: .875rem;
+  line-height: 1.55;
+  color: var(--text-3);
+  letter-spacing: -.006em;
+}
+.pcard__points li::before {
+  content: '';
+  position: absolute;
+  left: 3px; top: .56em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, .6);
+}
+
+.pcard--feature .pcard__tags { margin-top: 20px; }
+.pcard--feature .pcard__tags .tag { font-size: .75rem; padding: 5px 11px; }
+
+/* Reads as a link, but the whole card is already the hit area via
+   .pcard__title a::after — so this is presentational only. */
+.pcard__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  font-size: .9063rem;
+  font-weight: 600;
+  color: var(--violet-hi);
+  letter-spacing: -.012em;
+}
+.pcard__cta svg { transition: transform .35s var(--ease-out); }
+.pcard--feature:hover .pcard__cta svg { transform: translateX(4px); }
+
 /* ==========================================================================
    2. INTERFACE PREVIEWS — the signature element.
       Every project preview is a real miniature of the interface, rendered in
@@ -157,11 +231,19 @@
   inset: 0;
   font-size: 10px;
   font-family: var(--sans);
-  padding: 1.4em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* The mocks are flex items in a column, so by default they SHRINK when their
+   content is taller than the panel — and because .ui sets overflow:hidden,
+   the squashed remainder is silently cut off rather than spilling. That is
+   what was slicing the bottom row off the event and POS previews at every
+   viewport width. Pinning flex-basis to the content height stops the shrink;
+   the em ramp in responsive.css is what keeps them inside the panel. */
+.shot > * { flex: none; }
 
 /* generic app window chrome */
 .ui {
@@ -185,8 +267,6 @@
   background: rgba(255, 255, 255, .18);
   flex: none;
 }
-/* the real app icon, used where one exists */
-.ui__ico { width: 1.2em; height: 1.2em; border-radius: .3em; flex: none; margin-right: .15em; }
 .ui__bar span {
   margin-left: auto;
   font-family: var(--mono);
@@ -197,142 +277,69 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui__body { padding: .85em; display: grid; gap: .6em; }
 
-/* ---- 2a. Fintra — finance dashboard ---- */
-.fin__top { display: flex; align-items: baseline; justify-content: space-between; gap: .5em; }
-.fin__lbl { font-size: .68em; color: var(--text-3-quiet); letter-spacing: .05em; text-transform: uppercase; }
-.fin__val {
-  font-family: var(--display);
-  font-size: 1.5em;
-  font-weight: 700;
-  letter-spacing: -.04em;
-  color: var(--text);
-}
-.fin__spark {
-  display: flex;
-  align-items: flex-end;
-  gap: .28em;
-  height: 2.6em;
-}
-.fin__spark i {
-  flex: 1;
-  border-radius: .18em .18em 0 0;
-  background: linear-gradient(to top, rgba(139, 92, 246, .28), var(--violet));
-}
-.fin__spark i:last-child { background: linear-gradient(to top, rgba(59, 130, 246, .3), var(--blue-hi)); }
-
-.fin__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .45em; }
-.fin__mini {
-  padding: .5em .6em;
-  border-radius: .5em;
-  background: rgba(255, 255, 255, .035);
-  border: 1px solid rgba(255, 255, 255, .06);
-}
-.fin__mini span { display: block; font-size: .62em; color: var(--text-3-quiet); }
-.fin__mini b { font-size: .78em; font-weight: 600; letter-spacing: -.02em; }
-.fin__mini b.up { color: var(--emerald); }
-.fin__mini b.dn { color: #F87171; }
-
-.fin__rows { display: grid; gap: .3em; }
-.fin__rows div {
-  display: flex;
+/* ---- 2z. real device screenshots ----
+   Fintra and MICLY ship real captures instead of a CSS miniature. The phone is
+   top-aligned and deliberately taller than its panel so it bleeds off the
+   bottom edge: a portrait device shown whole inside a landscape panel has to
+   be shrunk so far that nothing on the screen is legible, whereas cropping the
+   bottom keeps the part that carries the story — the greeting, the balance,
+   the primary actions — at a readable size.
+   Sized in % of the panel rather than em, so it is independent of the .shot
+   font ramp the CSS mocks depend on. */
+.shot--device {
+  padding: 0;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
-  padding: .38em .55em;
-  border-radius: .42em;
-  background: rgba(255, 255, 255, .028);
-  font-size: .66em;
-  color: var(--text-3-quiet);
-}
-.fin__rows b { color: var(--text-2); font-weight: 600; }
-
-/* ---- 2b. MICLY — TV karaoke + phone remote ---- */
-.shot--micly { padding: 1.2em 1.4em 0; justify-content: flex-start; }
-
-.tv {
-  border-radius: .8em;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .1);
-  background: linear-gradient(165deg, #1A1030, #0B0D18 70%);
-  box-shadow: 0 1.2em 2.6em -1.2em rgba(0, 0, 0, .9), 0 0 3em -1em rgba(139, 92, 246, .5) inset;
-  padding: .7em .8em .8em;
 }
-.tv__top { display: flex; align-items: center; justify-content: space-between; gap: .5em; margin-bottom: .7em; }
-.tv__brand { display: inline-flex; align-items: center; gap: .4em; min-width: 0; }
-.tv__logo {
-  font-family: var(--display);
-  font-size: .82em;
-  font-weight: 700;
-  letter-spacing: .16em;
-  background: var(--grad);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.tv__room {
-  display: inline-flex; align-items: center; gap: .35em;
-  font-size: .56em; font-weight: 600; letter-spacing: .09em;
-  color: var(--text-3-quiet);
-}
-.tv__qr {
-  width: .7em; height: .7em; flex: none;
-  border-radius: .12em;
-  background:
-    linear-gradient(#fff 0 0) 0 0 / .26em .26em no-repeat,
-    linear-gradient(#fff 0 0) 100% 0 / .26em .26em no-repeat,
-    linear-gradient(#fff 0 0) 0 100% / .26em .26em no-repeat;
-  background-color: rgba(255, 255, 255, .22);
-  opacity: .75;
-}
-.tv__lyrics { display: grid; gap: .3em; margin-bottom: .65em; }
-.tv__lyrics p {
-  font-size: .68em;
-  line-height: 1.35;
-  color: rgba(154, 163, 181, .5);
-  letter-spacing: -.01em;
-}
-.tv__lyrics p.on {
-  font-size: .82em;
-  font-weight: 600;
-  color: var(--text);
-  text-shadow: 0 0 1.4em rgba(167, 139, 250, .8);
-}
-.tv__bar { height: .26em; border-radius: 999px; background: rgba(255, 255, 255, .1); overflow: hidden; }
-.tv__bar i { display: block; height: 100%; width: 62%; border-radius: inherit; background: var(--grad); }
 
-.rem {
-  width: 42%;
-  margin: -1.4em 0 0 auto;
+/* the app's own accent, pooled behind the device so each card picks up the
+   colour of the product it is showing */
+.shot--device::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 116%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  filter: blur(46px);
+  opacity: .62;
+  pointer-events: none;
+}
+.shot--device-violet::before { background: radial-gradient(circle, rgba(109, 69, 224, .62), transparent 62%); }
+.shot--device-pink::before   { background: radial-gradient(circle, rgba(236, 72, 153, .5), transparent 62%); }
+
+.shot--device .device {
   position: relative;
-  z-index: 2;
-  border-radius: .7em .7em 0 0;
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-bottom: 0;
-  background: #0E121B;
-  box-shadow: -.6em -.4em 2em -.6em rgba(0, 0, 0, .95);
-  padding: .55em .55em 0;
+  z-index: 1;
+  width: auto;
+  height: 116%;
+  max-width: none;
+  margin-top: 7%;
+  border-radius: 6%/2.9%;   /* matches the frame's own corner, so the drop
+                               shadow follows the device instead of a box */
+  filter: drop-shadow(0 26px 40px rgba(0, 0, 0, .72));
+  transition: transform .7s var(--ease-out);
 }
-.rem__lbl { font-size: .56em; color: var(--text-3-quiet); letter-spacing: .07em; text-transform: uppercase; margin-bottom: .4em; }
-.rem__ctl { display: flex; align-items: center; justify-content: center; gap: .4em; margin-bottom: .45em; }
-.rem__ctl i { width: .5em; height: .5em; border-radius: 50%; background: rgba(255, 255, 255, .2); }
-.rem__ctl i.big {
-  width: .95em; height: .95em;
-  background: var(--violet);
-  box-shadow: 0 0 1.2em -.1em rgba(139, 92, 246, .95);
-}
-.rem__q {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: .35em .45em;
-  border-radius: .4em .4em 0 0;
-  background: rgba(255, 255, 255, .04);
-  font-size: .6em; color: var(--text-3-quiet);
-}
-.rem__q b { color: var(--violet-hi); font-weight: 600; }
+.pcard:hover .shot--device .device { transform: translateY(-6px) scale(1.02); }
+
+/* the generic hover zoom targets .shot; these panels animate the device
+   itself, so cancel the outer one or the two compound */
+.pcard:hover .pcard__shot > .shot--device { transform: none; }
 
 /* ---- 2c. Coffee Shop POS — terminal ---- */
 .pos { padding: .85em; display: grid; gap: .55em; }
 .pos__tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: .38em; }
+/* These tiles are the one part of any mock sized off width (aspect-ratio)
+   rather than the em ramp, so they did not shrink with the rest and kept
+   pushing the window past the bottom of its panel. Flatter tiles bring the
+   whole POS mock inside the box at every width, and read fine as product
+   buttons. */
 .pos__tiles i {
-  aspect-ratio: 1.35;
+  aspect-ratio: 1.85;
   border-radius: .42em;
   background: rgba(255, 255, 255, .045);
   border: 1px solid rgba(255, 255, 255, .07);
@@ -448,150 +455,121 @@
 }
 
 /* ==========================================================================
-   3. ABOUT
+   3. APPROACH — the merged "how I work" section.
+   Replaces the old About block (portrait figure, schematic drawing and the
+   four pillars). Those explained the same idea three times over; the process
+   strip below states it once and the page is ~400px shorter for it.
    ========================================================================== */
 
-.about { background: var(--bg-2); border-block: 1px solid var(--line); position: relative; overflow: hidden; }
+.approach { background: var(--bg); position: relative; isolation: isolate; }
 
-.about__layout {
-  display: grid;
-  grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
-  gap: clamp(36px, 5vw, 76px);
-  align-items: center;
-}
-
-.about__figure { position: relative; }
-.about__frame {
-  position: relative;
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  border: 1px solid var(--line-2);
-  background: var(--bg-3);
-  box-shadow: 0 40px 90px -44px rgba(0, 0, 0, .95), 0 0 80px -40px rgba(109, 69, 224, .5);
-}
-.about__frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; }
-/* scrim so the caption plate stays legible on any crop */
-.about__frame::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0;
-  height: 46%;
-  background: linear-gradient(to top, rgba(5, 7, 11, .94), transparent);
-  pointer-events: none;
-}
-
-.about__plate {
-  position: absolute;
-  left: 18px; right: 18px; bottom: 18px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 16px;
-  border-radius: var(--r-md);
-  background: rgba(10, 13, 19, .8);
-  border: 1px solid var(--line-2);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
-.about__plate-name { font-family: var(--display); font-size: .9375rem; font-weight: 700; letter-spacing: -.026em; }
-.about__plate-role { font-size: .75rem; color: var(--text-2); margin-top: 1px; }
-
-/* --- the figure: an abstracted portrait used as the drawing's paper -----------
-   The <img> in the frame is the portrait sampled to a 44-column dot grid on a
-   neutral grey ramp. Neutral, not the site's blue → violet: that ramp is the same
-   palette the wires below use, and stacked together the wires stopped reading as
-   wires. All colour in this panel belongs to the diagram.
-
-   This overlay is the drawing itself. It adds nothing to .about__frame, its
-   scrim, or the nameplate: the scrim is ::after on the frame, so it still paints
-   over this drawing, and .about__plate's z-index: 2 still paints over both. */
-.about__draw {
-  position: absolute;
-  inset: 0;
-  /* Percentages, not em. A padding percentage resolves against the containing
-     block's INLINE size on every side, top included, so the drawing holds the
-     same proportions in the 286px frame a 320px phone gives it and in the 720px
-     one it gets just under the 768px breakpoint. Tying it to an em would tie it
-     to a font-size, and any clamp on that font-size freezes while the panel keeps
-     growing — at 720px the drawing would sit 3.2% from the edge instead of 5%.
-     5.312% and 4.98% are the 1.6em and 1.5em this was proofed at, restated
-     against the 430px design width. */
-  padding: 5.312% 4.98% 0;
-}
-.about__draw svg { display: block; width: 100%; height: auto; }
-
-/* Boxes are near-opaque on purpose. At a .92 fill the dot field showed through
-   and they read as dirty rather than translucent; at .96 they are clean plates
-   laid on the sheet, and the figure passes cleanly behind them. */
-.sch__box { fill: rgba(9, 12, 18, .96); stroke: var(--line-2); stroke-width: 1; }
-.sch__box--lit { fill: rgba(139, 92, 246, .09); stroke: rgba(139, 92, 246, .5); }
-.sch__lbl {
-  font-family: var(--mono);
-  /* px inside a viewBox is a user unit, so this scales with the panel on its own
-     and needs no container query. Note that letter-spacing lands after every
-     glyph, so the real advance is .690em, not the .600em the bare font gives —
-     which is why the boxes are 152u wide and not the 133u a naive measurement
-     would have sized them to. */
-  font-size: 10.5px;
-  letter-spacing: .09em;
-  fill: var(--text-2);
-}
-.sch__lbl--lit { fill: var(--violet-hi); }
-.sch__wire { fill: none; stroke: rgba(96, 165, 250, .55); stroke-width: 1.25; }
-.sch__node { fill: var(--bg-3); stroke: rgba(255, 255, 255, .3); stroke-width: 1; }
-
-/* The one moving element, and only on the data path. Dash 16 + gap 176 is longer
-   than the 146u of path, so exactly one pulse is ever in flight; a shorter cycle
-   shows two at once. The global prefers-reduced-motion rule in base.css already
-   stops it, so there is no guard needed here. */
-.sch__flow {
-  fill: none;
-  stroke: var(--blue-hi);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-dasharray: 16 176;
-  animation: flow-sub 4.6s linear infinite;
-}
-@keyframes flow-sub { to { stroke-dashoffset: -192; } }
-
-/* grid children need min-width:0 or long words can push the column wider */
-.about__content { min-width: 0; }
-.about__body { color: var(--text-2); font-size: 1rem; line-height: 1.78; }
-.about__body p + p { margin-top: 17px; }
-.about__body strong { color: var(--text); font-weight: 600; }
-
-.about__pillars {
+/* Two columns of ordinary prose, not a card. The measure is capped per column
+   so neither paragraph runs past a comfortable ~62 characters. */
+.approach__context {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 30px;
+  gap: clamp(20px, 3vw, 44px);
+  margin-bottom: clamp(44px, 5vw, 68px);
+  padding-bottom: clamp(38px, 4vw, 56px);
+  border-bottom: 1px solid var(--line);
 }
-.about__pillar {
-  padding: 15px 16px;
-  border-radius: var(--r-md);
+.approach__context p {
+  font-size: 1rem;
+  line-height: 1.78;
+  color: var(--text-2);
+  max-width: 62ch;
+}
+.approach__context strong { color: var(--text); font-weight: 600; }
+
+/* ---- Understand -> Design -> Build -> Automate -> Improve ----
+   Five equal tracks with a hairline running behind them at icon height, so the
+   steps read as one chain rather than five loose cards. The line is drawn on
+   the list, not between items, which keeps it from reappearing as stray
+   fragments once the row wraps at narrow widths. */
+.process {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 22px);
+  counter-reset: step;
+}
+.process::before {
+  content: '';
+  position: absolute;
+  left: 6%; right: 6%;
+  top: 82px;   /* the icon centre: 22px padding + the number's line box + the
+                  icon's 12px margin + half of its 40px height */
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, .34) 12%, rgba(139, 92, 246, .34) 88%, transparent);
+  z-index: 0;
+}
+
+.process__step {
+  position: relative;
+  z-index: 1;
+  padding: 22px 18px 24px;
+  border-radius: var(--r-lg);
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, .022);
-  transition: border-color .3s var(--ease), background-color .3s var(--ease);
+  background: linear-gradient(180deg, rgba(16, 20, 28, .92), rgba(10, 13, 19, .92));
+  transition: transform .4s var(--ease-out), border-color .3s var(--ease), box-shadow .4s var(--ease-out);
 }
-.about__pillar:hover { border-color: var(--line-hover); background: rgba(139, 92, 246, .055); }
-.about__pillar svg { width: 17px; height: 17px; color: var(--violet-hi); margin-bottom: 9px; }
-.about__pillar b { display: block; font-size: .875rem; font-weight: 600; letter-spacing: -.014em; color: var(--text); }
-.about__pillar span { display: block; font-size: .8125rem; color: var(--text-3); line-height: 1.55; margin-top: 3px; }
+.process__step:hover {
+  transform: translateY(-5px);
+  border-color: var(--line-hover);
+  box-shadow: 0 24px 50px -26px rgba(0, 0, 0, .9), 0 0 40px -18px rgba(109, 69, 224, .5);
+}
+
+.process__num {
+  font-family: var(--mono);
+  font-size: .688rem;
+  color: var(--text-3-quiet);
+  letter-spacing: .04em;
+}
+
+.process__icon {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  margin: 12px 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, .3);
+  background: rgba(139, 92, 246, .11);
+  color: var(--violet-hi);
+  transition: box-shadow .35s var(--ease), background-color .3s var(--ease);
+}
+.process__icon svg { width: 19px; height: 19px; }
+.process__step:hover .process__icon {
+  background: rgba(139, 92, 246, .18);
+  box-shadow: 0 0 26px -8px rgba(139, 92, 246, .85);
+}
+
+.process__title {
+  font-size: 1rem;
+  letter-spacing: -.026em;
+  margin-bottom: 8px;
+}
+.process__desc {
+  font-size: .8125rem;
+  line-height: 1.6;
+  color: var(--text-3);
+  letter-spacing: -.004em;
+}
 
 /* ==========================================================================
    4. SKILLS
    ========================================================================== */
 
+/* Four named categories rather than eight loose cards. align-items:start is
+   deliberate — the categories hold different numbers of tags and stretching
+   them to a common height would leave two cards mostly empty. */
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(14px, 1.6vw, 20px);
+  align-items: start;
 }
 
 .skillcard { padding: 24px 22px 22px; border-radius: var(--r-lg); }
-.skillcard--wide { grid-column: span 2; }
 .skillcard__head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
 .skillcard__icon {
   display: grid; place-items: center;
@@ -748,9 +726,11 @@
   gap: clamp(12px, 1.4vw, 16px);
 }
 
+/* Four cards, not fourteen — so each one can carry real padding and a larger
+   icon without the grid turning into a wall. */
 .svc {
-  padding: 21px 19px 22px;
-  border-radius: var(--r-md);
+  padding: clamp(24px, 2.4vw, 30px) clamp(20px, 2vw, 26px) clamp(26px, 2.6vw, 32px);
+  border-radius: var(--r-lg);
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, .022);
   transition: transform .4s var(--ease-out), border-color .3s var(--ease),
@@ -765,23 +745,23 @@
 
 .svc__icon {
   display: grid; place-items: center;
-  width: 36px; height: 36px;
-  border-radius: 10px;
+  width: 42px; height: 42px;
+  border-radius: 12px;
   border: 1px solid var(--line-2);
   background: rgba(255, 255, 255, .04);
   color: var(--text-2);
   margin-bottom: 15px;
   transition: color .3s var(--ease), border-color .3s var(--ease), background-color .3s var(--ease);
 }
-.svc__icon svg { width: 17px; height: 17px; }
+.svc__icon svg { width: 20px; height: 20px; }
 .svc:hover .svc__icon {
   color: var(--violet-hi);
   border-color: rgba(139, 92, 246, .38);
   background: rgba(139, 92, 246, .13);
 }
 
-.svc__title { font-size: .9375rem; font-weight: 600; letter-spacing: -.02em; font-family: var(--display); }
-.svc__desc { font-size: .8125rem; line-height: 1.6; color: var(--text-3); margin-top: 7px; }
+.svc__title { font-size: 1.0625rem; font-weight: 600; letter-spacing: -.02em; font-family: var(--display); }
+.svc__desc { font-size: .875rem; line-height: 1.65; color: var(--text-3); margin-top: 10px; }
 
 .svc__note {
   display: flex;
@@ -796,56 +776,69 @@
   background: rgba(255, 255, 255, .022);
 }
 .svc__note p { font-size: .9375rem; color: var(--text-2); max-width: 62ch; }
+/* the tag block takes the slack and the button stays on the right; without a
+   flex basis the tag row claimed its full natural width and pushed the button
+   onto a line of its own */
+.svc__note > div { flex: 1 1 420px; min-width: 0; }
+.svc__note .btn { flex: none; }
+.svc__note-lead {
+  font-size: .8125rem !important;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-3) !important;
+  margin-bottom: 13px;
+}
+.svc__note .tag-row { gap: 8px; }
+.svc__note .tag { font-size: .8125rem; padding: 6px 12px; }
 
 /* ==========================================================================
-   7. EDUCATION
+   7. EDUCATION — folded into the foot of the experience section.
+   It used to be a section of its own with two large cards, which gave two
+   lines of fact the same weight as two years of work. It is now a strip.
    ========================================================================== */
 
-.edu { background: var(--bg-2); border-block: 1px solid var(--line); }
-
-.edu__grid {
+.edu__strip {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(14px, 1.8vw, 20px);
-}
-
-.edu__card {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  padding: clamp(22px, 2.4vw, 28px);
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(18px, 3vw, 40px);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding: clamp(18px, 2vw, 24px) clamp(20px, 2.4vw, 28px);
   border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .022);
 }
-.edu__icon {
-  display: grid; place-items: center;
-  width: 44px; height: 44px; flex: none;
-  border-radius: 13px;
-  border: 1px solid rgba(139, 92, 246, .28);
-  background: rgba(139, 92, 246, .1);
-  color: var(--violet-hi);
-}
-.edu__icon svg { width: 21px; height: 21px; }
-.edu__level {
-  font-size: .688rem;
-  font-weight: 600;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 7px;
-}
-.edu__program { font-size: 1.0625rem; letter-spacing: -.026em; margin-bottom: 5px; }
-.edu__school { font-size: .875rem; color: var(--text-2); }
-.edu__period {
+.edu__strip-label {
   display: inline-flex;
   align-items: center;
-  margin-top: 13px;
-  padding: 4px 11px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, .04);
-  font-family: var(--mono);
+  gap: 9px;
   font-size: .688rem;
-  color: var(--text-2);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.edu__strip-label svg { color: var(--violet-hi); }
+
+.edu__strip-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px clamp(20px, 3vw, 40px);
+}
+.edu__mini b {
+  display: block;
+  font-size: .9375rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+.edu__mini span {
+  display: block;
+  font-size: .8125rem;
+  color: var(--text-3);
+  margin-top: 3px;
+  letter-spacing: -.004em;
 }
 
 /* ==========================================================================
