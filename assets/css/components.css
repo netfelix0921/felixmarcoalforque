@@ -378,6 +378,55 @@
 }
 .pos__pay span:first-child { color: var(--text); border-color: rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .08); }
 
+/* ---- 2c-2. PHMail — temporary inbox ---- */
+.mail { padding: .85em; display: grid; gap: .5em; }
+.mail__label {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .6em; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text-3-quiet);
+}
+.mail__addr {
+  padding: .55em .6em;
+  border-radius: .5em;
+  background: rgba(59, 130, 246, .1);
+  border: 1px solid rgba(59, 130, 246, .3);
+  font-family: var(--mono);
+  font-size: .68em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mail__row { display: flex; gap: .35em; }
+.mail__row span {
+  flex: 1;
+  text-align: center;
+  padding: .38em 0;
+  border-radius: .38em;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .07);
+  font-size: .6em;
+  color: var(--text-3-quiet);
+}
+.mail__row span:first-child { color: var(--text); border-color: rgba(59, 130, 246, .32); background: rgba(59, 130, 246, .12); }
+.mail__inbox {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .42em .55em;
+  border-radius: .48em;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid rgba(255, 255, 255, .06);
+  font-size: .68em;
+}
+.mail__inbox b { font-weight: 600; color: var(--text); }
+.mail__inbox span {
+  display: grid; place-items: center;
+  min-width: 1.15em; height: 1.15em;
+  border-radius: 50%;
+  font-size: .82em;
+  color: var(--text-3-quiet);
+  background: rgba(255, 255, 255, .06);
+}
+
 /* ---- 2d. Event registration — attendance flow ---- */
 .ev { padding: .85em; display: grid; gap: .4em; }
 .ev__step {
