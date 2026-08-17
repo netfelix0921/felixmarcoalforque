@@ -199,6 +199,19 @@
       "known_concept": "A karaoke experience where a TV can run the karaoke interface while phones can act as controllers/remotes."
     },
     {
+      "name": "PHMail",
+      "type": "Disposable/temporary email inbox web app",
+      "url": "https://phmail.space",
+      "known_features": [
+        "No registration or password — the email address itself is the key to the inbox",
+        "Instant, randomly generated or custom temporary address",
+        "Public addresses keep messages for 7 days on the free tier",
+        "Open any inbox from any device by entering its address",
+        "Paid PHMail Plus tier adds private inboxes with 14-day retention, 5 reserved aliases and no ads"
+      ],
+      "note": "Built to protect a user's real inbox by giving them a disposable address for one-off signups."
+    },
+    {
       "name": "Coffee Shop POS",
       "type": "POS / business system",
       "target": "Small coffee shop owners",
