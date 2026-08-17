@@ -1006,6 +1006,27 @@
 }
 textarea.input { resize: vertical; min-height: 112px; line-height: 1.6; }
 
+.select-wrap { position: relative; }
+.select-wrap .input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 38px;
+  cursor: pointer;
+}
+/* the placeholder option carries value="" so :invalid tracks "nothing chosen
+   yet" the same way the browser's own required-field state does — reads
+   muted like a real placeholder, then flips to full text color on pick */
+.select-wrap .input:invalid { color: var(--text-3); }
+.select-wrap .input option { background: var(--card-solid); color: var(--text); }
+.select__chev {
+  position: absolute;
+  top: 50%; right: 14px;
+  width: 16px; height: 16px;
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
 .form__submit { width: 100%; margin-top: 6px; }
 .form__submit[data-state='error']  { background: #DC2626; }
 .form__submit[data-state='sent']   { background: #16A34A; }
