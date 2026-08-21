@@ -90,12 +90,36 @@
     border-radius: var(--r-xl);
     overflow: hidden;
   }
-  .hero__photo img { height: auto; object-fit: contain; }
+  /* a blurred, slightly oversized copy of the same photo sits behind the
+     sharp image; masking the sharp image's left/right edges to transparent
+     lets this soft duplicate show through, so the sides feather into a
+     blur instead of ending in a hard vertical line */
+  .hero__photo::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    z-index: 0;
+    background-image: url("../img/felix-about-700.webp");
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px) saturate(1.1);
+    transform: scale(1.08);
+  }
+  .hero__photo picture { position: relative; z-index: 1; display: block; }
+  .hero__photo img {
+    position: relative;
+    z-index: 1;
+    height: auto;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  }
   /* on the phone layout the photo sits as its own card rather than
      bleeding to the section edge, so fade its border into the dark
      hero background instead of leaving a hard rectangular cutout */
   .hero__photo::after {
     display: block;
+    z-index: 2;
     background:
       linear-gradient(180deg,
         var(--dark) 0%,
