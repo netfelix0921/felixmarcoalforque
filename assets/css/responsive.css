@@ -1,446 +1,179 @@
 /* ==========================================================================
-   responsive.css — intentional layouts, not a scaled-down desktop
-   Breakpoints: 1441+ · 1200 · 1024 · 900 · 768 · 560 · 420 · 380
+   responsive.css — breakpoints
+   Loaded last, so these rules win over the same-specificity defaults.
    ========================================================================== */
-
-/* interface previews scale to their card, not the viewport */
-.pcard__shot { container-type: inline-size; }
-@supports (font-size: 1cqw) {
-  /* 2.7cqw is the largest ramp at which the tallest mock (the POS window,
-     ~22em of content plus 2em of padding) still fits its 4:3 panel at every
-     width from 360px up. Above that the bottom row of the POS and event
-     previews gets cut. */
-  .shot { font-size: clamp(9px, 2.7cqw, 15px); }
-  /* The case-study panel is roughly twice as wide as a grid card, so the mock
-     needs a proportionally larger em base — otherwise the window stretches to
-     ~38em and the dashboard reads squat, with the bar chart flattened into a
-     strip. 3.3cqw keeps the window at ~28em wide, the same proportion it has
-     inside a normal card, just drawn twice the size. */
-  .pcard--feature .shot { font-size: clamp(11px, 3.3cqw, 20px); }
-}
-
-/* on touch there is no hover, so the tech tooltip would either never show
-   or show clipped at the viewport edge — drop it and keep the label list */
-@media (hover: none) {
-  .tech__item::after { display: none; }
-}
 
 /* ==========================================================================
-   ≥ 1441px — large desktop: more air, wider measure
+   <= 1024px — tablet
    ========================================================================== */
-
-@media (min-width: 1441px) {
-  :root { --wrap: 1280px; --gutter: 48px; }
-
-  .hero { padding-top: calc(var(--nav-h) + 92px); }
-  .hero__copy { max-width: 660px; }
-  .hero__photo { width: clamp(600px, 54%, 1120px); }
-  .hero__sub { font-size: 1.125rem; }
-
-  .pcard--feature .pcard__shot { min-height: 430px; }
-}
-
-/* ==========================================================================
-   ≤ 1200px — narrow desktop / small laptop
-   ========================================================================== */
-
-@media (max-width: 1200px) {
-  :root { --gutter: 32px; }
-
-  .svc__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .stat { gap: 12px; }
-}
-
-/* ==========================================================================
-   ≤ 1024px — tablet landscape: burger nav, hero photo enters the flow
-   ========================================================================== */
-
 @media (max-width: 1024px) {
+
   .nav__links { display: none; }
-  .burger { display: grid; }
+  .burger { display: block; }
+  .nav__cta { display: none; }
 
-  /* ---- hero becomes a stacked, centred composition ---- */
-  .hero {
-    padding-top: calc(var(--nav-h) + 44px);
-    padding-bottom: clamp(72px, 8vw, 96px);
-    text-align: center;
+  .section { padding-block: 88px; }
+
+  .svc__grid { grid-template-columns: repeat(2, 1fr); }
+  .skills__grid { grid-template-columns: repeat(2, 1fr); }
+
+  .process { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+  .process__step { border-left: 1px solid var(--hair-d); }
+  .process__step:nth-child(odd) { border-left: 0; padding-left: 0; }
+
+  .contact__layout { grid-template-columns: 1fr; gap: 44px; }
+
+  .tl-item__card {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    row-gap: 18px;
   }
-  .hero__copy { max-width: 660px; margin-inline: auto; }
-  .hero__badge { justify-content: center; margin-inline: auto; }
+  .tl-item__meta,
+  .tl-item__role,
+  .tl-item__org,
+  .tl-item__list,
+  .tl-item__foot { grid-column: 1; grid-row: auto; }
+  .tl-item__meta { flex-direction: row; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .tl-item__org { margin-bottom: 0; }
+  .tl-item__role { margin-bottom: 0; }
+
+  .approach .section-head { max-width: 100%; }
+
+  .section-head--row { flex-direction: column; align-items: flex-start; }
+
+  .hero__inner { column-gap: 32px; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+  .hero__photo { width: clamp(380px, 50%, 620px); }
+}
+
+/* ==========================================================================
+   <= 860px — small tablet / large phone
+   ========================================================================== */
+@media (max-width: 860px) {
+
+  .work__grid { grid-template-columns: 1fr; }
+
+  .stats__card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0;
+    padding-block: 36px;
+  }
+  .stat:nth-child(2n) { border-right: 0; }
+  .stat:nth-child(-n + 2) { border-bottom: 1px solid var(--hair); padding-bottom: 26px; }
+
+  .pcard--feature .device { width: 224px; height: 464px; }
+
+  .footer__top { flex-direction: column; gap: 26px; }
+  .footer__nav { max-width: none; }
+}
+
+/* ==========================================================================
+   <= 700px — phone
+   ========================================================================== */
+@media (max-width: 700px) {
+
+  :root { --gutter: 20px; }
+
+  .section { padding-block: 68px; }
+
+  /* the subject moves behind the copy as a full-panel backdrop, since at
+     phone width there is no room for a side-by-side split */
+  .hero { text-align: center; min-height: 0; }
+  .hero__inner { grid-template-columns: 1fr; justify-items: center; padding-block: 56px 0; }
+  .hero__copy { max-width: 100%; }
   .hero__sub { margin-inline: auto; }
-  .hero__actions { justify-content: center; }
-  .hero__cv { margin-left: 0; }
-  .hero__light {
-    background:
-      radial-gradient(circle at 50% 62%, rgba(70, 80, 255, .2), transparent 46%),
-      radial-gradient(ellipse 70% 40% at 50% 12%, rgba(139, 92, 246, .14), transparent 66%);
-  }
-  .hero__floor { height: 26%; }
-
-  /* photo drops below the CTAs, exactly as specified for mobile order */
   .hero__photo {
     position: relative;
     inset: auto;
-    width: min(430px, 82%);
-    margin: 4px auto clamp(30px, 5vw, 44px);
-    aspect-ratio: 4 / 5;
+    width: min(440px, 92vw);
+    margin: 32px auto 0;
+    height: auto;
   }
-  .hero__photo img {
-    height: 100%;
-    object-position: 50% 10%;
-    -webkit-mask-image:
-      linear-gradient(to bottom, transparent 0%, #000 11%, #000 60%, transparent 99%),
-      linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
-    mask-image:
-      linear-gradient(to bottom, transparent 0%, #000 11%, #000 60%, transparent 99%),
-      linear-gradient(to right, transparent 0%, #000 13%, #000 87%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-  }
+  .hero__photo img { height: auto; object-fit: contain; }
+  .hero__photo::after { display: none; }
 
-  /* the photo is in the flow now, so the strip can use the full measure */
-  .tech { max-width: none; }
+  .stats { margin-top: -40px; }
+  .stats__card { padding: 24px 16px; }
+  .tech { padding-block: 24px 76px; }
+  .hero__badge { font-size: 13px; flex-wrap: wrap; justify-content: center; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+  .hero__cv { justify-content: center; }
   .tech__label { text-align: center; }
   .tech__row { justify-content: center; }
 
-  /* ---- content ---- */
-  /* The case study stacks: preview on top at a fixed ratio, copy beneath.
-     min-height goes with the ratio, or the panel keeps a desktop height it
-     no longer needs and leaves a dead band under the drawing. */
-  .pcard--feature { grid-template-columns: minmax(0, 1fr); }
-  .pcard--feature .pcard__shot {
-    aspect-ratio: 4 / 3;
-    min-height: 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-  /* stacked, the panel is no wider than an ordinary card, so it goes back to
-     the ordinary ramp — the larger one is only for the two-column desktop
-     layout and would overflow this box */
-  .pcard--feature .shot { font-size: clamp(9px, 2.7cqw, 15px); }
+  .svc__grid { grid-template-columns: 1fr; }
+  .skills__grid { grid-template-columns: 1fr; }
 
-  .approach__context { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-
-  /* five across is too tight below ~1024 — go to three, then two, then rows.
-     The connector line is dropped with the single row it belonged to. */
-  .process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .process::before { display: none; }
-
-  .skills__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .tl-item__list { grid-template-columns: minmax(0, 1fr); }
-
-  .footer__top { grid-template-columns: minmax(0, 1fr); gap: 34px; }
-  .footer__nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-  /* ---- Felix AI becomes a corner button ---- */
-  .ai-launcher {
-    top: auto;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    right: 18px;
-    transform: none;
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    border-radius: 50%;
-    place-items: center;
-  }
-  .ai-launcher:hover { transform: scale(1.05); }
-  .ai-launcher__orb { width: 100%; height: 100%; border: 0; background: none; }
-  .ai-launcher__orb svg { width: 24px; height: 24px; }
-  .ai-launcher__label {
-    position: absolute !important;
-    width: 1px; height: 1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-  }
-  .ai-launcher__dot { top: 6px; right: 6px; }
-
-  /* When the contact block is on screen the launcher sits directly over the
-     "Let's Talk" button and the form. app.js adds this class there, and also
-     drops the button out of the tab order so it is not a hidden focus stop. */
-  .ai-launcher.is-tucked {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(.85);
-    pointer-events: none;
-  }
-}
-
-/* ==========================================================================
-   ≤ 900px — tablet portrait
-   ========================================================================== */
-
-@media (max-width: 900px) {
-  /* stats reflow to a 2 × 2 plate with its own dividers */
-  .stats { margin-top: -34px; }
-  .stats__card { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
-  .stat { padding: 15px clamp(12px, 2.6vw, 20px); }
-  .stat + .stat::before { display: none; }
-  .stat:nth-child(2n)::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0; top: 16%; bottom: 16%;
-    width: 1px; height: auto;
-    transform: none;
-    background: linear-gradient(to bottom, transparent, var(--line-2), transparent);
-  }
-  .stat:nth-child(n + 3)::after {
-    content: '';
-    position: absolute;
-    left: 6%; right: 6%; top: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--line-2), transparent);
-  }
-
-  .work__grid,
-  .work__more { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .contact__layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
-  .contact__cta { max-width: 640px; }
-}
-
-/* ==========================================================================
-   ≤ 768px — large phone / small tablet
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  :root { --gutter: 24px; --nav-h: 66px; }
-
-  .nav__cta { display: none; }
-
-  .section { padding-block: clamp(60px, 11vw, 84px); }
-  .section-head { margin-bottom: 32px; }
-
-  /* the heading and "view all" stop sharing a row */
-  .section-head--row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 22px;
-  }
-
-  /* one project per row so the interface previews read properly */
-  .work__grid,
-  .work__more { grid-template-columns: minmax(0, 1fr); }
-  .pcard__shot { aspect-ratio: 16 / 11; }
-
-  .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  /* One card per row means the preview panel is wide and short (16:11), and a
-     portrait phone sized for a desktop panel floats in it with dead space on
-     both sides. Taller here: more of the device is cropped at the bottom, but
-     what remains is large enough to actually read on a phone. */
-  .shot--device .device { height: 145%; margin-top: 5%; }
-
-  .edu__strip { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-
-  .timeline { padding-left: 26px; }
-  .tl-item__dot { left: -26px; }
-
-  .svc__note { padding: 20px; }
+  .svc__note { flex-direction: column; align-items: flex-start; }
   .svc__note .btn { width: 100%; }
 
-  .footer__nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .process { grid-template-columns: 1fr; row-gap: 0; }
+  .process__step {
+    border-left: 0;
+    padding: 0 0 24px;
+    border-bottom: 1px solid var(--hair-d);
+    margin-bottom: 24px;
+  }
+  .process__step:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+  .field__row { grid-template-columns: 1fr; gap: 0; }
+  .field__row > div { margin-bottom: 16px; }
+
+  .form { padding: 26px; }
+  .tl-item__card { padding: 26px; }
+  .edu__strip { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .edu__strip-items { gap: 20px; flex-direction: column; }
+
+  .device { width: 150px; height: 310px; }
+  .pcard--feature .device { width: 196px; height: 406px; }
+  .pcard--feature .pcard__shot,
+  .pcard--feature .shot { padding: 36px 18px; }
+
+  .pcard__body { padding: 26px 24px 22px; }
+  .pcard__shot { padding: 22px 20px 26px; }
+  .shot { margin: auto 24px 26px; width: calc(100% - 48px); }
+
+  .pcard--feature { margin-bottom: 40px; }
+
   .footer__bottom { flex-direction: column; align-items: flex-start; }
 
-  /* AI panel takes the full width it needs on a phone, and clears the iOS
-     home indicator rather than sitting under it */
+  /* work section head: centre it to match the featured card below */
+  .section-head--row { align-items: center; text-align: center; gap: 20px; }
+  .section-head--row > div { max-width: 100%; }
+  #moreToggle { width: 100%; justify-content: center; }
+
+  /* education strip stacks, so centre the label with its items */
+  .edu__strip { align-items: stretch; text-align: center; }
+  .edu__strip-label { justify-content: center; align-self: center; }
+  .edu__strip-items { align-items: center; text-align: center; }
+
+  /* Felix AI goes full-width at the bottom of the viewport */
+  .ai-launcher { right: 16px; bottom: 16px; padding: 9px 15px 9px 9px; }
+  .ai-launcher__orb { width: 30px; height: 30px; }
+  .ai-launcher__label { font-size: 11px; }
+
   .ai-panel {
-    right: 12px; left: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
     width: auto;
-    max-height: min(76vh, 620px);
+    max-height: min(78vh, calc(100vh - 16px));
   }
 }
 
 /* ==========================================================================
-   ≤ 560px — phone
+   <= 400px — small phone
    ========================================================================== */
-
-@media (max-width: 560px) {
-  .skills__grid { grid-template-columns: minmax(0, 1fr); }
-
-  /* Deliberately different shape on mobile: icon-left rows, not tiles.
-     The title and description must BOTH be placed in column 2 by hand. There
-     are three children and only two columns, so auto-placement dropped the
-     description into column 1 beneath the icon — and because column 1 is
-     `auto`, grid maximises it before it expands the `1fr` track, so it took
-     the whole row and resolved column 2 to 0px. The title then wrapped one
-     character per line down the right edge of the card. */
-  .svc__grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .svc {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
-    column-gap: 14px;
-    row-gap: 0;
-    padding: 18px 18px 20px;
-  }
-  .svc:hover { transform: none; }
-  .svc__icon { grid-area: 1 / 1; margin-bottom: 0; width: 38px; height: 38px; }
-  .svc__title { grid-column: 2; font-size: 1rem; }
-  .svc__desc { grid-column: 2; margin-top: 6px; }
-
-  /* same treatment for the process chain — five stacked tiles is a lot of
-     scrolling for five short lines; icon-left rows read in one pass. The icon
-     spans all three rows of column 1 so the number, title and description all
-     sit in column 2. */
-  .process { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .process__step {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    column-gap: 15px;
-    row-gap: 0;
-    align-items: start;
-    padding: 16px 17px 18px;
-  }
-  .process__step:hover { transform: none; }
-  .process__icon { grid-area: 1 / 1 / span 3 / auto; margin: 2px 0 0; }
-  .process__num { grid-column: 2; }
-  .process__title { grid-column: 2; margin: 2px 0 4px; }
-  .process__desc { grid-column: 2; }
-
-  .edu__strip-items { grid-template-columns: minmax(0, 1fr); }
-
-  /* Icon moves above the number from here down. In the 2-up plate the cell is
-     too narrow to give up 57px to an icon plus gap and still fit a 112px
-     label — between 420 and 470px that was breaking "Years Experience" across
-     two lines and making the whole plate taller. */
-  .stat { flex-direction: column; align-items: flex-start; gap: 10px; }
-
-  /* Let the address wrap instead of truncating. On desktop the row is wide
-     enough that the ellipsis never fires; at 360px there are only ~212px for
-     231px of email, so an ellipsis would hide half the thing people came for.
-     `anywhere` (not `break-word`) also shrinks min-content, so the flex item
-     can't force the card wider than the screen. */
-  .clink__val {
-    font-size: .875rem;
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-
-  .modal__box { padding: 28px 22px 24px; }
+@media (max-width: 400px) {
+  .device { width: 132px; height: 273px; }
+  .mobnav__link { font-size: 19px; }
 }
 
 /* ==========================================================================
-   ≤ 420px — standard phone (390 / 393 / 414)
+   safe areas — iOS notch / home indicator
    ========================================================================== */
-
-@media (max-width: 420px) {
-  :root { --gutter: 20px; --r-lg: 18px; --r-xl: 20px; }
-
-  .hero { padding-top: calc(var(--nav-h) + 32px); }
-  /* three roles in one pill needs the tracking pulled in, or it takes three
-     lines at 360px */
-  .hero__badge {
-    font-size: .5938rem;
-    letter-spacing: .09em;
-    padding: 7px 13px 7px 12px;
-    gap: 0 6px;
-  }
-  .hero__sub { font-size: .9688rem; line-height: 1.68; }
-  .hero__actions { gap: 10px; }
-  .hero__actions .btn { flex: 1 1 100%; }
-  /* the CV link gets a full-width row of its own, so the two real CTAs above
-     it stay the obvious pair */
-  .hero__cv { flex: 1 1 100%; justify-content: center; margin-top: 2px; }
-  .hero__photo { width: min(360px, 92%); }
-
-  .tech__item { width: 46px; height: 46px; }
-  .tech__item svg { width: 21px; height: 21px; }
-  .tech__row { gap: 8px; }
-
-  .stats { margin-top: -26px; }
-  /* flex-direction/align-items already set at ≤560 — these are just the deltas */
-  .stat { gap: 9px; padding: 15px 13px; }
-  .stat__icon { width: 36px; height: 36px; }
-  .stat__icon svg { width: 17px; height: 17px; }
-  .stat__value { font-size: 1.375rem; }
-  .stat__value--text { font-size: 1.0625rem; }
-  .stat__label { font-size: .75rem; }
-
-  .pcard__body { flex-direction: column; gap: 16px; }
-  .pcard__body .arrow-btn { order: 2; }
-  /* the feature card's body has no arrow button to reflow — leave it alone */
-  .pcard--feature .pcard__body { flex-direction: row; }
-
-  .contact__actions .btn { flex: 1 1 100%; }
-
-  .field__row { grid-template-columns: minmax(0, 1fr); }
-  .form { padding: 20px 18px; }
-
-  .tl-item__card { padding: 18px 16px; }
-  .tl-item__role { font-size: 1.0625rem; }
-
-  .mobnav { padding: calc(var(--nav-h) + 20px) 20px 28px; }
-  .mobnav__link { font-size: 1.25rem; padding: 13px 2px; }
-
-  .footer__nav { grid-template-columns: minmax(0, 1fr); }
-
-  .ai-msg { max-width: 94%; font-size: .8438rem; }
-  .ai-quick button { font-size: .7188rem; padding: 5px 10px; }
-}
-
-/* ==========================================================================
-   ≤ 380px — small phone (375 / 360)
-   ========================================================================== */
-
-@media (max-width: 380px) {
-  :root { --gutter: 17px; }
-
-  .h-display { font-size: clamp(2.05rem, 10.4vw, 2.5rem); }
-  .h-section { font-size: 1.75rem; }
-
-  .brand { font-size: .875rem; gap: 10px; }
-  .brand__mark { width: 33px; height: 33px; }
-
-  .btn { --btn-py: 12px; --btn-px: 18px; font-size: .875rem; }
-
-  .stats__card { padding: 16px 8px; }
-  .stat { padding: 13px 10px; }
-
-  /* column-gap, not gap — the shorthand would reset row-gap and reopen a hole
-     between each title and its description */
-  .svc { column-gap: 12px; padding: 15px; }
-  .svc__title { font-size: .9375rem; }
-  .process__step { column-gap: 12px; padding: 15px; }
-
-  .ai-panel { right: 8px; left: 8px; }
-  .ai-form { padding: 10px 12px; }
-  .ai-send { width: 38px; height: 38px; }
-}
-
-/* ==========================================================================
-   very short viewports — keep the AI panel usable
-   ========================================================================== */
-
-@media (max-height: 620px) {
-  .ai-panel { max-height: calc(100vh - 24px); }
-  .ai-scope { display: none; }
-}
-
-/* ==========================================================================
-   print — a clean CV-style fallback
-   ========================================================================== */
-
-@media print {
-  .nav, .mobnav, .burger, .ai-launcher, .ai-panel, .modal,
-  .hero__light, .hero__floor, .grid-bg, .aura, .footer__up { display: none !important; }
-
-  body { background: #fff; color: #111; }
-  .section { padding-block: 18px; break-inside: avoid; }
-  .card, .pcard, .svc, .skillcard, .tl-item__card, .process__step,
-  .edu__strip, .form {
-    border-color: #d6d9de !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-  }
-  .grad { -webkit-text-fill-color: #111; color: #111; background: none; }
-  .lede, .approach__context p, .tl-item__list li, .svc__desc,
-  .process__desc, .pcard__desc { color: #333 !important; }
-  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: .7em; color: #555; }
+@supports (padding: max(0px)) {
+  .ai-launcher { bottom: max(16px, env(safe-area-inset-bottom)); }
+  .ai-panel { bottom: max(8px, env(safe-area-inset-bottom)); }
+  .footer { padding-bottom: max(36px, env(safe-area-inset-bottom)); }
 }

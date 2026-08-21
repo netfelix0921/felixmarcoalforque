@@ -1,62 +1,68 @@
 /* ==========================================================================
    base.css — tokens, reset, typography, utilities
-   Felix Marco Alforque · portfolio design system
+   Felix Marco Alforque · Apple HIG design system (light-first)
+
+   Surfaces are light (#fbfbfd / #f5f5f7) with near-black panels for the hero,
+   approach and contact — the alternating rhythm Apple product pages use.
+   One accent only (#0071e3). No gradient text anywhere.
    ========================================================================== */
 
 :root {
   /* ---- surfaces ---- */
-  --bg:            #05070B;
-  --bg-2:          #090C12;
-  --bg-3:          #0B0F16;
-  --card:          rgba(15, 18, 26, .75);
-  --card-solid:    #0F121A;
-  --card-hi:       rgba(21, 25, 35, .88);
+  --paper:         #fbfbfd;
+  --paper-2:       #f5f5f7;
+  --paper-3:       #ececee;
+  --card:          #ffffff;
+  --card-solid:    #ffffff;
+  --dark:          #101014;
+  --dark-2:        #1a1a1f;
 
   /* ---- text ---- */
-  --text:          #F5F7FA;
-  --text-2:        #9AA3B5;
-  /* brief specified #626B7F, but that lands at 3.5:1 on card surfaces —
-     below WCAG AA for body text. Lifted to the nearest tone that clears
-     4.5:1 on bg, card and hover-card. Same hue, same muted read. */
-  --text-3:        #778093;
-  --text-3-quiet:  #626B7F;   /* decorative micro-labels only */
+  --ink:           #1d1d1f;
+  --ink-2:         #6e6e73;
+  /* Apple's caption grey (#86868b) measures ~3.5:1 on --paper, which fails
+     WCAG AA for the 12-13px labels that use it. Held at #6e6e73 (4.8:1). */
+  --ink-3:         #6e6e73;
+  --on-dark:       #f5f5f7;
+  --on-dark-2:     #a1a1a6;
 
-  /* ---- accents: lighting, not paint ---- */
-  --violet:        #8B5CF6;
-  --violet-hi:     #A78BFA;
-  --violet-lo:     #6D45E0;
-  --blue:          #3B82F6;
-  --blue-hi:       #60A5FA;
-  --emerald:       #34D399;
-  --amber:         #FBBF24;
+  /* ---- accent ---- */
+  --blue:          #0071e3;
+  --blue-hover:    #0077ed;
+  --blue-dark:     #2997ff;   /* same accent, tuned for dark panels */
+  --green:         #30d158;
 
   /* ---- lines ---- */
-  --line:          rgba(255, 255, 255, .07);
-  --line-2:        rgba(255, 255, 255, .11);
-  --line-hover:    rgba(139, 92, 246, .38);
+  --hair:          rgba(0, 0, 0, .10);
+  --hair-2:        rgba(0, 0, 0, .16);
+  --hair-d:        rgba(255, 255, 255, .12);
+  --hair-d2:       rgba(255, 255, 255, .18);
 
   /* ---- effects ---- */
-  --grad:          linear-gradient(100deg, var(--violet-hi) 0%, var(--violet) 42%, var(--blue) 100%);
-  --shadow-card:   0 1px 0 rgba(255, 255, 255, .04) inset, 0 24px 60px -30px rgba(0, 0, 0, .9);
-  --shadow-lift:   0 1px 0 rgba(255, 255, 255, .06) inset, 0 32px 70px -28px rgba(0, 0, 0, .95);
+  --shadow-card:   0 1px 2px rgba(0, 0, 0, .04);
+  --shadow-lift:   0 18px 44px -22px rgba(0, 0, 0, .26);
 
   /* ---- type ---- */
-  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --display: 'Manrope', var(--sans);
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+          'Helvetica Neue', Inter, system-ui, sans-serif;
+  --display: var(--sans);
+  --mono: ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, monospace;
 
   /* ---- layout ---- */
-  --wrap: 1200px;
-  --gutter: 40px;
-  --nav-h: 72px;
-  --r-sm: 10px;
-  --r-md: 14px;
-  --r-lg: 20px;
-  --r-xl: 26px;
+  --wrap: 1180px;
+  --wrap-narrow: 1040px;
+  --gutter: 24px;
+  --nav-h: 48px;               /* read by app.js — keep this token */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-xl: 36px;
+  --pill: 980px;
 
   /* ---- motion ---- */
-  --ease: cubic-bezier(.22, .61, .36, 1);
-  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ease: cubic-bezier(.28, .11, .32, 1);
+  --ease-out: cubic-bezier(.28, .11, .32, 1);
+  --spring: cubic-bezier(.28, .11, .32, 1);
 }
 
 /* ==========================================================================
@@ -64,119 +70,117 @@
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; }
-
 * { margin: 0; padding: 0; }
 
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 24px);
+  background: var(--paper);
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.65;
-  font-weight: 400;
-  letter-spacing: -.008em;
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -.012em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  /* Safety net for narrow screens: a token longer than its container (an email,
-     a URL) breaks rather than pushing the layout sideways. `break-word` only
-     kicks in when the word would actually overflow, so normal copy is
-     unaffected — it does not change where ordinary text wraps. */
-  overflow-wrap: break-word;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
-img, svg, video { display: block; max-width: 100%; height: auto; }
-button, input, textarea, select { font: inherit; color: inherit; }
-button { background: none; border: 0; cursor: pointer; }
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
 a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
 ul, ol { list-style: none; }
 
-::selection { background: rgba(139, 92, 246, .32); color: #fff; }
-
-/* every icon comes from the inline sprite; this is the default size */
-.ico { width: 16px; height: 16px; flex: none; }
-
-/* visible, on-brand focus for keyboard users only */
 :focus-visible {
-  outline: 2px solid var(--violet-hi);
+  outline: 3px solid var(--blue);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* ==========================================================================
-   typography scale
+   typography
    ========================================================================== */
 
-h1, h2, h3, h4 {
-  font-family: var(--display);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -.035em;
-  text-wrap: balance;
-}
-
 .h-display {
-  font-size: clamp(2.5rem, 6.2vw, 4.25rem);
+  font-family: var(--display);
+  font-size: clamp(40px, 7vw, 80px);
   line-height: 1.04;
-  letter-spacing: -.042em;
+  letter-spacing: -.028em;
+  font-weight: 600;
 }
 
 .h-section {
-  font-size: clamp(1.95rem, 3.9vw, 3rem);
-  letter-spacing: -.038em;
-}
-
-.h-card { font-size: 1.125rem; letter-spacing: -.024em; line-height: 1.3; }
-
-/* gradient applied to selected words only */
-.grad {
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* keeps descenders from clipping in webkit */
-  padding-right: .06em;
-  margin-right: -.06em;
+  font-family: var(--display);
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -.022em;
+  font-weight: 600;
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: .688rem;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--text-2);
-}
-.eyebrow::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--violet);
-  box-shadow: 0 0 10px 1px rgba(139, 92, 246, .8);
-  flex: none;
+  letter-spacing: -.008em;
+  color: var(--ink-2);
+  margin-bottom: 12px;
 }
 
 .lede {
-  font-size: 1.0625rem;
-  color: var(--text-2);
-  line-height: 1.7;
-  max-width: 56ch;
-  letter-spacing: -.005em;
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.42;
+  letter-spacing: -.014em;
+  color: var(--ink-2);
+  font-weight: 400;
 }
 
-.mono { font-family: var(--mono); font-size: .75rem; letter-spacing: .02em; }
+/* Apple never ships a gradient headline. The .grad spans stay in the markup
+   so the HTML needs no edits; here they simply inherit. */
+.grad {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+  color: inherit;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
 
 /* ==========================================================================
-   layout primitives
+   tags
+   ========================================================================== */
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border: 1px solid transparent;
+  padding: 5px 11px;
+  border-radius: var(--pill);
+  letter-spacing: -.004em;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   layout utilities
    ========================================================================== */
 
 .wrap {
@@ -186,219 +190,75 @@ h1, h2, h3, h4 {
   padding-inline: var(--gutter);
 }
 
-.section { padding-block: clamp(72px, 9vw, 130px); position: relative; }
-.section--tight { padding-block: clamp(56px, 6vw, 88px); }
+.section { padding-block: 104px; position: relative; }
 
-.section-head { max-width: 660px; margin-bottom: clamp(40px, 5vw, 64px); }
-.section-head .eyebrow { margin-bottom: 20px; }
-.section-head .lede { margin-top: 20px; }
+.section-head { max-width: 660px; margin-inline: auto; text-align: center; }
+.section-head .lede { margin-top: 14px; }
 
-/* hairline divider that fades at both ends */
-.rule {
-  height: 1px;
-  border: 0;
-  background: linear-gradient(90deg, transparent, var(--line-2) 22%, var(--line-2) 78%, transparent);
+.section-head--row {
+  max-width: none;
+  text-align: left;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
 }
+.section-head--row > div { max-width: 660px; }
 
-/* ==========================================================================
-   surfaces
-   ========================================================================== */
+/* decorative layers from the previous dark build — the Apple direction takes
+   its depth from surface steps instead, so these stay out of the way */
+.aura, .grid-bg, .hero__light, .hero__floor { display: none; }
 
-.card {
-  position: relative;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-card);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  transition: transform .45s var(--ease-out), border-color .35s var(--ease), box-shadow .45s var(--ease-out);
-}
-
-/* one-pixel top highlight — the detail that reads as "expensive" */
-.card::before {
-  content: '';
+.sr-only {
   position: absolute;
-  inset: 0 0 auto;
-  height: 1px;
-  border-radius: inherit;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .16) 30%, rgba(255, 255, 255, .16) 70%, transparent);
-  pointer-events: none;
-}
-
-.card--lift:hover,
-.card--lift:focus-within {
-  transform: translateY(-6px);
-  border-color: var(--line-hover);
-  box-shadow: var(--shadow-lift), 0 0 46px -14px rgba(109, 69, 224, .38);
-}
-
-/* ==========================================================================
-   buttons
-   ========================================================================== */
-
-.btn {
-  --btn-py: 13px;
-  --btn-px: 22px;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: var(--btn-py) var(--btn-px);
-  border-radius: 999px;
-  font-size: .9063rem;
-  font-weight: 600;
-  letter-spacing: -.012em;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   white-space: nowrap;
-  cursor: pointer;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease),
-              background-color .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
+  border: 0;
 }
-.btn svg { flex: none; transition: transform .35s var(--ease-out); }
-.btn:hover svg.arr  { transform: translateX(4px); }
-.btn:hover svg.down { transform: translateY(3px); }
-.btn:active { transform: translateY(1px); }
 
-.btn--primary {
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  background: var(--ink);
   color: #fff;
-  background: linear-gradient(100deg, var(--violet-lo), var(--violet) 55%, #5B6BF0);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .22) inset, 0 14px 34px -14px rgba(109, 69, 224, .85);
-}
-.btn--primary:hover {
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .28) inset, 0 20px 44px -14px rgba(124, 88, 240, .95);
+  padding: 12px 18px;
+  border-radius: var(--pill);
+  font-size: 15px;
 }
 
-.btn--ghost {
-  color: var(--text);
-  background: rgba(20, 24, 33, .72);
-  border: 1px solid var(--line-2);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-.btn--ghost:hover {
-  background: rgba(28, 33, 45, .85);
-  border-color: var(--line-hover);
-  box-shadow: 0 14px 34px -18px rgba(109, 69, 224, .5);
-}
-
-.btn--sm { --btn-py: 9px; --btn-px: 17px; font-size: .8125rem; }
-.btn--lg { --btn-py: 15px; --btn-px: 28px; font-size: .9688rem; }
-
-/* small circular arrow affordance used on project cards */
-.arrow-btn {
-  display: grid;
-  place-items: center;
-  width: 40px; height: 40px;
-  flex: none;
-  border-radius: 50%;
-  color: var(--text-2);
-  border: 1px solid var(--line-2);
-  background: rgba(12, 15, 22, .8);
-  transition: color .3s var(--ease), border-color .3s var(--ease),
-              background-color .3s var(--ease), transform .35s var(--ease-out);
-}
-.arrow-btn svg { transition: transform .35s var(--ease-out); }
-
-/* ==========================================================================
-   pills & tags
-   ========================================================================== */
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 15px 7px 13px;
-  border-radius: 999px;
-  border: 1px solid var(--line-2);
-  background: rgba(14, 17, 25, .8);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  font-size: .6875rem;
-  font-weight: 600;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  color: var(--text-2);
-}
-.badge b { color: var(--text); font-weight: 600; }
+.ico { width: 18px; height: 18px; flex: none; }
 
 .pulse {
-  position: relative;
-  width: 6px; height: 6px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
   flex: none;
-  border-radius: 50%;
-  background: var(--emerald);
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, .16);
-}
-.pulse::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  border: 1px solid var(--emerald);
-  animation: pulse 2.6s var(--ease-out) infinite;
+  animation: pulse 2.4s var(--ease) infinite;
 }
 @keyframes pulse {
-  0%   { transform: scale(.6); opacity: .9; }
-  70%  { transform: scale(2.1); opacity: 0; }
-  100% { transform: scale(2.1); opacity: 0; }
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 11px;
-  border-radius: 7px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, .028);
-  font-size: .75rem;
-  font-weight: 500;
-  color: var(--text-2);
-  letter-spacing: -.004em;
-  transition: color .3s var(--ease), border-color .3s var(--ease);
-}
-
-.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
-
-/* ==========================================================================
-   ambient lighting — subtle, never neon
-   ========================================================================== */
-
-/* z-index:-1 (not 0) so the layer sits under in-flow text rather than over
-   it. The host section must set `isolation: isolate` to keep it from
-   escaping past the page background — same pattern as .hero__light.
-   Size, position and colour are set per placement. */
-.aura {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* faint technical grid, masked so it never reaches the edges */
-.grid-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: radial-gradient(ellipse 74% 62% at 50% 34%, #000 0%, transparent 100%);
-  mask-image: radial-gradient(ellipse 74% 62% at 50% 34%, #000 0%, transparent 100%);
+  0%   { box-shadow: 0 0 0 0 rgba(48, 209, 88, .5); }
+  70%  { box-shadow: 0 0 0 9px rgba(48, 209, 88, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(48, 209, 88, 0); }
 }
 
 /* ==========================================================================
-   scroll reveal
+   scroll reveal — app.js adds .in to .reveal / .stagger
    ========================================================================== */
 
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
-  will-change: opacity, transform;
+  transform: translateY(26px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
 }
 .reveal.in { opacity: 1; transform: none; }
 
@@ -406,72 +266,26 @@ h1, h2, h3, h4 {
 .reveal-d2 { transition-delay: .14s; }
 .reveal-d3 { transition-delay: .21s; }
 .reveal-d4 { transition-delay: .28s; }
-.reveal-d5 { transition-delay: .35s; }
 
-/* stagger children without needing a class on each one */
 .stagger > * {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  transform: translateY(20px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
 .stagger.in > * { opacity: 1; transform: none; }
 .stagger.in > *:nth-child(1) { transition-delay: .04s; }
-.stagger.in > *:nth-child(2) { transition-delay: .09s; }
-.stagger.in > *:nth-child(3) { transition-delay: .14s; }
-.stagger.in > *:nth-child(4) { transition-delay: .19s; }
-.stagger.in > *:nth-child(5) { transition-delay: .24s; }
-.stagger.in > *:nth-child(6) { transition-delay: .29s; }
-.stagger.in > *:nth-child(7) { transition-delay: .34s; }
-.stagger.in > *:nth-child(8) { transition-delay: .39s; }
-.stagger.in > *:nth-child(9) { transition-delay: .44s; }
-.stagger.in > *:nth-child(10) { transition-delay: .49s; }
-.stagger.in > *:nth-child(11) { transition-delay: .54s; }
-.stagger.in > *:nth-child(12) { transition-delay: .59s; }
-.stagger.in > *:nth-child(13) { transition-delay: .64s; }
-.stagger.in > *:nth-child(14) { transition-delay: .69s; }
-.stagger.in > *:nth-child(15) { transition-delay: .74s; }
-.stagger.in > *:nth-child(16) { transition-delay: .79s; }
-
-/* ==========================================================================
-   a11y helpers
-   ========================================================================== */
-
-.sr-only {
-  position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.skip-link {
-  position: fixed;
-  top: 12px; left: 50%;
-  transform: translate(-50%, -160%);
-  z-index: 200;
-  padding: 11px 20px;
-  border-radius: 999px;
-  background: var(--violet);
-  color: #fff;
-  font-size: .875rem;
-  font-weight: 600;
-  transition: transform .28s var(--ease-out);
-}
-.skip-link:focus-visible { transform: translate(-50%, 0); }
-
-/* ==========================================================================
-   reduced motion — honour the OS setting completely
-   ========================================================================== */
+.stagger.in > *:nth-child(2) { transition-delay: .10s; }
+.stagger.in > *:nth-child(3) { transition-delay: .16s; }
+.stagger.in > *:nth-child(4) { transition-delay: .22s; }
+.stagger.in > *:nth-child(5) { transition-delay: .28s; }
+.stagger.in > *:nth-child(6) { transition-delay: .34s; }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
   }
-  .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal, .stagger > * { opacity: 1; transform: none; }
 }
