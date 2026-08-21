@@ -173,6 +173,23 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 6a. whole-card click for live projects (Fintra / MICLY / PHMail / Bollard Depot)
+   *
+   * Only the small title text was an <a>, so most of the card looked
+   * clickable (hover lift, arrow shift) but did nothing on click.
+   * Any pcard with a data-href now opens that link when clicked anywhere
+   * except on a real <a>/<button> inside it (avoids double navigation and
+   * leaves the AI "ask" buttons on non-live cards working as before).
+   * ------------------------------------------------------------------ */
+  [].slice.call(document.querySelectorAll('.pcard[data-href]')).forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) return;
+      var url = card.getAttribute('data-href');
+      if (url) window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  });
+
+  /* ------------------------------------------------------------------ *
    * 6b. keep the AI launcher off the contact CTAs
    *
    * Below 1024px the launcher is a fixed circle in the bottom-right corner,
