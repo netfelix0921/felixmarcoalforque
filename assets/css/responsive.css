@@ -148,8 +148,9 @@
   .edu__strip-items { align-items: center; text-align: center; }
 
   /* Felix AI goes full-width at the bottom of the viewport */
-  .ai-launcher { right: 16px; bottom: 16px; padding: 9px 15px 9px 9px; }
-  .ai-launcher__orb { width: 30px; height: 30px; }
+  .ai-launcher { right: 16px; bottom: 16px; padding: 8px 15px 8px 8px; }
+  .ai-launcher__orb { width: 36px; height: 36px; }
+  .ai-mark-icon { width: 21px; height: 21px; }
   .ai-launcher__label { font-size: 11px; }
 
   .ai-panel {

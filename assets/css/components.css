@@ -835,7 +835,7 @@ textarea.input { min-height: 128px; resize: vertical; line-height: 1.5; }
 }
 
 .ai-launcher__orb {
-  width: 34px; height: 34px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   background: var(--ink);
   color: #fff;
@@ -843,7 +843,7 @@ textarea.input { min-height: 128px; resize: vertical; line-height: 1.5; }
   place-items: center;
   flex: none;
 }
-.ai-mark-icon { width: 19px; height: 19px; }
+.ai-mark-icon { width: 24px; height: 24px; }
 
 .ai-launcher__label {
   font-size: 12px;
@@ -895,7 +895,7 @@ textarea.input { min-height: 128px; resize: vertical; line-height: 1.5; }
   flex: none;
 }
 .ai-panel__orb {
-  width: 36px; height: 36px;
+  width: 42px; height: 42px;
   border-radius: 50%;
   background: var(--ink);
   color: #fff;
