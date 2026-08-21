@@ -91,52 +91,34 @@
     overflow: hidden;
     background: var(--dark);
   }
-  /* a blurred, slightly oversized copy of the same photo sits behind the
-     sharp image. Both layers fade out only in a thin band right at the
-     container's edge — the subject stays fully sharp, and only the empty
-     space around him blends into the dark background */
-  .hero__photo::before {
-    content: "";
-    position: absolute;
-    inset: -24px;
-    z-index: 0;
-    background-image: url("../img/felix-about-700.webp");
-    background-size: cover;
-    background-position: center;
-    filter: blur(16px) saturate(1.1);
-    transform: scale(1.06);
-    -webkit-mask-image: radial-gradient(58% 58% at 50% 50%, #000 72%, transparent 90%);
-            mask-image: radial-gradient(58% 58% at 50% 50%, #000 72%, transparent 90%);
-  }
+  /* the photo fades straight to this solid dark background near its own
+     edges (below) */
   .hero__photo picture { position: relative; z-index: 1; display: block; }
   .hero__photo img {
     position: relative;
     z-index: 1;
     height: auto;
     object-fit: contain;
-    -webkit-mask-image: radial-gradient(58% 58% at 50% 50%, #000 80%, transparent 92%);
-            mask-image: radial-gradient(58% 58% at 50% 50%, #000 80%, transparent 92%);
   }
   /* on the phone layout the photo sits as its own card rather than
      bleeding to the section edge, so fade its border into the dark
-     hero background instead of leaving a hard rectangular cutout */
+     hero background instead of leaving a hard rectangular cutout.
+     Rectangular (not radial) fades on purpose — a round/oval gradient
+     doesn't match this photo's tall proportions and shows up as a
+     visible dark blob instead of a clean, even blend. */
   .hero__photo::after {
     display: block;
     z-index: 2;
     background:
       linear-gradient(180deg,
         var(--dark) 0%,
-        rgba(16, 16, 20, 0) 8%,
-        rgba(16, 16, 20, 0) 92%,
+        rgba(16, 16, 20, 0) 10%,
+        rgba(16, 16, 20, 0) 90%,
         var(--dark) 100%),
       linear-gradient(90deg,
         var(--dark) 0%,
-        rgba(16, 16, 20, 0) 8%,
-        rgba(16, 16, 20, 0) 92%,
-        var(--dark) 100%),
-      radial-gradient(75% 75% at 50% 50%,
-        rgba(16, 16, 20, 0) 46%,
-        rgba(16, 16, 20, .6) 74%,
+        rgba(16, 16, 20, 0) 10%,
+        rgba(16, 16, 20, 0) 90%,
         var(--dark) 100%);
   }
 
