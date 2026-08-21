@@ -89,11 +89,13 @@
     height: auto;
     border-radius: var(--r-xl);
     overflow: hidden;
+    background: var(--dark);
   }
   /* a blurred, slightly oversized copy of the same photo sits behind the
-     sharp image; masking the sharp image's left/right edges to transparent
-     lets this soft duplicate show through, so the sides feather into a
-     blur instead of ending in a hard vertical line */
+     sharp image. Both layers are masked with the same soft radial shape
+     so they fade to fully transparent before reaching the container's
+     edge on every side, leaving nothing but the solid dark background
+     underneath — no hard rectangle, on any edge, at any zoom level */
   .hero__photo::before {
     content: "";
     position: absolute;
@@ -104,6 +106,8 @@
     background-position: center;
     filter: blur(28px) saturate(1.1);
     transform: scale(1.08);
+    -webkit-mask-image: radial-gradient(58% 58% at 50% 50%, #000 55%, transparent 90%);
+            mask-image: radial-gradient(58% 58% at 50% 50%, #000 55%, transparent 90%);
   }
   .hero__photo picture { position: relative; z-index: 1; display: block; }
   .hero__photo img {
@@ -111,8 +115,8 @@
     z-index: 1;
     height: auto;
     object-fit: contain;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    -webkit-mask-image: radial-gradient(58% 58% at 50% 50%, #000 55%, transparent 90%);
+            mask-image: radial-gradient(58% 58% at 50% 50%, #000 55%, transparent 90%);
   }
   /* on the phone layout the photo sits as its own card rather than
      bleeding to the section edge, so fade its border into the dark
@@ -126,9 +130,14 @@
         rgba(16, 16, 20, 0) 16%,
         rgba(16, 16, 20, 0) 80%,
         var(--dark) 100%),
-      radial-gradient(72% 72% at 50% 50%,
-        rgba(16, 16, 20, 0) 52%,
-        rgba(16, 16, 20, .55) 78%,
+      linear-gradient(90deg,
+        var(--dark) 0%,
+        rgba(16, 16, 20, 0) 16%,
+        rgba(16, 16, 20, 0) 80%,
+        var(--dark) 100%),
+      radial-gradient(75% 75% at 50% 50%,
+        rgba(16, 16, 20, 0) 46%,
+        rgba(16, 16, 20, .6) 74%,
         var(--dark) 100%);
   }
 
