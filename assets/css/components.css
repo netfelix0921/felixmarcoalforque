@@ -843,7 +843,7 @@ textarea.input { min-height: 128px; resize: vertical; line-height: 1.5; }
   place-items: center;
   flex: none;
 }
-.ai-robot-icon { width: 19px; height: 19px; }
+.ai-mark-icon { width: 19px; height: 19px; }
 
 .ai-launcher__label {
   font-size: 12px;
