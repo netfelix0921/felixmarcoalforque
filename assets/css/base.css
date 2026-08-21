@@ -99,6 +99,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 input, select, textarea { font: inherit; color: inherit; }
 ul, ol { list-style: none; }
 
+[hidden] { display: none !important; }
+
 :focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;

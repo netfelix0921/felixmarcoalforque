@@ -685,11 +685,7 @@
    fixes + accent modifiers
    ========================================================================== */
 
-/* `.work__more { display: contents }` lets the extra projects join the parent
-   grid — but it also OVERRIDES the UA's [hidden] { display: none } (equal
-   specificity, and this sheet loads later), which would leave the hidden
-   projects permanently visible. app.js toggles .hidden, so restore it. */
-.work__more[hidden] { display: none; }
+/* superseded by the global [hidden] guard in base.css */
 
 /* stat accents — the icon tile carries the colour, the number stays ink */
 .stat--violet .stat__icon { background: rgba(88, 86, 214, .10); color: #4b49b8; }
