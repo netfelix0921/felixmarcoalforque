@@ -87,9 +87,26 @@
     width: min(440px, 92vw);
     margin: 32px auto 0;
     height: auto;
+    border-radius: var(--r-xl);
+    overflow: hidden;
   }
   .hero__photo img { height: auto; object-fit: contain; }
-  .hero__photo::after { display: none; }
+  /* on the phone layout the photo sits as its own card rather than
+     bleeding to the section edge, so fade its border into the dark
+     hero background instead of leaving a hard rectangular cutout */
+  .hero__photo::after {
+    display: block;
+    background:
+      linear-gradient(180deg,
+        var(--dark) 0%,
+        rgba(16, 16, 20, 0) 16%,
+        rgba(16, 16, 20, 0) 80%,
+        var(--dark) 100%),
+      radial-gradient(72% 72% at 50% 50%,
+        rgba(16, 16, 20, 0) 52%,
+        rgba(16, 16, 20, .55) 78%,
+        var(--dark) 100%);
+  }
 
   .stats { margin-top: -40px; }
   .stats__card { padding: 24px 16px; }
