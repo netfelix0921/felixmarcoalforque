@@ -169,6 +169,7 @@
   transition: transform .45s var(--ease), box-shadow .45s var(--ease),
               border-color .45s var(--ease);
 }
+.pcard[data-href] { cursor: pointer; }
 .pcard:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lift);

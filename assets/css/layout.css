@@ -688,10 +688,13 @@
 /* superseded by the global [hidden] guard in base.css */
 
 /* stat accents — the icon tile carries the colour, the number stays ink */
-.stat--violet .stat__icon { background: rgba(88, 86, 214, .10); color: #4b49b8; }
-.stat--blue   .stat__icon { background: rgba(0, 113, 227, .10); color: var(--blue); }
-.stat--emerald .stat__icon { background: rgba(48, 209, 88, .14); color: #1a7f37; }
-.stat--amber  .stat__icon { background: rgba(255, 159, 10, .16); color: #8a4f00; }
+/* one accent for all four — matches the blue used for links, CTAs and the
+   headline gradient elsewhere on the page, instead of a different colour
+   per stat */
+.stat--violet .stat__icon,
+.stat--blue   .stat__icon,
+.stat--emerald .stat__icon,
+.stat--amber  .stat__icon { background: rgba(0, 113, 227, .10); color: var(--blue); }
 
 /* the current role reads slightly heavier than past roles */
 .tl-item--now .tl-item__card { border-color: var(--hair-2); }
