@@ -418,7 +418,11 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  border-top: 1px solid var(--hair-d);
+  /* no rule on desktop: the strip sits directly under the hero CTAs there, so
+     the border reads as a divider belonging to the buttons rather than as the
+     start of the tech row. It comes back on the stacked layout, where the
+     strip is centred and genuinely needs separating. */
+  border-top: 0;
   /* bottom padding clears the overlapping stats card (-68px) plus breathing
      room, so the icons are never covered */
   padding-block: 26px 116px;
@@ -738,6 +742,57 @@
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: start;
+}
+
+/* status chip. The plain grey eyebrow read as a caption; a live dot is the
+   one piece of the block that has to say "yes, right now". */
+/* the CTA column has no .section-head wrapper, so the heading needs its own
+   rhythm against the lede */
+.contact__cta .h-section { margin-bottom: 18px; }
+
+.contact__status {
+  color: var(--on-dark-2);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+/* capabilities.
+   These were white pills, which on a dark panel outweighed the actual CTA and
+   wrapped into a ragged second row. As a quiet two-column list they read as
+   substance instead of competing with the button. */
+.cta-caps {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair-d);
+}
+.cta-caps__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+  margin-bottom: 16px;
+}
+.cta-caps__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 28px;
+}
+.cta-caps__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  letter-spacing: -.008em;
+  color: var(--on-dark);
+}
+.cta-caps__list li::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--blue-dark);
+  flex: none;
 }
 
 .contact__actions {

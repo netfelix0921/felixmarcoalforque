@@ -38,7 +38,9 @@
   .tl-item__role,
   .tl-item__org,
   .tl-item__list,
+  .tl-item__scope,
   .tl-item__foot { grid-column: 1; grid-row: auto; }
+  .tl-item__scope { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .tl-item__meta { flex-direction: row; align-items: center; gap: 12px; flex-wrap: wrap; }
   .tl-item__org { margin-bottom: 0; }
   .tl-item__role { margin-bottom: 0; }
@@ -143,7 +145,7 @@
 
   .stats { margin-top: -40px; }
   .stats__card { padding: 24px 16px; }
-  .tech { padding-block: 24px 76px; }
+  .tech { padding-block: 24px 76px; border-top: 1px solid var(--hair-d); }
   .hero__badge { font-size: 13px; flex-wrap: wrap; justify-content: center; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; }
@@ -151,8 +153,15 @@
   .tech__label { text-align: center; }
   .tech__row { justify-content: center; }
 
+  .tl-item__scope { grid-template-columns: 1fr; gap: 20px; }
+
   .svc__grid { grid-template-columns: 1fr; }
   .skills__grid { grid-template-columns: 1fr; }
+
+  /* the labels are short enough to hold two columns; stacking all seven made
+     the block twice as tall as the CTA it is supporting */
+  .cta-caps__list { gap: 11px 16px; font-size: 14px; }
+  .cta-caps__list li { font-size: 14px; }
 
   .svc__note { flex-direction: column; align-items: flex-start; }
   .svc__note .btn { width: 100%; }

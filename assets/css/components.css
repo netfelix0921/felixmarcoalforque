@@ -543,7 +543,7 @@
   padding: 34px;
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto auto auto auto;
   column-gap: 32px;
   row-gap: 0;
 }
@@ -558,8 +558,9 @@
 }
 .tl-item__role { grid-column: 2; grid-row: 1; }
 .tl-item__org  { grid-column: 2; grid-row: 2; }
-.tl-item__list { grid-column: 2; grid-row: 3; }
-.tl-item__foot { grid-column: 2; grid-row: 4; }
+.tl-item__list  { grid-column: 2; grid-row: 3; }
+.tl-item__scope { grid-column: 2; grid-row: 4; }
+.tl-item__foot  { grid-column: 2; grid-row: 5; }
 .tl-item__period { font-size: 13px; color: var(--ink-3); letter-spacing: -.004em; }
 .tl-item__chip {
   display: inline-flex;
@@ -604,6 +605,46 @@
   background: #c7c7cc;
 }
 
+/* the secondary areas of the role.
+   Kept out of the main bullet list on purpose: as one 15-item list the entry
+   turned into a CV page. Three short labelled columns hold the same detail but
+   stay scannable, and each column is a heading a reader can skip by. */
+.tl-item__scope {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hair);
+}
+
+.scope__title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+}
+
+.scope__list { display: flex; flex-direction: column; gap: 8px; }
+.scope__list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.42;
+  letter-spacing: -.006em;
+  color: var(--ink-2);
+}
+.scope__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 8px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #c7c7cc;
+}
+
 .tl-item__foot {
   display: flex;
   align-items: center;
@@ -614,6 +655,10 @@
   border-top: 1px solid var(--hair);
 }
 .tl-item__foot .mono { margin-right: 4px; flex: none; }
+/* seventeen tags no longer sit on one line, so the label gets its own row and
+   the pills wrap as a block rather than indenting awkwardly around it */
+.tl-item--now .tl-item__foot { align-items: flex-start; }
+.tl-item--now .tl-item__foot .mono { width: 100%; margin-bottom: 4px; }
 
 /* ==========================================================================
    contact links
