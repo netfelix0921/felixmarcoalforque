@@ -8,9 +8,15 @@
    ========================================================================== */
 @media (max-width: 1024px) {
 
+  /* the CTA stays. Only the arrow goes, to buy back width for the burger */
   .nav__links { display: none; }
   .burger { display: block; }
-  .nav__cta { display: none; }
+  .nav__cta { padding: 9px 14px; }
+  .nav__cta .ico { display: none; }
+  .nav__inner { padding-left: 14px; }
+  /* nothing narrows on touch: animating max-width while a blurred layer is
+     composited is the one combination that drops frames on iOS */
+  .nav.scrolled .nav__inner { max-width: var(--wrap); }
 
   .section { padding-block: 88px; }
 
@@ -71,6 +77,18 @@
    ========================================================================== */
 @media (max-width: 700px) {
 
+  .nav { padding-inline: 16px; }
+  .nav__inner { padding: 0 6px 0 12px; gap: 10px; }
+  .mobnav { left: 16px; right: 16px; }
+  .brand { font-size: 13px; gap: 7px; }
+  .brand__mark { width: 22px; height: 22px; }
+  .nav__cta { font-size: 12px; padding: 8px 13px; }
+  .burger { width: 38px; height: 38px; }
+  .burger span { left: 11px; }
+  .burger span:nth-child(1) { top: 14px; }
+  .burger span:nth-child(2) { top: 18.5px; }
+  .burger span:nth-child(3) { top: 23px; }
+
   :root { --gutter: 20px; }
 
   .section { padding-block: 68px; }
@@ -78,7 +96,8 @@
   /* the subject moves behind the copy as a full-panel backdrop, since at
      phone width there is no room for a side-by-side split */
   .hero { text-align: center; min-height: 0; }
-  .hero__inner { grid-template-columns: 1fr; justify-items: center; padding-block: 56px 0; }
+  /* the header floats over the hero now, so the copy has to start below it */
+  .hero__inner { grid-template-columns: 1fr; justify-items: center; padding-block: calc(var(--nav-h) + 34px) 0; }
   .hero__copy { max-width: 100%; }
   .hero__sub { margin-inline: auto; }
   .hero__photo {
@@ -197,6 +216,11 @@
    <= 400px — small phone
    ========================================================================== */
 @media (max-width: 400px) {
+
+  /* the full name is kept as long as it fits and truncates rather than
+     shoving the CTA off the capsule on 320px hardware */
+  .brand { font-size: 12.5px; }
+  .nav__cta { padding: 8px 12px; }
   .device { width: 132px; height: 273px; }
   .mobnav__link { font-size: 19px; }
 }

@@ -42,6 +42,33 @@
   --shadow-card:   0 1px 2px rgba(0, 0, 0, .04);
   --shadow-lift:   0 18px 44px -22px rgba(0, 0, 0, .26);
 
+  /* ---- glass material ----
+     Two tints of one material. The saturation and brightness lift is what
+     separates real glass from a grey panel: the layer picks up colour from
+     whatever is behind it instead of just dimming it. The blur has to be wide
+     enough that type behind the sheet dissolves into tone — a narrow blur
+     leaves readable glyph shapes and the panel looks dirty rather than frosted. */
+  --glass-blur:    saturate(200%) brightness(1.06) blur(40px);
+  --glass-blur-d:  saturate(180%) brightness(1.35) blur(40px);
+  --glass-light:   rgba(255, 255, 255, .68);
+  --glass-dark:    rgba(22, 22, 28, .55);
+  /* thick variant for the menu sheet. A bar only has to soften what passes
+     under it; a sheet has to hold body copy over a 60px headline, so it takes
+     a wider blur and more tint — Apple's thin vs thick material split. */
+  --glass-blur-thick:   saturate(200%) brightness(1.06) blur(56px);
+  --glass-blur-thick-d: saturate(180%) brightness(1.22) blur(56px);
+  --glass-light-thick:  rgba(255, 255, 255, .78);
+  --glass-dark-thick:   rgba(22, 22, 28, .76);
+  /* specular rim: bright along the top edge, faint along the bottom */
+  --glass-rim:     inset 0 1px 0 rgba(255, 255, 255, .85),
+                   inset 0 -1px 0 rgba(255, 255, 255, .28),
+                   inset 1px 0 0 rgba(255, 255, 255, .35),
+                   inset -1px 0 0 rgba(255, 255, 255, .35);
+  --glass-rim-d:   inset 0 1px 0 rgba(255, 255, 255, .3),
+                   inset 0 -1px 0 rgba(255, 255, 255, .08),
+                   inset 1px 0 0 rgba(255, 255, 255, .12),
+                   inset -1px 0 0 rgba(255, 255, 255, .12);
+
   /* ---- type ---- */
   --sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
           'Helvetica Neue', Inter, system-ui, sans-serif;
@@ -52,7 +79,11 @@
   --wrap: 1180px;
   --wrap-narrow: 1040px;
   --gutter: 24px;
-  --nav-h: 48px;               /* read by app.js — keep this token */
+  /* the floating header: --nav-cap is the capsule itself, --nav-inset the gap
+     above it, --nav-h the total block both app.js and scroll-padding read */
+  --nav-cap: 52px;
+  --nav-inset: 14px;
+  --nav-h: 66px;               /* read by app.js — keep this token */
   --r-sm: 12px;
   --r-md: 18px;
   --r-lg: 28px;
