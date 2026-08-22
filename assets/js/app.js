@@ -34,12 +34,24 @@
     .filter(Boolean);
 
   var currentLink = null;
+  var pill = document.getElementById('navPill');
+
+  /* the pill travels to whichever link is current. transform + width only, and
+     only when the active section actually changes — never per scroll frame */
+  function movePill() {
+    if (!pill) return;
+    if (!currentLink || !currentLink.offsetParent) { pill.style.opacity = '0'; return; }
+    pill.style.width = currentLink.offsetWidth + 'px';
+    pill.style.transform = 'translateX(' + currentLink.offsetLeft + 'px)';
+    pill.style.opacity = '1';
+  }
 
   function setActive(link) {
     if (link === currentLink) return;
     if (currentLink) currentLink.removeAttribute('aria-current');
     if (link) link.setAttribute('aria-current', 'true');
     currentLink = link;
+    movePill();
   }
 
   function updateActive() {
@@ -74,8 +86,32 @@
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function () { readNavHeight(); onScroll(); });
+  window.addEventListener('resize', function () { readNavHeight(); onScroll(); movePill(); });
   onScroll();
+
+  /* the pill can only be measured once the webfont has settled, or it lands a
+     few pixels short of the label it is meant to sit behind */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(movePill);
+
+  /* ------------------------------------------------------------------ *
+   * 3a. light / dark lockup — driven by the hero, not by a scroll number
+   *
+   * An observer costs nothing per frame and stays correct when the hero
+   * changes height across breakpoints, which a hard-coded offset would not.
+   * ------------------------------------------------------------------ */
+  var heroEl = document.getElementById('top');
+
+  if (nav && heroEl && 'IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        nav.classList.toggle('nav--dark', entry.isIntersecting);
+      });
+    }, { rootMargin: '-70px 0px 0px 0px', threshold: 0 });
+
+    heroObserver.observe(heroEl);
+  } else if (nav) {
+    nav.classList.add('nav--dark');
+  }
 
   /* ------------------------------------------------------------------ *
    * 4. mobile menu
@@ -110,9 +146,19 @@
   }
 
   if (burger && mobMenu) {
-    burger.addEventListener('click', function () { menuOpen ? closeMenu() : openMenu(); });
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menuOpen ? closeMenu() : openMenu();
+    });
     mobMenu.addEventListener('click', function (e) {
       if (e.target.closest('a')) closeMenu();
+    });
+    /* the sheet no longer covers the screen, so a tap on the page behind it
+       has to dismiss it the way a popover would */
+    document.addEventListener('click', function (e) {
+      if (!menuOpen) return;
+      if (e.target.closest('#mobMenu') || e.target.closest('#burger')) return;
+      closeMenu();
     });
   }
 
